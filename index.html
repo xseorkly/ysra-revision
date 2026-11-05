@@ -10,27 +10,26 @@
 if(location.hash&&location.hash.length>1){location.replace('seves/'+location.hash)}
 </script>
 <style>
-:root{--bg:#f3f5f6;--surface:#fff;--deep:#14314c;--ink:#243c50;--muted:#647587;--teal:#117b83;--line:#dfe6e9;--gold:#ecb85e;--earth:#9a4a1f;--shadow:0 5px 24px rgba(12,36,55,.06);font-family:Inter,'Segoe UI',system-ui,Arial,sans-serif}
+:root{--bg:#f3f5f6;--surface:#fff;--deep:#14314c;--ink:#243c50;--muted:#647587;--teal:#117b83;--line:#dfe6e9;--gold:#ecb85e;--shadow:0 5px 24px rgba(12,36,55,.06);font-family:Inter,'Segoe UI',system-ui,Arial,sans-serif}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
-header{background:var(--deep);color:#fff;padding:48px 24px 40px;text-align:center}
+header{background:linear-gradient(135deg,#14314c,#1b4a5c);color:#fff;padding:48px 24px 40px;text-align:center}
 header .k{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700}
 header h1{font-size:clamp(30px,5vw,44px);margin:10px 0 8px;line-height:1.15}
 header p{margin:0 auto;max-width:640px;color:#c9d6e2;font-size:17px;line-height:1.5}
 main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:40px 24px 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
 a.bloc{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
-a.bloc:hover,a.bloc:focus-visible{transform:translateY(-4px);box-shadow:0 14px 40px rgba(12,36,55,.14);outline:none}
-.band{height:150px;display:grid;place-items:center;font-size:64px}
-.seves .band{background:linear-gradient(135deg,#117b83,#14314c)}
-.geo .band{background:linear-gradient(135deg,#c46a3a,#5a2a10)}
+a.bloc:hover,a.bloc:focus-visible{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 14px 40px rgba(12,36,55,.14);outline:none}
+.band{height:140px;display:flex;align-items:center;gap:16px;padding:0 26px;background:linear-gradient(135deg,#14314c,#1b4a5c)}
+.logo{width:56px;height:56px;border-radius:14px;background:#e7f4f2;color:#14314c;display:grid;place-items:center;font-weight:800;font-size:1.25rem}
+.band span.t{color:#92abbc;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
-.tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.seves .tag{color:var(--teal)}.geo .tag{color:var(--earth)}
+.tag{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
 h2{margin:0;font-size:26px;color:var(--deep);line-height:1.2}
 .body p{margin:0;color:var(--muted);line-height:1.55}
 ul{margin:4px 0 0;padding-left:20px;color:var(--ink);line-height:1.7;font-size:15px}
 .go{margin-top:auto;padding-top:14px;font-weight:700}
-.seves .go{color:var(--teal)}.geo .go{color:var(--earth)}
+.go{color:var(--teal)}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:0 24px 30px}
 </style>
 </head>
@@ -42,7 +41,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 24px 30px}
 </header>
 <main>
 <a class="bloc seves" href="seves/">
-<div class="band" aria-hidden="true">🌍</div>
+<div class="band" aria-hidden="true"><span class="logo">SE</span><span class="t">Révisions · Unistra 2026-2027</span></div>
 <div class="body">
 <div class="tag">UE · SEVES</div>
 <h2>Sciences et enjeux environnementaux</h2>
@@ -52,7 +51,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 24px 30px}
 </div>
 </a>
 <a class="bloc geo" href="https://xseorkly.github.io/G-osciences1-Structure-de-la-Terre/">
-<div class="band" aria-hidden="true">🌋</div>
+<div class="band" aria-hidden="true"><span class="logo">G1</span><span class="t">Révisions · Unistra 2026-2027</span></div>
 <div class="body">
 <div class="tag">UE · Géosciences 1</div>
 <h2>Structure de la Terre</h2>
