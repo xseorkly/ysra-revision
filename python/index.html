@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Cours de Python pas à pas pour grands débutants (CPES L1) : 8 chapitres, les 10 exercices du CC2 corrigés et expliqués, 20 entraînements, Python exécutable dans la page.">
+<title>Python pas à pas · CPES L1</title>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="09bb50e4-e5cd-47d4-b231-1551e99b2df5" data-domains="xseorkly.github.io" data-exclude-search="true" data-exclude-hash="true"></script>
+<link rel="stylesheet" href="style.css">
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="Sommaire du cours">
+  <a class="brand" href="#/accueil"><span class="brandmark">Py</span><span><strong>Python pas à pas</strong><small>CPES L1 · préparer le CC2</small></span></a>
+  <a class="back-home" href="../">← Toutes mes révisions</a>
+  <div class="sideprog"><span id="progTxt"></span><div class="bar"><div id="progBar"></div></div></div>
+  <nav id="nav"></nav>
+  <div style="padding:20px 10px 0"><button type="button" id="resetProg" class="btn small" style="background:transparent;color:#9fb7c7;border-color:#395167">Effacer ma progression</button></div>
+</aside>
+<div class="backdrop" id="backdrop"></div>
+<div class="main">
+<header class="topbar"><button type="button" id="menuBtn" aria-label="Ouvrir le sommaire">☰ Sommaire</button><div class="crumb" id="crumb"></div></header>
+<main class="container">
+
+<!-- ============================================================ ACCUEIL -->
+<section class="page" id="accueil" data-groupe="accueil" data-titre="Accueil" data-nav="Accueil et mode d'emploi">
+<div class="eyebrow">CPES L1 · Informatique · Contrôle CC2 du 19 décembre 2023</div>
+<h1>Python pas à pas</h1>
+<p class="lead">Un cours pour celles et ceux qui n'ont <strong>jamais programmé</strong>. On part de zéro, on avance par petites étapes, et on arrive à réussir les 10 exercices du contrôle.</p>
+
+<div class="mode">
+  <div><i>📖</i><b>1. Lis une notion</b><span>Chaque chapitre dure 10 à 20 minutes. Une idée à la fois, avec des exemples.</span></div>
+  <div><i>✍️</i><b>2. Vérifie tout de suite</b><span>Petites questions, code à remettre dans l'ordre, Python à essayer. Rien n'est noté.</span></div>
+  <div><i>🎯</i><b>3. Fais le contrôle</b><span>Pour chaque exercice : tu essaies, puis tu ouvres des aides une par une si tu bloques.</span></div>
+</div>
+
+<h2>Ton parcours</h2>
+<div class="parcours">
+  <a class="partie" href="#/ch0" data-prog="base"><div class="ph"><span class="pn">1</span><div><h3>Les bases <span class="badge cnt"></span></h3><p>Lancer du Python, variables, conditions, listes, boucles, fonctions. 6 chapitres.</p></div></div><div class="bar"><div></div></div></a>
+  <a class="partie" href="#/ch6" data-prog="methode"><div class="ph"><span class="pn">2</span><div><h3>La méthode <span class="badge cnt"></span></h3><p>Reconnaître le type d'exercice et suivre une méthode qui marche à tous les coups. 2 chapitres.</p></div></div><div class="bar"><div></div></div></a>
+  <a class="partie" href="#/ex1" data-prog="cc2"><div class="ph"><span class="pn">3</span><div><h3>Le contrôle CC2 corrigé <span class="badge cnt"></span></h3><p>Les 10 exercices du sujet, avec des aides progressives, la correction expliquée et 20 entraînements.</p></div></div><div class="bar"><div></div></div></a>
+  <a class="partie" href="#/quiz"><div class="ph"><span class="pn">4</span><div><h3>Pour réviser</h3><p>Quiz final, aide-mémoire sur une page, petit dictionnaire des mots de Python, sujet original.</p></div></div></a>
+</div>
+
+<div class="retenir"><b>Bon à savoir</b>
+<ul>
+<li><strong>Python fonctionne directement dans la page</strong> : pas besoin d'installer quoi que ce soit. Il faut une connexion internet au premier lancement (environ 10 secondes).</li>
+<li>Ta progression et ton code sont enregistrés <strong>dans ton navigateur</strong>, sur cet appareil.</li>
+<li>Si tu as déjà un peu programmé, tu peux aller directement aux exercices du contrôle et revenir aux chapitres si besoin.</li>
+</ul></div>
+<p style="font-size:.9rem;color:var(--muted)">Le sujet ne donne pas de corrigé : les corrections proposées ici sont des solutions pédagogiques. En cas de doute, le cours de ton enseignant fait foi.</p>
+</section>
+
+<!-- ============================================================ CH 0 -->
+<section class="page" id="ch0" data-groupe="base" data-num="0" data-titre="Écrire et lancer du Python">
+<div class="eyebrow">Chapitre 0 · Les bases</div>
+<h1>Écrire et lancer du Python</h1>
+<p><span class="duree">⏱ 10 min</span></p>
+<div class="objectifs"><b>À la fin de ce chapitre, tu sais</b><ul><li>ce qu'est un programme ;</li><li>lancer du Python et afficher un résultat avec <code>print</code> ;</li><li>lire un message d'erreur sans paniquer.</li></ul></div>
+
+<h2>Un programme, c'est une recette</h2>
+<p>Un programme est une <strong>liste d'instructions</strong>. L'ordinateur les exécute <strong>une par une, de haut en bas</strong>, comme une recette de cuisine. Il ne devine rien : il fait exactement ce qui est écrit, dans l'ordre.</p>
+<p>Python est un <em>langage</em> : une façon d'écrire ces instructions pour que l'ordinateur les comprenne.</p>
+
+<h2>Ton premier programme</h2>
+<p>L'instruction <code>print(...)</code> <strong>affiche</strong> ce qu'on lui donne entre parenthèses. Clique sur <strong>▶ Exécuter</strong> :</p>
+<div class="editeur" data-titre="Essaie"><textarea>
+print("Bonjour !")
+print(2 + 3)
+print("2 + 3")
+</textarea></div>
+<p>Remarque la différence entre les deux dernières lignes :</p>
+<ul>
+<li><code>print(2 + 3)</code> : Python <strong>calcule</strong> 2 + 3 et affiche <code>5</code>.</li>
+<li><code>print("2 + 3")</code> : entre guillemets, c'est du <strong>texte</strong>. Python l'affiche tel quel, sans calculer.</li>
+</ul>
+<p>Modifie le programme ci-dessus pour qu'il affiche ton prénom, puis relance-le. Tu ne peux rien casser : le bouton <strong>↺ Recommencer</strong> remet le code de départ.</p>
+
+<div class="activite qcm" data-ok="2"><div class="titre">Vérifie</div><p class="q">Qu'affiche <code>print("10 * 2")</code> ?</p><div class="opts"><button>20</button><button>"20"</button><button>10 * 2</button></div><div class="why" hidden>Les guillemets indiquent du texte : Python affiche les caractères tels quels, sans faire le calcul. Sans guillemets, <code>print(10 * 2)</code> afficherait 20.</div></div>
+
+<h2>Où écrire du Python en dehors de ce site ?</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Outil</th><th>Pour qui ?</th></tr></thead>
+<tbody>
+<tr><td><strong>Ce site</strong></td><td>Pour t'entraîner sur les exercices du cours, sans rien installer.</td></tr>
+<tr><td><strong><a href="https://console.basthon.fr/" target="_blank" rel="noopener">Basthon</a></strong></td><td>Python dans le navigateur, sur ordinateur ou téléphone. Rien à installer.</td></tr>
+<tr><td><strong><a href="https://thonny.org/" target="_blank" rel="noopener">Thonny</a></strong></td><td>Logiciel gratuit et très simple, à installer sur ton ordinateur. Idéal pour débuter.</td></tr>
+</tbody></table></div>
+<p>Dans Thonny ou Basthon, il y a deux zones : l'<strong>éditeur</strong> (où on écrit le programme, puis on le lance avec le bouton ▶) et la <strong>console</strong> (où s'affichent les résultats de <code>print</code>).</p>
+
+<h2>Lire un message d'erreur</h2>
+<p>Tout le monde fait des erreurs, même les experts. Python t'aide en t'envoyant un message. Lance ce programme, qui contient une erreur volontaire :</p>
+<div class="editeur" data-titre="Un programme avec une erreur"><textarea>
+print("Début")
+print("Bonjour)
+print("Fin")
+</textarea></div>
+<p>Un message d'erreur se lit <strong>à partir de la fin</strong>. Il contient trois informations :</p>
+<ol class="etapes">
+<li><strong>Le numéro de ligne</strong> : où Python s'est arrêté (ici, la ligne 2). L'erreur est sur cette ligne, ou parfois juste au-dessus.</li>
+<li><strong>Le type d'erreur</strong> : le mot qui finit par <code>Error</code> (ici <code>SyntaxError</code>, « erreur d'écriture »).</li>
+<li><strong>Le détail</strong> : ici, un texte qui n'est pas terminé, car il manque le guillemet fermant.</li>
+</ol>
+<p>Corrige l'erreur (ajoute le guillemet après <code>Bonjour</code>) et relance.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Type d'erreur</th><th>Ce que ça veut dire, en général</th></tr></thead>
+<tbody>
+<tr><td><code>SyntaxError</code></td><td>Python ne peut pas lire la ligne : <code>:</code> oublié, parenthèse ou guillemet pas fermé.</td></tr>
+<tr><td><code>IndentationError</code></td><td>Les lignes ne sont pas bien décalées (on verra ça au chapitre 2).</td></tr>
+<tr><td><code>NameError</code></td><td>Un nom inconnu : faute de frappe, ou variable pas encore créée.</td></tr>
+<tr><td><code>IndexError</code></td><td>On demande une case de liste qui n'existe pas (chapitre 3).</td></tr>
+<tr><td><code>TypeError</code></td><td>On mélange des choses incompatibles, par exemple un nombre et du texte.</td></tr>
+</tbody></table></div>
+
+<div class="retenir"><b>À retenir</b>
+<ul><li>Python exécute les lignes <strong>dans l'ordre, de haut en bas</strong>.</li>
+<li><code>print(...)</code> affiche une valeur. Entre guillemets, c'est du texte.</li>
+<li>Un message d'erreur se lit par la fin : <strong>type d'erreur</strong> + <strong>numéro de ligne</strong>.</li></ul></div>
+</section>
+
+<!-- ============================================================ CH 1 -->
+<section class="page" id="ch1" data-groupe="base" data-num="1" data-titre="Variables et calculs">
+<div class="eyebrow">Chapitre 1 · Les bases</div>
+<h1>Variables et calculs</h1>
+<p><span class="duree">⏱ 15 min</span> <span class="duree">Sert dans les exercices 1 à 10</span></p>
+<div class="objectifs"><b>À la fin de ce chapitre, tu sais</b><ul><li>ranger une valeur dans une variable et la modifier ;</li><li>faire des calculs, en particulier <code>//</code> et <code>%</code> ;</li><li>ne plus confondre <code>=</code> et <code>==</code>.</li></ul></div>
+
+<h2>Une variable, c'est une boîte avec un nom</h2>
+<p>Une <strong>variable</strong> permet de garder une valeur en mémoire pour s'en resservir. Imagine une boîte avec une étiquette :</p>
+<pre class="code">age = 18</pre>
+<p>Cette ligne se lit « <strong>age reçoit 18</strong> » : on range 18 dans la boîte appelée <code>age</code>. Le signe <code>=</code> ne veut <strong>pas</strong> dire « est égal » comme en maths : il veut dire « ranger dans ».</p>
+<div class="retenir"><b>La règle d'or de l'affectation</b><p>Python calcule d'abord <strong>tout ce qui est à droite</strong> du <code>=</code>, puis range le résultat dans la variable <strong>à gauche</strong>.</p></div>
+
+<p>Regarde Python exécuter ce programme ligne par ligne. Clique sur ▶ et observe la colonne « Variables » :</p>
+<div class="trace" data-trace="var"></div>
+
+<h2>Modifier une variable à partir d'elle-même</h2>
+<p>En maths, <code>compteur = compteur + 1</code> serait faux. En Python, c'est l'une des lignes les plus utiles : avec la règle d'or, on calcule <code>compteur + 1</code> avec l'<strong>ancienne</strong> valeur, puis on range le résultat dans <code>compteur</code>.</p>
+<div class="trace" data-trace="compteur"></div>
+<p>On peut l'écrire en plus court : <code>compteur += 1</code> fait exactement la même chose.</p>
+
+<div class="activite predict" data-ok="3" data-why="Ligne 2 : b reçoit la valeur de a à ce moment-là, donc 3. Changer a ensuite ne change pas b."><div class="titre">Qu'affiche ce programme ?</div><pre class="code">a = 3
+b = a
+a = 10
+print(b)</pre></div>
+
+<h2>Les types de valeurs</h2>
+<p>Python distingue plusieurs sortes de valeurs. C'est important, car on ne peut pas faire les mêmes opérations avec toutes.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Type</th><th>Exemples</th><th>C'est quoi ?</th></tr></thead>
+<tbody>
+<tr><td><code>int</code></td><td><code>18</code>, <code>-3</code>, <code>0</code></td><td>un nombre entier</td></tr>
+<tr><td><code>float</code></td><td><code>4.5</code>, <code>0.25</code></td><td>un nombre à virgule (on écrit un <strong>point</strong>, pas une virgule)</td></tr>
+<tr><td><code>str</code></td><td><code>"Alice"</code>, <code>"12"</code></td><td>du texte, entre guillemets</td></tr>
+<tr><td><code>bool</code></td><td><code>True</code>, <code>False</code></td><td>vrai ou faux (chapitre 2)</td></tr>
+<tr><td><code>list</code></td><td><code>[5, 2, 3]</code></td><td>une liste de valeurs (chapitre 3)</td></tr>
+</tbody></table></div>
+<p>Exemple : <code>2 + 3</code> vaut <code>5</code>, mais <code>"2" + "3"</code> vaut <code>"23"</code> (deux textes collés).</p>
+
+<h2>Les calculs</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Écriture</th><th>Signification</th><th>Exemple</th></tr></thead>
+<tbody>
+<tr><td><code>+</code> <code>-</code> <code>*</code></td><td>addition, soustraction, multiplication</td><td><code>3 * 4</code> vaut <code>12</code></td></tr>
+<tr><td><code>/</code></td><td>division « normale » (résultat à virgule)</td><td><code>7 / 2</code> vaut <code>3.5</code></td></tr>
+<tr><td><code>//</code></td><td><strong>quotient</strong> de la division entière</td><td><code>7 // 2</code> vaut <code>3</code></td></tr>
+<tr><td><code>%</code></td><td><strong>reste</strong> de la division entière</td><td><code>7 % 2</code> vaut <code>1</code></td></tr>
+<tr><td><code>**</code></td><td>puissance</td><td><code>2 ** 3</code> vaut <code>8</code></td></tr>
+</tbody></table></div>
+
+<h3>Bien comprendre <code>//</code> et <code>%</code></h3>
+<p>Tu partages <strong>17 bonbons</strong> entre <strong>5 enfants</strong>. Chaque enfant en reçoit <strong>3</strong>, et il en <strong>reste 2</strong>.</p>
+<ul>
+<li><code>17 // 5</code> vaut <code>3</code> : combien chacun en reçoit (le quotient).</li>
+<li><code>17 % 5</code> vaut <code>2</code> : combien il en reste (le reste).</li>
+</ul>
+<p>Cas très utile : <code>x % 2</code> est le reste de la division par 2. Il vaut <code>0</code> si <code>x</code> est <strong>pair</strong> et <code>1</code> s'il est <strong>impair</strong>. On s'en sert dans les exercices 5, 6 et 8.</p>
+
+<div class="activite qcm" data-ok="1"><div class="titre">Vérifie</div><p class="q">Combien vaut <code>14 % 3</code> ?</p><div class="opts"><button>4</button><button>2</button><button>4.67</button></div><div class="why" hidden>14 = 3 × 4 + 2 : le quotient est 4 (c'est <code>14 // 3</code>) et le reste est 2.</div></div>
+<div class="activite qcm" data-ok="0"><div class="titre">Vérifie</div><p class="q">Un nombre <code>x</code> est pair quand…</p><div class="opts"><button><code>x % 2</code> vaut 0</button><button><code>x // 2</code> vaut 0</button><button><code>x / 2</code> vaut 0</button></div><div class="why" hidden>Pair veut dire « divisible par 2 », donc le reste de la division par 2 est nul. Par exemple <code>8 % 2</code> vaut 0 et <code>7 % 2</code> vaut 1.</div></div>
+
+<h2><code>=</code> ou <code>==</code> ?</h2>
+<div class="cols">
+<div><pre class="code">x = 3</pre><p><strong>Range</strong> 3 dans <code>x</code>. C'est une action.</p></div>
+<div><pre class="code">x == 3</pre><p><strong>Pose la question</strong> « x vaut-il 3 ? ». La réponse est <code>True</code> ou <code>False</code>.</p></div>
+</div>
+
+<div class="editeur" data-titre="Expérimente"><textarea>
+bonbons = 17
+enfants = 5
+print("Chacun reçoit", bonbons // enfants)
+print("Il en reste", bonbons % enfants)
+print(bonbons == 17)
+</textarea></div>
+<p>Essaie avec d'autres nombres. <code>print</code> peut afficher plusieurs choses séparées par des virgules.</p>
+
+<div class="retenir"><b>À retenir</b>
+<ul><li><code>=</code> range une valeur : on calcule à droite, puis on range à gauche.</li>
+<li><code>compteur = compteur + 1</code> augmente une variable de 1.</li>
+<li><code>//</code> donne le quotient, <code>%</code> donne le reste. <code>x % 2 == 0</code> teste si <code>x</code> est pair.</li>
+<li><code>==</code> compare et répond <code>True</code> ou <code>False</code>.</li></ul></div>
+</section>
+
+<!-- ============================================================ CH 2 -->
+<section class="page" id="ch2" data-groupe="base" data-num="2" data-titre="Les conditions : if, else, elif">
+<div class="eyebrow">Chapitre 2 · Les bases</div>
+<h1>Les conditions : <code>if</code>, <code>else</code>, <code>elif</code></h1>
+<p><span class="duree">⏱ 15 min</span> <span class="duree">Sert dans les exercices 5 à 9</span></p>
+<div class="objectifs"><b>À la fin de ce chapitre, tu sais</b><ul><li>faire exécuter du code seulement si une condition est vraie ;</li><li>bien décaler (indenter) les lignes ;</li><li>traduire « strictement », « supérieur », « au moins » en Python.</li></ul></div>
+
+<h2>Une condition est une question vrai / faux</h2>
+<p>Une <strong>condition</strong> est une question dont la réponse est <code>True</code> (vrai) ou <code>False</code> (faux).</p>
+<div class="tablewrap"><table>
+<thead><tr><th>En Python</th><th>En français</th><th>Exemple vrai</th></tr></thead>
+<tbody>
+<tr><td><code>a == b</code></td><td>a est égal à b</td><td><code>4 == 4</code></td></tr>
+<tr><td><code>a != b</code></td><td>a est différent de b</td><td><code>4 != 5</code></td></tr>
+<tr><td><code>a &lt; b</code></td><td>a est strictement plus petit que b</td><td><code>3 &lt; 5</code></td></tr>
+<tr><td><code>a &gt; b</code></td><td>a est strictement plus grand que b</td><td><code>8 &gt; 5</code></td></tr>
+<tr><td><code>a &lt;= b</code></td><td>a est plus petit <strong>ou égal</strong> à b</td><td><code>5 &lt;= 5</code></td></tr>
+<tr><td><code>a &gt;= b</code></td><td>a est plus grand <strong>ou égal</strong> à b</td><td><code>5 &gt;= 5</code></td></tr>
+</tbody></table></div>
+
+<h2><code>if</code> : faire quelque chose seulement si…</h2>
+<pre class="code">note = 14
+if note &gt;= 10:
+    print("Validé")
+print("Fin")</pre>
+<p>Trois choses à remarquer :</p>
+<ol class="etapes">
+<li>La ligne du <code>if</code> se termine par <strong>deux-points</strong> <code>:</code>.</li>
+<li>La ligne suivante est <strong>décalée de 4 espaces</strong>. Ce décalage s'appelle l'<em>indentation</em>. Il indique : « cette ligne fait partie du <code>if</code> ».</li>
+<li><code>print("Fin")</code> n'est pas décalé : il est exécuté <strong>dans tous les cas</strong>.</li>
+</ol>
+<div class="attention"><b>Attention</b><p>En Python, le décalage n'est pas décoratif : il change le sens du programme. Toutes les lignes d'un même bloc doivent être décalées exactement pareil (4 espaces).</p></div>
+
+<h2><code>if</code> / <code>else</code> : choisir entre deux chemins</h2>
+<p><code>else</code> veut dire « sinon ». Un seul des deux blocs est exécuté. Regarde Python décider si 7 est pair :</p>
+<div class="trace" data-trace="si"></div>
+
+<h2><code>elif</code> : plus de deux cas</h2>
+<p><code>elif</code> veut dire « sinon, si ». Python teste les conditions <strong>dans l'ordre</strong> et exécute <strong>seulement le premier</strong> bloc dont la condition est vraie.</p>
+<pre class="code">if note &lt; 10:
+    avis = "à revoir"
+elif note &lt; 15:
+    avis = "bien"
+else:
+    avis = "très bien"</pre>
+<p>Avec <code>note = 12</code> : le premier test est faux, le deuxième est vrai, donc <code>avis</code> vaut <code>"bien"</code>, et on ne regarde pas le <code>else</code>.</p>
+
+<h2>Traduire l'énoncé en conditions</h2>
+<p>Les énoncés de contrôle utilisent des mots précis. Chaque mot compte !</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Dans l'énoncé</th><th>En Python</th><th>Exercice</th></tr></thead>
+<tbody>
+<tr><td>« x est pair »</td><td><code>x % 2 == 0</code></td><td>5, 6</td></tr>
+<tr><td>« x est impair »</td><td><code>x % 2 == 1</code> ou <code>x % 2 != 0</code></td><td>6</td></tr>
+<tr><td>« supérieur au plafond »</td><td><code>x &gt; plafond</code></td><td>7</td></tr>
+<tr><td>« i est un multiple de k »</td><td><code>i % k == 0</code></td><td>8</td></tr>
+<tr><td>« strictement entre a et b »</td><td><code>a &lt; x &lt; b</code></td><td>9</td></tr>
+<tr><td>« entre a et b, bornes comprises »</td><td><code>a &lt;= x &lt;= b</code></td><td></td></tr>
+</tbody></table></div>
+<p>Pour combiner deux conditions : <code>and</code> (« et » : les deux doivent être vraies) et <code>or</code> (« ou » : au moins une doit être vraie). <code>a &lt; x &lt; b</code> est une écriture courte pour <code>a &lt; x and x &lt; b</code>.</p>
+
+<div class="activite qcm" data-ok="1"><div class="titre">Vérifie</div><p class="q">On veut garder les nombres <strong>strictement</strong> compris entre 2 et 7. Quelle condition est juste ?</p><div class="opts"><button><code>2 &lt;= x &lt;= 7</code></button><button><code>2 &lt; x &lt; 7</code></button><button><code>x &gt; 2 or x &lt; 7</code></button></div><div class="why" hidden>« Strictement » exclut les bornes, donc <code>&lt;</code>. Avec <code>or</code>, presque tous les nombres passeraient (par exemple 100 &gt; 2).</div></div>
+<div class="activite predict" data-ok="B|'B'|&quot;B&quot;" data-why="15 n'est pas &lt; 10 (faux), 15 n'est pas &lt; 15 non plus (faux, car 15 = 15), donc on arrive au else."><div class="titre">Qu'affiche ce programme ?</div><pre class="code">x = 15
+if x &lt; 10:
+    print("A")
+elif x &lt; 15:
+    print("C")
+else:
+    print("B")</pre></div>
+
+<div class="editeur" data-titre="À toi : pair ou impair ?"><textarea>
+x = 42
+# Écris un if / else qui affiche "pair" ou "impair"
+</textarea></div>
+
+<div class="attention"><b>Les deux erreurs les plus fréquentes</b>
+<ul><li>Oublier le <code>:</code> à la fin de la ligne du <code>if</code> ou du <code>else</code> → <code>SyntaxError</code>.</li>
+<li>Écrire <code>if x % 2 = 0:</code> avec un seul <code>=</code> → <code>SyntaxError</code>. Pour comparer, c'est <code>==</code>.</li></ul></div>
+<div class="retenir"><b>À retenir</b>
+<ul><li><code>if condition:</code> puis un bloc <strong>décalé de 4 espaces</strong>.</li>
+<li><code>else:</code> = sinon ; <code>elif condition:</code> = sinon si.</li>
+<li>« strictement » → <code>&lt;</code> ou <code>&gt;</code> ; « ou égal », « au moins », « au plus » → <code>&lt;=</code> ou <code>&gt;=</code>.</li></ul></div>
+</section>
+
+<!-- ============================================================ CH 3 -->
+<section class="page" id="ch3" data-groupe="base" data-num="3" data-titre="Les listes">
+<div class="eyebrow">Chapitre 3 · Les bases</div>
+<h1>Les listes</h1>
+<p><span class="duree">⏱ 20 min</span> <span class="duree">Sert dans les exercices 1 à 10</span></p>
+<div class="objectifs"><b>À la fin de ce chapitre, tu sais</b><ul><li>lire un élément grâce à son indice (et pourquoi on commence à 0) ;</li><li>construire une nouvelle liste avec <code>[]</code> et <code>append</code> ;</li><li>éviter l'erreur <code>IndexError</code>.</li></ul></div>
+
+<h2>Une rangée de cases numérotées</h2>
+<p>Une <strong>liste</strong> range plusieurs valeurs dans un ordre précis, entre crochets :</p>
+<pre class="code">L = [5, 2, 3]</pre>
+<p>Imagine une rangée de cases. Chaque case a un <strong>numéro</strong>, appelé <strong>indice</strong>. Attention : <strong>la première case porte le numéro 0</strong>.</p>
+<div class="boites-titre">La liste <code>L = [5, 2, 3]</code></div>
+<div class="boites"><div class="boite"><b>5</b><small>indice 0</small></div><div class="boite"><b>2</b><small>indice 1</small></div><div class="boite"><b>3</b><small>indice 2</small></div></div>
+<p>Pourquoi 0 ? L'indice indique de combien de cases on se décale depuis le début : la première case est à 0 case du début. Il faut juste s'y habituer.</p>
+
+<h2>Lire dans une liste</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Écriture</th><th>Résultat pour <code>L = [5, 2, 3]</code></th><th>Explication</th></tr></thead>
+<tbody>
+<tr><td><code>L[0]</code></td><td><code>5</code></td><td>la case d'indice 0 (la première)</td></tr>
+<tr><td><code>L[2]</code></td><td><code>3</code></td><td>la case d'indice 2 (la troisième)</td></tr>
+<tr><td><code>len(L)</code></td><td><code>3</code></td><td>le nombre d'éléments (<em>length</em> = longueur)</td></tr>
+<tr><td><code>L[len(L) - 1]</code></td><td><code>3</code></td><td>le dernier élément : son indice est <code>len(L) - 1</code></td></tr>
+<tr><td><code>L[-1]</code></td><td><code>3</code></td><td>raccourci pour le dernier élément</td></tr>
+<tr><td><code>L[3]</code></td><td>❌ <code>IndexError</code></td><td>il n'y a pas de case 3 !</td></tr>
+</tbody></table></div>
+<div class="retenir"><b>La règle des indices</b><p>Une liste de <strong>n</strong> éléments a des indices de <strong>0</strong> à <strong>n − 1</strong>. Le dernier indice est toujours <code>len(L) - 1</code>.</p></div>
+
+<div class="activite qcm" data-ok="2"><div class="titre">Vérifie</div><p class="q">Avec <code>notes = [12, 8, 15, 10]</code>, combien vaut <code>notes[2]</code> ?</p><div class="opts"><button>8</button><button>12</button><button>15</button></div><div class="why" hidden>On compte à partir de 0 : notes[0] = 12, notes[1] = 8, notes[2] = 15.</div></div>
+<div class="activite qcm" data-ok="0"><div class="titre">Vérifie</div><p class="q">Avec <code>notes = [12, 8, 15, 10]</code>, quel est l'indice du dernier élément ?</p><div class="opts"><button>3</button><button>4</button><button>10</button></div><div class="why" hidden>La liste a 4 éléments : indices 0, 1, 2, 3. Le dernier indice est 4 − 1 = 3. (10 est la valeur, pas l'indice !)</div></div>
+
+<h2>Modifier et ajouter</h2>
+<ul>
+<li><code>L[1] = 20</code> remplace le contenu de la case 1. <code>L</code> devient <code>[5, 20, 3]</code>.</li>
+<li><code>L.append(7)</code> ajoute une case <strong>à la fin</strong>. <code>L</code> devient <code>[5, 20, 3, 7]</code>.</li>
+</ul>
+
+<h2>La technique clé du contrôle : partir d'une liste vide</h2>
+<p>Presque tous les exercices demandent de <strong>renvoyer une nouvelle liste</strong>. La méthode est toujours la même : on crée une liste vide <code>[]</code>, puis on la remplit élément par élément avec <code>append</code>.</p>
+<div class="trace" data-trace="liste"></div>
+
+<div class="editeur" data-titre="Expérimente"><textarea>
+R = []
+R.append(10)
+R.append(20)
+R.append(30)
+print(R)
+print("Nombre d'éléments :", len(R))
+print("Premier :", R[0], "Dernier :", R[len(R) - 1])
+</textarea></div>
+
+<div class="attention"><b>Pièges classiques</b>
+<ul>
+<li><strong><code>R = R.append(5)</code> est faux.</strong> <code>append</code> modifie la liste mais ne renvoie rien (<code>None</code>). Après cette ligne, <code>R</code> vaut <code>None</code> ! Écris simplement <code>R.append(5)</code>.</li>
+<li><strong><code>B = A</code> ne copie pas la liste.</strong> Ça colle une deuxième étiquette sur la même liste : modifier <code>B</code> modifie aussi <code>A</code>. C'est pourquoi, pour une « nouvelle liste », on part de <code>[]</code>.</li>
+</ul></div>
+
+<h2>Pour info : autres opérations du sujet</h2>
+<p>La page 1 du sujet rappelle aussi ces écritures. Elles ne sont pas nécessaires pour les exercices, mais il faut les reconnaître.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Écriture</th><th>Effet</th><th>Exemple</th></tr></thead>
+<tbody>
+<tr><td><code>A + B</code></td><td>crée une nouvelle liste : A puis B collées</td><td><code>[1, 2] + [3]</code> donne <code>[1, 2, 3]</code></td></tr>
+<tr><td><code>A.extend(B)</code></td><td>ajoute les éléments de B à la fin de A (A est modifiée)</td><td></td></tr>
+<tr><td><code>L[n:m]</code></td><td>la tranche des indices n à m − 1</td><td><code>[5, 2, 3][0:2]</code> donne <code>[5, 2]</code></td></tr>
+<tr><td><code>[n**2 for n in range(5)]</code></td><td>liste construite « par compréhension »</td><td>donne <code>[0, 1, 4, 9, 16]</code></td></tr>
+</tbody></table></div>
+<p>Attention : avec des listes, <code>+</code> <strong>colle</strong> et <code>*</code> <strong>répète</strong> : <code>[5, 2] * 3</code> donne <code>[5, 2, 5, 2, 5, 2]</code>. Pour additionner ou multiplier les nombres <em>contenus</em> dans une liste, il faut une boucle (chapitre suivant).</p>
+
+<div class="retenir"><b>À retenir</b>
+<ul><li>Les indices commencent à <strong>0</strong> et finissent à <code>len(L) - 1</code>.</li>
+<li><code>L[i]</code> lit la case <code>i</code> ; <code>len(L)</code> donne le nombre d'éléments.</li>
+<li>Nouvelle liste : <code>R = []</code> puis <code>R.append(...)</code>.</li></ul></div>
+</section>
+
+<!-- ============================================================ CH 4 -->
+<section class="page" id="ch4" data-groupe="base" data-num="4" data-titre="Les boucles for">
+<div class="eyebrow">Chapitre 4 · Les bases</div>
+<h1>Les boucles <code>for</code></h1>
+<p><span class="duree">⏱ 25 min</span> <span class="duree">Sert dans les exercices 1 à 10</span></p>
+<div class="objectifs"><b>À la fin de ce chapitre, tu sais</b><ul><li>répéter des instructions pour chaque élément d'une liste ;</li><li>utiliser <code>range</code> et parcourir les indices ;</li><li>parcourir une liste à l'envers ;</li><li>calculer un total avec une boucle.</li></ul></div>
+
+<h2>Pourquoi des boucles ?</h2>
+<p>Pour multiplier par 10 chaque nombre d'une liste de 200 nombres, on ne va pas écrire 200 lignes. Une <strong>boucle</strong> répète les mêmes instructions automatiquement, pour chaque élément.</p>
+
+<h2>Façon 1 : parcourir les valeurs</h2>
+<pre class="code">for x in L:
+    instructions</pre>
+<p>Se lit : « <strong>pour chaque</strong> élément <code>x</code> <strong>de</strong> la liste <code>L</code>, fais les instructions ». La variable <code>x</code> prend la première valeur, puis la deuxième, et ainsi de suite. Le nom <code>x</code> est libre (on aurait pu écrire <code>nombre</code> ou <code>note</code>).</p>
+<p>Comme pour le <code>if</code> : <code>:</code> à la fin, et les lignes répétées sont <strong>décalées</strong>.</p>
+<div class="trace" data-trace="for_val"></div>
+
+<h2><code>range</code> : une suite de nombres</h2>
+<p><code>range</code> fabrique une suite de nombres entiers. Il sert à répéter un nombre de fois précis, ou à parcourir des indices.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Écriture</th><th>Nombres produits</th><th>Lecture</th></tr></thead>
+<tbody>
+<tr><td><code>range(4)</code></td><td>0, 1, 2, 3</td><td>de 0 jusqu'à 4, <strong>4 exclu</strong></td></tr>
+<tr><td><code>range(2, 6)</code></td><td>2, 3, 4, 5</td><td>de 2 jusqu'à 6, 6 exclu</td></tr>
+<tr><td><code>range(0, 10, 3)</code></td><td>0, 3, 6, 9</td><td>de 0 à 10 exclu, de 3 en 3</td></tr>
+<tr><td><code>range(5, 0, -1)</code></td><td>5, 4, 3, 2, 1</td><td>de 5 à 0 exclu, en descendant</td></tr>
+</tbody></table></div>
+<div class="retenir"><b>La règle de range</b><p>Le nombre de fin n'est <strong>jamais inclus</strong>. C'est pratique : <code>range(len(L))</code> donne exactement les indices de <code>L</code>, de 0 à <code>len(L) - 1</code>.</p></div>
+<div class="activite predict" data-ok="[2, 3, 4]|[2,3,4]|2, 3, 4|2,3,4|2 3 4" data-why="On part de 2 et on s'arrête avant 5."><div class="titre">Quels nombres donne cette ligne ?</div><pre class="code">list(range(2, 5))</pre></div>
+
+<h2>Façon 2 : parcourir les indices</h2>
+<pre class="code">for i in range(len(L)):
+    ... L[i] ...</pre>
+<p>Ici, <code>i</code> prend les numéros de case 0, 1, 2… et on lit la valeur avec <code>L[i]</code>.</p>
+<div class="trace" data-trace="for_ind"></div>
+
+<h3>Laquelle choisir ?</h3>
+<div class="tablewrap"><table>
+<thead><tr><th>Si l'énoncé…</th><th>Utilise</th><th>Exercices</th></tr></thead>
+<tbody>
+<tr><td>parle seulement des <strong>valeurs</strong> (multiplier, compter les pairs, filtrer…)</td><td><code>for x in L:</code></td><td>1, 5, 6, 7, 9, 10</td></tr>
+<tr><td>parle de <strong>position</strong> ou d'<strong>indice</strong></td><td><code>for i in range(len(L)):</code></td><td>8</td></tr>
+<tr><td>utilise <strong>deux listes</strong> en même temps (<code>L[i]</code> et <code>Lprime[i]</code>)</td><td><code>for i in range(len(L)):</code></td><td>3</td></tr>
+<tr><td>demande de lire la liste <strong>à l'envers</strong></td><td><code>for i in range(len(L) - 1, -1, -1):</code></td><td>2</td></tr>
+</tbody></table></div>
+
+<h2>Parcourir une liste à l'envers</h2>
+<p>Pour lire <code>L = [5, 2, 3]</code> à l'envers, il faut les indices <strong>2, 1, 0</strong>. On utilise <code>range(début, fin, pas)</code> :</p>
+<ul>
+<li><strong>début</strong> = le dernier indice, <code>len(L) - 1</code> (ici 2) ;</li>
+<li><strong>pas</strong> = <code>-1</code> pour descendre ;</li>
+<li><strong>fin</strong> = <code>-1</code>, car la fin est exclue : on s'arrête juste avant -1, donc on <strong>atteint</strong> 0.</li>
+</ul>
+<div class="trace" data-trace="envers"></div>
+
+<h2>Calculer un total : l'accumulateur</h2>
+<p>Pour additionner tous les nombres d'une liste, on utilise une variable qui « se souvient » de la somme déjà calculée. On l'appelle un <strong>accumulateur</strong>.</p>
+<div class="trace" data-trace="total"></div>
+<div class="attention"><b>Attention à la place de <code>total = 0</code></b><p>Il faut créer le total <strong>avant</strong> la boucle. S'il est dans la boucle, il est remis à zéro à chaque tour et on perd tout.</p></div>
+
+<div class="activite parsons" data-lines='["L = [4, 1, 6]", "R = []", "for x in L:", "    R.append(2 * x)", "print(R)"]' data-why="On prépare la liste vide, on répète l'ajout pour chaque élément, puis on affiche une seule fois, après la boucle."><div class="titre">Remets les lignes dans l'ordre</div><p class="q">Le programme doit afficher <code>[8, 2, 12]</code> : le double de chaque nombre.</p></div>
+
+<div class="editeur" data-titre="À toi : la moyenne"><textarea>
+notes = [12, 8, 15, 10]
+total = 0
+# Avec une boucle, additionne toutes les notes dans total
+
+print("Moyenne :", total / len(notes))
+</textarea></div>
+<p>Résultat attendu : <code>Moyenne : 11.25</code>.</p>
+
+<div class="retenir"><b>À retenir</b>
+<ul><li><code>for x in L:</code> → <code>x</code> prend chaque valeur de la liste.</li>
+<li><code>for i in range(len(L)):</code> → <code>i</code> prend chaque indice ; la valeur est <code>L[i]</code>.</li>
+<li><code>range(a, b)</code> s'arrête <strong>avant</strong> <code>b</code>. À l'envers : <code>range(len(L) - 1, -1, -1)</code>.</li>
+<li>Un total se crée <strong>avant</strong> la boucle et augmente <strong>dans</strong> la boucle.</li></ul></div>
+</section>
+
+<!-- ============================================================ CH 5 -->
+<section class="page" id="ch5" data-groupe="base" data-num="5" data-titre="Les fonctions">
+<div class="eyebrow">Chapitre 5 · Les bases</div>
+<h1>Les fonctions</h1>
+<p><span class="duree">⏱ 20 min</span> <span class="duree">Sert dans les exercices 1 à 10</span></p>
+<div class="objectifs"><b>À la fin de ce chapitre, tu sais</b><ul><li>écrire une fonction avec <code>def</code> et <code>return</code> ;</li><li>faire la différence entre <code>return</code> et <code>print</code> ;</li><li>bien placer le <code>return</code> après une boucle ;</li><li>utiliser une fonction dans une autre.</li></ul></div>
+
+<h2>Une fonction, c'est une machine</h2>
+<p>Une <strong>fonction</strong> est une machine à laquelle on donne un nom. On lui donne des <strong>entrées</strong>, elle fait un calcul, et elle <strong>renvoie</strong> un résultat. Chaque exercice du contrôle te demande d'écrire une fonction.</p>
+<pre class="code">def carre(x):
+    resultat = x * x
+    return resultat</pre>
+<ul>
+<li><code>def</code> (pour <em>define</em>) commence la définition, suivi du <strong>nom</strong> de la fonction.</li>
+<li>Entre parenthèses, <code>x</code> est un <strong>paramètre</strong> : le nom donné à l'entrée.</li>
+<li>Le contenu de la fonction est <strong>décalé</strong>, comme pour <code>if</code> et <code>for</code>.</li>
+<li><code>return</code> <strong>renvoie</strong> le résultat à celui qui a utilisé la fonction.</li>
+</ul>
+
+<h2>Définir, puis appeler</h2>
+<p>Écrire <code>def</code> ne lance pas la fonction : ça la <strong>mémorise</strong>. Pour l'utiliser, on l'<strong>appelle</strong> par son nom avec des valeurs entre parenthèses : <code>carre(5)</code>. Ces valeurs s'appellent les <strong>arguments</strong>.</p>
+<div class="trace" data-trace="fonction"></div>
+<p>Remarque : la colonne « Variables » change quand on entre dans la fonction. Les variables d'une fonction (<code>x</code>, <code>resultat</code>) n'existent que pendant son exécution.</p>
+
+<h2><code>return</code> n'est pas <code>print</code></h2>
+<div class="cols">
+<div><span class="tag-good">renvoie</span><pre class="code">def double(x):
+    return 2 * x
+
+y = double(4) + 1
+print(y)   # 9</pre><p>Le résultat <strong>revient</strong> au programme : on peut le ranger, le réutiliser, faire des calculs avec.</p></div>
+<div><span class="tag-bad">affiche seulement</span><pre class="code">def double(x):
+    print(2 * x)
+
+y = double(4) + 1
+# TypeError !</pre><p>Le 8 est affiché à l'écran, mais la fonction ne renvoie rien (<code>None</code>). Impossible de calculer avec.</p></div>
+</div>
+<div class="retenir"><b>Dans le contrôle</b><p>Quand l'énoncé dit « cette fonction <strong>renvoie</strong> », il faut un <code>return</code>. Le sujet donne des squelettes qui finissent par <code>return None  # à modifier</code> : c'est une ligne <strong>à remplacer</strong>, pas à garder.</p></div>
+
+<h2>Où placer le <code>return</code> ?</h2>
+<p><code>return</code> fait deux choses : il renvoie la valeur <strong>et il arrête immédiatement la fonction</strong>. S'il est dans la boucle, la boucle s'arrête dès le premier tour. Regarde ce qui se passe :</p>
+<div class="trace" data-trace="retour_boucle"></div>
+<div class="cols">
+<div><span class="tag-bad">Faux</span><pre class="code">    for x in L:
+        R.append(2 * x)
+        return R</pre></div>
+<div><span class="tag-good">Juste</span><pre class="code">    for x in L:
+        R.append(2 * x)
+    return R</pre></div>
+</div>
+<p>La seule différence est le décalage : à droite, <code>return</code> est aligné avec <code>for</code>, donc il s'exécute <strong>après</strong> la boucle.</p>
+
+<div class="activite qcm" data-ok="1"><div class="titre">Vérifie</div><p class="q">Que renvoie <code>f(3)</code> ?</p><pre class="code">def f(x):
+    y = x + 1
+    return y * 2
+    print("fini")</pre><div class="opts"><button>4</button><button>8</button><button>Ça affiche « fini »</button></div><div class="why" hidden>y = 3 + 1 = 4, puis la fonction renvoie 4 × 2 = 8. La ligne <code>print</code> n'est jamais exécutée : <code>return</code> a déjà arrêté la fonction.</div></div>
+
+<h2>Une fonction peut en appeler une autre</h2>
+<p>Une fois qu'une fonction est écrite, on peut s'en servir dans une autre fonction, comme <code>len</code> ou <code>print</code>. C'est exactement ce que demande l'exercice 4.</p>
+<pre class="code">def double(x):
+    return 2 * x
+
+def quadruple(x):
+    return double(double(x))
+
+print(quadruple(5))   # 20</pre>
+<p><code>double(double(5))</code> : Python calcule d'abord <code>double(5)</code> = 10, puis <code>double(10)</code> = 20.</p>
+
+<h2>Une fonction qui reçoit une liste</h2>
+<p>Voici la forme de presque tous les exercices du contrôle : une fonction reçoit une liste et renvoie une <strong>nouvelle</strong> liste.</p>
+<div class="activite parsons" data-lines='["def plus_un(L):", "    R = []", "    for x in L:", "        R.append(x + 1)", "    return R"]' data-why="Le squelette « nouvelle liste » : liste vide, boucle avec append, return après la boucle."><div class="titre">Remets les lignes dans l'ordre</div><p class="q">La fonction <code>plus_un(L)</code> doit renvoyer une nouvelle liste où chaque nombre est augmenté de 1. Les décalages sont déjà faits.</p></div>
+
+<div class="editeur" data-titre="À toi : la fonction cube"><textarea>
+def cube(x):
+    # renvoie x au cube (x * x * x)
+    return None  # à modifier
+
+print(cube(2))    # doit afficher 8
+print(cube(-3))   # doit afficher -27
+</textarea></div>
+
+<h2>Tester sa fonction</h2>
+<p>Une fonction écrite n'est pas une fonction juste ! Teste-la toujours avec <code>print(...)</code> sur l'exemple de l'énoncé, puis sur des cas particuliers (liste vide, nombre négatif…).</p>
+<pre class="code">print(cube(2))
+print(cube(0))
+print(cube(-3))</pre>
+
+<div class="retenir"><b>À retenir</b>
+<ul><li><code>def nom(paramètres):</code> puis un bloc décalé. Rien ne se passe tant qu'on n'appelle pas <code>nom(...)</code>.</li>
+<li><code>return</code> renvoie le résultat <strong>et arrête</strong> la fonction. <code>print</code> ne fait qu'afficher.</li>
+<li>Après une boucle, le <code>return</code> est <strong>aligné avec <code>for</code></strong>.</li>
+<li>Une fonction peut appeler une autre fonction déjà écrite.</li></ul></div>
+</section>
+
+<!-- ============================================================ CH 6 -->
+<section class="page" id="ch6" data-groupe="methode" data-num="6" data-titre="Les 4 recettes à reconnaître">
+<div class="eyebrow">Chapitre 6 · La méthode</div>
+<h1>Les 4 recettes à reconnaître</h1>
+<p><span class="duree">⏱ 20 min</span></p>
+<div class="objectifs"><b>À la fin de ce chapitre, tu sais</b><ul><li>reconnaître, en lisant un énoncé, le type d'exercice ;</li><li>écrire de mémoire le squelette qui correspond.</li></ul></div>
+
+<p>Bonne nouvelle : les 10 exercices du contrôle n'utilisent que <strong>quelques recettes</strong>. Le plus dur n'est pas d'inventer un programme, c'est de <strong>reconnaître la recette</strong> dans l'énoncé. Pour chaque recette : les mots qui doivent te mettre sur la piste, un schéma, et le squelette à adapter.</p>
+
+<div class="recettes">
+<div class="recette"><h3>① Transformer</h3><p class="cle">« renvoie une nouvelle liste… chaque élément… remplacé par… »</p><div class="schema">[5, 2, 3] → [50, 20, 30]</div><p style="font-size:.9rem">Un résultat <strong>pour chaque</strong> élément. Même longueur.</p><pre class="code">R = []
+for x in L:
+    R.append(calcul(x))
+return R</pre><p style="font-size:.85rem;color:var(--muted)">Exercices 1, 2, 6, 7, 8</p></div>
+<div class="recette"><h3>② Filtrer</h3><p class="cle">« formée des nombres qui… », « garder seulement… »</p><div class="schema">[2, 3, 7, 5] → [3, 5]</div><p style="font-size:.9rem">On garde certains éléments. Liste <strong>plus courte</strong> (ou égale).</p><pre class="code">R = []
+for x in L:
+    if condition(x):
+        R.append(x)
+return R</pre><p style="font-size:.85rem;color:var(--muted)">Exercice 9 · pas de <code>else</code> !</p></div>
+<div class="recette"><h3>③ Compter</h3><p class="cle">« renvoie le nombre de… », « combien… »</p><div class="schema">[5, 2, 3] → 1</div><p style="font-size:.9rem">Le résultat est <strong>un seul nombre</strong>, pas une liste.</p><pre class="code">n = 0
+for x in L:
+    if condition(x):
+        n = n + 1
+return n</pre><p style="font-size:.85rem;color:var(--muted)">Exercice 5</p></div>
+<div class="recette"><h3>④ Accumuler</h3><p class="cle">« la somme des valeurs de 0 à k », « jusqu'ici »</p><div class="schema">[2, 3, 4] → [2, 5, 9]</div><p style="font-size:.9rem">Une variable se souvient des tours précédents.</p><pre class="code">R = []
+total = 0
+for x in L:
+    total = total + x
+    R.append(total)
+return R</pre><p style="font-size:.85rem;color:var(--muted)">Exercice 10</p></div>
+</div>
+
+<h2>Deux variantes à connaître</h2>
+<h3>Combiner deux listes par leurs indices</h3>
+<p>Quand l'énoncé parle de <code>L[i]</code> <strong>et</strong> <code>Lprime[i]</code> : on parcourt les indices pour lire les deux listes « en face » l'une de l'autre.</p>
+<pre class="code">R = []
+for i in range(len(L)):
+    R.append(L[i] + Lprime[i])
+return R</pre>
+<p style="font-size:.9rem;color:var(--muted)">Exercice 3</p>
+<h3>Réutiliser des fonctions</h3>
+<p>Quand l'énoncé dit « <strong>en utilisant les fonctions précédentes</strong> » : pas de boucle, on appelle les fonctions déjà écrites. <span style="color:var(--muted)">Exercice 4</span></p>
+
+<h2>Entraîne-toi à reconnaître</h2>
+<div class="activite qcm" data-ok="2"><div class="titre">Quelle recette ?</div><p class="q">« Écrire une fonction qui renvoie le nombre de notes supérieures à 10. »</p><div class="opts"><button>Transformer</button><button>Filtrer</button><button>Compter</button><button>Accumuler</button></div><div class="why" hidden>« Renvoie le nombre de » : le résultat est un entier. C'est un comptage, avec un compteur qui part de 0.</div></div>
+<div class="activite qcm" data-ok="1"><div class="titre">Quelle recette ?</div><p class="q">« Écrire une fonction qui renvoie la liste des prix inférieurs à 20 €. »</p><div class="opts"><button>Transformer</button><button>Filtrer</button><button>Compter</button><button>Accumuler</button></div><div class="why" hidden>On garde seulement certains prix : la liste obtenue est plus courte. C'est un filtre : un <code>if</code> sans <code>else</code>.</div></div>
+<div class="activite qcm" data-ok="0"><div class="titre">Quelle recette ?</div><p class="q">« Écrire une fonction qui renvoie une nouvelle liste où chaque prix est augmenté de 10 %. »</p><div class="opts"><button>Transformer</button><button>Filtrer</button><button>Compter</button><button>Accumuler</button></div><div class="why" hidden>Chaque prix donne un nouveau prix (× 1.1) : même longueur, un résultat par élément.</div></div>
+<div class="activite qcm" data-ok="3"><div class="titre">Quelle recette ?</div><p class="q">« Une liste donne les dépenses de chaque jour. Renvoyer la liste des dépenses totales depuis le début du mois, jour après jour. »</p><div class="opts"><button>Transformer</button><button>Filtrer</button><button>Compter</button><button>Accumuler</button></div><div class="why" hidden>« Depuis le début » : chaque résultat dépend de tous les jours précédents. On garde un total qui grandit : c'est une somme cumulative.</div></div>
+
+<h2>Les 10 exercices du contrôle, classés</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Ex.</th><th>Fonction</th><th>Recette</th><th>Parcours</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><code>scalar_mul</code></td><td>Transformer</td><td>valeurs</td></tr>
+<tr><td>2</td><td><code>renverse</code></td><td>Transformer (ordre inversé)</td><td>indices à l'envers</td></tr>
+<tr><td>3</td><td><code>somme</code></td><td>Combiner deux listes</td><td>indices</td></tr>
+<tr><td>4</td><td><code>soustraction</code></td><td>Réutiliser des fonctions</td><td>aucun</td></tr>
+<tr><td>5</td><td><code>compte_nombres_pairs</code></td><td>Compter</td><td>valeurs</td></tr>
+<tr><td>6</td><td><code>syracuse</code></td><td>Transformer + if/else</td><td>valeurs</td></tr>
+<tr><td>7</td><td><code>saturation</code></td><td>Transformer + if/else</td><td>valeurs</td></tr>
+<tr><td>8</td><td><code>mitage</code></td><td>Transformer selon la position</td><td>indices</td></tr>
+<tr><td>9</td><td><code>extraction</code></td><td>Filtrer</td><td>valeurs</td></tr>
+<tr><td>10</td><td><code>somme_cumulative</code></td><td>Accumuler</td><td>valeurs</td></tr>
+</tbody></table></div>
+<div class="retenir"><b>À retenir</b><p>Avant de coder, pose-toi deux questions : <strong>le résultat est-il une liste ou un nombre ?</strong> et <strong>a-t-il la même longueur que l'entrée ?</strong> Les réponses te donnent presque toujours la recette.</p></div>
+</section>
+
+<!-- ============================================================ CH 7 -->
+<section class="page" id="ch7" data-groupe="methode" data-num="7" data-titre="La méthode pour réussir un exercice">
+<div class="eyebrow">Chapitre 7 · La méthode</div>
+<h1>La méthode pour réussir un exercice</h1>
+<p><span class="duree">⏱ 15 min</span></p>
+<div class="objectifs"><b>À la fin de ce chapitre, tu sais</b><ul><li>suivre 4 étapes pour n'importe quel exercice ;</li><li>vérifier ton code avec des tests bien choisis ;</li><li>repérer les erreurs les plus fréquentes.</li></ul></div>
+
+<h2>Les 4 étapes</h2>
+<ol class="etapes">
+<li><strong>Comprendre.</strong> Reformule avec tes mots : « ma fonction reçoit … et doit renvoyer … ». Le résultat est-il une liste ou un nombre ? Quelle recette ?</li>
+<li><strong>Faire à la main.</strong> Sur l'exemple de l'énoncé, écris sur papier ce qui se passe à chaque tour de boucle (voir le tableau ci-dessous).</li>
+<li><strong>Coder.</strong> Écris le squelette de la recette, puis adapte le calcul ou la condition.</li>
+<li><strong>Tester.</strong> L'exemple de l'énoncé, puis les cas particuliers.</li>
+</ol>
+
+<h2>Étape 2 : le tableau « à la main »</h2>
+<p>C'est la meilleure façon de comprendre (et de trouver ses erreurs). Une ligne par tour de boucle, une colonne par variable. Exemple pour <code>saturation([7, 15, 10], 10)</code> :</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Tour</th><th><code>x</code></th><th><code>x &gt; 10</code> ?</th><th>On ajoute</th><th><code>resultat</code> après</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>7</td><td>Faux</td><td>7</td><td><code>[7]</code></td></tr>
+<tr><td>2</td><td>15</td><td>Vrai</td><td>10</td><td><code>[7, 10]</code></td></tr>
+<tr><td>3</td><td>10</td><td>Faux</td><td>10</td><td><code>[7, 10, 10]</code></td></tr>
+</tbody></table></div>
+
+<h2>Étape 4 : quels tests choisir ?</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Test</th><th>Pourquoi</th><th>Exemple</th></tr></thead>
+<tbody>
+<tr><td>L'exemple de l'énoncé</td><td>Vérifier la demande principale</td><td><code>scalar_mul([5, 2, 3], 10)</code></td></tr>
+<tr><td>Une liste vide <code>[]</code></td><td>Le programme ne doit pas planter</td><td><code>renverse([])</code> → <code>[]</code></td></tr>
+<tr><td>Une valeur égale à une borne</td><td>Vérifier <code>&lt;</code> ou <code>&lt;=</code></td><td><code>saturation([10], 10)</code> → <code>[10]</code></td></tr>
+<tr><td>Zéro, des négatifs</td><td>Vérifier la parité, les signes</td><td><code>compte_nombres_pairs([0, -2])</code> → <code>2</code></td></tr>
+<tr><td>Un seul élément</td><td>Vérifier les <code>range</code></td><td><code>renverse([9])</code> → <code>[9]</code></td></tr>
+</tbody></table></div>
+
+<h2>Les erreurs les plus fréquentes</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Ce qu'on observe</th><th>Cause probable</th><th>Solution</th></tr></thead>
+<tbody>
+<tr><td>La fonction renvoie <code>None</code></td><td><code>return None</code> pas remplacé, ou <code>return</code> oublié</td><td>Termine par <code>return resultat</code></td></tr>
+<tr><td>Seul le premier élément est traité</td><td><code>return</code> placé dans la boucle</td><td>Aligne <code>return</code> avec <code>for</code></td></tr>
+<tr><td>Le total est faux</td><td><code>total = 0</code> placé dans la boucle</td><td>Crée-le avant le <code>for</code></td></tr>
+<tr><td><code>SyntaxError</code></td><td><code>:</code> oublié, ou <code>=</code> au lieu de <code>==</code></td><td>Relis la ligne indiquée</td></tr>
+<tr><td><code>IndexError</code></td><td>Indice trop grand, <code>range</code> mal réglé</td><td>Les indices vont de 0 à <code>len(L) - 1</code></td></tr>
+<tr><td><code>AttributeError: 'NoneType'…</code></td><td><code>R = R.append(x)</code></td><td>Écris seulement <code>R.append(x)</code></td></tr>
+<tr><td>Un élément de trop ou en moins</td><td>Mauvaise borne : <code>&lt;</code> au lieu de <code>&lt;=</code>, ou fin de <code>range</code></td><td>Teste une valeur égale à la borne</td></tr>
+</tbody></table></div>
+
+<h2>Fabriquer de grandes listes pour tester</h2>
+<p>La page 2 du sujet propose de créer des listes de nombres au hasard pour tester les fonctions sur beaucoup de données :</p>
+<div class="editeur" data-titre="Le code du sujet, commenté"><textarea>
+from random import randint, seed
+
+seed(0)                    # fixe le « hasard » : on obtient toujours les mêmes nombres
+print(randint(0, 1000))    # un entier au hasard entre 0 et 1000 (inclus)
+
+# 200 nombres au hasard, écrit de façon courte (« par compréhension »)
+Liste1 = [randint(0, 1000) for i in range(200)]
+
+# la même chose avec une boucle
+Liste2 = []
+for i in range(200):
+    new_value = randint(0, 1000)
+    Liste2.append(new_value)
+
+print(len(Liste1), len(Liste2))
+print(Liste1[0:10])        # les 10 premiers nombres
+</textarea></div>
+<ul>
+<li><code>randint(0, 1000)</code> tire un entier entre 0 et 1000, <strong>les deux inclus</strong> (contrairement à <code>range</code>).</li>
+<li><code>seed(n)</code> fixe le point de départ du hasard : avec le même <code>n</code>, on obtient les mêmes nombres. Pratique pour comparer ses résultats. Le sujet demandait de remplacer <code>n = 0</code> par une valeur donnée à chaque étudiant.</li>
+<li>Dans la boucle, <code>i</code> ne sert qu'à compter les 200 répétitions.</li>
+</ul>
+
+<div class="retenir"><b>Avant de rendre ta copie</b>
+<ul><li>Chaque fonction se termine par un <code>return</code> (et plus aucun <code>return None</code>).</li>
+<li>Le <code>return</code> est après la boucle, aligné avec <code>for</code>.</li>
+<li>« Nouvelle liste » : tu as créé <code>resultat = []</code> et tu n'as pas modifié <code>L</code>.</li>
+<li>Tu as testé l'exemple de l'énoncé, une liste vide et une valeur limite.</li></ul></div>
+</section>
+
+<div id="exos-ici"></div>
+
+<!-- ============================================================ QUIZ -->
+<section class="page" id="quiz" data-groupe="bilan" data-titre="Quiz final">
+<div class="eyebrow">Pour réviser</div>
+<h1>Quiz final</h1>
+<p class="lead">12 questions sur tout le cours. Ton score compte les bonnes réponses <strong>du premier coup</strong>.</p>
+<p class="score" id="score">Score : 0 / 12</p>
+<div class="activite qcm" data-ok="1"><div class="titre">Question 1 · Listes</div><p class="q">Pour <code>L = [8, 3, 5]</code>, combien vaut <code>L[0]</code> ?</p><div class="opts"><button>0</button><button>8</button><button>3</button></div><div class="why" hidden>Les indices commencent à 0 : <code>L[0]</code> est le premier élément, 8.</div></div>
+<div class="activite qcm" data-ok="2"><div class="titre">Question 2 · Listes</div><p class="q">Pour <code>L = [8, 3, 5]</code>, que provoque <code>L[3]</code> ?</p><div class="opts"><button>5</button><button>None</button><button>Une IndexError</button></div><div class="why" hidden>3 éléments : indices 0, 1, 2. L'indice 3 n'existe pas.</div></div>
+<div class="activite qcm" data-ok="1"><div class="titre">Question 3 · Calculs</div><p class="q">Combien vaut <code>17 % 5</code> ?</p><div class="opts"><button>3</button><button>2</button><button>3.4</button></div><div class="why" hidden>17 = 5 × 3 + 2. Le reste est 2 (et le quotient <code>17 // 5</code> vaut 3).</div></div>
+<div class="activite qcm" data-ok="0"><div class="titre">Question 4 · Boucles</div><p class="q">Quels nombres produit <code>range(1, 4)</code> ?</p><div class="opts"><button>1, 2, 3</button><button>1, 2, 3, 4</button><button>0, 1, 2, 3</button></div><div class="why" hidden>On commence à 1 et on s'arrête avant 4.</div></div>
+<div class="activite qcm" data-ok="2"><div class="titre">Question 5 · Boucles</div><p class="q">Pour parcourir <code>[5, 2, 3]</code> à l'envers, quel <code>range</code> donne les indices ?</p><div class="opts"><button><code>range(3, 0, -1)</code></button><button><code>range(2, 0, -1)</code></button><button><code>range(2, -1, -1)</code></button></div><div class="why" hidden>Il faut 2, 1, 0. On part de 2 = len(L) − 1 et on s'arrête avant −1.</div></div>
+<div class="activite qcm" data-ok="1"><div class="titre">Question 6 · Fonctions</div><p class="q">Que fait <code>return</code> ?</p><div class="opts"><button>Il affiche le résultat à l'écran</button><button>Il renvoie le résultat et arrête la fonction</button><button>Il recommence la boucle</button></div><div class="why" hidden>C'est <code>print</code> qui affiche. <code>return</code> renvoie la valeur au programme et termine la fonction tout de suite.</div></div>
+<div class="activite qcm" data-ok="0"><div class="titre">Question 7 · Fonctions</div><p class="q">Une fonction qui construit une liste renvoie seulement le premier élément. Cause la plus probable ?</p><div class="opts"><button>Le <code>return</code> est dans la boucle</button><button>La liste est vide</button><button>Il manque un <code>print</code></button></div><div class="why" hidden><code>return</code> arrête la fonction : placé dans la boucle, il s'exécute dès le premier tour.</div></div>
+<div class="activite qcm" data-ok="2"><div class="titre">Question 8 · Listes</div><p class="q">Après <code>R = []</code> puis <code>R = R.append(4)</code>, que vaut <code>R</code> ?</p><div class="opts"><button><code>[4]</code></button><button><code>[]</code></button><button><code>None</code></button></div><div class="why" hidden><code>append</code> modifie la liste mais renvoie <code>None</code>, et c'est ce <code>None</code> qu'on range dans R. Il faut écrire seulement <code>R.append(4)</code>.</div></div>
+<div class="activite qcm" data-ok="1"><div class="titre">Question 9 · Recettes</div><p class="q">« Renvoyer la liste des nombres compris strictement entre 0 et 10. » Quelle recette ?</p><div class="opts"><button>Transformer</button><button>Filtrer</button><button>Compter</button></div><div class="why" hidden>On garde certains nombres : c'est un filtre, avec un <code>if</code> sans <code>else</code>.</div></div>
+<div class="activite qcm" data-ok="1"><div class="titre">Question 10 · Conditions</div><p class="q">Quelle condition teste qu'un <strong>indice</strong> <code>i</code> est un multiple de <code>k</code> ?</p><div class="opts"><button><code>L[i] % k == 0</code></button><button><code>i % k == 0</code></button><button><code>i // k == 0</code></button></div><div class="why" hidden>On teste la position <code>i</code>, pas la valeur <code>L[i]</code>. Un multiple de k a un reste nul quand on le divise par k.</div></div>
+<div class="activite qcm" data-ok="0"><div class="titre">Question 11 · Accumuler</div><p class="q">Dans une somme cumulative, où place-t-on <code>total = 0</code> ?</p><div class="opts"><button>Avant la boucle</button><button>Dans la boucle</button><button>Après la boucle</button></div><div class="why" hidden>Avant, pour que le total se souvienne des tours précédents. Dans la boucle, il serait remis à zéro à chaque tour.</div></div>
+<div class="activite qcm" data-ok="2"><div class="titre">Question 12 · Fonctions</div><p class="q">L'exercice 4 demande d'utiliser les fonctions précédentes. Quelle ligne calcule <code>L − Lprime</code> ?</p><div class="opts"><button><code>return L - Lprime</code></button><button><code>return somme(L, Lprime) * -1</code></button><button><code>return somme(L, scalar_mul(Lprime, -1))</code></button></div><div class="why" hidden>On ajoute à L les opposés de Lprime. <code>L - Lprime</code> provoque une erreur avec des listes, et la deuxième réponse calcule −(L + Lprime).</div></div>
+</section>
+
+<!-- ============================================================ AIDE-MÉMOIRE -->
+<section class="page" id="memo" data-groupe="bilan" data-titre="Aide-mémoire">
+<div class="eyebrow">Pour réviser</div>
+<h1>Aide-mémoire</h1>
+<p class="lead">Tout l'essentiel sur une page, à relire la veille du contrôle.</p>
+<div class="recettes">
+<div class="recette"><h3>Variables et calculs</h3><pre class="code">x = 5          # x reçoit 5
+x = x + 1      # x augmente de 1
+7 // 2         # 3 (quotient)
+7 % 2          # 1 (reste)
+x % 2 == 0     # x est pair ?</pre></div>
+<div class="recette"><h3>Conditions</h3><pre class="code">if x &gt; 10:
+    ...
+elif x &gt; 5:
+    ...
+else:
+    ...
+a &lt; x &lt; b      # strictement entre</pre></div>
+<div class="recette"><h3>Listes</h3><pre class="code">L = [5, 2, 3]
+L[0]           # 5 (le premier)
+len(L)         # 3
+L[len(L) - 1]  # 3 (le dernier)
+R = []
+R.append(7)    # ajoute à la fin</pre></div>
+<div class="recette"><h3>Boucles</h3><pre class="code">for x in L:                  # valeurs
+for i in range(len(L)):      # indices
+for i in range(len(L) - 1, -1, -1):  # à l'envers
+range(4)       # 0, 1, 2, 3</pre></div>
+<div class="recette"><h3>Fonction « nouvelle liste »</h3><pre class="code">def f(L):
+    resultat = []
+    for x in L:
+        resultat.append(...)
+    return resultat</pre></div>
+<div class="recette"><h3>Fonction « compter »</h3><pre class="code">def f(L):
+    n = 0
+    for x in L:
+        if ...:
+            n = n + 1
+    return n</pre></div>
+</div>
+<div class="attention"><b>Les 5 pièges</b>
+<ul><li>Indices de 0 à <code>len(L) - 1</code>.</li>
+<li><code>range(a, b)</code> s'arrête avant <code>b</code>.</li>
+<li><code>return</code> après la boucle, aligné avec <code>for</code>.</li>
+<li><code>total = 0</code> avant la boucle.</li>
+<li><code>R.append(x)</code> et pas <code>R = R.append(x)</code>.</li></ul></div>
+</section>
+
+<!-- ============================================================ GLOSSAIRE -->
+<section class="page" id="glossaire" data-groupe="bilan" data-titre="Petit dictionnaire de Python">
+<div class="eyebrow">Pour réviser</div>
+<h1>Petit dictionnaire de Python</h1>
+<dl class="glossaire">
+<dt>Accumulateur</dt><dd>Variable qui garde un résultat d'un tour de boucle à l'autre (un total, un compteur). Elle est créée avant la boucle.</dd>
+<dt>Affectation</dt><dd>L'action de ranger une valeur dans une variable avec <code>=</code>.</dd>
+<dt>Appeler une fonction</dt><dd>L'utiliser en écrivant son nom suivi de parenthèses : <code>carre(5)</code>.</dd>
+<dt>Argument</dt><dd>La valeur donnée à une fonction quand on l'appelle. Dans <code>carre(5)</code>, l'argument est 5.</dd>
+<dt>Bloc</dt><dd>Groupe de lignes décalées du même nombre d'espaces, après une ligne qui finit par <code>:</code>.</dd>
+<dt>Booléen</dt><dd>Valeur vraie ou fausse : <code>True</code> ou <code>False</code>.</dd>
+<dt>Boucle</dt><dd>Instruction qui répète un bloc. <code>for x in L:</code> le répète pour chaque élément de L.</dd>
+<dt>Condition</dt><dd>Question dont la réponse est <code>True</code> ou <code>False</code>, comme <code>x &gt; 10</code>.</dd>
+<dt>Élément</dt><dd>Une des valeurs rangées dans une liste.</dd>
+<dt>Fonction</dt><dd>Morceau de programme qui porte un nom, reçoit des paramètres et peut renvoyer un résultat.</dd>
+<dt>Indentation</dt><dd>Le décalage (4 espaces) au début d'une ligne. En Python, il indique à quel bloc appartient la ligne.</dd>
+<dt>Indice</dt><dd>Le numéro d'une case de liste. Il commence à 0.</dd>
+<dt>Liste</dt><dd>Suite ordonnée de valeurs entre crochets : <code>[5, 2, 3]</code>.</dd>
+<dt><code>None</code></dt><dd>Valeur spéciale qui veut dire « rien ». Une fonction sans <code>return</code> renvoie <code>None</code>.</dd>
+<dt>Paramètre</dt><dd>Le nom donné à une entrée dans la définition d'une fonction. Dans <code>def carre(x):</code>, le paramètre est <code>x</code>.</dd>
+<dt>Renvoyer</dt><dd>Ce que fait <code>return</code> : donner le résultat de la fonction au programme qui l'a appelée.</dd>
+<dt>Variable</dt><dd>Nom qui désigne une valeur gardée en mémoire.</dd>
+</dl>
+</section>
+
+<!-- ============================================================ SUJET -->
+<section class="page" id="sujet" data-groupe="bilan" data-titre="Le sujet original">
+<div class="eyebrow">Pour réviser</div>
+<h1>Le sujet original</h1>
+<p>Le contrôle CPES1 du mardi 19 décembre 2023, en 4 pages. La page 1 contient les rappels, la page 2 la création de listes au hasard, puis les 10 exercices à compléter.</p>
+<div class="sujet-img">
+<figure><a href="sujet/page1.jpg" target="_blank"><img src="sujet/page1.jpg" alt="Page 1 du sujet : rappels sur les listes, les boucles et la parité" loading="lazy"></a><figcaption>Page 1 · Rappels</figcaption></figure>
+<figure><a href="sujet/page2.jpg" target="_blank"><img src="sujet/page2.jpg" alt="Page 2 du sujet : listes aléatoires et exercices 1 à 3" loading="lazy"></a><figcaption>Page 2 · Exercices 1 à 3</figcaption></figure>
+<figure><a href="sujet/page3.jpg" target="_blank"><img src="sujet/page3.jpg" alt="Page 3 du sujet : exercices 4 à 7" loading="lazy"></a><figcaption>Page 3 · Exercices 4 à 7</figcaption></figure>
+<figure><a href="sujet/page4.jpg" target="_blank"><img src="sujet/page4.jpg" alt="Page 4 du sujet : exercices 8 à 10" loading="lazy"></a><figcaption>Page 4 · Exercices 8 à 10</figcaption></figure>
+</div>
+<footer class="pied">Documents de révision personnels : en cas de doute, le cours des enseignants fait foi.</footer>
+</section>
+
+</main>
+</div>
+</div>
+</body>
+</html>
