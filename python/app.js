@@ -484,7 +484,7 @@ function majProgres() {
   });
 }
 function construireNav() {
-  const groupes = [["accueil", "Commencer"], ["base", "Les bases"], ["methode", "La méthode"], ["cc2", "Le contrôle CC2 corrigé"], ["bilan", "Pour réviser"]];
+  const groupes = [["accueil", "Commencer"], ["base", "Les bases"], ["methode", "La méthode"], ["cc2", "Le contrôle CC2 corrigé"], ["blanc", "En conditions réelles"], ["bilan", "Pour réviser"]];
   let h = "";
   groupes.forEach(([g, t]) => {
     const ps = PAGES.filter(p => (p.dataset.groupe || "bilan") === g);
@@ -532,11 +532,111 @@ function initQuizFinal() {
   });
 }
 
+/* ------------------------------------------------------------ examen blanc */
+function initBlanc() {
+  const B = window.BLANC;
+  if (!B || !$("#blanc")) return;
+  $("#blanc-copie").value = B.copie;
+  const sujet = document.createElement("details");
+  sujet.className = "rappels"; sujet.open = true;
+  sujet.innerHTML = "<summary>Le sujet : 10 exercices</summary><ol>" + B.exos.map(e => "<li><strong>" + esc(e.titre) + "</strong> · " + esc(e.enonce).replace(new RegExp("\\b(" + e.fn + "\\([^)]*\\))"), "<code>$1</code>") + "</li>").join("") + '</ol><p class="info">Les énoncés sont aussi écrits en commentaires dans ta copie, comme sur le vrai sujet.</p>';
+  $("#blanc-epreuve .rappels").before(sujet);
+  const dep = $("#blanc-depart"), ep = $("#blanc-epreuve"), res = $("#blanc-resultat"), chrono = $("#blanc-chrono"), bar = $(".chrono-bar"), msg = $("#blanc-msg");
+  let timer = null, envoi = false;
+  const etat = () => store.get("blanc_etat") || "attente";
+  const code = () => store.get("code_blanc") || B.copie;
+  const fmtNote = n => String(n).replace(".", ",");
+  const fmt = ms => { const s = Math.max(0, Math.round(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + " h " : "") + String(m).padStart(2, "0") + " min " + String(x).padStart(2, "0") + " s"; };
+  const restant = () => { const d = +store.get("blanc_duree"); return d ? +store.get("blanc_debut") + d * 60000 - Date.now() : null; };
+  function tick() {
+    const r = restant();
+    if (r === null) { chrono.textContent = "⏱ " + fmt(Date.now() - +store.get("blanc_debut")) + " écoulées"; return; }
+    if (r > 0) { chrono.textContent = "⏱ Temps restant : " + fmt(r); bar.classList.toggle("fini", r < 5 * 60000); }
+    else { chrono.textContent = "⏱ Temps écoulé : ta copie est ramassée !"; bar.classList.add("fini"); clearInterval(timer); rendre(true); }
+  }
+  function vue() {
+    const e = etat();
+    dep.hidden = e !== "attente"; ep.hidden = e !== "encours"; res.hidden = e !== "rendu";
+    $("#blanc .editeur").classList.toggle("papier", store.get("blanc_papier") === "1");
+    clearInterval(timer);
+    if (e === "encours") { tick(); timer = setInterval(tick, 1000); }
+    if (e === "rendu") afficherResultat(JSON.parse(store.get("blanc_resultat") || "null"));
+  }
+  async function rendre(auto) {
+    if (envoi) return;
+    if (!auto && !confirm("Rendre ta copie ? Tu ne pourras plus la modifier.")) return;
+    envoi = true;
+    msg.innerHTML = '<p class="info">⏳ Correction de ta copie… (environ 10 secondes si Python n\'est pas encore chargé)</p>';
+    const tests = [];
+    B.exos.forEach(e => e.tests.forEach(t => tests.push(t)));
+    const r = await pyRun(code(), tests);
+    envoi = false;
+    if (r.loadfail) { msg.innerHTML = '<div class="erreur"><strong>Impossible de charger Python</strong> pour corriger ta copie. Vérifie ta connexion internet, puis clique de nouveau sur « Rendre ma copie ».</div>'; return; }
+    if (r.timeout) { msg.innerHTML = '<div class="erreur"><strong>Ta copie ne s\'arrête pas</strong> : une de tes fonctions contient sans doute une boucle sans fin. Corrige-la, puis rends à nouveau.</div>'; return; }
+    if (r.error) {
+      msg.innerHTML = expliquerErreur(r.error) + '<p class="info"><strong>Ta copie ne s\'exécute pas</strong> : aucune fonction ne peut être testée. Le jour du contrôle, une seule erreur de ce type peut coûter très cher ! Corrige la ligne indiquée, puis rends à nouveau.' + (auto ? " Le temps est écoulé, mais on te laisse corriger cette erreur." : "") + "</p>";
+      msg.scrollIntoView({ block: "center" });
+      return;
+    }
+    const all = JSON.parse(r.results);
+    let k = 0;
+    const parExo = B.exos.map(e => {
+      const tr = all.slice(k, k + e.tests.length); k += e.tests.length;
+      const ok = tr.filter(t => t[4]).length;
+      return { ok, total: tr.length, pts: Math.round(4 * ok / tr.length) / 2, tests: tr };
+    });
+    const note = parExo.reduce((a, b) => a + b.pts, 0);
+    store.set("blanc_resultat", JSON.stringify({ note, parExo, duree: Date.now() - +store.get("blanc_debut"), code: code() }));
+    store.set("blanc_etat", "rendu");
+    msg.innerHTML = "";
+    vue();
+    window.scrollTo(0, 0);
+  }
+  function ligneTest([label, call, att, obt, ok, err]) {
+    let d;
+    if (err) d = "Erreur : " + esc(err);
+    else if (call.startsWith("_apres(")) d = "L vaut " + esc(obt) + " après l'appel" + (ok ? "" : " (attendu : " + esc(att) + ")");
+    else d = esc(call) + " → " + esc(obt) + (ok ? "" : " (attendu : " + esc(att) + ")");
+    return "<li>" + (ok ? "✅" : "❌") + " <strong>" + esc(label) + '</strong><div class="detail">' + d + "</div></li>";
+  }
+  function afficherResultat(R) {
+    if (!R) { store.set("blanc_etat", "attente"); vue(); return; }
+    const n = R.note;
+    const avis = n >= 16 ? "Excellent ! Tu es prêt(e) pour le contrôle." : n >= 12 ? "Bien ! Revois les exercices où tu as perdu des points." : n >= 8 ? "C'est un début. Reprends les recettes du chapitre 6, puis les exercices du CC2 indiqués dans la correction." : "Pas de panique. Reprends les chapitres 3 à 6, puis refais les exercices du CC2 avec les aides avant de retenter l'examen.";
+    let h = '<div class="note-finale"><div class="eyebrow">Ta note</div><div class="gros">' + fmtNote(n) + " / 20</div><p>" + avis + '</p><p class="info">Temps utilisé : ' + fmt(R.duree) + "</p></div>";
+    h += "<h2>Correction, exercice par exercice</h2><p>Ouvre chaque exercice : tu vois les tests passés sur ta copie, la correction, et l'exercice du CC2 qui utilise la même recette.</p>";
+    R.parExo.forEach((p, i) => {
+      const e = B.exos[i], ic = p.ok === p.total ? "✅" : p.ok ? "🟡" : "❌";
+      h += '<details class="corr"><summary>' + ic + " Exercice " + e.n + " · " + e.titre + '<span class="pts">' + fmtNote(p.pts) + ' / 2</span></summary><div class="cbody"><p>' + esc(e.enonce) + '</p><h3>Les tests sur ta copie</h3><ul class="tests">' + p.tests.map(ligneTest).join("") + "</ul><h3>Correction</h3>" + pre(e.solution) + "<p>" + e.expl + '</p><p><a href="#/ex' + e.proche + '">→ Revoir l\'exercice ' + e.proche + " du CC2 (même recette)</a></p></div></details>";
+    });
+    h += '<h2>Ta copie</h2><details class="corr"><summary>Afficher le code que tu as rendu</summary><div class="cbody">' + pre(R.code) + "</div></details>";
+    h += '<div style="margin-top:22px"><button type="button" class="btn primary" id="blanc-again">Recommencer l\'examen blanc</button></div><p class="info">Recommencer efface ta copie. Le sujet reste le même : essaie de tout refaire sans regarder la correction.</p>';
+    res.innerHTML = h;
+    $("#blanc-again").onclick = () => {
+      if (!confirm("Effacer ta copie et recommencer l'examen ?")) return;
+      store.del("code_blanc"); store.del("blanc_resultat"); store.set("blanc_etat", "attente");
+      const ta = $("#blanc .editeur textarea");
+      if (ta) { ta.value = B.copie; ta.dispatchEvent(new Event("input")); }
+      vue(); window.scrollTo(0, 0);
+    };
+  }
+  $("#blanc-go").onclick = () => {
+    store.set("blanc_duree", $("#blanc-duree").value);
+    store.set("blanc_papier", $("#blanc-papier").checked ? "1" : "0");
+    store.set("blanc_debut", String(Date.now()));
+    store.set("blanc_etat", "encours");
+    vue(); window.scrollTo(0, 0);
+  };
+  $("#blanc-rendre").onclick = () => rendre(false);
+  vue();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   construireExos();
   PAGES = $$("section.page");
   construireNav();
   initQuizFinal();
+  initBlanc();
   $("#menuBtn").addEventListener("click", () => { $("#sidebar").classList.toggle("open"); $("#backdrop").classList.toggle("open"); });
   $("#backdrop").addEventListener("click", fermerMenu);
   $("#resetProg").addEventListener("click", () => {

@@ -3,6 +3,7 @@
 import sys, io, json, types, copy
 sys.path.insert(0, sys.argv[1] if len(sys.argv) > 1 else '.')
 from exos_data import EXOS
+from blanc_data import BLANC, copie_initiale
 
 # ------------------------------------------------------------------ traceur
 def tracer(code, filename, appel=None, prelude=None):
@@ -194,8 +195,19 @@ for e in EXOS:
         assert echoue_squelette(tr['squelette'], tr['tests']) > 0, (e['n'], j)
     exos.append(e)
 
+# examen blanc : toutes les solutions dans un même fichier, comme une copie
+copie_sol = "\n\n".join(e['solution'] for e in BLANC)
+tous = [t for e in BLANC for t in e['tests']]
+verifier(copie_sol, tous)
+assert echoue_squelette(copie_initiale(), tous) == len(tous) - sum(1 for t in tous if t[0].startswith('_apres'))
+for e in BLANC:
+    assert e['sig'].startswith(e['fn'] + '(')
+    for t in e['tests']:
+        assert e['fn'] in t[0]
+
 js = "/* Fichier généré par build.py : ne pas modifier à la main. */\n"
 js += "window.EXOS = " + json.dumps(exos, ensure_ascii=False) + ";\n"
+js += "window.BLANC = " + json.dumps({'exos': BLANC, 'copie': copie_initiale()}, ensure_ascii=False) + ";\n"
 js += "window.TRACES = " + json.dumps(traces, ensure_ascii=False) + ";\n"
 open(sys.argv[2] if len(sys.argv) > 2 else 'data.js', 'w', encoding='utf-8').write(js)
 print('OK', len(exos), 'exercices,', sum(len(e['entrainements']) for e in exos), 'entraînements,', len(traces), 'traces')

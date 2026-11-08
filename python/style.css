@@ -248,6 +248,23 @@ tr:last-child td{border-bottom:0}
 footer.pied{color:var(--muted);font-size:.82rem;text-align:center;padding:20px 0 0}
 .score{font-size:1.2rem;font-weight:850;color:var(--deep);margin:14px 0}
 
+/* examen blanc */
+.chrono-bar{position:sticky;top:60px;z-index:15;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--deep);color:#fff;border-radius:12px;padding:10px 14px;margin:14px 0;box-shadow:var(--shadow)}
+.chrono-bar #blanc-chrono{font-weight:800;font-variant-numeric:tabular-nums}
+.chrono-bar.fini{background:var(--bad)}
+.rappels{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 16px;margin:12px 0}
+.rappels summary{font-weight:750;color:var(--deep);cursor:pointer}
+.editeur.papier [data-a="run"]{display:none}
+.note-finale{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center;margin:16px 0;box-shadow:var(--shadow)}
+.note-finale .gros{font-size:3rem;font-weight:900;color:var(--deep);line-height:1.1}
+.corr{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden}
+.corr summary{padding:12px 16px;cursor:pointer;font-weight:750;color:var(--deep);display:flex;gap:10px;align-items:center}
+.corr summary .pts{margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap}
+.corr .cbody{padding:4px 16px 14px;border-top:1px solid var(--line)}
+.corr .tests{list-style:none;padding:0;margin:8px 0}
+.corr .tests li{font-size:.92rem;padding:4px 0;border-bottom:1px dashed var(--line)}
+.corr .tests .detail{font-family:var(--mono);font-size:13px;color:var(--muted);word-break:break-word}
+
 /* ---------- responsive ---------- */
 @media(max-width:900px){
   .layout{display:block}

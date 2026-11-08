@@ -42,7 +42,8 @@
   <a class="partie" href="#/ch0" data-prog="base"><div class="ph"><span class="pn">1</span><div><h3>Les bases <span class="badge cnt"></span></h3><p>Lancer du Python, variables, conditions, listes, boucles, fonctions. 6 chapitres.</p></div></div><div class="bar"><div></div></div></a>
   <a class="partie" href="#/ch6" data-prog="methode"><div class="ph"><span class="pn">2</span><div><h3>La méthode <span class="badge cnt"></span></h3><p>Reconnaître le type d'exercice et suivre une méthode qui marche à tous les coups. 2 chapitres.</p></div></div><div class="bar"><div></div></div></a>
   <a class="partie" href="#/ex1" data-prog="cc2"><div class="ph"><span class="pn">3</span><div><h3>Le contrôle CC2 corrigé <span class="badge cnt"></span></h3><p>Les 10 exercices du sujet, avec des aides progressives, la correction expliquée et 20 entraînements.</p></div></div><div class="bar"><div></div></div></a>
-  <a class="partie" href="#/quiz"><div class="ph"><span class="pn">4</span><div><h3>Pour réviser</h3><p>Quiz final, aide-mémoire sur une page, petit dictionnaire des mots de Python, sujet original.</p></div></div></a>
+  <a class="partie" href="#/blanc"><div class="ph"><span class="pn">4</span><div><h3>Examen blanc</h3><p>Un sujet inédit de 10 fonctions, en conditions réelles : chrono, sans aide, note sur 20 et correction.</p></div></div></a>
+  <a class="partie" href="#/quiz"><div class="ph"><span class="pn">5</span><div><h3>Pour réviser</h3><p>Quiz final, aide-mémoire sur une page, petit dictionnaire des mots de Python, sujet original.</p></div></div></a>
 </div>
 
 <div class="retenir"><b>Bon à savoir</b>
@@ -323,6 +324,7 @@ x = 42
 <ul>
 <li><code>L[1] = 20</code> remplace le contenu de la case 1. <code>L</code> devient <code>[5, 20, 3]</code>.</li>
 <li><code>L.append(7)</code> ajoute une case <strong>à la fin</strong>. <code>L</code> devient <code>[5, 20, 3, 7]</code>.</li>
+<li><code>L = L + [7]</code> fait la même chose : on colle à la fin une liste d'un seul élément. C'est la deuxième solution donnée en page 1 du sujet. Attention aux <strong>crochets</strong> autour de 7 : <code>L + 7</code> provoque une <code>TypeError</code> (on ne peut pas coller un nombre à une liste).</li>
 </ul>
 
 <h2>La technique clé du contrôle : partir d'une liste vide</h2>
@@ -685,6 +687,49 @@ print(Liste1[0:10])        # les 10 premiers nombres
 </section>
 
 <div id="exos-ici"></div>
+
+<!-- ============================================================ EXAMEN BLANC -->
+<section class="page" id="blanc" data-groupe="blanc" data-titre="Examen blanc" data-nav="Examen blanc (sujet inédit)">
+<div class="eyebrow">Conditions réelles</div>
+<h1>Examen blanc</h1>
+<p class="lead">Un sujet <strong>que tu n'as jamais vu</strong>, construit comme le CC2 : 10 fonctions sur les listes. Pas d'aide, un chrono, une seule copie. À la fin, tu obtiens ta note et la correction.</p>
+
+<div id="blanc-depart">
+<div class="objectifs"><b>Les règles</b><ul>
+<li>Tu écris toutes tes réponses dans <strong>un seul fichier</strong>, comme le jour du contrôle.</li>
+<li><strong>Aucune aide, aucun test automatique</strong> pendant l'épreuve. Tu peux seulement exécuter ton code et ajouter des <code>print(...)</code> pour vérifier toi-même.</li>
+<li>Quand tu as fini, ou quand le temps est écoulé, ta copie est <strong>corrigée automatiquement</strong> : 2 points par exercice, note sur 20.</li>
+<li>Ton code est enregistré au fur et à mesure : tu peux recharger la page sans rien perdre.</li>
+</ul></div>
+<div class="activite" style="display:grid;gap:12px">
+<label style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><strong>Durée :</strong>
+<select id="blanc-duree" style="border:1px solid var(--line);border-radius:9px;padding:6px 10px"><option value="45">45 minutes</option><option value="60" selected>1 heure</option><option value="90">1 h 30</option><option value="0">Sans limite</option></select></label>
+<label style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" id="blanc-papier" style="margin-top:6px"><span><strong>Mode papier</strong> : je ne peux pas exécuter mon code, comme pour une épreuve sur feuille.</span></label>
+<div><button type="button" class="btn primary" id="blanc-go">Commencer l'examen</button></div>
+</div>
+<p style="font-size:.92rem;color:var(--muted)">Conseil : fais d'abord les chapitres et quelques exercices du CC2. L'examen blanc sert à vérifier que tu sais faire <strong>seul</strong>, sur des fonctions nouvelles.</p>
+</div>
+
+<div id="blanc-epreuve" hidden>
+<div class="chrono-bar"><span id="blanc-chrono">⏱</span><button type="button" class="btn primary" id="blanc-rendre">Rendre ma copie</button></div>
+<details class="rappels"><summary>Rappels (comme en page 1 du sujet)</summary>
+<pre class="code">L = [5, 2, 3]          # une liste
+L[0]                   # premier élément (indice 0)
+len(L)                 # nombre d'éléments
+L.append(7)            # ajoute 7 à la fin
+L = L + [7]            # autre façon d'ajouter 7 à la fin
+for i in range(len(L)):    # parcours par indices
+    print(i, L[i])
+for x in L:                # parcours par valeurs
+    print(x)
+x // 2                 # quotient de la division entière
+x % 2                  # reste : 0 si x est pair</pre></details>
+<div class="editeur" data-key="blanc" data-titre="Ta copie"><textarea id="blanc-copie"></textarea></div>
+<div id="blanc-msg"></div>
+</div>
+
+<div id="blanc-resultat" hidden></div>
+</section>
 
 <!-- ============================================================ QUIZ -->
 <section class="page" id="quiz" data-groupe="bilan" data-titre="Quiz final">
