@@ -8,7 +8,7 @@ Le site est accessible via GitHub Pages : https://xseorkly.github.io/ysra-revisi
 
 ## Organisation
 
-- `index.html` : page d'accueil unique avec quatre blocs : **Sciences et enjeux environnementaux** (dossier `seves/`), **Géosciences 1 – Structure de la Terre** (site séparé : https://xseorkly.github.io/G-osciences1-Structure-de-la-Terre/), **Python pas à pas** (dossier `python/`) et **Devoirs de chimie** (dossier `chimie/`).
+- `index.html` : page d'accueil unique avec cinq blocs : **Sciences et enjeux environnementaux** (dossier `seves/`), **Géosciences 1 – Structure de la Terre** (site séparé : https://xseorkly.github.io/G-osciences1-Structure-de-la-Terre/), **Python pas à pas** (dossier `python/`), **SQL pas à pas** (site séparé : https://xseorkly.github.io/sql1/) et **Devoirs de chimie** (dossier `chimie/`).
 - `chimie/` : **Devoirs de chimie** (CPES L1), sujets et corrigés détaillés en PDF, téléchargeables depuis `chimie/index.html`.
   - `chimie/docs/` : chapitre 3 (corrigé du DM « Autour du limonène », devoir 2 h, devoir complet 3 h) chapitre 4 (devoir complet 3 h) et chapitre 5 (cours expliqué, contrôle commun et contrôle commun bis tiré de sujets de concours), chaque devoir en sujet seul et en corrigé ; `devoirs-chimie.zip` regroupe tous les PDF.
 - `seves/index.html` : le site de révision SEVES. Les anciens liens avec un `#` sont redirigés automatiquement.
