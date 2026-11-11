@@ -1,0 +1,32 @@
+name: Générer la fiche PDF des TP
+on:
+  push:
+    paths:
+      - 'tp-chimie-experimentale/essentiel.html'
+      - '.github/workflows/build-tp-pdf.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Installer la bibliothèque PDF
+        run: pip install weasyprint
+      - name: Convertir la fiche en PDF
+        run: weasyprint tp-chimie-experimentale/essentiel.html tp-chimie-experimentale/fiche-essentielle.pdf
+      - name: Publier le document
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tp-chimie-experimentale/fiche-essentielle.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Actualiser la fiche PDF de chimie"
+            git push
+          fi
