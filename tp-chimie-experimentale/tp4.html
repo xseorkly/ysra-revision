@@ -227,6 +227,7 @@ body{min-height:100vh}.site-nav{position:sticky;top:0;z-index:30;background:var(
 </dl></div>
 <div class="card keep"><h3>À retenir pour le QCM</h3><ul><li>Ka = [A⁻][H₃O⁺]/[AH] ; pH = pKa + log([A⁻]/[AH]).</li><li>pH = pKa quand [A⁻] = [AH].</li><li>Mesure à 610 nm : la forme A⁻ domine le signal ; négliger l’absorbance de AH est une approximation.</li><li>Valeur indiquée comme attendue dans le questionnaire : 4,2 ; référence tabulée : environ 4,0–4,1. Les distinguer.</li><li>Solution mère : volume non précis. Partage en deux : précis (même quantité de BBP). HCl et NaOH : précis (ne pas faire varier la concentration en BBP).</li><li>Acide fort : AH n'existe plus. Acide faible : proportions fixées par le pKa.</li><li>En milieu très basique : bleu au début, incolore après un certain temps.</li></ul></div>
 
+<div class="card quiz" id="qcm-tp4" data-quiz="tp4"><h3>Tous les QCM du TP 4</h3><p class="cap">Retrouve ici <strong>la totalité des questions de ce TP</strong> avec corrigés détaillés. L'ordre change à chaque nouvel essai, mais aucune question n'est omise.</p><div class="bar"><progress max="1" value="0"></progress><span class="score" aria-live="polite"></span><button type="button" class="ghost" data-act="reset">↻ Recommencer tous les QCM</button></div><div class="qs"></div></div>
 </section><div class="learning-panel" style="--c:var(--c4)"><h3>Entraînement et fiche essentielle</h3><p>Pour vérifier tes acquis, entraîne-toi sur un tirage renouvelé de 30 questions parmi les quatre TP.</p><div class="backline"><a href="entrainement.html">Je m’entraîne →</a><a href="essentiel.html">L’essentiel à connaître →</a><a href="index.html">← Menu des TP</a></div></div></main><script>
 const $=id=>document.getElementById(id),num=id=>parseFloat($(id).value.replace(',','.')),fr=(x,n=1)=>x.toFixed(n).replace('.',',');
 function on(ids,fn){ids.forEach(i=>$(i).addEventListener('input',fn));fn()}
@@ -259,4 +260,113 @@ for(const block of document.querySelectorAll('.learning-check[data-answer]')){
   feedback.className='learning-feedback '+(correct?'ok':'no');
  });
 }
-</script><footer><a href="index.html">← Retour au menu des TP</a> · <a href="../">Accueil général des révisions</a><p>Support pédagogique de révision. Les consignes du laboratoire et le cours officiel prévalent.</p></footer></body></html>
+</script><footer><a href="index.html">← Retour au menu des TP</a> · <a href="../">Accueil général des révisions</a><p>Support pédagogique de révision. Les consignes du laboratoire et le cours officiel prévalent.</p></footer><script>// ===== QCM =====
+const M='Moodle',B='Bonus';
+const QUIZ={
+tp1:[
+ {s:M,q:"La dureté totale ou degré hydrotimétrique T<sub>H</sub> correspond à :",o:["la somme des concentrations en Ca²⁺ et Mg²⁺","la concentration en Ca²⁺","la concentration en Mg²⁺"],a:[0],e:"On dose les deux ions ensemble : le TP donne leur somme."},
+ {s:M,q:"La dureté d'une eau s'exprime en : (plusieurs réponses)",o:["mg·L⁻¹ de CaCO₃ (seuls les Ca²⁺ sont concernés)","milliéquivalents·L⁻¹, concentration des charges + dues à Ca²⁺ et Mg²⁺","mg·L⁻¹ de Ca²⁺ et de Mg²⁺ présents dans la solution","mg·L⁻¹ de CaCO₃ (les Mg²⁺ étant pris en compte sous forme de MgCO₃ calculé en équivalents de CaCO₃)","degrés hydrotimétriques ou degrés français (°H ou °f), 10 mg·L⁻¹ de CaCO₃ correspondant à 1 °H"],a:[1,3,4],e:"Trois unités sont admises ; dans les mg/L de CaCO₃, le magnésium est compté en équivalent CaCO₃."},
+ {s:M+' (adaptée)',q:"Sur Moodle, il faut dessiner la forme complexante de l'EDTA. Laquelle est-ce ?",o:["La base tétra-déprotonée Y⁴⁻ : quatre groupes COO⁻ et deux azotes","L'acide H₄Y avec ses quatre groupes COOH","La forme H₂Y²⁻ avec deux COOH et deux COO⁻"],a:[0],e:"On dessine (⁻OOC–CH₂)₂N–CH₂–CH₂–N(CH₂–COO⁻)₂ : voir la formule dans « Réponses aux questions de l'énoncé »."},
+ {s:M,q:"L'EDTA est :",o:["l'acide éthylènediaminetétraacétique","l'éthylènediamine tétraacétate de sodium","l'acide triéthylènediacétique"],a:[0],e:"E-D-T-A : Éthylène Diamine Tétra Acétique."},
+ {s:M,q:"La base tétra-déprotonée de l'EDTA est un ligand hexadentate. Ses sites de liaison sont :",o:["4 COO⁻ / 2 NR₂","2 COO⁻ / 4 NR₂","3 COO⁻ / 3 NR₂"],a:[0],e:"Quatre carboxylates et deux azotes : six « dents »."},
+ {s:M,q:"Y⁴⁻ se combine avec les ions métalliques indépendamment de leur charge : a Mⁿ⁺ + b Y⁴⁻ → M<sub>a</sub>Y<sub>b</sub>. Les coefficients sont :",o:["a = 1 / b = 1","a = 3 / b = 2","a = 2 / b = 1"],a:[0],e:"Un EDTA entoure un seul ion : toujours 1 pour 1."},
+ {s:M,q:"Le NET libre change de couleur selon le pH. Quelle zone de pH est la plus favorable pour voir l'équivalence ?",o:["aux alentours de pH = 1","aux alentours de pH = 3","aux alentours de pH = 7","aux alentours de pH = 10","aux alentours de pH = 12"],a:[3],e:"Vers pH 10, le NET libre est bleu, bien distinct du rouge du NET complexé."},
+ {s:M,q:"Étalonnage d'une solution d'EDTA supposée à 2·10⁻² M par 20 mL de solution de zinc(II) à 10⁻² M. Volume d'EDTA attendu, en mL ?",n:10,tol:.05,e:"n(Zn) = 20 × 10⁻² = 0,2 mmol ; V = 0,2 / (2·10⁻²) = 10 mL."},
+ {s:B,q:"Avant l'équivalence, la solution dans l'erlenmeyer est :",o:["rouge, car le NET est complexé par les ions","bleue, car le NET est libre","incolore"],a:[0],e:"Le virage va du rouge au bleu."},
+ {s:B,q:"50 mL d'eau, EDTA à 0,010 mol/L, V<sub>éq</sub> = 12,5 mL. Dureté en °f ?",n:25,tol:.1,e:"Dans ces conditions T<sub>H</sub> = 2 × V<sub>éq</sub> = 25 °f."},
+ {s:B,q:"Une eau à 20 °f contient au total (Ca²⁺ + Mg²⁺) :",o:["2,0 mmol/L","0,20 mmol/L","20 mmol/L"],a:[0],e:"1 °f = 0,1 mmol/L, donc 20 °f = 2,0 mmol/L."},
+ {s:B,q:"On ajoute de l'eau distillée dans l'erlenmeyer après avoir prélevé les 50 mL. Le volume équivalent :",o:["ne change pas","augmente","diminue"],a:[0],e:"On dilue, mais la quantité d'ions à doser reste la même."},
+ {s:B,q:"Quelle verrerie pour prélever les 50 mL d'eau à analyser ?",o:["une pipette jaugée","un bécher","une éprouvette graduée"],a:[0],e:"Ce volume entre dans le calcul : il doit être précis."},
+ {s:B,q:"Étiquette : Ca²⁺ 80 mg/L et Mg²⁺ 26 mg/L (M = 40,1 et 24,3 g/mol). Dureté en °f ?",n:30.7,tol:.3,e:"80/40,1 + 26/24,3 = 2,00 + 1,07 = 3,07 mmol/L, soit 30,7 °f."},
+ {s:B,q:"Un adoucisseur d'eau :",o:["échange Ca²⁺ et Mg²⁺ contre des ions Na⁺ sur une résine","fait précipiter le calcaire avec de l'EDTA","retire tous les ions de l'eau"],a:[0],e:"C'est une résine échangeuse d'ions, régénérée à l'eau salée."},
+],
+tp2:[
+ {s:M,q:"Le sulfate de baryum est une espèce…",o:["volatile","soluble en solution aqueuse","solide en solution aqueuse"],a:[2],e:"C'est un précipité blanc très peu soluble."},
+ {s:M,q:"Quel est le rôle du tensio-actif dans cette expérience ?",o:["faciliter la précipitation du sulfate de baryum pour obtenir une solution limpide","maintenir le sulfate de baryum en suspension pour obtenir une solution trouble","maintenir le sulfate de baryum en suspension pour obtenir une solution limpide"],a:[1],e:"Le trouble doit rester homogène pour être mesuré."},
+ {s:M,q:"Rappeler la loi de Beer-Lambert (écrire la formule).",t:"A = ε.l.c",e:"Sur Moodle, la réponse doit être tapée exactement ainsi : <b>A = ε.l.c</b> (avec les espaces autour du signe = et les points)."},
+ {s:M,q:"Quelle est l'équation de la réaction de formation du sulfate de baryum ?",o:["Ba²⁺(aq) + 2 SO₄²⁻(aq) → Ba(SO₄)₂(s)","Ba²⁺ + SO₄²⁻ → BaSO₄","Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)","2 Ba²⁺(aq) + SO₄²⁻(aq) → Ba₂SO₄(s)"],a:[2],e:"1 pour 1, et il faut les états physiques."},
+ {s:M,q:"Quelle différence fait-on entre le chlorure d'hydrogène et l'acide chlorhydrique, tous deux de formule HCl ?",o:["aucune, c'est la même chose","le chlorure d'hydrogène est un gaz et l'acide chlorhydrique est la solution aqueuse obtenue en dissolvant ce gaz dans l'eau","le chlorure d'hydrogène est la solution de HCl la plus concentrée possible"],a:[1],e:"Gaz d'un côté, solution aqueuse de l'autre."},
+ {s:M,q:"Concentration d'une solution commerciale de HCl à 37 %, de densité 1,2 (M = 36,46 g·mol⁻¹) ?",o:["12,16 M","12,18 M","8,45 M"],a:[1],e:"1 200 g/L × 0,37 = 444 g/L ; 444 / 36,46 = 12,18 mol/L."},
+ {s:M+' (adaptée)',q:"Quels pictogrammes trouve-t-on sur un flacon d'acide chlorhydrique concentré ?",o:["corrosif seul","point d'exclamation + corrosif","bouteille de gaz + corrosif + tête de mort","une série de cinq pictogrammes différents"],a:[1],e:"Sur Moodle, les choix sont des images : prendre celle qui montre le point d'exclamation et le symbole corrosif."},
+ {s:M,q:"On mesure à 650 nm. Pourquoi ?",o:["C'est la longueur d'onde où l'absorption de la solution est maximale","C'est la longueur d'onde où l'absorption de la solution est minimale","C'est la longueur d'onde standard en turbidimétrie"],a:[0],e:"Réponse validée par Moodle. Le cours traite le trouble comme une solution colorée, d'où le raisonnement « maximum d'absorption »."},
+ {s:M,q:"Pourquoi agiter la solution juste avant la mesure ?",o:["pour que tout le sulfate de baryum soit en suspension","pour que le tensio-actif soit bien en solution","ça n'a aucun intérêt"],a:[0],e:"Sinon une partie du solide a décanté et le signal est trop faible."},
+ {s:B,q:"Une eau diluée 5 fois donne 18 mg/L sur la droite. Teneur de l'eau de départ, en mg/L ?",n:90,tol:.5,e:"18 × 5 = 90 mg/L."},
+ {s:B,q:"Droite d'étalonnage A = 0,012 × C (C en mg/L). L'échantillon donne A = 0,24. C en mg/L ?",n:20,tol:.2,e:"C = A / k = 0,24 / 0,012 = 20 mg/L."},
+ {s:B,q:"À quoi sert le tube témoin ?",o:["à faire le zéro : il contient les réactifs mais pas de sulfate","à vérifier que le baryum est en excès","à rincer la cuve"],a:[0],e:"On retire ainsi la contribution des réactifs."},
+ {s:B,q:"L'absorbance de l'eau dépasse celle du tube VI. Que faire ?",o:["diluer l'eau, refaire la mesure, multiplier par le facteur de dilution","prolonger la droite et lire quand même","changer de longueur d'onde"],a:[0],e:"La droite n'est valable que dans la gamme étalonnée (moins de 1,5 mg de sulfate dans la prise d'essai)."},
+ {s:B,q:"Étalon à 150 mg/L (exemple). Le tube III reçoit 5 mL d'étalon. Teneur équivalente pour 39 mL d'eau, en mg/L ?",n:19.2,tol:.2,e:"m = 150 × 0,005 = 0,75 mg ; 0,75 / 0,039 = 19,2 mg/L."},
+ {s:B,q:"L'unité du coefficient d'extinction molaire ε est :",o:["L·mol⁻¹·cm⁻¹","mol·L⁻¹·cm","cm·mol·L⁻¹"],a:[0],e:"A est sans unité : ε = A / (l·c)."},
+ {s:B,q:"« HCl au 1/10 » préparé à partir de l'acide à 12,18 mol/L a une concentration d'environ :",o:["1,2 mol/L","0,12 mol/L","121,8 mol/L"],a:[0],e:"1 volume d'acide pour 10 volumes au total : on divise par 10."},
+],
+tp3:[
+ {s:M,q:"Un oxydant est une espèce chimique qui :",o:["subit une oxydation, elle gagne des électrons","subit une réduction, elle perd des électrons","subit une réduction, elle gagne des électrons","subit une oxydation, elle perd des électrons"],a:[2],e:"L'oxydant prend des électrons : il est réduit."},
+ {s:M,q:"Un réducteur est une espèce chimique qui :",o:["subit une oxydation, elle gagne des électrons","subit une réduction, elle gagne des électrons","subit une oxydation, elle perd des électrons","subit une réduction, elle perd des électrons"],a:[2],e:"Le réducteur donne des électrons : il est oxydé."},
+ {s:M,q:"Quels sont les deux couples engagés dans la synthèse en milieu basique ? (deux réponses)",o:["Al³⁺/Al","H₂O/H₂","H⁺/H₂","K⁺/K","O₂/H₂O"],a:[0,1],e:"L'aluminium est oxydé, l'eau est réduite en H₂ (milieu basique : pas H⁺/H₂)."},
+ {s:M,q:"Demi-équation d'oxydation de la synthèse de l'aluminate de potassium :",o:["Al(s) + 3 e⁻ → Al³⁺(aq)","H₂(g) + 2 e⁻ → H⁺(aq)","Al(s) → Al³⁺(aq) + e⁻","H₂(g) → H⁺(aq) + 2 e⁻","Al(s) → Al³⁺(aq) + 3 e⁻"],a:[4],e:"Une oxydation libère des électrons (à droite), et Al passe de 0 à +III : 3 électrons."},
+ {s:M,q:"Demi-équation de réduction (milieu basique) :",o:["Al(s) → Al³⁺(aq) + 3 e⁻","2 H₂O(l) + 2 e⁻ → 2 HO⁻(aq) + H₂(g)","H₂(g) → 2 H⁺(aq) + 2 e⁻","H₂(g) + 2 e⁻ → 2 H⁺(aq)","Al(s) + 3 e⁻ → Al³⁺(aq)","2 HO⁻(aq) + 2 e⁻ → 2 H₂O(l) + H₂(g)"],a:[1],e:"L'eau capte les électrons et donne H₂ et HO⁻."},
+ {s:M,q:"Équation-bilan de la synthèse de l'aluminate de potassium :",o:["2 Al(s) + 6 H₂O(l) + 2 KOH(aq) → 2 KAl(OH)₄(aq) + 3 H₂(g)","Al(s) + H₂O(l) → Al³⁺(aq) + H₂(g)","Al(s) + 2 H₂O(l) → Al³⁺(aq) + H₂(g) + 2 HO⁻(aq)","2 Al(s) + 6 H₂O(l) → 2 Al³⁺(aq) + 3 H₂(g) + 6 HO⁻(aq)"],a:[0],e:"2 × l'oxydation + 3 × la réduction, puis on associe Al³⁺, HO⁻ et K⁺ en KAl(OH)₄."},
+ {s:M,q:"Équation de formation de l'alun à partir de l'aluminate de potassium :",o:["KAl(OH)₄(aq) + 2 H₂SO₄(aq) → KAl(SO₄)₂(s) + 4 H₂O(l)","KAl(OH)₄(aq) + H₂SO₄(aq) → KAl(SO₄)₂(s) + H₂O(l)","KAl(SO₄)₂(s) + 4 HO⁻(aq) → KAl(OH)₄(aq) + 2 SO₄²⁻(aq)"],a:[0],e:"Il faut 2 sulfates et 4 H⁺ pour neutraliser les 4 HO⁻."},
+ {s:M,q:"Formule de l'aluminate de potassium dans ce milieu :",o:["NaAl(OH)₄","NaAl₂O₄","KAl(OH)₄","NaAlO₂","KAlO₂","KAl₂O₄"],a:[2],e:"Potassium (K), et forme hydroxylée en solution aqueuse basique."},
+ {s:M,q:"Masse de KOH (en g) pour préparer 100 mL de solution à 1,40 mol·L⁻¹ ?",n:7.855,tol:.006,e:"m = C × V × M = 1,40 × 0,100 × 56,106 = 7,855 g. Moodle attend 7,855 (7,85 est refusé)."},
+ {s:M,q:"Qu'est-ce que la potasse ?",o:["une base appelée sulfate de sodium","le nom commun d'une base","un indicateur coloré","l'hydroxyde de potassium","le nom chimique du sel de cuisine"],a:[3],e:"Potasse = KOH, hydroxyde de potassium."},
+ {s:M,q:"Une formule du type KAl(SO₄)₂·12H₂O signifie :",o:["que 12 molécules d'eau sont emprisonnées dans la maille du cristal","que 12 molécules d'eau servent à solubiliser KAl(SO₄)₂","que KAl(SO₄)₂ est un liquide","que l'on a mal séché le produit"],a:[0],e:"C'est un hydrate : l'eau fait partie du cristal."},
+ {s:M,q:"Masse molaire de KAl(SO₄)₂·12H₂O, en g·mol⁻¹ ?",n:474.388,tol:.02,e:"39,098 + 26,982 + 2 × 96,06 + 12 × 18,015 = 474,388. Moodle attend cette valeur à trois décimales (474,4 est refusé)."},
+ {s:B,q:"Quantité de matière dans 1,00 g d'aluminium (M = 26,98 g/mol), en mol ?",n:.0371,tol:.0003,e:"n = m / M = 1,00 / 26,98 = 0,0371 mol."},
+ {s:B,q:"Masse théorique d'alun pour 1,00 g d'aluminium, en g ?",n:17.6,tol:.1,e:"0,0371 mol × 474,4 g/mol = 17,6 g (1 Al donne 1 alun)."},
+ {s:B,q:"On obtient 12,0 g d'alun sec pour 17,6 g théoriques. Rendement en % ?",n:68,tol:1,e:"12,0 / 17,6 × 100 = 68 %."},
+ {s:B,q:"Quel est le réactif limitant ?",o:["l'aluminium (0,037 mol)","la potasse (0,070 mol)","l'acide sulfurique (0,18 mol)"],a:[0],e:"KOH et H₂SO₄ sont en excès par rapport aux proportions de la réaction."},
+ {s:B,q:"À la première filtration sur Büchner (après la potasse), on garde :",o:["le filtrat, qui contient l'aluminate dissous","le solide noir resté sur le filtre","les deux"],a:[0],e:"Le solide est constitué d'impuretés ; à la seconde filtration, c'est l'inverse, on garde les cristaux."},
+ {s:B,q:"Le solide blanc qui apparaît puis disparaît quand on ajoute l'acide est :",o:["l'hydroxyde d'aluminium Al(OH)₃","l'alun","le sulfate de potassium"],a:[0],e:"Al(OH)₃ est amphotère : il se redissout dans l'excès d'acide."},
+ {s:B,q:"Pourquoi aucune flamme près du bécher pendant l'attaque par la potasse ?",o:["il se dégage du dihydrogène, inflammable","la potasse est inflammable","l'aluminium fond"],a:[0],e:"Les bulles sont du H₂."},
+ {s:B,q:"Un rendement de 108 % indique le plus souvent :",o:["des cristaux encore humides ou impurs","une réaction très efficace","un excès d'aluminium"],a:[0],e:"On ne peut pas dépasser 100 % de produit pur et sec."},
+],
+tp4:[
+ {s:M+' (adaptée)',q:"Pour H₂O(l) + AH(aq) ⇄ H₃O⁺(aq) + A⁻(aq), avec les activités, on peut écrire : (plusieurs réponses)",o:["Ka = a(A⁻)·a(H₃O⁺) / a(AH)","Ka = a(AH)·a(H₂O) / (a(A⁻)·a(H₃O⁺))","Ka = a(A⁻)·a(H₃O⁺) / (a(AH)·a(H₂O))","Ka = a(AH)·a(H₃O⁺) / a(A⁻)"],a:[0,2],e:"Produits sur réactifs. Les deux écritures sont justes car l'activité de l'eau (solvant) vaut 1."},
+ {s:M,q:"Pour la solution mère de BBP, le volume final doit-il être précis ?",o:["non, car on connaît la quantité de matière de BBP dans cette solution","oui, car on veut connaître précisément la concentration en BBP","non, la concentration en BBP de cette solution initiale n'est pas importante"],a:[2],e:"Seul compte le fait que A et B aient la même concentration."},
+ {s:M,q:"Expression de la concentration selon Beer-Lambert :",o:["c = A / (ε.l)","c = A.ε.l","c = A.l / ε"],a:[0],e:"A = ε.l.c, donc c = A / (ε.l)."},
+ {s:M,q:"Couleur du bleu de bromophénol en milieu très basique ? (plusieurs réponses)",o:["verte au bout d'un certain temps","initialement bleue","toujours jaune","incolore au bout d'un certain temps"],a:[1,3],e:"Bleue d'abord (forme A⁻), puis la solution se décolore lentement."},
+ {s:M,q:"Dans A = ε.l.c, l'unité de ε est :",o:["mol·L⁻¹·cm","mol⁻¹·L·cm⁻¹","cm·mol·L⁻¹"],a:[1],e:"A sans unité, l en cm, c en mol/L."},
+ {s:M,q:"Un acide est dit « faible » dans l'eau lorsque :",o:["AH n'existe plus en solution","AH et A⁻ sont dans les mêmes proportions","AH et A⁻ sont dans des proportions fixées par la valeur du pKa"],a:[2],e:"Un acide faible ne se dissocie pas totalement dans l’eau. Le rapport [A⁻]/[AH] dépend <b>à la fois du pH et du pKa</b> : [A⁻]/[AH] = 10^(pH−pKa). La proposition retenue dans le test est donc incomplète."},
+ {s:M,q:"Pour les deux solutions filles, le volume de solution initiale prélevé doit-il être précis ?",o:["oui, car il doit y avoir la même quantité de matière de BBP dans les deux solutions","non, car après l'ajout de HCl ou de NaOH les quantités de matière vont varier"],a:[0],e:"On compare leurs absorbances : même quantité de BBP obligatoire."},
+ {s:M,q:"Relation entre pH et pKa : (plusieurs réponses)",o:["pH = pKa + log([A⁻]/[AH])","pH = pKa − log([AH]/[A⁻])","pH = pKa + log([AH]/[A⁻])","pH = pKa − log([A⁻]/[AH])"],a:[0,1],e:"Les deux premières sont la même relation : log(x) = −log(1/x)."},
+ {s:M+' (adaptée)',q:"Pour AH(aq) + H₂O ⇄ A⁻(aq) + H₃O⁺(aq), la constante s'écrit :",o:["Ka = [A⁻]·[H₃O⁺] / [AH]","Ka = [AH]·[H₃O⁺] / [A⁻]","Ka = [AH] / ([A⁻]·[H₃O⁺])"],a:[0],e:"Produits au numérateur, réactif au dénominateur."},
+ {s:M,q:"Un acide AH est dit « fort » dans l'eau lorsque :",o:["AH et A⁻ sont présents dans les mêmes proportions","AH n'existe plus en solution","AH et A⁻ sont dans des proportions fixées par le pKa"],a:[1],e:"Dissociation totale."},
+ {s:M,q:"À quelle longueur d'onde mesure-t-on l'absorbance ?",o:["593 nm","500 nm","610 nm","436 nm"],a:[2],e:"610 nm, et non 593 nm (le maximum de A⁻) : à 610 nm, AH n'absorbe plus du tout."},
+ {s:M,q:"Valeur attendue du pKa du BBP ?",n:4.2,tol:.001,e:"Cette version du questionnaire attend 4,2 (tolérance stricte) ; PubChem indique pKa ≈ 4,0 et des données expérimentales citées par Canada.ca donnent 4,0–4,1. Ne pas confondre ces valeurs."},
+ {s:M,q:"Qu'est-ce qui justifie cette longueur d'onde ?",o:["seul AH absorbe et l'absorbance est fonction uniquement de AH","seul AH absorbe et l'absorbance est fonction uniquement de A⁻","seul A⁻ absorbe et l'absorbance est fonction uniquement de AH","A⁻ absorbe de façon prédominante et le signal renseigne principalement sur A⁻"],a:[3],e:"L'absorbance devient un compteur de forme bleue."},
+ {s:M,q:"Condition pour que pH = pKa ?",o:["[A⁻] = [AH]/2","[A⁻]/2 = [AH]","[A⁻] >> [AH]","[A⁻] = [AH]"],a:[3],e:"Rapport égal à 1, donc log = 0."},
+ {s:M,q:"Pourquoi les volumes de HCl (2 M) et de NaOH (2 M) doivent-ils être précis ?",o:["afin de ne pas faire varier les concentrations de BBP des solutions","ce n'est pas nécessaire, les quantités de BBP ne varient pas","pour avoir exactement la même quantité de BBP qui réagit avec HCl et avec NaOH","ce n'est pas grave, les deux réactifs sont largement en excès"],a:[0],e:"Même volume ajouté des deux côtés : même dilution, donc même concentration en BBP."},
+ {s:B,q:"A<sub>B</sub> = 1,20 ; A<sub>mélange</sub> = 0,90 ; pH du mélange = 4,50. pKa ?",n:4.02,tol:.02,e:"Fraction bleue 0,75, jaune 0,25, rapport 3 ; pKa = 4,50 − log 3 = 4,02."},
+ {s:B,q:"A<sub>mélange</sub> = A<sub>B</sub> / 2. Proportion de forme bleue A⁻ ?",o:["50 %","25 %","100 %"],a:[0],e:"L'absorbance à 610 nm est proportionnelle à [A⁻]."},
+ {s:B,q:"Couleur du BBP à pH = 2 ?",o:["jaune (forme AH)","bleue (forme A⁻)","verte"],a:[0],e:"En dessous de pH 3, la forme acide domine."},
+ {s:B,q:"pH de la solution A (1 mL de HCl 2 mol/L dans 250 mL) ?",n:2.1,tol:.06,e:"C = 2 × 1/250 = 8·10⁻³ mol/L ; pH = −log(8·10⁻³) = 2,1."},
+ {s:B,q:"Avec quoi règle-t-on le zéro du spectrophotomètre dans ce TP ?",o:["de l'eau distillée","la solution A","la solution B"],a:[0],e:"L’eau distillée est le blanc prescrit ici ; pour une mesure plus rigoureuse, un blanc de composition matricielle comparable peut être nécessaire."},
+ {s:B,q:"Longueur d'onde du maximum d'absorption de la forme bleue A⁻ ?",o:["593 nm","436 nm","650 nm"],a:[0],e:"436 nm est le maximum de la forme jaune AH."},
+]};
+
+const norm=x=>String(x).toLowerCase().replace(/[\s.·×*]/g,'');
+function okText(v){const m=norm(v).match(/^a=(.+)$/);return !!m&&[...m[1].replace('e','ε')].sort().join('')===[...'εlc'].sort().join('')}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function best(id,v){try{const k='tpchimie-best-'+id;if(v!==undefined){const o=+localStorage.getItem(k)||0;if(v>o)localStorage.setItem(k,v)}return +localStorage.getItem(k)||0}catch(e){return v||0}}
+function build(box){const id=box.dataset.quiz,qs=shuffle(QUIZ[id]),wrap=box.querySelector('.qs'),prog=box.querySelector('progress'),sc=box.querySelector('.score');
+ let done=0,good=0;wrap.innerHTML='';prog.max=qs.length;prog.value=0;
+ const show=()=>{sc.textContent=`${good} juste(s) sur ${done} répondue(s) · ${qs.length} questions`+(best(id)?` · meilleur score : ${best(id)}/${qs.length}`:'');prog.value=done;const n=document.getElementById('sc-'+id);if(n)n.textContent=best(id)?`${best(id)}/${qs.length}`:''};
+ qs.forEach((q,i)=>{const d=document.createElement('div');d.className='qz';const multi=q.a&&q.a.length>1;
+  let h=`<span class="src">${q.s}</span><div class="qh">${i+1}. ${q.q}</div>`;
+  if(q.o){const ord=shuffle(q.o.map((_,k)=>k));h+=ord.map(k=>`<label><input type="${multi?'checkbox':'radio'}" name="${id}-${i}" value="${k}">${q.o[k]}</label>`).join('')}
+  else h+=`<input type="text" inputmode="${q.t?'text':'decimal'}" aria-label="Ta réponse" placeholder="${q.t?'formule':'valeur'}">`;
+  h+=`<div><button type="button">Valider</button></div><div class="fb" aria-live="polite"></div>`;d.innerHTML=h;
+  d.querySelector('button').addEventListener('click',()=>{let ok,ans;
+   if(q.o){const sel=[...d.querySelectorAll('input:checked')].map(x=>+x.value);if(!sel.length)return;
+    ok=sel.length===q.a.length&&sel.every(v=>q.a.includes(v));
+    d.querySelectorAll('label').forEach(l=>{const v=+l.querySelector('input').value;if(q.a.includes(v))l.classList.add('good');else if(sel.includes(v))l.classList.add('bad')});
+    ans=q.a.map(k=>q.o[k]).join(' ; ')}
+   else{const v=d.querySelector('input').value.trim();if(!v)return;
+    if(q.t){ok=okText(v);ans=q.t}else{const x=parseFloat(v.replace(',','.'));ok=Math.abs(x-q.n)<=q.tol+1e-9;ans=String(q.n).replace('.',',')}}
+   d.querySelectorAll('input').forEach(x=>x.disabled=true);d.classList.add('done');done++;if(ok)good++;
+   d.querySelector(".fb").innerHTML=`<b class="${ok?"ok":"no"}">${ok?"Juste.":"Pas encore."}</b> ${ok?"":"Réponse attendue : <b>"+ans+"</b>. "}${q.e}${!ok&&q.o?"<p><strong>À comprendre :</strong> compare ta proposition avec la réponse attendue ; repère les mots-clés, les unités et les conditions qui font la différence.</p>":""}`;
+   if(done===qs.length)best(id,good);show()});
+  wrap.appendChild(d)});show()}
+document.querySelectorAll('.quiz').forEach(b=>{build(b);b.querySelector('[data-act=reset]').addEventListener('click',()=>{build(b);b.scrollIntoView({behavior:'smooth'})})});
+
+</script></body></html>
