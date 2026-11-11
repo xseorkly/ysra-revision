@@ -1,0 +1,271 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TP 1 — Dureté de l’eau — Chimie expérimentale L1</title><style>
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d2430;--mut:#5c6675;--line:#e2ddd2;--c1:#1f6fb5;--c2:#0f8a7e;--c3:#7a4bb8;--c4:#c27a0a;--soft:#f0ede5}
+@media(prefers-color-scheme:dark){:root{--bg:#14171c;--card:#1d2129;--ink:#e9ecf1;--mut:#9aa4b3;--line:#2e3440;--soft:#252a33;--c1:#62a8e6;--c2:#3fc4b5;--c3:#b18cf0;--c4:#f0b04a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header.top{padding:44px 20px 26px;text-align:center}
+header.top h1{font-size:clamp(1.7rem,4.5vw,2.6rem);margin:0 0 6px;letter-spacing:-.02em}
+header.top p{color:var(--mut);max-width:680px;margin:0 auto}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px}
+nav a{text-decoration:none;color:var(--ink);padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:600;font-size:.9rem}
+nav a.n1{border-color:var(--c1)}nav a.n2{border-color:var(--c2)}nav a.n3{border-color:var(--c3)}nav a.n4{border-color:var(--c4)}nav a small{color:var(--mut);font-weight:500}
+main{max-width:980px;margin:0 auto;padding:10px 16px 60px}
+section.tp{--c:var(--c1);margin:38px 0;scroll-margin-top:70px}
+#tp2{--c:var(--c2)}#tp3{--c:var(--c3)}#tp4{--c:var(--c4)}
+.tp>h2{font-size:clamp(1.35rem,3.4vw,1.9rem);margin:0 0 4px;display:flex;gap:12px;align-items:center;letter-spacing:-.01em}
+.tp>h2 span{background:var(--c);color:#fff;border-radius:10px;padding:2px 12px;font-size:.95rem;white-space:nowrap}
+.sub{color:var(--mut);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin:0 0 10px;font-size:1.08rem;color:var(--c)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.fig{background:var(--soft);border-radius:12px;padding:10px;text-align:center}
+.fig svg{width:100%;height:auto;max-height:330px}
+.fig figcaption,.cap{font-size:.85rem;color:var(--mut);margin-top:4px}
+figure{margin:0}
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+ol.steps li{counter-increment:s;background:var(--soft);border-radius:12px;padding:12px 14px 12px 50px;position:relative;font-size:.94rem}
+ol.steps li::before{content:counter(s);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;display:grid;place-items:center}
+ol.steps b{display:block}
+.eq{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;background:var(--soft);border-left:4px solid var(--c);padding:8px 14px;border-radius:6px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+.scroll{overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+th{background:var(--soft)}
+td:first-child,th:first-child{text-align:left}
+.qa dt{font-weight:700;margin-top:10px}
+.qa dd{margin:2px 0 0 0;padding-left:14px;border-left:3px solid var(--c)}
+.calc{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.calc label{font-size:.82rem;color:var(--mut);display:flex;flex-direction:column;gap:3px}
+.calc input{width:110px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.out{font-weight:700;color:var(--c);font-size:1.05rem;margin-top:10px}
+.note{font-size:.88rem;color:var(--mut);border:1px dashed var(--line);border-radius:10px;padding:9px 12px;margin-top:10px}
+.warn{border-left:4px solid #d1493f;background:var(--soft);padding:8px 12px;border-radius:6px;font-size:.92rem;margin:8px 0}
+.tag{display:inline-block;font-size:.76rem;border:1px solid var(--c);color:var(--c);border-radius:99px;padding:1px 9px;margin:0 4px 4px 0;font-weight:600}
+svg text{font-family:system-ui,sans-serif;fill:var(--ink)}
+footer{color:var(--mut);font-size:.85rem;text-align:center;padding:20px}
+
+/* Parcours débutant - ajout sans dépendance externe */
+.learning-intro{max-width:980px;margin:4px auto 14px;padding:0 16px}
+.learning-panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:14px 0;box-shadow:0 4px 20px #00000008}
+.learning-panel h2{font-size:1.5rem;margin:0 0 9px}
+.learning-panel h3{margin:0 0 10px;font-size:1.08rem;color:var(--c,var(--c1))}
+.learning-panel p{margin:8px 0}
+.learning-label{display:inline-block;padding:3px 10px;margin:0 0 10px;background:var(--soft);border:1px solid var(--line);font-size:.78rem;border-radius:30px;font-weight:750}
+.learning-kicker{color:var(--mut);font-size:.87rem}
+.learning-panel ul{padding-left:22px;margin:9px 0;line-height:1.7}
+.learning-panel li{margin:5px 0}
+.learning-steps{counter-reset:learn;list-style:none!important;padding-left:0!important;display:grid;gap:10px}
+.learning-steps>li{counter-increment:learn;position:relative;background:var(--soft);border-radius:12px;padding:13px 15px 13px 53px;margin:0}
+.learning-steps>li::before{content:counter(learn);position:absolute;left:13px;top:12px;display:grid;place-items:center;width:27px;height:27px;background:var(--c,var(--c1));border-radius:50%;color:#fff;font-weight:750}
+.learning-steps strong{display:block}
+.learning-example{padding:14px 17px;background:var(--soft);border-left:4px solid var(--c,var(--c1));border-radius:10px;overflow:auto}
+.learning-example .mathline{font:1.05rem/1.8 Georgia,serif;overflow-wrap:anywhere}
+.learning-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.learning-box{border:1px solid var(--line);border-radius:12px;padding:15px}
+.learning-box h4{margin:0 0 7px}
+.learning-panel details{border:1px solid var(--line);border-radius:11px;margin:9px 0;background:var(--card)}
+.learning-panel details summary{cursor:pointer;padding:12px 15px;font-weight:700;list-style-position:inside}
+.learning-panel details>div{padding:2px 15px 14px}
+.learning-panel .prompt{font-weight:650}
+.learning-check{display:block;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--soft);padding:13px 15px;margin:10px 0}
+.learning-check label{display:block;padding:5px 0;cursor:pointer}
+.learning-check input{accent-color:var(--c,var(--c1));margin-right:8px}
+.learning-check button{margin-top:9px;padding:8px 14px;border-radius:9px;background:var(--c,var(--c1));border:0;color:white;font:inherit;font-weight:650;cursor:pointer}
+.learning-feedback{min-height:24px;font-size:.9rem;font-weight:650;margin:8px 0 0}
+.learning-feedback.ok{color:#16825a}.learning-feedback.no{color:#ad4d32}
+.learning-panel .small{color:var(--mut);font-size:.88rem}
+.learning-hero{background:linear-gradient(135deg,#16334e,#126a74);color:#fff;border-radius:17px;padding:24px;margin-bottom:15px}
+.learning-hero h2{color:#fff;margin:0 0 8px}.learning-hero p{color:#edf4f5}
+.learning-hero a{color:#fff;text-decoration:underline}
+.learning-toc{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.learning-toc a{display:inline-block;padding:7px 11px;border-radius:99px;border:1px solid #ffffff80;background:#ffffff18;text-decoration:none;color:#fff;font-size:.85rem}
+.learning-panel figure{margin:14px 0}
+.learning-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:12px}
+.learning-compare>div{border:1px solid var(--line);border-radius:12px;padding:13px}
+.learning-compare h4{margin:0 0 5px}
+@media(max-width:520px){.learning-panel{padding:16px}.learning-hero{padding:17px}header.top{padding-top:25px}}
+@media print{nav,.quiz button,.learning-check button{display:none}.card,.learning-panel details,.qz{break-inside:avoid}}
+
+.lp-title{font-size:1.25rem;margin:0 0 6px;color:var(--ink)!important}
+.learning-panel{scroll-margin-top:70px}
+.learning-check{border:0}
+.learning-check legend{font-weight:650;padding:0;float:left;width:100%;margin-bottom:6px}.learning-check legend+*{clear:both}
+.exam{border-left:4px solid var(--c);background:var(--soft);padding:9px 13px;border-radius:6px;font-size:.93rem;margin:10px 0}
+.exam b:first-child{color:var(--c)}
+.keep ul{margin:0;padding-left:20px}.keep li{margin:4px 0}
+.quiz{scroll-margin-top:70px}
+.quiz .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 12px}
+.quiz .bar progress{flex:1;min-width:140px;height:12px;accent-color:var(--c)}
+.quiz button{padding:7px 13px;border-radius:9px;border:1px solid var(--c);background:var(--c);color:#fff;font:inherit;font-weight:650;cursor:pointer}
+.quiz button.ghost{background:transparent;color:var(--c)}
+.qz{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
+.qz .qh{font-weight:650;margin-bottom:6px}
+.qz .src{float:right;font-size:.72rem;border:1px solid var(--line);border-radius:99px;padding:0 8px;color:var(--mut);margin-left:8px;font-weight:600}
+.qz label{display:block;padding:5px 8px;border-radius:8px;cursor:pointer}
+.qz label:hover{background:var(--soft)}
+.qz input[type=radio],.qz input[type=checkbox]{accent-color:var(--c);margin-right:8px}
+.qz input[type=text]{padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;width:170px}
+.qz label.good{background:#1a8f5f22;outline:1px solid #1a8f5f}
+.qz label.bad{background:#c0452f22;outline:1px solid #c0452f}
+.qz .fb{font-size:.92rem;margin-top:8px;display:none}
+.qz.done .fb{display:block}
+.qz .fb b.ok{color:#16825a}.qz .fb b.no{color:#b5482f}
+.qz.done button{display:none}
+
+.home-return{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#14314c!important;text-decoration:none;font-weight:750;border-radius:99px;padding:10px 17px;box-shadow:0 2px 12px #0001;margin-bottom:16px}
+.home-return:hover,.home-return:focus-visible{outline:3px solid #0f8a7e;outline-offset:2px}
+.footer-return{display:inline-block;margin:12px;padding:9px 16px;border:1px solid var(--line);border-radius:20px;color:var(--ink)}
+.science-note{border-left:4px solid var(--c,var(--c1));background:var(--soft);border-radius:10px;padding:12px 15px;margin:12px 0}
+.science-note strong{display:block;margin-bottom:5px}
+@media print{.home-return,.footer-return{display:none}}
+
+body{min-height:100vh}.site-nav{position:sticky;top:0;z-index:30;background:var(--bg);display:flex;justify-content:center;flex-wrap:wrap;gap:7px;padding:12px 10px;border-bottom:1px solid var(--line)}
+.site-nav a{border-radius:99px;border:1px solid var(--line);background:var(--card);padding:7px 13px;text-decoration:none;color:var(--ink);font-size:.85rem;font-weight:700}.site-nav a[aria-current="page"]{background:#173b55;color:#fff}
+.hub{max-width:1060px;margin:24px auto 65px;padding:0 16px}.hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:17px}
+.hub-card{display:block;padding:22px;background:var(--card);border:1px solid var(--line);border-radius:17px;text-decoration:none;color:var(--ink);box-shadow:0 4px 18px #0001}.hub-card:hover{border-color:var(--c2);transform:translateY(-2px)}
+.hub-card h2{margin:8px 0;font-size:1.22rem}.hub-card p{color:var(--mut);margin:6px 0 12px}.hub-card strong{color:var(--c1)}
+.hub-flag{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800;color:var(--c2)}
+.backline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 0 0}.backline a{color:var(--c1);font-weight:700}
+@media print{.site-nav,.backline,.hub-action{display:none}}
+</style></head><body><header class="top"><h1>TP 1 — Dureté de l’eau</h1><p>EDTA, équivalence, ions Ca²⁺ et Mg²⁺</p></header><nav class="site-nav" aria-label="Navigation des TP"><a href="index.html" >⌂ Menu des TP</a><a href="tp1.html" aria-current="page">TP 1</a><a href="tp2.html" >TP 2</a><a href="tp3.html" >TP 3</a><a href="tp4.html" >TP 4</a><a href="essentiel.html" >Fiche essentielle</a><a href="entrainement.html" >Je m’entraîne</a><a href="../">Accueil général</a></nav><main><section class="tp" id="tp1">
+<h2><span>TP 1</span> Analyse de l'eau : la dureté</h2>
+<p class="sub">Dosage de Ca²⁺ et Mg²⁺ par l'EDTA (complexométrie) + mesure du pH</p>
+<span class="tag">Complexométrie</span><span class="tag">Titrage colorimétrique</span><span class="tag">pH-métrie</span>
+
+<section class="learning-panel" id="apprendre-tp1" style="--c:var(--c1)"><span class="learning-label">COMPRENDRE AVANT DE MANIPULER · TP 1</span>
+
+<h3 class="lp-title">TP 1 — Comprendre le dosage de la dureté de l’eau</h3>
+<p class="learning-kicker">Objectif : expliquer le changement de couleur et calculer la dureté à partir d'un volume lu sur la burette.</p>
+<h3>A. Que mesure-t-on exactement ?</h3>
+<p>L'eau contient notamment des ions <b>calcium Ca²⁺</b> et <b>magnésium Mg²⁺</b>. Une eau est dite « dure » quand leur quantité totale est élevée. Le TP mesure <b>leur somme</b> : il ne permet pas, à lui seul, de dire quelle part correspond au calcium et quelle part correspond au magnésium.</p>
+<h3>B. Pourquoi verse-t-on de l'EDTA ?</h3>
+<p>Imagine l'EDTA comme une pince moléculaire. Chaque pince retient <b>un seul ion métallique</b>, qu'il s'agisse ici de Ca²⁺ ou de Mg²⁺. On connaît la concentration de l'EDTA et on mesure le volume nécessaire pour capter tous les ions : cela permet de « compter » ces ions indirectement.</p>
+<ol class="learning-steps"><li><strong>On prépare un prélèvement précis d'eau.</strong>50 mL de l'eau à doser contiennent une quantité inconnue de Ca²⁺ et Mg²⁺. Ce volume est indispensable au calcul final.</li><li><strong>On ajoute le tampon de pH et le NET.</strong>Le pH proche de 10 rend le dosage adapté au couple EDTA/ions et au fonctionnement de l'indicateur. Le NET est rouge lorsqu'il est associé aux ions métalliques dans les conditions du dosage.</li><li><strong>On ajoute lentement l'EDTA.</strong>L'EDTA capte les ions progressivement. Près de l'équivalence, une seule goutte peut changer l'aspect de la solution.</li><li><strong>On arrête au bleu durable.</strong>Le NET libéré prend sa forme bleue : on relève le volume d'EDTA versé. C'est le <b>volume à l'équivalence V<sub>éq</sub></b>.</li></ol>
+<div class="learning-example"><b>C. Calcul complet, ligne par ligne</b><p>Exemple d'entraînement : 50,0 mL d'eau ; EDTA à 0,0100 mol/L ; volume à l'équivalence : 15,0 mL.</p>
+<p class="mathline">1. Convertir : V<sub>EDTA</sub> = 15,0 / 1 000 = 0,0150 L.</p>
+<p class="mathline">2. Trouver la quantité d'EDTA : n = C × V = 0,0100 × 0,0150 = 0,000150 mol.</p>
+<p class="mathline">3. Une mole d'EDTA fixe une mole d'ions au total : n(Ca²⁺ + Mg²⁺) = 0,000150 mol.</p>
+<p class="mathline">4. Diviser par <b>le volume initial d'eau</b> : 50,0 mL = 0,0500 L.</p>
+<p class="mathline">5. C<sub>total</sub> = 0,000150 / 0,0500 = 0,00300 mol/L = 3,00 mmol/L.</p>
+<p class="mathline">6. Conversion en degrés français : T<sub>H</sub> = 10 × 3,00 = <b>30,0 °f</b>.</p>
+<p>Contrôle de cohérence : avec les conditions de l'énoncé (50 mL d'eau et EDTA 0,010 mol/L), on retrouve la formule rapide T<sub>H</sub> (°f) = 2 × V<sub>éq</sub> (mL).</p></div>
+<div class="learning-compare"><div><h4>Ce qui ne change pas le résultat théorique</h4><p>Ajouter de l'eau distillée dans l'erlenmeyer <b>après</b> avoir prélevé les 50 mL : on dilue, mais la quantité totale des ions présents reste identique.</p></div><div><h4>Ce qui peut fausser la mesure</h4><p>Une burette mal lue, une bulle dans son embout, un arrêt avant/après le virage, un prélèvement initial incorrect ou un pH mal réglé.</p></div></div>
+<details><summary>Pourquoi faut-il faire plusieurs dosages ?</summary><div>Parce que la lecture du virage et du volume présente de petites variations. Des résultats concordants renforcent la fiabilité ; on peut ensuite calculer une moyenne et discuter la dispersion.</div></details>
+<details><summary>Pourquoi ne divise-t-on pas par le volume total du mélange dans l'erlenmeyer ?</summary><div>Parce qu'on cherche la concentration dans <b>l'eau prélevée avant toute addition</b>, pas la concentration dans le mélange final avec tampon et eau distillée.</div></details>
+<fieldset class="learning-check" data-answer="b"><legend class="prompt">Vérification : si 50 mL d'eau nécessitent 8 mL d'EDTA à 0,010 mol/L, quelle dureté obtient-on ?</legend><label><input type="radio" name="q-tp1" value="a"> 8 °f</label><label><input type="radio" name="q-tp1" value="b"> 16 °f</label><label><input type="radio" name="q-tp1" value="c"> 80 °f</label><button type="button">Corriger ma réponse</button><div class="learning-feedback" aria-live="polite"></div><details><summary>Voir la correction détaillée</summary><div>Avec cette concentration et ce prélèvement : T<sub>H</sub> = 2 × V<sub>éq</sub> = 2 × 8 = <b>16 °f</b>.</div></details></fieldset>
+
+</section>
+
+<div class="card"><h3>L'énoncé en résumé</h3>
+<p>L'eau contient des sels dissous. Une eau « dure » (riche en calcium et magnésium) peut favoriser les dépôts de tartre selon les conditions. Le but est de mesurer la <b>dureté totale</b> (titre hydrotimétrique T<sub>H</sub>) d'une eau minérale, c'est-à-dire la somme [Ca²⁺] + [Mg²⁺], puis de mesurer son pH et de comparer aux valeurs calculées avec l'étiquette.</p>
+<p>La dureté s'exprime en mg/L de CaCO₃, en degrés français (°f, 1 °f = 10 mg/L de CaCO₃) ou en milliéquivalents/L.</p></div>
+
+<div class="card"><h3>Le principe, simplement</h3>
+<div class="grid">
+<div>
+<p>L'<b>EDTA</b> est une molécule « pince » : elle attrape un ion Ca²⁺ ou Mg²⁺ et forme un complexe très stable, <b>1 EDTA pour 1 ion</b>.</p>
+<div class="eq">Ca²⁺ + Y⁴⁻ → CaY²⁻ &nbsp;&nbsp; Mg²⁺ + Y⁴⁻ → MgY²⁻</div>
+<p>L'indicateur, le <b>noir ériochrome T (NET)</b>, se fixe aussi sur ces ions : complexé il est <b>rouge</b>, libre il est <b>bleu</b>. Avant l’équivalence, l’indicateur est majoritairement complexé et la solution reste rouge. Quand l'EDTA les a tous pris (y compris ceux de l'indicateur), elle vire au bleu : c'est l'<b>équivalence</b>.</p>
+<p>Le tampon pH ≈ 10 est indispensable : l'EDTA ne complexe bien qu'en milieu basique, et le NET n'a ces couleurs qu'à ce pH.</p>
+</div>
+<figure class="fig">
+<svg viewBox="0 0 360 300" role="img" aria-label="Titrage à la burette : rouge avant l'équivalence, bleu après">
+<rect x="78" y="10" width="14" height="150" fill="none" stroke="currentColor" stroke-width="2"/><rect x="80" y="40" width="10" height="118" fill="#bcd6ee"/>
+<g stroke="currentColor"><line x1="92" y1="40" x2="98" y2="40"/><line x1="92" y1="70" x2="98" y2="70"/><line x1="92" y1="100" x2="98" y2="100"/><line x1="92" y1="130" x2="98" y2="130"/></g>
+<path d="M82 160 L88 160 L86 185 L84 185Z" fill="currentColor"/><circle cx="85" cy="196" r="3" fill="#bcd6ee"/>
+<text x="104" y="60" font-size="12">EDTA 10⁻² mol/L</text>
+<path d="M65 215 L105 215 L135 280 L35 280Z" fill="#d6455a" stroke="currentColor" stroke-width="2"/><rect x="72" y="200" width="26" height="16" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="85" y="296" font-size="12" text-anchor="middle">avant : rouge</text>
+<path d="M190 250 h40" stroke="currentColor" stroke-width="2"/><path d="M230 250 l-8 -5 v10z" fill="currentColor"/><text x="210" y="240" font-size="11" text-anchor="middle">V = V<tspan baseline-shift="sub" font-size="8">éq</tspan></text>
+<path d="M265 215 L305 215 L335 280 L235 280Z" fill="#3b78d8" stroke="currentColor" stroke-width="2"/><rect x="272" y="200" width="26" height="16" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="285" y="296" font-size="12" text-anchor="middle">après : bleu</text>
+<text x="230" y="120" font-size="12" text-anchor="middle">50 mL d'eau + eau distillée</text><text x="230" y="137" font-size="12" text-anchor="middle">+ 10 mL tampon pH 10</text><text x="230" y="154" font-size="12" text-anchor="middle">+ 5 gouttes de NET</text>
+</svg><figcaption>Le virage rouge → bleu marque l'équivalence.</figcaption></figure>
+</div></div>
+
+<div class="card"><h3>Le protocole pas à pas</h3>
+<ol class="steps">
+<li><b>Estimer avant de doser</b>Avec l'étiquette, calculer le volume d'EDTA attendu : on sait ainsi où ralentir.</li>
+<li><b>Prélever 50 mL d'eau</b>À la pipette jaugée (mesure précise), dans un erlenmeyer de 250 mL.</li>
+<li><b>Compléter à ~100 mL</b>Avec de l'eau distillée, à l'éprouvette : volume non précis, il ne change pas la quantité d'ions.</li>
+<li><b>Tampon + indicateur</b>~10 mL de tampon pH ≈ 10 et 5 gouttes de NET : la solution devient rouge.</li>
+<li><b>Titrer à la burette</b>Verser l'EDTA 10⁻² mol/L jusqu'au bleu franc. Noter V<sub>éq</sub>. (La solution d'EDTA est elle-même étalonnée avec une solution de zinc(II) de concentration connue.)</li>
+<li><b>Témoin de teinte</b>100 mL d'eau distillée + 10 mL tampon + 5 gouttes de NET : c'est le bleu de référence à atteindre.</li>
+<li><b>Recommencer</b>Au moins 2 à 3 dosages concordants, puis faire la moyenne.</li>
+<li><b>Mesurer le pH</b>Au pH-mètre étalonné, directement dans l'eau minérale.</li>
+</ol></div>
+
+<div class="card"><h3>Résultats et calculs</h3>
+<p>À l'équivalence, la quantité d'EDTA versée est égale à la quantité totale d'ions :</p>
+<div class="eq">[Ca²⁺] + [Mg²⁺] = C<sub>EDTA</sub> × V<sub>éq</sub> / V<sub>eau</sub></div>
+<p>Comme 1 mmol/L = 10 °f, avec 50 mL d'eau et de l'EDTA à 10⁻² mol/L on obtient simplement <b>T<sub>H</sub> (°f) = 2 × V<sub>éq</sub> (mL)</b>.</p>
+<div class="scroll"><table>
+<tr><th>Eau (étiquette indicative)</th><th>Ca²⁺ mg/L</th><th>Mg²⁺ mg/L</th><th>Ca+Mg mmol/L</th><th>T<sub>H</sub> °f</th><th>V<sub>éq</sub> attendu</th></tr>
+<tr><td>Volvic</td><td>12</td><td>8</td><td>0,63</td><td>6,3</td><td>≈ 3,1 mL</td></tr>
+<tr><td>Évian</td><td>80</td><td>26</td><td>3,07</td><td>30,7</td><td>≈ 15,3 mL</td></tr>
+<tr><td>Contrex</td><td>468</td><td>74,5</td><td>14,7</td><td>147</td><td>≈ 74 mL (trop : prélever moins d'eau)</td></tr>
+<tr><td>Eau distillée</td><td>0</td><td>0</td><td>0</td><td>0</td><td>bleu dès la 1ʳᵉ goutte</td></tr>
+</table></div>
+<p class="cap">Calcul : mmol/L = mg/L ÷ masse molaire (Ca : 40,1 g/mol ; Mg : 24,3 g/mol). Vérifie les valeurs sur l'étiquette de ta bouteille.</p>
+<div class="calc">
+<label>V<sub>éq</sub> (mL)<input id="d_v" type="number" step="0.1" value="3.1"></label>
+<label>V eau (mL)<input id="d_e" type="number" value="50"></label>
+<label>C EDTA (mol/L)<input id="d_c" type="number" step="0.001" value="0.01"></label>
+</div><div class="out" id="d_out"></div>
+<figure class="fig" style="margin-top:12px">
+<svg viewBox="0 0 600 90" role="img" aria-label="Échelle de dureté de l'eau">
+<rect x="20" y="20" width="93" height="26" fill="#9fd3f5"/><rect x="113" y="20" width="107" height="26" fill="#7fc7a6"/><rect x="220" y="20" width="133" height="26" fill="#f0d266"/><rect x="353" y="20" width="227" height="26" fill="#ef9a5a"/>
+<g font-size="11" text-anchor="middle"><text x="66" y="37" fill="#123">très douce</text><text x="166" y="37" fill="#123">douce</text><text x="286" y="37" fill="#123">moyennement dure</text><text x="466" y="37" fill="#123">dure à très dure</text>
+<text x="20" y="62">0</text><text x="113" y="62">7</text><text x="220" y="62">15</text><text x="353" y="62">25</text><text x="580" y="62">42 °f et +</text></g>
+<path id="d_mark" d="M0 18 l-7 -12 h14z" fill="currentColor"/>
+</svg><figcaption>Où se situe ton eau (repères usuels en degrés français).</figcaption></figure>
+</div>
+
+<div class="card"><h3>Réponses aux questions de l'énoncé</h3>
+<dl class="qa">
+<dt>Formule de l'EDTA et du NET ?</dt><dd>EDTA = acide éthylènediaminetétraacétique : (HOOC–CH₂)₂N–CH₂–CH₂–N(CH₂–COOH)₂, un tétraacide noté H₄Y, avec 6 sites qui s'accrochent au métal (2 azotes, 4 oxygènes). La forme qui complexe est la base tétra-déprotonée Y⁴⁻ (ligand hexadentate : 4 COO⁻ et 2 azotes) :<br><svg id="edta" viewBox="0 0 400 250" style="width:100%;max-width:380px" role="img" aria-label="Formule topologique de l'EDTA tétra-déprotoné"></svg><br> Le NET est un colorant azoïque (–N=N–) portant deux groupes naphtol et un groupe sulfonate.</dd>
+<dt>Quelle forme du NET est bleue ?</dt><dd>La forme <b>libre</b> (à pH 10). La forme complexée avec Mg²⁺/Ca²⁺ est rouge.</dd>
+<dt>Retrouver les °f à partir des mg/L de l'étiquette ?</dt><dd>T<sub>H</sub> (°f) = 10 × (Ca/40,1 + Mg/24,3) avec Ca et Mg en mg/L. Volvic : 10 × (0,30 + 0,33) ≈ 6,3 °f.</dd>
+<dt>Qu'est-ce qu'un adoucisseur ?</dt><dd>Une résine échangeuse d'ions : elle retient Ca²⁺ et Mg²⁺ et relâche des ions Na⁺ à la place. On la régénère avec de l'eau salée.</dd>
+<dt>Pourquoi des phosphates dans les lessives ?</dt><dd>Ils complexent Ca²⁺ et Mg²⁺ : l'eau est « adoucie » et le détergent reste efficace. Rejetés dans les rivières, ils provoquent l'eutrophisation, d'où leur limitation.</dd>
+<dt>Peut-on calculer le pH avec l'étiquette ?</dt><dd>Pas à partir de l’étiquette seule. Dans un modèle simplifié, une solution de bicarbonate isolée peut conduire à pH ≈ ½(pKa₁ + pKa₂) ≈ 8,3 ; ce n’est pas une formule générale pour les eaux minérales. Le CO₂ dissous, l’alcalinité, la température et les échanges avec l’air modifient le pH. Il faut mesurer le pH au pH-mètre.</dd>
+</dl></div>
+<div class="card keep"><h3>À retenir pour le QCM</h3><ul><li>T<sub>H</sub> = somme des concentrations en Ca²⁺ et Mg²⁺.</li><li>Trois unités : mg/L de CaCO₃ (Mg compté en équivalent CaCO₃), degrés français (1 °f = 10 mg/L de CaCO₃), milliéquivalents/L.</li><li>EDTA = acide éthylènediaminetétraacétique ; forme complexante Y⁴⁻, hexadentate (4 COO⁻ / 2 N).</li><li>Complexation toujours 1 pour 1, quelle que soit la charge du métal.</li><li>NET : rouge quand il est complexé, bleu quand il est libre ; on travaille vers pH = 10.</li><li>À l'équivalence : C<sub>EDTA</sub> × V<sub>éq</sub> = C<sub>ions</sub> × V<sub>eau</sub>.</li></ul></div>
+
+</section><div class="learning-panel" style="--c:var(--c1)"><h3>Entraînement et fiche essentielle</h3><p>Pour vérifier tes acquis, entraîne-toi sur un tirage renouvelé de 30 questions parmi les quatre TP.</p><div class="backline"><a href="entrainement.html">Je m’entraîne →</a><a href="essentiel.html">L’essentiel à connaître →</a><a href="index.html">← Menu des TP</a></div></div></main><script>
+const $=id=>document.getElementById(id),num=id=>parseFloat($(id).value.replace(',','.')),fr=(x,n=1)=>x.toFixed(n).replace('.',',');
+function on(ids,fn){ids.forEach(i=>$(i).addEventListener('input',fn));fn()}
+// TP1
+on(['d_v','d_e','d_c'],()=>{const vd=num("d_v"),ve=num("d_e"),edta=num("d_c");const c=edta*vd/ve*1000;const th=c*10;
+ if(!Number.isFinite(th)||vd<0||ve<=0||edta<=0){$("d_out").textContent="Entrer des valeurs valides : V eau > 0 ; C EDTA > 0 ; V équivalence ≥ 0.";return}
+ const q=th<7?'très douce':th<15?'douce':th<25?'moyennement dure':th<42?'dure':'très dure';
+ $('d_out').textContent=`[Ca²⁺] + [Mg²⁺] = ${fr(c,2)} mmol/L → TH = ${fr(th)} °f = ${fr(th*10,0)} mg/L de CaCO₃ (eau ${q})`;
+ const t=Math.min(th,42);const x=t<7?20+t/7*93:t<15?113+(t-7)/8*107:t<25?220+(t-15)/10*133:353+(t-25)/17*227;
+ $('d_mark').setAttribute('transform',`translate(${x},0)`)});
+
+// ===== Formule de l'EDTA(4-) =====
+(function(){const el=document.getElementById('edta');if(!el)return;
+ const A=[['N',0,0],['',1.3,.75],['',2.6,0],['N',3.9,.75],['',-1.3,.75],['',-2.6,0],['O',-2.6,-1.5],['O⁻',-3.9,.75],['',0,-1.5],['',1.3,-2.25],['O',1.3,-3.75],['O⁻',2.6,-1.5],['',5.2,0],['',6.5,.75],['O',6.5,2.25],['O⁻',7.8,0],['',3.9,2.25],['',2.6,3],['O',2.6,4.5],['O⁻',1.3,2.25]];
+ const B=[[1,2,1],[2,3,1],[3,4,1],[1,5,1],[5,6,1],[6,7,2],[6,8,1],[1,9,1],[9,10,1],[10,11,2],[10,12,1],[4,13,1],[13,14,1],[14,15,2],[14,16,1],[4,17,1],[17,18,1],[18,19,2],[18,20,1]];
+ const px=x=>150+x*27,py=y=>132-y*27;let h='';
+ B.forEach(b=>{const p=A[b[0]-1],q=A[b[1]-1];let x1=px(p[1]),y1=py(p[2]),x2=px(q[1]),y2=py(q[2]);const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L;
+  if(p[0]){x1+=ux*9;y1+=uy*9}if(q[0]){x2-=ux*10;y2-=uy*10}
+  h+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="currentColor" stroke-width="1.8"/>`;
+  if(b[2]==2)h+=`<line x1="${x1-uy*4}" y1="${y1+ux*4}" x2="${x2-uy*4}" y2="${y2+ux*4}" stroke="currentColor" stroke-width="1.8"/>`});
+ A.forEach(a=>{if(a[0])h+=`<text x="${px(a[1])}" y="${py(a[2])+5}" font-size="14" text-anchor="middle" font-weight="700" style="fill:${a[0]=='N'?'#2f5fd0':'#d1281f'}">${a[0]}</text>`});
+ el.innerHTML=h})();
+
+</script><script>
+// Auto-évaluations autonomes du parcours débutant
+for(const block of document.querySelectorAll('.learning-check[data-answer]')){
+ const button=block.querySelector('button');
+ button.addEventListener('click',()=>{
+  const selected=block.querySelector('input[type=radio]:checked');
+  const feedback=block.querySelector('.learning-feedback');
+  if(!selected){feedback.textContent='Choisis d’abord une réponse.';feedback.className='learning-feedback no';return;}
+  const correct=selected.value===block.dataset.answer;
+  feedback.textContent=correct?'Bravo ! La réponse est correcte. Tu peux ouvrir la correction pour voir le raisonnement.':'Pas encore. Relis le calcul et réessaie ; la correction détaillée est disponible juste en dessous.';
+  feedback.className='learning-feedback '+(correct?'ok':'no');
+ });
+}
+</script><footer><a href="index.html">← Retour au menu des TP</a> · <a href="../">Accueil général des révisions</a><p>Support pédagogique de révision. Les consignes du laboratoire et le cours officiel prévalent.</p></footer></body></html>
