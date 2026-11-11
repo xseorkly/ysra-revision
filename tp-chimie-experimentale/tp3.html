@@ -1,0 +1,252 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TP 3 — Synthèse de l’alun — Chimie expérimentale L1</title><style>
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d2430;--mut:#5c6675;--line:#e2ddd2;--c1:#1f6fb5;--c2:#0f8a7e;--c3:#7a4bb8;--c4:#c27a0a;--soft:#f0ede5}
+@media(prefers-color-scheme:dark){:root{--bg:#14171c;--card:#1d2129;--ink:#e9ecf1;--mut:#9aa4b3;--line:#2e3440;--soft:#252a33;--c1:#62a8e6;--c2:#3fc4b5;--c3:#b18cf0;--c4:#f0b04a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header.top{padding:44px 20px 26px;text-align:center}
+header.top h1{font-size:clamp(1.7rem,4.5vw,2.6rem);margin:0 0 6px;letter-spacing:-.02em}
+header.top p{color:var(--mut);max-width:680px;margin:0 auto}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px}
+nav a{text-decoration:none;color:var(--ink);padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:600;font-size:.9rem}
+nav a.n1{border-color:var(--c1)}nav a.n2{border-color:var(--c2)}nav a.n3{border-color:var(--c3)}nav a.n4{border-color:var(--c4)}nav a small{color:var(--mut);font-weight:500}
+main{max-width:980px;margin:0 auto;padding:10px 16px 60px}
+section.tp{--c:var(--c1);margin:38px 0;scroll-margin-top:70px}
+#tp2{--c:var(--c2)}#tp3{--c:var(--c3)}#tp4{--c:var(--c4)}
+.tp>h2{font-size:clamp(1.35rem,3.4vw,1.9rem);margin:0 0 4px;display:flex;gap:12px;align-items:center;letter-spacing:-.01em}
+.tp>h2 span{background:var(--c);color:#fff;border-radius:10px;padding:2px 12px;font-size:.95rem;white-space:nowrap}
+.sub{color:var(--mut);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin:0 0 10px;font-size:1.08rem;color:var(--c)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.fig{background:var(--soft);border-radius:12px;padding:10px;text-align:center}
+.fig svg{width:100%;height:auto;max-height:330px}
+.fig figcaption,.cap{font-size:.85rem;color:var(--mut);margin-top:4px}
+figure{margin:0}
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+ol.steps li{counter-increment:s;background:var(--soft);border-radius:12px;padding:12px 14px 12px 50px;position:relative;font-size:.94rem}
+ol.steps li::before{content:counter(s);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;display:grid;place-items:center}
+ol.steps b{display:block}
+.eq{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;background:var(--soft);border-left:4px solid var(--c);padding:8px 14px;border-radius:6px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+.scroll{overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+th{background:var(--soft)}
+td:first-child,th:first-child{text-align:left}
+.qa dt{font-weight:700;margin-top:10px}
+.qa dd{margin:2px 0 0 0;padding-left:14px;border-left:3px solid var(--c)}
+.calc{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.calc label{font-size:.82rem;color:var(--mut);display:flex;flex-direction:column;gap:3px}
+.calc input{width:110px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.out{font-weight:700;color:var(--c);font-size:1.05rem;margin-top:10px}
+.note{font-size:.88rem;color:var(--mut);border:1px dashed var(--line);border-radius:10px;padding:9px 12px;margin-top:10px}
+.warn{border-left:4px solid #d1493f;background:var(--soft);padding:8px 12px;border-radius:6px;font-size:.92rem;margin:8px 0}
+.tag{display:inline-block;font-size:.76rem;border:1px solid var(--c);color:var(--c);border-radius:99px;padding:1px 9px;margin:0 4px 4px 0;font-weight:600}
+svg text{font-family:system-ui,sans-serif;fill:var(--ink)}
+footer{color:var(--mut);font-size:.85rem;text-align:center;padding:20px}
+
+/* Parcours débutant - ajout sans dépendance externe */
+.learning-intro{max-width:980px;margin:4px auto 14px;padding:0 16px}
+.learning-panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:14px 0;box-shadow:0 4px 20px #00000008}
+.learning-panel h2{font-size:1.5rem;margin:0 0 9px}
+.learning-panel h3{margin:0 0 10px;font-size:1.08rem;color:var(--c,var(--c1))}
+.learning-panel p{margin:8px 0}
+.learning-label{display:inline-block;padding:3px 10px;margin:0 0 10px;background:var(--soft);border:1px solid var(--line);font-size:.78rem;border-radius:30px;font-weight:750}
+.learning-kicker{color:var(--mut);font-size:.87rem}
+.learning-panel ul{padding-left:22px;margin:9px 0;line-height:1.7}
+.learning-panel li{margin:5px 0}
+.learning-steps{counter-reset:learn;list-style:none!important;padding-left:0!important;display:grid;gap:10px}
+.learning-steps>li{counter-increment:learn;position:relative;background:var(--soft);border-radius:12px;padding:13px 15px 13px 53px;margin:0}
+.learning-steps>li::before{content:counter(learn);position:absolute;left:13px;top:12px;display:grid;place-items:center;width:27px;height:27px;background:var(--c,var(--c1));border-radius:50%;color:#fff;font-weight:750}
+.learning-steps strong{display:block}
+.learning-example{padding:14px 17px;background:var(--soft);border-left:4px solid var(--c,var(--c1));border-radius:10px;overflow:auto}
+.learning-example .mathline{font:1.05rem/1.8 Georgia,serif;overflow-wrap:anywhere}
+.learning-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.learning-box{border:1px solid var(--line);border-radius:12px;padding:15px}
+.learning-box h4{margin:0 0 7px}
+.learning-panel details{border:1px solid var(--line);border-radius:11px;margin:9px 0;background:var(--card)}
+.learning-panel details summary{cursor:pointer;padding:12px 15px;font-weight:700;list-style-position:inside}
+.learning-panel details>div{padding:2px 15px 14px}
+.learning-panel .prompt{font-weight:650}
+.learning-check{display:block;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--soft);padding:13px 15px;margin:10px 0}
+.learning-check label{display:block;padding:5px 0;cursor:pointer}
+.learning-check input{accent-color:var(--c,var(--c1));margin-right:8px}
+.learning-check button{margin-top:9px;padding:8px 14px;border-radius:9px;background:var(--c,var(--c1));border:0;color:white;font:inherit;font-weight:650;cursor:pointer}
+.learning-feedback{min-height:24px;font-size:.9rem;font-weight:650;margin:8px 0 0}
+.learning-feedback.ok{color:#16825a}.learning-feedback.no{color:#ad4d32}
+.learning-panel .small{color:var(--mut);font-size:.88rem}
+.learning-hero{background:linear-gradient(135deg,#16334e,#126a74);color:#fff;border-radius:17px;padding:24px;margin-bottom:15px}
+.learning-hero h2{color:#fff;margin:0 0 8px}.learning-hero p{color:#edf4f5}
+.learning-hero a{color:#fff;text-decoration:underline}
+.learning-toc{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.learning-toc a{display:inline-block;padding:7px 11px;border-radius:99px;border:1px solid #ffffff80;background:#ffffff18;text-decoration:none;color:#fff;font-size:.85rem}
+.learning-panel figure{margin:14px 0}
+.learning-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:12px}
+.learning-compare>div{border:1px solid var(--line);border-radius:12px;padding:13px}
+.learning-compare h4{margin:0 0 5px}
+@media(max-width:520px){.learning-panel{padding:16px}.learning-hero{padding:17px}header.top{padding-top:25px}}
+@media print{nav,.quiz button,.learning-check button{display:none}.card,.learning-panel details,.qz{break-inside:avoid}}
+
+.lp-title{font-size:1.25rem;margin:0 0 6px;color:var(--ink)!important}
+.learning-panel{scroll-margin-top:70px}
+.learning-check{border:0}
+.learning-check legend{font-weight:650;padding:0;float:left;width:100%;margin-bottom:6px}.learning-check legend+*{clear:both}
+.exam{border-left:4px solid var(--c);background:var(--soft);padding:9px 13px;border-radius:6px;font-size:.93rem;margin:10px 0}
+.exam b:first-child{color:var(--c)}
+.keep ul{margin:0;padding-left:20px}.keep li{margin:4px 0}
+.quiz{scroll-margin-top:70px}
+.quiz .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 12px}
+.quiz .bar progress{flex:1;min-width:140px;height:12px;accent-color:var(--c)}
+.quiz button{padding:7px 13px;border-radius:9px;border:1px solid var(--c);background:var(--c);color:#fff;font:inherit;font-weight:650;cursor:pointer}
+.quiz button.ghost{background:transparent;color:var(--c)}
+.qz{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
+.qz .qh{font-weight:650;margin-bottom:6px}
+.qz .src{float:right;font-size:.72rem;border:1px solid var(--line);border-radius:99px;padding:0 8px;color:var(--mut);margin-left:8px;font-weight:600}
+.qz label{display:block;padding:5px 8px;border-radius:8px;cursor:pointer}
+.qz label:hover{background:var(--soft)}
+.qz input[type=radio],.qz input[type=checkbox]{accent-color:var(--c);margin-right:8px}
+.qz input[type=text]{padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;width:170px}
+.qz label.good{background:#1a8f5f22;outline:1px solid #1a8f5f}
+.qz label.bad{background:#c0452f22;outline:1px solid #c0452f}
+.qz .fb{font-size:.92rem;margin-top:8px;display:none}
+.qz.done .fb{display:block}
+.qz .fb b.ok{color:#16825a}.qz .fb b.no{color:#b5482f}
+.qz.done button{display:none}
+
+.home-return{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#14314c!important;text-decoration:none;font-weight:750;border-radius:99px;padding:10px 17px;box-shadow:0 2px 12px #0001;margin-bottom:16px}
+.home-return:hover,.home-return:focus-visible{outline:3px solid #0f8a7e;outline-offset:2px}
+.footer-return{display:inline-block;margin:12px;padding:9px 16px;border:1px solid var(--line);border-radius:20px;color:var(--ink)}
+.science-note{border-left:4px solid var(--c,var(--c1));background:var(--soft);border-radius:10px;padding:12px 15px;margin:12px 0}
+.science-note strong{display:block;margin-bottom:5px}
+@media print{.home-return,.footer-return{display:none}}
+
+body{min-height:100vh}.site-nav{position:sticky;top:0;z-index:30;background:var(--bg);display:flex;justify-content:center;flex-wrap:wrap;gap:7px;padding:12px 10px;border-bottom:1px solid var(--line)}
+.site-nav a{border-radius:99px;border:1px solid var(--line);background:var(--card);padding:7px 13px;text-decoration:none;color:var(--ink);font-size:.85rem;font-weight:700}.site-nav a[aria-current="page"]{background:#173b55;color:#fff}
+.hub{max-width:1060px;margin:24px auto 65px;padding:0 16px}.hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:17px}
+.hub-card{display:block;padding:22px;background:var(--card);border:1px solid var(--line);border-radius:17px;text-decoration:none;color:var(--ink);box-shadow:0 4px 18px #0001}.hub-card:hover{border-color:var(--c2);transform:translateY(-2px)}
+.hub-card h2{margin:8px 0;font-size:1.22rem}.hub-card p{color:var(--mut);margin:6px 0 12px}.hub-card strong{color:var(--c1)}
+.hub-flag{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800;color:var(--c2)}
+.backline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 0 0}.backline a{color:var(--c1);font-weight:700}
+@media print{.site-nav,.backline,.hub-action{display:none}}
+</style></head><body><header class="top"><h1>TP 3 — Synthèse de l’alun</h1><p>Aluminium, cristallisation, rendement</p></header><nav class="site-nav" aria-label="Navigation des TP"><a href="index.html" >⌂ Menu des TP</a><a href="tp1.html" >TP 1</a><a href="tp2.html" >TP 2</a><a href="tp3.html" aria-current="page">TP 3</a><a href="tp4.html" >TP 4</a><a href="essentiel.html" >Fiche essentielle</a><a href="entrainement.html" >Je m’entraîne</a><a href="../">Accueil général</a></nav><main><section class="tp" id="tp3">
+<h2><span>TP 3</span> Synthèse de l'alun de potassium</h2>
+<p class="sub">Composé de l'aluminium(III) : préparation et cristallisation de KAl(SO₄)₂·12H₂O</p>
+<span class="tag">Oxydo-réduction</span><span class="tag">Acide-base</span><span class="tag">Cristallisation</span><span class="tag">Rendement</span>
+
+<section class="learning-panel" id="apprendre-tp3" style="--c:var(--c3)"><span class="learning-label">COMPRENDRE AVANT DE MANIPULER · TP 3</span>
+
+<h3 class="lp-title">TP 3 — Comprendre la synthèse de l'alun de potassium</h3>
+<p class="learning-kicker">Objectif : suivre la transformation de l'aluminium en cristaux et interpréter un rendement.</p>
+<h3>A. Qu'est-ce qu'une synthèse ?</h3>
+<p>À la différence d'un dosage, on ne cherche pas simplement la quantité d'un composé déjà présent. On <b>fabrique une substance</b> à partir de réactifs. Ici, l'aluminium métallique est transformé en espèces dissoutes, puis en cristaux d'<b>alun de potassium</b> : KAl(SO₄)₂·12H₂O.</p>
+<h3>B. Comprendre les transformations, dans l'ordre</h3>
+<ol class="learning-steps"><li><strong>L'aluminium se dissout dans la potasse.</strong>Le métal réagit en milieu fortement basique. Il se forme des espèces contenant l'aluminium en solution et du dihydrogène H₂ gazeux. Les bulles correspondent à un gaz <b>inflammable</b> : aucune flamme à proximité.</li><li><strong>On sépare les impuretés par filtration.</strong>La filtration sur Büchner élimine les matières solides indésirables. À cette étape, <b>on conserve le filtrat</b> (le liquide qui traverse le filtre), car il contient l'aluminium dissous.</li><li><strong>On ajoute l'acide sulfurique progressivement.</strong>Le milieu devient moins basique puis acide. Un précipité d'hydroxyde d'aluminium peut apparaître et se redissoudre à mesure que l'acidification avance. Cette étape peut dégager beaucoup de chaleur.</li><li><strong>On favorise la cristallisation.</strong>Lorsque la solution refroidit et que les conditions sont adaptées, des cristaux d'alun se forment. Ils constituent le produit recherché.</li><li><strong>On filtre, rince, sèche et pèse.</strong>Cette fois, c'est <b>le solide sur le filtre</b> que l'on veut garder. On le sèche avant de mesurer sa masse.</li></ol>
+<h3>C. Une distinction essentielle : théorie et expérience</h3>
+<div class="learning-columns"><div class="learning-box"><h4>Masse théorique</h4><p>La masse maximale calculée à partir du réactif limitant, selon les proportions de la réaction et en supposant une transformation idéale.</p></div><div class="learning-box"><h4>Masse expérimentale</h4><p>La masse réellement récupérée et pesée au laboratoire, après filtration, rinçage et séchage.</p></div></div>
+<div class="learning-example"><b>D. Calcul complet du rendement</b><p>Exemple : 1,00 g d'aluminium au départ ; 12,0 g d'alun sec récupéré.</p>
+<p class="mathline">1. Quantité d'aluminium : n(Al) = m / M = 1,00 / 26,98 = 0,0371 mol.</p>
+<p class="mathline">2. La stœchiométrie donne 1 mole d'alun pour 1 mole d'Al, si les autres réactifs sont en quantité suffisante.</p>
+<p class="mathline">3. Masse molaire de l'alun : M ≈ 474,4 g/mol.</p>
+<p class="mathline">4. Masse théorique : m<sub>th</sub> = 0,0371 × 474,4 ≈ <b>17,6 g</b>.</p>
+<p class="mathline">5. Rendement : η = m<sub>obtenue</sub> / m<sub>th</sub> × 100 = 12,0 / 17,6 × 100 ≈ <b>68 %</b>.</p>
+<p><b>Interprétation :</b> environ 68 % de la masse théorique a été récupérée. Des pertes au transfert, à la filtration ou à la dissolution des cristaux peuvent contribuer à cette différence.</p></div>
+<div class="learning-compare"><div><h4>Un rendement trop bas</h4><p>Chercher : cristallisation incomplète, cristaux perdus pendant le transfert ou le rinçage, produit resté dissous, réactions secondaires.</p></div><div><h4>Un rendement supérieur à 100 %</h4><p>Cela signale souvent un produit encore humide, des impuretés ou une erreur de pesée ou de calcul. On ne peut pas interpréter ce nombre comme « plus que la quantité maximale » de produit pur.</p></div></div>
+<details><summary>Qu'est-ce qu'un réactif limitant, très simplement ?</summary><div>Imagine fabriquer des sandwichs avec 3 pains et 10 tranches de fromage, en utilisant 1 pain et 2 tranches par sandwich. Tu peux en fabriquer 3 : les pains sont limitants. En chimie, le même raisonnement se fait avec les <b>quantités de matière</b> et les coefficients de l'équation. Dans l'exemple du TP, on vérifie que la potasse et l'acide sont en quantité suffisante avant d'utiliser l'aluminium comme réactif limitant.</div></details>
+<details><summary>Pourquoi utilise-t-on un mélange froid pour rincer ?</summary><div>Le rinçage aide à éliminer certaines impuretés sans dissoudre trop de produit. Le froid et la composition du mélange diminuent les pertes par dissolution, conformément au protocole.</div></details>
+<fieldset class="learning-check" data-answer="a"><legend class="prompt">Vérification : masse théorique = 20,0 g et masse sèche obtenue = 15,0 g. Rendement ?</legend><label><input type="radio" name="q-tp3" value="a"> 75 %</label><label><input type="radio" name="q-tp3" value="b"> 133 %</label><label><input type="radio" name="q-tp3" value="c"> 5 %</label><button type="button">Corriger ma réponse</button><div class="learning-feedback" aria-live="polite"></div><details><summary>Voir la correction détaillée</summary><div>η = 15,0 / 20,0 × 100 = <b>75 %</b>.</div></details></fieldset>
+
+</section>
+
+<div class="card"><h3>L'énoncé en résumé</h3>
+<p>Les aluns sont des sulfates doubles d'un cation trivalent (Al³⁺, Cr³⁺, Fe³⁺) et d'un cation monovalent (K⁺, Na⁺, NH₄⁺). On prépare l'alun de potassium (la « pierre d'alun » des déodorants, aussi utilisée en teinturerie) à partir d'une feuille d'aluminium : attaque par la potasse, puis neutralisation par l'acide sulfurique, puis cristallisation. On termine par le calcul du rendement.</p></div>
+
+<div class="card"><h3>Le principe, simplement</h3>
+<div class="grid"><div>
+<p><b>Étape 1 — oxydo-réduction.</b> En milieu basique, l'aluminium est oxydé par l'eau et se dissout en ion aluminate ; il se dégage du dihydrogène.</p>
+<div class="eq">2 Al + 2 KOH + 6 H₂O → 2 K[Al(OH)₄] + 3 H₂(g)</div>
+<p><b>Étape 2 — neutralisation.</b> L'acide sulfurique donne d'abord un solide blanc, Al(OH)₃, qui se redissout dans l'excès d'acide.</p>
+<div class="eq">K[Al(OH)₄] + 2 H₂SO₄ → K⁺ + Al³⁺ + 2 SO₄²⁻ + 4 H₂O</div>
+<p><b>Étape 3 — cristallisation.</b> En refroidissant, la solubilité chute et l'alun cristallise.</p>
+<div class="eq">K⁺ + Al³⁺ + 2 SO₄²⁻ + 12 H₂O → KAl(SO₄)₂·12H₂O(s)</div>
+<p>Bilan : <b>1 mole d'aluminium donne 1 mole d'alun</b>. Le « ·12H₂O » signifie que 12 molécules d'eau sont emprisonnées dans la maille du cristal.</p>
+</div>
+<figure class="fig">
+<svg viewBox="0 0 300 260" role="img" aria-label="Cristal octaédrique d'alun">
+<polygon points="150,25 245,130 150,235 55,130" fill="#d9c9f5" stroke="currentColor" stroke-width="2" opacity=".9"/>
+<polygon points="150,25 245,130 170,150" fill="#efe6ff" stroke="currentColor"/><polygon points="150,25 55,130 170,150" fill="#c6b0ee" stroke="currentColor"/>
+<polygon points="150,235 245,130 170,150" fill="#b89be6" stroke="currentColor"/><polygon points="150,235 55,130 170,150" fill="#a585dc" stroke="currentColor"/>
+<text x="150" y="255" font-size="12" text-anchor="middle">cristal incolore octaédrique</text>
+</svg><figcaption>L'alun cristallise en octaèdres blancs/incolores.</figcaption></figure>
+</div></div>
+
+<div class="card"><h3>Le protocole pas à pas</h3>
+<figure class="fig" style="margin-bottom:12px">
+<svg viewBox="0 0 640 170" role="img" aria-label="Les étapes de la synthèse">
+<g font-size="11" text-anchor="middle">
+<g><path d="M20 50 v70 h70 v-70" fill="none" stroke="currentColor" stroke-width="2"/><rect x="22" y="80" width="66" height="38" fill="#cfd6dd"/><g fill="#8b96a3"><rect x="32" y="98" width="10" height="6"/><rect x="52" y="104" width="10" height="6"/><rect x="68" y="94" width="10" height="6"/></g><g fill="none" stroke="currentColor"><circle cx="40" cy="70" r="3"/><circle cx="60" cy="60" r="4"/><circle cx="74" cy="72" r="3"/></g><text x="55" y="140">Al + KOH</text><text x="55" y="154">H₂ se dégage</text></g>
+<g><path d="M145 50 v70 h70 v-70" fill="none" stroke="currentColor" stroke-width="2"/><rect x="147" y="80" width="66" height="38" fill="#6b6f76"/><path d="M150 125 q8 -8 16 0 t16 0 t16 0 t14 0" fill="none" stroke="#d6455a" stroke-width="2"/><text x="180" y="140">bain de sable</text><text x="180" y="154">T &lt; 80 °C</text></g>
+<g><path d="M270 50 h70 l-22 30 v12 h-26 v-12z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="276" y1="62" x2="334" y2="62" stroke="currentColor" stroke-dasharray="3 2"/><path d="M285 92 h40 l14 28 h-68z" fill="#dfe9f2" stroke="currentColor" stroke-width="2"/><text x="305" y="140">filtration Büchner</text><text x="305" y="154">on garde le filtrat</text></g>
+<g><path d="M395 50 v70 h70 v-70" fill="none" stroke="currentColor" stroke-width="2"/><rect x="397" y="80" width="66" height="38" fill="#eef2f6"/><line x1="445" y1="20" x2="430" y2="78" stroke="currentColor" stroke-width="3"/><circle cx="428" cy="88" r="3" fill="#e0b020"/><text x="430" y="140">+ H₂SO₄ 9 M</text><text x="430" y="154">goutte à goutte</text></g>
+<g><rect x="512" y="62" width="96" height="60" rx="6" fill="#cfe6f7" stroke="currentColor" stroke-width="2"/><path d="M530 50 v60 h60 v-60" fill="#fff" stroke="currentColor" stroke-width="2"/><g fill="#b89be6" stroke="currentColor"><polygon points="545,100 551,92 557,100 551,108"/><polygon points="565,100 571,92 577,100 571,108"/></g><text x="560" y="140">bain eau/glace</text><text x="560" y="154">cristaux en 15 min</text></g>
+</g>
+<g stroke="currentColor" stroke-width="2"><path d="M100 85 h32"/><path d="M225 85 h32"/><path d="M350 85 h32"/><path d="M475 85 h28"/></g>
+</svg><figcaption>De la feuille d'aluminium aux cristaux.</figcaption></figure>
+<ol class="steps">
+<li><b>Peser l'aluminium</b>Environ 1,00 g, pesé précisément, coupé en petits morceaux dans un bécher de 250 mL.</li>
+<li><b>Ajouter la potasse</b>50 mL de KOH 1,4 mol/L (potasse = hydroxyde de potassium ; 7,855 g pour 100 mL), avec précaution et en agitant : ça chauffe et ça mousse (H₂).</li>
+<li><b>Chauffer</b>Sur bain de sable, T &lt; 80 °C, sous agitation. Le mélange noircit (impuretés de la feuille).</li>
+<li><b>Filtrer sur Büchner</b>Quand tout l'aluminium est dissous, laisser refroidir, filtrer : le filtrat limpide contient l'aluminate.</li>
+<li><b>Acidifier</b>20 mL de H₂SO₄ 9 mol/L à la pipette Pasteur : un solide blanc apparaît puis disparaît.</li>
+<li><b>Rechauffer puis refroidir</b>Chauffer (T &lt; 80 °C) jusqu'à solution limpide, puis bain eau/glace 15 min. Pas de cristaux ? Gratter le fond à la spatule.</li>
+<li><b>Filtrer et rincer</b>Büchner, puis rinçage 2 × 10 mL d'un mélange éthanol/eau (67/33) froid.</li>
+<li><b>Sécher et peser</b>La masse obtenue sert au calcul du rendement.</li>
+</ol>
+<div class="warn"><b>Sécurité :</b> KOH et H₂SO₄ 9 M sont très corrosifs (lunettes, gants), H₂ est inflammable (pas de flamme, sous hotte), et l'ajout d'acide est très exothermique.</div></div>
+
+<div class="card"><h3>Résultats et calculs</h3>
+<div class="scroll"><table>
+<tr><th>Réactif</th><th>Masse molaire / concentration</th><th>Quantité utilisée</th><th>Nombre de moles</th><th>Mesure précise ?</th></tr>
+<tr><td>Al</td><td>27,0 g/mol</td><td>1,00 g</td><td>0,0371 mol (limitant)</td><td>Oui, balance</td></tr>
+<tr><td>H₂O</td><td>18,0 g/mol (d = 1)</td><td>≈ 50 mL (solvant)</td><td>≈ 2,8 mol (excès)</td><td>Non</td></tr>
+<tr><td>KOH</td><td>56,1 g/mol · 1,4 mol/L</td><td>50 mL</td><td>0,070 mol (excès)</td><td>Non, éprouvette</td></tr>
+<tr><td>H₂SO₄</td><td>98,1 g/mol · 9 mol/L</td><td>20 mL</td><td>0,18 mol (excès)</td><td>Non, éprouvette</td></tr>
+</table></div>
+<p>Masse molaire de l'alun KAl(SO₄)₂·12H₂O : 39,1 + 27,0 + 2 × 96,1 + 12 × 18,0 = <b>474,4 g/mol</b> (valeur précise attendue au QCM : <b>474,388</b>).<br>
+Masse théorique : 0,0371 × 474,4 = <b>17,6 g</b> pour 1,00 g d'aluminium.</p>
+<div class="calc">
+<label>Masse d'Al (g)<input id="a_al" type="number" step="0.01" value="1.00"></label>
+<label>Masse d'alun obtenue (g)<input id="a_m" type="number" step="0.1" value="12.0"></label>
+</div><div class="out" id="a_out"></div>
+<p class="cap">Une valeur de 60 à 80 % n’est qu’un ordre de grandeur indicatif, dépendant du protocole et de la qualité de récupération.  Au-dessus de 100 % : il faut rechercher une humidité résiduelle, des impuretés, une erreur de pesée ou de calcul ; on ne conclut pas sans contrôle.</p>
+</div>
+
+<div class="card"><h3>Réponses aux questions de l'énoncé</h3>
+<dl class="qa">
+<dt>Qui est l'oxydant, qui est le réducteur ?</dt><dd>Le <b>réducteur</b> est l'aluminium (0 → +III). L'<b>oxydant</b> est l'eau (H passe de +I à 0 dans H₂).</dd>
+<dt>Demi-équations ?</dt><dd>Couples mis en jeu : <b>Al³⁺/Al</b> et <b>H₂O/H₂</b>.<br>Forme simple (celle du QCM) : oxydation <b>Al(s) → Al³⁺(aq) + 3 e⁻</b> ; réduction en milieu basique <b>2 H₂O(l) + 2 e⁻ → 2 HO⁻(aq) + H₂(g)</b>.<br>En présence de HO⁻, Al³⁺ se retrouve sous forme d'aluminate, ce qui donne : Al + 4 HO⁻ → [Al(OH)₄]⁻ + 3 e⁻ &nbsp;(×2)<br>2 H₂O + 2 e⁻ → H₂ + 2 HO⁻ &nbsp;(×3)<br>Bilan : 2 Al + 2 HO⁻ + 6 H₂O → 2 [Al(OH)₄]⁻ + 3 H₂.</dd>
+<dt>Pourquoi un solide blanc apparaît puis disparaît ?</dt><dd>L'acide transforme d'abord l'aluminate en hydroxyde Al(OH)₃ insoluble ; avec plus d'acide, il se dissout en Al³⁺ (l'hydroxyde d'aluminium est amphotère).</dd>
+<dt>À quoi sert la cristallisation ?</dt><dd>À <b>isoler et purifier</b> le produit : en refroidissant lentement, seul l'alun, peu soluble à froid, forme des cristaux ; les impuretés restent en solution.</dd>
+<dt>Que reste-t-il dans le filtrat ?</dt><dd>L'excès d'acide sulfurique (H⁺, HSO₄⁻/SO₄²⁻), des ions K⁺ en excès, l'eau, et un peu d'alun resté dissous (d'où un rendement inférieur à 100 %).</dd>
+<dt>Pourquoi rincer à l'éthanol/eau froid ?</dt><dd>L'alun y est très peu soluble : on élimine l'acide sans redissoudre les cristaux, et l'éthanol accélère le séchage.</dd>
+</dl></div>
+<div class="card keep"><h3>À retenir pour le QCM</h3><ul><li>Oxydant : subit une réduction, gagne des électrons. Réducteur : subit une oxydation, perd des électrons.</li><li>Couples : Al³⁺/Al et H₂O/H₂.</li><li>Oxydation : Al(s) → Al³⁺(aq) + 3 e⁻. Réduction : 2 H₂O(l) + 2 e⁻ → 2 HO⁻(aq) + H₂(g).</li><li>Bilan : 2 Al + 6 H₂O + 2 KOH → 2 KAl(OH)₄ + 3 H₂.</li><li>Puis : KAl(OH)₄ + 2 H₂SO₄ → KAl(SO₄)₂ + 4 H₂O.</li><li>Potasse = hydroxyde de potassium KOH ; 7,855 g pour 100 mL à 1,40 mol/L.</li><li>M(KAl(SO₄)₂·12H₂O) = 474,388 g/mol ; les 12 H₂O sont dans la maille du cristal.</li></ul></div>
+
+</section><div class="learning-panel" style="--c:var(--c3)"><h3>Entraînement et fiche essentielle</h3><p>Pour vérifier tes acquis, entraîne-toi sur un tirage renouvelé de 30 questions parmi les quatre TP.</p><div class="backline"><a href="entrainement.html">Je m’entraîne →</a><a href="essentiel.html">L’essentiel à connaître →</a><a href="index.html">← Menu des TP</a></div></div></main><script>
+const $=id=>document.getElementById(id),num=id=>parseFloat($(id).value.replace(',','.')),fr=(x,n=1)=>x.toFixed(n).replace('.',',');
+function on(ids,fn){ids.forEach(i=>$(i).addEventListener('input',fn));fn()}
+// TP3
+on(['a_al','a_m'],()=>{const mass=num("a_al"),obt=num("a_m"),n=mass/26.98,mt=n*474.4,r=obt/mt*100;
+ $("a_out").textContent=mass>0&&obt>=0&&Number.isFinite(r)?`n(Al) = ${fr(n,4)} mol → masse théorique ${fr(mt)} g → n(alun) = ${fr(num('a_m')/474.4,4)} mol → rendement = ${fr(r,0)} %`:''});
+</script><script>
+// Auto-évaluations autonomes du parcours débutant
+for(const block of document.querySelectorAll('.learning-check[data-answer]')){
+ const button=block.querySelector('button');
+ button.addEventListener('click',()=>{
+  const selected=block.querySelector('input[type=radio]:checked');
+  const feedback=block.querySelector('.learning-feedback');
+  if(!selected){feedback.textContent='Choisis d’abord une réponse.';feedback.className='learning-feedback no';return;}
+  const correct=selected.value===block.dataset.answer;
+  feedback.textContent=correct?'Bravo ! La réponse est correcte. Tu peux ouvrir la correction pour voir le raisonnement.':'Pas encore. Relis le calcul et réessaie ; la correction détaillée est disponible juste en dessous.';
+  feedback.className='learning-feedback '+(correct?'ok':'no');
+ });
+}
+</script><footer><a href="index.html">← Retour au menu des TP</a> · <a href="../">Accueil général des révisions</a><p>Support pédagogique de révision. Les consignes du laboratoire et le cours officiel prévalent.</p></footer></body></html>
