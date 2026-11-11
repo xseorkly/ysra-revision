@@ -1,0 +1,121 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fiche essentielle — TP de chimie expérimentale L1</title><style>
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d2430;--mut:#5c6675;--line:#e2ddd2;--c1:#1f6fb5;--c2:#0f8a7e;--c3:#7a4bb8;--c4:#c27a0a;--soft:#f0ede5}
+@media(prefers-color-scheme:dark){:root{--bg:#14171c;--card:#1d2129;--ink:#e9ecf1;--mut:#9aa4b3;--line:#2e3440;--soft:#252a33;--c1:#62a8e6;--c2:#3fc4b5;--c3:#b18cf0;--c4:#f0b04a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header.top{padding:44px 20px 26px;text-align:center}
+header.top h1{font-size:clamp(1.7rem,4.5vw,2.6rem);margin:0 0 6px;letter-spacing:-.02em}
+header.top p{color:var(--mut);max-width:680px;margin:0 auto}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px}
+nav a{text-decoration:none;color:var(--ink);padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:600;font-size:.9rem}
+nav a.n1{border-color:var(--c1)}nav a.n2{border-color:var(--c2)}nav a.n3{border-color:var(--c3)}nav a.n4{border-color:var(--c4)}nav a small{color:var(--mut);font-weight:500}
+main{max-width:980px;margin:0 auto;padding:10px 16px 60px}
+section.tp{--c:var(--c1);margin:38px 0;scroll-margin-top:70px}
+#tp2{--c:var(--c2)}#tp3{--c:var(--c3)}#tp4{--c:var(--c4)}
+.tp>h2{font-size:clamp(1.35rem,3.4vw,1.9rem);margin:0 0 4px;display:flex;gap:12px;align-items:center;letter-spacing:-.01em}
+.tp>h2 span{background:var(--c);color:#fff;border-radius:10px;padding:2px 12px;font-size:.95rem;white-space:nowrap}
+.sub{color:var(--mut);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin:0 0 10px;font-size:1.08rem;color:var(--c)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.fig{background:var(--soft);border-radius:12px;padding:10px;text-align:center}
+.fig svg{width:100%;height:auto;max-height:330px}
+.fig figcaption,.cap{font-size:.85rem;color:var(--mut);margin-top:4px}
+figure{margin:0}
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+ol.steps li{counter-increment:s;background:var(--soft);border-radius:12px;padding:12px 14px 12px 50px;position:relative;font-size:.94rem}
+ol.steps li::before{content:counter(s);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;display:grid;place-items:center}
+ol.steps b{display:block}
+.eq{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;background:var(--soft);border-left:4px solid var(--c);padding:8px 14px;border-radius:6px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+.scroll{overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+th{background:var(--soft)}
+td:first-child,th:first-child{text-align:left}
+.qa dt{font-weight:700;margin-top:10px}
+.qa dd{margin:2px 0 0 0;padding-left:14px;border-left:3px solid var(--c)}
+.calc{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.calc label{font-size:.82rem;color:var(--mut);display:flex;flex-direction:column;gap:3px}
+.calc input{width:110px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.out{font-weight:700;color:var(--c);font-size:1.05rem;margin-top:10px}
+.note{font-size:.88rem;color:var(--mut);border:1px dashed var(--line);border-radius:10px;padding:9px 12px;margin-top:10px}
+.warn{border-left:4px solid #d1493f;background:var(--soft);padding:8px 12px;border-radius:6px;font-size:.92rem;margin:8px 0}
+.tag{display:inline-block;font-size:.76rem;border:1px solid var(--c);color:var(--c);border-radius:99px;padding:1px 9px;margin:0 4px 4px 0;font-weight:600}
+svg text{font-family:system-ui,sans-serif;fill:var(--ink)}
+footer{color:var(--mut);font-size:.85rem;text-align:center;padding:20px}
+
+/* Parcours débutant - ajout sans dépendance externe */
+.learning-intro{max-width:980px;margin:4px auto 14px;padding:0 16px}
+.learning-panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:14px 0;box-shadow:0 4px 20px #00000008}
+.learning-panel h2{font-size:1.5rem;margin:0 0 9px}
+.learning-panel h3{margin:0 0 10px;font-size:1.08rem;color:var(--c,var(--c1))}
+.learning-panel p{margin:8px 0}
+.learning-label{display:inline-block;padding:3px 10px;margin:0 0 10px;background:var(--soft);border:1px solid var(--line);font-size:.78rem;border-radius:30px;font-weight:750}
+.learning-kicker{color:var(--mut);font-size:.87rem}
+.learning-panel ul{padding-left:22px;margin:9px 0;line-height:1.7}
+.learning-panel li{margin:5px 0}
+.learning-steps{counter-reset:learn;list-style:none!important;padding-left:0!important;display:grid;gap:10px}
+.learning-steps>li{counter-increment:learn;position:relative;background:var(--soft);border-radius:12px;padding:13px 15px 13px 53px;margin:0}
+.learning-steps>li::before{content:counter(learn);position:absolute;left:13px;top:12px;display:grid;place-items:center;width:27px;height:27px;background:var(--c,var(--c1));border-radius:50%;color:#fff;font-weight:750}
+.learning-steps strong{display:block}
+.learning-example{padding:14px 17px;background:var(--soft);border-left:4px solid var(--c,var(--c1));border-radius:10px;overflow:auto}
+.learning-example .mathline{font:1.05rem/1.8 Georgia,serif;overflow-wrap:anywhere}
+.learning-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.learning-box{border:1px solid var(--line);border-radius:12px;padding:15px}
+.learning-box h4{margin:0 0 7px}
+.learning-panel details{border:1px solid var(--line);border-radius:11px;margin:9px 0;background:var(--card)}
+.learning-panel details summary{cursor:pointer;padding:12px 15px;font-weight:700;list-style-position:inside}
+.learning-panel details>div{padding:2px 15px 14px}
+.learning-panel .prompt{font-weight:650}
+.learning-check{display:block;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--soft);padding:13px 15px;margin:10px 0}
+.learning-check label{display:block;padding:5px 0;cursor:pointer}
+.learning-check input{accent-color:var(--c,var(--c1));margin-right:8px}
+.learning-check button{margin-top:9px;padding:8px 14px;border-radius:9px;background:var(--c,var(--c1));border:0;color:white;font:inherit;font-weight:650;cursor:pointer}
+.learning-feedback{min-height:24px;font-size:.9rem;font-weight:650;margin:8px 0 0}
+.learning-feedback.ok{color:#16825a}.learning-feedback.no{color:#ad4d32}
+.learning-panel .small{color:var(--mut);font-size:.88rem}
+.learning-hero{background:linear-gradient(135deg,#16334e,#126a74);color:#fff;border-radius:17px;padding:24px;margin-bottom:15px}
+.learning-hero h2{color:#fff;margin:0 0 8px}.learning-hero p{color:#edf4f5}
+.learning-hero a{color:#fff;text-decoration:underline}
+.learning-toc{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.learning-toc a{display:inline-block;padding:7px 11px;border-radius:99px;border:1px solid #ffffff80;background:#ffffff18;text-decoration:none;color:#fff;font-size:.85rem}
+.learning-panel figure{margin:14px 0}
+.learning-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:12px}
+.learning-compare>div{border:1px solid var(--line);border-radius:12px;padding:13px}
+.learning-compare h4{margin:0 0 5px}
+@media(max-width:520px){.learning-panel{padding:16px}.learning-hero{padding:17px}header.top{padding-top:25px}}
+@media print{nav,.quiz button,.learning-check button{display:none}.card,.learning-panel details,.qz{break-inside:avoid}}
+
+.lp-title{font-size:1.25rem;margin:0 0 6px;color:var(--ink)!important}
+.learning-panel{scroll-margin-top:70px}
+.learning-check{border:0}
+.learning-check legend{font-weight:650;padding:0;float:left;width:100%;margin-bottom:6px}.learning-check legend+*{clear:both}
+.exam{border-left:4px solid var(--c);background:var(--soft);padding:9px 13px;border-radius:6px;font-size:.93rem;margin:10px 0}
+.exam b:first-child{color:var(--c)}
+.keep ul{margin:0;padding-left:20px}.keep li{margin:4px 0}
+.quiz{scroll-margin-top:70px}
+.quiz .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 12px}
+.quiz .bar progress{flex:1;min-width:140px;height:12px;accent-color:var(--c)}
+.quiz button{padding:7px 13px;border-radius:9px;border:1px solid var(--c);background:var(--c);color:#fff;font:inherit;font-weight:650;cursor:pointer}
+.quiz button.ghost{background:transparent;color:var(--c)}
+.qz{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
+.qz .qh{font-weight:650;margin-bottom:6px}
+.qz .src{float:right;font-size:.72rem;border:1px solid var(--line);border-radius:99px;padding:0 8px;color:var(--mut);margin-left:8px;font-weight:600}
+.qz label{display:block;padding:5px 8px;border-radius:8px;cursor:pointer}
+.qz label:hover{background:var(--soft)}
+.qz input[type=radio],.qz input[type=checkbox]{accent-color:var(--c);margin-right:8px}
+.qz input[type=text]{padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;width:170px}
+.qz label.good{background:#1a8f5f22;outline:1px solid #1a8f5f}
+.qz label.bad{background:#c0452f22;outline:1px solid #c0452f}
+.qz .fb{font-size:.92rem;margin-top:8px;display:none}
+.qz.done .fb{display:block}
+.qz .fb b.ok{color:#16825a}.qz .fb b.no{color:#b5482f}
+.qz.done button{display:none}
+
+.home-return{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#14314c!important;text-decoration:none;font-weight:750;border-radius:99px;padding:10px 17px;box-shadow:0 2px 12px #0001;margin-bottom:16px}
+.home-return:hover,.home-return:focus-visible{outline:3px solid #0f8a7e;outline-offset:2px}
+.footer-return{display:inline-block;margin:12px;padding:9px 16px;border:1px solid var(--line);border-radius:20px;color:var(--ink)}
+.science-note{border-left:4px solid var(--c,var(--c1));background:var(--soft);border-radius:10px;padding:12px 15px;margin:12px 0}
+.science-note strong{display:block;margin-bottom:5px}
+@media print{.home-return,.footer-return{display:none}}
+body{min-height:100vh}.hub{max-width:1100px;margin:30px auto 55px;padding:0 16px}.hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}.hub-card{display:block;border-radius:16px;border:1px solid var(--line);padding:23px;text-decoration:none;color:var(--ink);background:var(--card);box-shadow:0 5px 17px #0001;transition:transform .15s}.hub-card:hover{transform:translateY(-3px);border-color:var(--c2)}.hub-card h2{margin:6px 0 9px;color:var(--ink);font-size:1.2rem}.hub-card p{color:var(--mut);margin:0 0 14px}.hub-flag{color:var(--c2);font-size:.78rem;letter-spacing:.09em;font-weight:800;text-transform:uppercase}.hub-go{color:var(--c1);font-weight:800}.back-bar{text-align:center;padding:14px}.back-bar a{color:var(--c1);font-weight:750}.badge-30{font-size:1.08rem;font-weight:800;background:var(--soft);padding:3px 10px;border-radius:10px}.essential{max-width:840px;margin:20px auto 60px;padding:0 16px}.essential section{padding:22px;border-radius:14px;border:1px solid var(--line);background:var(--card);margin:14px 0;break-inside:avoid}.essential h2{margin:0 0 9px;color:var(--c1)}.essential li{margin:5px 0}.essential .formule{padding:12px;background:var(--soft);border-left:4px solid var(--c2);border-radius:9px;line-height:1.8;font-weight:700}.print-btn{display:inline-block;padding:10px 15px;border-radius:9px;background:#126c78;color:#fff;text-decoration:none;border:0;font:inherit;font-weight:750;cursor:pointer}@media print{.back-bar,header.top,.print-btn,footer{display:none}.essential{margin:0;padding:0}.essential section{break-inside:avoid}}</style></head><body><header class="top"><h1>Ce que je dois connaître absolument</h1><p>Les notions, équations, calculs et observations indispensables pour chaque TP.</p></header><div class="back-bar"><a href="index.html">← Menu des TP</a> · <a href="../">Accueil général</a></div><main class="essential"><p><button class="print-btn" type="button" onclick="window.print()">Imprimer / enregistrer en PDF</button> <a class="print-btn" href="fiche-essentielle.pdf" download>↓ Télécharger la fiche PDF</a></p><section><h2>Avant chaque TP</h2><ul><li>Ion : espèce portant une charge électrique (Ca²⁺, Mg²⁺, SO₄²⁻).</li><li>Une mole = environ 6,02 × 10²³ entités.</li><li>Concentration : C = n/V, avec le volume en litres.</li><li>1 L = 1 000 mL ; 1 mmol = 0,001 mol.</li><li>Dilution sans réaction : C₁V₁ = C₂V₂ ; concentration initiale = concentration mesurée × facteur de dilution.</li><li>Toujours préciser formule, remplacement numérique, unité et interprétation.</li></ul><p class="formule">Méthode : données → conversion → formule → calcul → unité → conclusion.</p></section><section><h2>TP 1 — Dureté de l’eau</h2><ul><li>La dureté correspond à la somme des concentrations en ions Ca²⁺ et Mg²⁺.</li><li>L’EDTA fixe ces ions dans une proportion de 1:1.</li><li>Le tampon maintient un pH d’environ 10 ; le NET vire du rouge au bleu à l’équivalence.</li><li>À l’équivalence : quantité d’EDTA = quantité totale d’ions dosés.</li><li>L’eau distillée ajoutée dans l’erlenmeyer ne change pas la quantité d’ions de l’échantillon.</li><li>Le pH des eaux minérales dépend notamment du CO₂ dissous : il doit être mesuré.</li></ul><p class="formule">C(Ca²⁺ + Mg²⁺) = C(EDTA) × V(éq) / V(eau). Avec 50 mL d’eau et 0,010 mol/L d’EDTA : TH (°f) = 2 × V(éq) (mL).</p><p><a href="tp1.html">Voir le TP 1 détaillé →</a></p></section><section><h2>TP 2 — Dosage des sulfates</h2><ul><li>Ba²⁺ + SO₄²⁻ → BaSO₄(s), précipité blanc.</li><li>Le précipité diffuse la lumière et rend la solution trouble.</li><li>Mesurer dans des conditions comparables : même réactif, même temps, même agitation et même blanc.</li><li>L’étalonnage relie empiriquement l’atténuation mesurée à la concentration : A = kC + b.</li><li>N’utiliser la droite que sur la gamme réellement étalonnée.</li><li>Après dilution, multiplier la concentration mesurée par le facteur de dilution.</li><li>Les sels solubles de baryum exigent une gestion des déchets adaptée.</li></ul><p class="formule">C = (A − b) / k ; si le blanc a été corrigé et b ≈ 0 : C ≈ A/k.</p><p><a href="tp2.html">Voir le TP 2 détaillé →</a></p></section><section><h2>TP 3 — Synthèse de l’alun</h2><ul><li>L’aluminium réagit en milieu basique : formation d’aluminate et dégagement de dihydrogène (H₂ inflammable).</li><li>Filtrer les impuretés puis conserver le filtrat lors de la première filtration.</li><li>Acidifier : apparition possible d’hydroxyde d’aluminium, puis dissolution.</li><li>Refroidir pour obtenir les cristaux ; récupérer, laver et sécher.</li><li>Pour le bilan idéal : 1 mole d’Al donne 1 mole d’alun de potassium.</li><li>Au-dessus de 100 % de rendement : vérifier humidité, impuretés et erreurs de mesure.</li></ul><p class="formule">n(Al) = m(Al)/26,98 ; m théorique (alun) = n(Al) × 474,4 g/mol ; rendement (%) = masse obtenue / masse théorique × 100.</p><p><a href="tp3.html">Voir le TP 3 détaillé →</a></p></section><section><h2>TP 4 — pKa du bleu de bromophénol</h2><ul><li>Le bleu de bromophénol est jaune sous sa forme acide AH et bleu sous sa forme basique A⁻.</li><li>La proportion des deux formes dépend à la fois du pH et du pKa.</li><li>Lorsque pH = pKa, les deux formes ont la même concentration dans le modèle usuel.</li><li>À 610 nm, la forme bleue absorbe beaucoup plus que la forme jaune.</li><li>Comparer des références de même concentration totale en indicateur.</li><li>À mi-chemin entre les absorbances acide et basique, on estime pH ≈ pKa.</li><li>Le pKa tabulé est proche de 4,0–4,1 ; distinguer cette valeur d’un corrigé d’exercice éventuellement arrondi à 4,2.</li></ul><p class="formule">pH = pKa + log₁₀([A⁻]/[AH]). pKa = pH − log₁₀[(A(mélange) − A(acide))/(A(base) − A(mélange))].</p><p><a href="tp4.html">Voir le TP 4 détaillé →</a></p></section><section><h2>Dernière vérification</h2><p>Je sais convertir les unités, identifier les réactifs, justifier chaque manipulation, calculer et interpréter un résultat, reconnaître une erreur et appliquer les consignes de sécurité.</p><p><a href="entrainement.html">Je suis prêt : lancer 30 QCM aléatoires →</a></p></section></main><footer><a href="../">Accueil général des révisions</a> · Support de révision complémentaire aux protocoles de l’enseignant.</footer></body></html>
