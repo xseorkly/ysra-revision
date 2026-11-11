@@ -1,0 +1,262 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TP 4 — pKa du bleu de bromophénol — Chimie expérimentale L1</title><style>
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d2430;--mut:#5c6675;--line:#e2ddd2;--c1:#1f6fb5;--c2:#0f8a7e;--c3:#7a4bb8;--c4:#c27a0a;--soft:#f0ede5}
+@media(prefers-color-scheme:dark){:root{--bg:#14171c;--card:#1d2129;--ink:#e9ecf1;--mut:#9aa4b3;--line:#2e3440;--soft:#252a33;--c1:#62a8e6;--c2:#3fc4b5;--c3:#b18cf0;--c4:#f0b04a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header.top{padding:44px 20px 26px;text-align:center}
+header.top h1{font-size:clamp(1.7rem,4.5vw,2.6rem);margin:0 0 6px;letter-spacing:-.02em}
+header.top p{color:var(--mut);max-width:680px;margin:0 auto}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px}
+nav a{text-decoration:none;color:var(--ink);padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:600;font-size:.9rem}
+nav a.n1{border-color:var(--c1)}nav a.n2{border-color:var(--c2)}nav a.n3{border-color:var(--c3)}nav a.n4{border-color:var(--c4)}nav a small{color:var(--mut);font-weight:500}
+main{max-width:980px;margin:0 auto;padding:10px 16px 60px}
+section.tp{--c:var(--c1);margin:38px 0;scroll-margin-top:70px}
+#tp2{--c:var(--c2)}#tp3{--c:var(--c3)}#tp4{--c:var(--c4)}
+.tp>h2{font-size:clamp(1.35rem,3.4vw,1.9rem);margin:0 0 4px;display:flex;gap:12px;align-items:center;letter-spacing:-.01em}
+.tp>h2 span{background:var(--c);color:#fff;border-radius:10px;padding:2px 12px;font-size:.95rem;white-space:nowrap}
+.sub{color:var(--mut);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card h3{margin:0 0 10px;font-size:1.08rem;color:var(--c)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.fig{background:var(--soft);border-radius:12px;padding:10px;text-align:center}
+.fig svg{width:100%;height:auto;max-height:330px}
+.fig figcaption,.cap{font-size:.85rem;color:var(--mut);margin-top:4px}
+figure{margin:0}
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+ol.steps li{counter-increment:s;background:var(--soft);border-radius:12px;padding:12px 14px 12px 50px;position:relative;font-size:.94rem}
+ol.steps li::before{content:counter(s);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;display:grid;place-items:center}
+ol.steps b{display:block}
+.eq{font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;background:var(--soft);border-left:4px solid var(--c);padding:8px 14px;border-radius:6px;margin:8px 0;overflow-x:auto;white-space:nowrap}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+.scroll{overflow-x:auto}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+th{background:var(--soft)}
+td:first-child,th:first-child{text-align:left}
+.qa dt{font-weight:700;margin-top:10px}
+.qa dd{margin:2px 0 0 0;padding-left:14px;border-left:3px solid var(--c)}
+.calc{display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+.calc label{font-size:.82rem;color:var(--mut);display:flex;flex-direction:column;gap:3px}
+.calc input{width:110px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.out{font-weight:700;color:var(--c);font-size:1.05rem;margin-top:10px}
+.note{font-size:.88rem;color:var(--mut);border:1px dashed var(--line);border-radius:10px;padding:9px 12px;margin-top:10px}
+.warn{border-left:4px solid #d1493f;background:var(--soft);padding:8px 12px;border-radius:6px;font-size:.92rem;margin:8px 0}
+.tag{display:inline-block;font-size:.76rem;border:1px solid var(--c);color:var(--c);border-radius:99px;padding:1px 9px;margin:0 4px 4px 0;font-weight:600}
+svg text{font-family:system-ui,sans-serif;fill:var(--ink)}
+footer{color:var(--mut);font-size:.85rem;text-align:center;padding:20px}
+
+/* Parcours débutant - ajout sans dépendance externe */
+.learning-intro{max-width:980px;margin:4px auto 14px;padding:0 16px}
+.learning-panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:14px 0;box-shadow:0 4px 20px #00000008}
+.learning-panel h2{font-size:1.5rem;margin:0 0 9px}
+.learning-panel h3{margin:0 0 10px;font-size:1.08rem;color:var(--c,var(--c1))}
+.learning-panel p{margin:8px 0}
+.learning-label{display:inline-block;padding:3px 10px;margin:0 0 10px;background:var(--soft);border:1px solid var(--line);font-size:.78rem;border-radius:30px;font-weight:750}
+.learning-kicker{color:var(--mut);font-size:.87rem}
+.learning-panel ul{padding-left:22px;margin:9px 0;line-height:1.7}
+.learning-panel li{margin:5px 0}
+.learning-steps{counter-reset:learn;list-style:none!important;padding-left:0!important;display:grid;gap:10px}
+.learning-steps>li{counter-increment:learn;position:relative;background:var(--soft);border-radius:12px;padding:13px 15px 13px 53px;margin:0}
+.learning-steps>li::before{content:counter(learn);position:absolute;left:13px;top:12px;display:grid;place-items:center;width:27px;height:27px;background:var(--c,var(--c1));border-radius:50%;color:#fff;font-weight:750}
+.learning-steps strong{display:block}
+.learning-example{padding:14px 17px;background:var(--soft);border-left:4px solid var(--c,var(--c1));border-radius:10px;overflow:auto}
+.learning-example .mathline{font:1.05rem/1.8 Georgia,serif;overflow-wrap:anywhere}
+.learning-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.learning-box{border:1px solid var(--line);border-radius:12px;padding:15px}
+.learning-box h4{margin:0 0 7px}
+.learning-panel details{border:1px solid var(--line);border-radius:11px;margin:9px 0;background:var(--card)}
+.learning-panel details summary{cursor:pointer;padding:12px 15px;font-weight:700;list-style-position:inside}
+.learning-panel details>div{padding:2px 15px 14px}
+.learning-panel .prompt{font-weight:650}
+.learning-check{display:block;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--soft);padding:13px 15px;margin:10px 0}
+.learning-check label{display:block;padding:5px 0;cursor:pointer}
+.learning-check input{accent-color:var(--c,var(--c1));margin-right:8px}
+.learning-check button{margin-top:9px;padding:8px 14px;border-radius:9px;background:var(--c,var(--c1));border:0;color:white;font:inherit;font-weight:650;cursor:pointer}
+.learning-feedback{min-height:24px;font-size:.9rem;font-weight:650;margin:8px 0 0}
+.learning-feedback.ok{color:#16825a}.learning-feedback.no{color:#ad4d32}
+.learning-panel .small{color:var(--mut);font-size:.88rem}
+.learning-hero{background:linear-gradient(135deg,#16334e,#126a74);color:#fff;border-radius:17px;padding:24px;margin-bottom:15px}
+.learning-hero h2{color:#fff;margin:0 0 8px}.learning-hero p{color:#edf4f5}
+.learning-hero a{color:#fff;text-decoration:underline}
+.learning-toc{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.learning-toc a{display:inline-block;padding:7px 11px;border-radius:99px;border:1px solid #ffffff80;background:#ffffff18;text-decoration:none;color:#fff;font-size:.85rem}
+.learning-panel figure{margin:14px 0}
+.learning-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:12px}
+.learning-compare>div{border:1px solid var(--line);border-radius:12px;padding:13px}
+.learning-compare h4{margin:0 0 5px}
+@media(max-width:520px){.learning-panel{padding:16px}.learning-hero{padding:17px}header.top{padding-top:25px}}
+@media print{nav,.quiz button,.learning-check button{display:none}.card,.learning-panel details,.qz{break-inside:avoid}}
+
+.lp-title{font-size:1.25rem;margin:0 0 6px;color:var(--ink)!important}
+.learning-panel{scroll-margin-top:70px}
+.learning-check{border:0}
+.learning-check legend{font-weight:650;padding:0;float:left;width:100%;margin-bottom:6px}.learning-check legend+*{clear:both}
+.exam{border-left:4px solid var(--c);background:var(--soft);padding:9px 13px;border-radius:6px;font-size:.93rem;margin:10px 0}
+.exam b:first-child{color:var(--c)}
+.keep ul{margin:0;padding-left:20px}.keep li{margin:4px 0}
+.quiz{scroll-margin-top:70px}
+.quiz .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 12px}
+.quiz .bar progress{flex:1;min-width:140px;height:12px;accent-color:var(--c)}
+.quiz button{padding:7px 13px;border-radius:9px;border:1px solid var(--c);background:var(--c);color:#fff;font:inherit;font-weight:650;cursor:pointer}
+.quiz button.ghost{background:transparent;color:var(--c)}
+.qz{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
+.qz .qh{font-weight:650;margin-bottom:6px}
+.qz .src{float:right;font-size:.72rem;border:1px solid var(--line);border-radius:99px;padding:0 8px;color:var(--mut);margin-left:8px;font-weight:600}
+.qz label{display:block;padding:5px 8px;border-radius:8px;cursor:pointer}
+.qz label:hover{background:var(--soft)}
+.qz input[type=radio],.qz input[type=checkbox]{accent-color:var(--c);margin-right:8px}
+.qz input[type=text]{padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;width:170px}
+.qz label.good{background:#1a8f5f22;outline:1px solid #1a8f5f}
+.qz label.bad{background:#c0452f22;outline:1px solid #c0452f}
+.qz .fb{font-size:.92rem;margin-top:8px;display:none}
+.qz.done .fb{display:block}
+.qz .fb b.ok{color:#16825a}.qz .fb b.no{color:#b5482f}
+.qz.done button{display:none}
+
+.home-return{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#14314c!important;text-decoration:none;font-weight:750;border-radius:99px;padding:10px 17px;box-shadow:0 2px 12px #0001;margin-bottom:16px}
+.home-return:hover,.home-return:focus-visible{outline:3px solid #0f8a7e;outline-offset:2px}
+.footer-return{display:inline-block;margin:12px;padding:9px 16px;border:1px solid var(--line);border-radius:20px;color:var(--ink)}
+.science-note{border-left:4px solid var(--c,var(--c1));background:var(--soft);border-radius:10px;padding:12px 15px;margin:12px 0}
+.science-note strong{display:block;margin-bottom:5px}
+@media print{.home-return,.footer-return{display:none}}
+
+body{min-height:100vh}.site-nav{position:sticky;top:0;z-index:30;background:var(--bg);display:flex;justify-content:center;flex-wrap:wrap;gap:7px;padding:12px 10px;border-bottom:1px solid var(--line)}
+.site-nav a{border-radius:99px;border:1px solid var(--line);background:var(--card);padding:7px 13px;text-decoration:none;color:var(--ink);font-size:.85rem;font-weight:700}.site-nav a[aria-current="page"]{background:#173b55;color:#fff}
+.hub{max-width:1060px;margin:24px auto 65px;padding:0 16px}.hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:17px}
+.hub-card{display:block;padding:22px;background:var(--card);border:1px solid var(--line);border-radius:17px;text-decoration:none;color:var(--ink);box-shadow:0 4px 18px #0001}.hub-card:hover{border-color:var(--c2);transform:translateY(-2px)}
+.hub-card h2{margin:8px 0;font-size:1.22rem}.hub-card p{color:var(--mut);margin:6px 0 12px}.hub-card strong{color:var(--c1)}
+.hub-flag{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800;color:var(--c2)}
+.backline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 0 0}.backline a{color:var(--c1);font-weight:700}
+@media print{.site-nav,.backline,.hub-action{display:none}}
+</style></head><body><header class="top"><h1>TP 4 — pKa du bleu de bromophénol</h1><p>Acide-base, absorbance, équilibre</p></header><nav class="site-nav" aria-label="Navigation des TP"><a href="index.html" >⌂ Menu des TP</a><a href="tp1.html" >TP 1</a><a href="tp2.html" >TP 2</a><a href="tp3.html" >TP 3</a><a href="tp4.html" aria-current="page">TP 4</a><a href="essentiel.html" >Fiche essentielle</a><a href="entrainement.html" >Je m’entraîne</a><a href="../">Accueil général</a></nav><main><section class="tp" id="tp4">
+<h2><span>TP 4</span> pKa du bleu de bromophénol</h2>
+<p class="sub">Couple acide-base : détermination d'une constante d'acidité par colorimétrie à 610 nm</p>
+<span class="tag">Indicateur coloré</span><span class="tag">Spectrophotométrie</span><span class="tag">pH = pKa</span>
+
+<section class="learning-panel" id="apprendre-tp4" style="--c:var(--c4)"><span class="learning-label">COMPRENDRE AVANT DE MANIPULER · TP 4</span>
+
+<h3 class="lp-title">TP 4 — Comprendre le pKa avec les couleurs</h3>
+<p class="learning-kicker">Objectif : relier pH, formes acide et basique de l'indicateur, et absorbance mesurée.</p>
+<h3>A. Pourquoi la solution change-t-elle de couleur ?</h3>
+<p>Le bleu de bromophénol peut se trouver sous deux formes principales dans la zone de virage étudiée : <b>AH</b> (forme acide, jaune) et <b>A⁻</b> (forme basique, bleue). Selon le pH, l'une ou l'autre domine. Dans la zone intermédiaire, les deux formes coexistent : la teinte observée est un mélange.</p>
+<div class="learning-example mathline">AH ⇌ A⁻ + H⁺ &nbsp; (écriture simplifiée de l'équilibre acido-basique)</div>
+<h3>B. Que signifient pH et pKa ?</h3>
+<p>Le <b>pH</b> renseigne sur l'acidité de la solution. Le <b>pKa</b> est une caractéristique d'un couple acide/base dans des conditions données. Quand <b>pH = pKa</b>, les deux formes de ce couple sont présentes en proportions égales dans le modèle usuel : [A⁻] = [AH].</p>
+<p>La relation de Henderson-Hasselbalch résume cela : <b>pH = pKa + log([A⁻]/[AH])</b>. Pourquoi ? Si les concentrations sont égales, leur rapport vaut 1, log(1) vaut 0, donc pH = pKa.</p>
+<h3>C. Pourquoi mesurer la lumière à 610 nm ?</h3>
+<p>À cette longueur d'onde, la forme bleue A⁻ absorbe beaucoup plus que la forme jaune AH. Le signal renseigne donc sur la proportion de forme bleue, <b>si</b> les solutions comparées possèdent la même concentration totale en indicateur et si les autres conditions expérimentales sont comparables.</p>
+<ol class="learning-steps"><li><strong>Mesurer la référence jaune.</strong>Elle correspond à l'indicateur essentiellement sous sa forme acide ; son absorbance à 610 nm est faible.</li><li><strong>Mesurer la référence bleue.</strong>Elle correspond à la forme essentiellement basique ; noter son absorbance A<sub>B</sub>.</li><li><strong>Préparer une solution de teinte intermédiaire.</strong>Faire varier les proportions des références selon le protocole ; la valeur d'absorbance varie avec la proportion de forme bleue.</li><li><strong>Viser la moitié du signal de la référence bleue.</strong>Si l'absorbance acide est négligeable et que la concentration totale est conservée, A = A<sub>B</sub>/2 correspond à environ 50 % AH et 50 % A⁻.</li><li><strong>Mesurer le pH de ce mélange.</strong>On obtient ainsi une estimation du <b>pKa</b> recherché.</li></ol>
+<div class="learning-example"><b>D. Exemple chiffré avec absorbance et logarithme</b><p>On a A<sub>B</sub> = 1,20 ; A<sub>mélange</sub> = 0,60 ; pH du mélange = 4,05.</p>
+<p class="mathline">1. Fraction de forme bleue = A/A<sub>B</sub> = 0,60/1,20 = 0,50.</p>
+<p class="mathline">2. Fraction de forme jaune = 1 − 0,50 = 0,50.</p>
+<p class="mathline">3. Rapport [A⁻]/[AH] = 0,50/0,50 = 1.</p>
+<p class="mathline">4. log(1) = 0. Donc pH = pKa + 0.</p>
+<p class="mathline">5. Résultat : <b>pKa ≈ 4,05</b>.</p>
+<p>Si A = 0,90 pour A<sub>B</sub> = 1,20, alors la fraction bleue vaut 0,75 et la fraction jaune 0,25 ; leur rapport vaut 3. Avec un pH mesuré de 4,50 : pKa = 4,50 − log(3) ≈ <b>4,02</b>.</p></div>
+<details><summary>Logarithme : pourquoi log(3) ≈ 0,477 ?</summary><div>« log » désigne ici le logarithme décimal : log(10) = 1 et log(1) = 0. Pour log(3), on utilise la touche <b>log</b> de la calculatrice (pas <b>ln</b>). La valeur est environ 0,477. Ce nombre mesure ici le déséquilibre entre les proportions basique et acide.</div></details>
+<details><summary>Pourquoi le résultat n'est-il pas exact au centième ?</summary><div>La méthode suppose notamment une absorbance de la forme acide négligeable à 610 nm, une concentration totale comparable dans les références et le mélange, une bonne mesure du pH et une réponse spectrophotométrique utilisable. Le mélange n'est pas fortement tamponné : de très petits ajouts peuvent modifier sensiblement son pH.</div></details>
+<details><summary>Et si la forme jaune absorbe quand même un peu ?</summary><div>Il faut alors utiliser les deux absorbances de référence : la fraction basique est approximativement (A<sub>mélange</sub> − A<sub>acide</sub>)/(A<sub>basique</sub> − A<sub>acide</sub>), sous réserve de concentrations totales comparables. La formule simplifiée avec A<sub>acide</sub> ≈ 0 ne s'applique pas automatiquement.</div></details>
+<fieldset class="learning-check" data-answer="b"><legend class="prompt">Vérification : lorsque [A⁻] = [AH], que vaut pH − pKa ?</legend><label><input type="radio" name="q-tp4" value="a"> 1</label><label><input type="radio" name="q-tp4" value="b"> 0</label><label><input type="radio" name="q-tp4" value="c"> 10</label><button type="button">Corriger ma réponse</button><div class="learning-feedback" aria-live="polite"></div><details><summary>Voir la correction détaillée</summary><div>Les formes sont égales ; leur rapport vaut 1 et log(1) = 0. La formule donne donc pH − pKa = <b>0</b>.</div></details></fieldset>
+
+</section>
+
+<div class="card"><h3>L'énoncé en résumé</h3>
+<p>Le bleu de bromophénol est un indicateur coloré : <b>jaune</b> pour pH &lt; 3 (forme acide AH) et <b>bleu</b> pour pH &gt; 4,6 (forme basique A⁻). Sa première acidité est forte (pKa₁ &lt; 1) : c'est l'équilibre AH/A⁻, de constante pKa₂, qui donne le changement de couleur. AH absorbe surtout à 436 nm, A⁻ à 593 nm. On mesure l'absorbance à 610 nm, où la forme bleue absorbe nettement plus que la forme jaune, pour trouver pKa₂. En milieu <b>très basique</b>, la solution est d'abord bleue puis devient incolore au bout d'un certain temps.</p></div>
+
+<div class="card"><h3>Le principe, simplement</h3>
+<div class="grid">
+<div>
+<div class="eq">AH + H₂O ⇌ A⁻ + H₃O⁺ &nbsp;&nbsp; Ka₂ = [A⁻][H₃O⁺] / [AH]</div>
+<div class="eq">pH = pKa₂ + log ( [A⁻] / [AH] )</div>
+<p>À 610 nm, AH n'absorbe pratiquement pas : l'absorbance mesure donc directement la <b>quantité de forme bleue A⁻</b>.</p>
+<p>L’astuce : si la mesure du mélange est à mi-chemin entre les absorbances des références acide et basique, les deux formes sont en proportions égales (à concentration totale en indicateur constante). Si l’absorbance de la forme acide est négligeable, cela se simplifie en A<sub>mélange</sub> = A<sub>B</sub>/2. Donc [A⁻] = [AH], le logarithme vaut 0, et <b>pH = pKa₂</b>.</p>
+</div>
+<figure class="fig"><svg id="p_spec" viewBox="0 0 360 240" role="img" aria-label="Spectres d'absorption de AH et A-"></svg><figcaption>À 610 nm (trait pointillé), seule la forme bleue absorbe.</figcaption></figure>
+</div>
+<figure class="fig" style="margin-top:12px">
+<svg viewBox="0 0 600 95" role="img" aria-label="Couleur de l'indicateur selon le pH">
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#f2d21f"/><stop offset=".36" stop-color="#f2d21f"/><stop offset=".47" stop-color="#5fae5a"/><stop offset=".58" stop-color="#2f5fd0"/><stop offset="1" stop-color="#2f5fd0"/></linearGradient></defs>
+<rect x="20" y="20" width="560" height="30" rx="6" fill="url(#g)"/>
+<g font-size="12" text-anchor="middle"><text x="20" y="68">0</text><text x="160" y="68">2</text><text x="230" y="68">3</text><text x="300" y="68">4</text><text x="342" y="68">4,6</text><text x="440" y="68">6</text><text x="580" y="68">8</text>
+<text x="110" y="40" fill="#222" font-weight="700">AH jaune</text><text x="292" y="40" fill="#fff" font-weight="700">vert</text><text x="470" y="40" fill="#fff" font-weight="700">A⁻ bleu</text><text x="300" y="88">zone de virage : pH ≈ pKa₂ ≈ 4,0</text></g>
+</svg><figcaption>Le mélange des deux formes donne une teinte verte dans la zone de virage.</figcaption></figure>
+</div>
+
+<div class="card"><h3>Le protocole pas à pas</h3>
+<ol class="steps">
+<li><b>Solution mère d'indicateur</b>Environ 0,010 g de bleu de bromophénol dans ~10 mL d'éthanol, dilué avec ~550 mL d'eau distillée. La solution doit être limpide. Le volume initial n’a pas besoin d’être connu très précisément pour cette méthode comparative, mais les solutions A et B doivent avoir la même concentration totale en indicateur et les mesures rester dans la plage linéaire du spectrophotomètre.</li>
+<li><b>Partager en deux fioles de 250 mL</b>Prélèvement précis : il faut la même quantité d'indicateur dans les deux solutions.</li>
+<li><b>Solution A (acide, jaune)</b>Ajouter exactement 1 mL de HCl 2 mol/L dans la première fiole.</li>
+<li><b>Solution B (basique, bleue)</b>Ajouter exactement 1 mL de soude 2 mol/L dans la seconde. Le protocole impose le même ajout pour conserver des conditions comparables ; les concentrations totales en indicateur dépendent surtout des volumes finaux identiques.</li>
+<li><b>Mesurer le pH de A et de B</b>Au pH-mètre étalonné.</li>
+<li><b>Régler le zéro</b>À 610 nm, avec de l'eau distillée comme référence.</li>
+<li><b>Mesurer l'absorbance de A et de B</b>A ≈ 0 pour la jaune, A<sub>B</sub> maximale pour la bleue.</li>
+<li><b>Préparer le mélange</b>50 mL de A + environ 50 mL de B : teinte intermédiaire (verte).</li>
+<li><b>Ajuster</b>Ajouter un peu de A ou de B jusqu'à lire A<sub>mélange</sub> = A<sub>B</sub> / 2 à 610 nm.</li>
+<li><b>Mesurer le pH du mélange</b>Ce pH estime le pKa₂ si les deux formes sont effectivement en proportions égales et si les conditions de comparaison des absorbances sont respectées.</li>
+</ol></div>
+
+<div class="card"><h3>Résultats et calculs</h3>
+<div class="scroll"><table>
+<tr><th>Solution</th><th>Couleur</th><th>pH attendu</th><th>A à 610 nm</th><th>Forme présente</th></tr>
+<tr><td>A (+ HCl)</td><td>jaune</td><td>≈ 2,1</td><td>≈ 0</td><td>AH seul</td></tr>
+<tr><td>B (+ NaOH)</td><td>bleue</td><td>≈ 11,9</td><td>A<sub>B</sub> (maximale)</td><td>A⁻ seul</td></tr>
+<tr><td>Mélange ajusté</td><td>verte</td><td><b>≈ 4,2</b> (3,9 à 4,3 en pratique)</td><td>A<sub>B</sub> / 2</td><td>50 % AH, 50 % A⁻</td></tr>
+</table></div>
+<p class="cap">pH de A et B : 1 mL à 2 mol/L dans 250 mL donne 8 × 10⁻³ mol/L, soit pH = –log(8 × 10⁻³) ≈ 2,1 et pH ≈ 14 – 2,1 = 11,9. Valeur attendue dans le QCM du cours : <b>pKa = 4,2</b> (des références expérimentales usuelles rapportent plutôt 4,0 à 4,1 : 4,2 est ici une valeur annoncée comme attendue dans le questionnaire et non une constante universelle).</p>
+<p>Si le mélange n’est pas exactement à mi-absorbance, on peut quand même calculer en corrigeant le signal de la référence acide. La formule suppose <b>la même concentration totale en indicateur</b> dans les références et le mélange :</p>
+<div class="eq">pKa₂ = pH – log ( (A − A<sub>acide</sub>) / (A<sub>B</sub> − A) )</div>
+<div class="grid">
+<div>
+<div class="calc">
+<label>A<sub>B</sub> (solution bleue)<input id="p_ab" type="number" step="0.01" value="1.20"></label>
+<label>A<sub>acide</sub> (solution jaune)<input id="p_aa" type="number" step="0.01" value="0"></label>
+<label>A du mélange<input id="p_a" type="number" step="0.01" value="0.60"></label>
+<label>pH du mélange<input id="p_ph" type="number" step="0.01" value="4.05"></label>
+</div><div class="out" id="p_out"></div>
+</div>
+<figure class="fig"><svg id="p_sig" viewBox="0 0 360 220" role="img" aria-label="Absorbance à 610 nm en fonction du pH"></svg><figcaption>L'absorbance à 610 nm suit la proportion de A⁻ : mi-hauteur à pH = pKa₂.</figcaption></figure>
+</div></div>
+
+<div class="card"><h3>Réponses aux questions de l'énoncé</h3>
+<dl class="qa">
+<dt>Équation de l'équilibre acido-basique ?</dt><dd>AH + H₂O ⇌ A⁻ + H₃O⁺.</dd>
+<dt>Relation entre pKa₂ et pH ?</dt><dd>Ka₂ = [A⁻][H₃O⁺]/[AH], d'où pH = pKa₂ + log([A⁻]/[AH]) = pKa₂ − log([AH]/[A⁻]). Avec les activités : Ka = a(A⁻)·a(H₃O⁺)/a(AH), l'activité de l'eau valant 1.</dd>
+<dt>Acide fort ou faible ?</dt><dd><b>Fort</b> : AH est pratiquement totalement dissocié en milieu aqueux. <b>Faible</b> : AH et A⁻ coexistent dans des proportions qui dépendent du pH et du pKa.</dd>
+<dt>Comment l'absorbance à 610 nm donne-t-elle les proportions ?</dt><dd>A = k·[A⁻] (Beer-Lambert, AH n'absorbe pas). Dans B tout est sous forme A⁻, donc la fraction de forme basique dans un mélange vaut A / A<sub>B</sub>, et celle de forme acide 1 – A / A<sub>B</sub>.</dd>
+<dt>La méthode est-elle pertinente ?</dt><dd>Oui : elle est simple, rapide et donne une valeur proche des tables. Ses limites : le mélange n'est pas tamponné, donc son pH bouge beaucoup pour un petit ajout (réglage délicat) ; l'hypothèse « AH n'absorbe pas du tout à 610 nm » est approchée ; les incertitudes du pH-mètre (± 0,05) et du spectrophotomètre s'ajoutent ; il reste un peu d'éthanol dans la solution. Faire plusieurs mélanges de proportions différentes et moyenner améliore le résultat.</dd>
+</dl></div>
+<div class="card keep"><h3>À retenir pour le QCM</h3><ul><li>Ka = [A⁻][H₃O⁺]/[AH] ; pH = pKa + log([A⁻]/[AH]).</li><li>pH = pKa quand [A⁻] = [AH].</li><li>Mesure à 610 nm : la forme A⁻ domine le signal ; négliger l’absorbance de AH est une approximation.</li><li>Valeur indiquée comme attendue dans le questionnaire : 4,2 ; référence tabulée : environ 4,0–4,1. Les distinguer.</li><li>Solution mère : volume non précis. Partage en deux : précis (même quantité de BBP). HCl et NaOH : précis (ne pas faire varier la concentration en BBP).</li><li>Acide fort : AH n'existe plus. Acide faible : proportions fixées par le pKa.</li><li>En milieu très basique : bleu au début, incolore après un certain temps.</li></ul></div>
+
+</section><div class="learning-panel" style="--c:var(--c4)"><h3>Entraînement et fiche essentielle</h3><p>Pour vérifier tes acquis, entraîne-toi sur un tirage renouvelé de 30 questions parmi les quatre TP.</p><div class="backline"><a href="entrainement.html">Je m’entraîne →</a><a href="essentiel.html">L’essentiel à connaître →</a><a href="index.html">← Menu des TP</a></div></div></main><script>
+const $=id=>document.getElementById(id),num=id=>parseFloat($(id).value.replace(',','.')),fr=(x,n=1)=>x.toFixed(n).replace('.',',');
+function on(ids,fn){ids.forEach(i=>$(i).addEventListener('input',fn));fn()}
+// TP4 spectres
+(function(){const X=40,Y=200,W=300,H=170,px=l=>X+(l-300)/450*W,py=a=>Y-a/2.4*H,g=(l,m,s,h)=>h*Math.exp(-((l-m)**2)/(2*s*s));
+ let ah='',am='';for(let l=300;l<=750;l+=5){ah+=`${l==300?'M':'L'}${px(l)} ${py(g(l,436,45,.72)+g(l,300,30,.25))}`;am+=`${l==300?'M':'L'}${px(l)} ${py(g(l,593,22,2.2)+g(l,560,35,.35)+g(l,380,25,.22)+g(l,305,15,.4))}`}
+ $('p_spec').innerHTML=`<line x1="${X}" y1="${Y}" x2="${X+W}" y2="${Y}" stroke="currentColor"/><line x1="${X}" y1="${Y}" x2="${X}" y2="20" stroke="currentColor"/>
+ <path d="${ah}" fill="none" stroke="#d9a800" stroke-width="2.5"/><path d="${am}" fill="none" stroke="#2f5fd0" stroke-width="3"/>
+ <line x1="${px(610)}" y1="${Y}" x2="${px(610)}" y2="25" stroke="#d6455a" stroke-dasharray="5 4" stroke-width="2"/><text x="${px(610)+4}" y="34" font-size="11">610 nm</text>
+ <text x="${px(436)}" y="${py(.85)}" font-size="12" text-anchor="middle">AH (jaune)</text><text x="${px(520)}" y="${py(1.9)}" font-size="12" text-anchor="middle">A⁻ (bleu)</text>
+ ${[300,400,500,600,700].map(l=>`<text x="${px(l)}" y="${Y+14}" font-size="10" text-anchor="middle">${l}</text>`).join('')}<text x="${X+W}" y="${Y+28}" font-size="10" text-anchor="end">longueur d'onde (nm)</text><text x="6" y="14" font-size="10">Abs</text>`})();
+on(['p_ab','p_aa','p_a','p_ph'],()=>{const ab=num("p_ab"),aa=num("p_aa"),a=num("p_a"),ph=num("p_ph"),ok=[ab,aa,a,ph].every(Number.isFinite)&&aa>=0&&ab>aa&&a>aa&&a<ab&&ph>=0&&ph<=14;const pk=ph-Math.log10((a-aa)/(ab-a));
+ $('p_out').textContent=ok?`Forme bleue A⁻ : ${fr((a-aa)/(ab-aa)*100,0)} % → pKa₂ = ${fr(pk,2)}`:'Valeurs attendues : 0 ≤ A(acide) < A(mélange) < A(bleue) ; pH entre 0 et 14.';
+ const p=ok?pk:4,X=40,Y=185,W=300,H=150,px=x=>X+(x-1)/7*W,py=f=>Y-f*H;let d='';
+ for(let x=1;x<=8;x+=.1){const f=1/(1+10**(p-x));d+=`${x==1?'M':'L'}${px(x)} ${py(f)}`}
+ $('p_sig').innerHTML=`<line x1="${X}" y1="${Y}" x2="${X+W}" y2="${Y}" stroke="currentColor"/><line x1="${X}" y1="${Y}" x2="${X}" y2="20" stroke="currentColor"/><path d="${d}" fill="none" stroke="#2f5fd0" stroke-width="3"/>
+ <path d="M${X} ${py(.5)} H${px(p)} V${Y}" fill="none" stroke="#d6455a" stroke-dasharray="5 4" stroke-width="2"/><circle cx="${px(p)}" cy="${py(.5)}" r="5" fill="#d6455a"/>
+ <text x="${X-4}" y="${py(.5)+4}" font-size="10" text-anchor="end">A/2</text><text x="${X-4}" y="${py(1)+4}" font-size="10" text-anchor="end">A(B)</text><text x="${px(p)}" y="${Y+26}" font-size="11" text-anchor="middle" font-weight="700">pKa₂ = ${fr(p,2)}</text>
+ ${[1,2,3,4,5,6,7,8].map(x=>`<text x="${px(x)}" y="${Y+13}" font-size="10" text-anchor="middle">${x}</text>`).join('')}<text x="${X+W}" y="${Y+26}" font-size="10" text-anchor="end">pH</text>`});
+</script><script>
+// Auto-évaluations autonomes du parcours débutant
+for(const block of document.querySelectorAll('.learning-check[data-answer]')){
+ const button=block.querySelector('button');
+ button.addEventListener('click',()=>{
+  const selected=block.querySelector('input[type=radio]:checked');
+  const feedback=block.querySelector('.learning-feedback');
+  if(!selected){feedback.textContent='Choisis d’abord une réponse.';feedback.className='learning-feedback no';return;}
+  const correct=selected.value===block.dataset.answer;
+  feedback.textContent=correct?'Bravo ! La réponse est correcte. Tu peux ouvrir la correction pour voir le raisonnement.':'Pas encore. Relis le calcul et réessaie ; la correction détaillée est disponible juste en dessous.';
+  feedback.className='learning-feedback '+(correct?'ok':'no');
+ });
+}
+</script><footer><a href="index.html">← Retour au menu des TP</a> · <a href="../">Accueil général des révisions</a><p>Support pédagogique de révision. Les consignes du laboratoire et le cours officiel prévalent.</p></footer></body></html>
