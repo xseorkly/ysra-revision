@@ -127,7 +127,7 @@ body{min-height:100vh}.site-nav{position:sticky;top:0;z-index:30;background:var(
 .hub-flag{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;font-weight:800;color:var(--c2)}
 .backline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 0 0}.backline a{color:var(--c1);font-weight:700}
 @media print{.site-nav,.backline,.hub-action{display:none}}
-</style></head><body><header class="top"><h1>TP 2 — Dosage des sulfates</h1><p>Précipité, turbidimétrie, étalonnage</p></header><nav class="site-nav" aria-label="Navigation des TP"><a href="index.html" >⌂ Menu des TP</a><a href="tp1.html" >TP 1</a><a href="tp2.html" aria-current="page">TP 2</a><a href="tp3.html" >TP 3</a><a href="tp4.html" >TP 4</a><a href="essentiel.html" >Fiche essentielle</a><a href="entrainement.html" >Je m’entraîne</a><a href="../">Accueil général</a></nav><main><section class="tp" id="tp2">
+</style><script src="suivi.js"></script></head><body><header class="top"><h1>TP 2 — Dosage des sulfates</h1><p>Précipité, turbidimétrie, étalonnage</p></header><nav class="site-nav" aria-label="Navigation des TP"><a href="index.html" >⌂ Menu des TP</a><a href="tp1.html" >TP 1</a><a href="tp2.html" aria-current="page">TP 2</a><a href="tp3.html" >TP 3</a><a href="tp4.html" >TP 4</a><a href="essentiel.html" >Fiche essentielle</a><a href="entrainement.html" >Je m’entraîne</a><a href="../">Accueil général</a></nav><main><section class="tp" id="tp2">
 <h2><span>TP 2</span> Analyse de l'eau : les sulfates</h2>
 <p class="sub">Dosage de SO₄²⁻ par turbidimétrie (opacimétrie) à 650 nm</p>
 <span class="tag">Précipitation</span><span class="tag">Beer-Lambert</span><span class="tag">Droite d'étalonnage</span>
@@ -354,7 +354,8 @@ function okText(v){const m=norm(v).match(/^a=(.+)$/);return !!m&&[...m[1].replac
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function best(id,v){try{const k='tpchimie-best-'+id;if(v!==undefined){const o=+localStorage.getItem(k)||0;if(v>o)localStorage.setItem(k,v)}return +localStorage.getItem(k)||0}catch(e){return v||0}}
 function build(box){const id=box.dataset.quiz,qs=shuffle(QUIZ[id]),wrap=box.querySelector('.qs'),prog=box.querySelector('progress'),sc=box.querySelector('.score');
- let done=0,good=0;wrap.innerHTML='';prog.max=qs.length;prog.value=0;
+ if(box._flush)box._flush();let done=0,good=0,sentAt=-1;const miss=[],t0=Date.now(),label=id==='global'?'Entraînement 30 QCM':'QCM '+id.toUpperCase().replace('TP','TP ');
+ const report=()=>{if(!window.ysraTrack||!done||sentAt===done)return;sentAt=done;const full=done===qs.length;window.ysraTrack('note',{serie:label+(full?' — terminé':` — interrompu (${done} questions faites sur ${qs.length})`),score:good,total:full?qs.length:done,pourcentage:Math.round(good/done*100),a_revoir:miss.join(' | '),duree_min:Math.round((Date.now()-t0)/60000)})};box._flush=report;wrap.innerHTML='';prog.max=qs.length;prog.value=0;
  const show=()=>{sc.textContent=`${good} juste(s) sur ${done} répondue(s) · ${qs.length} questions`+(best(id)?` · meilleur score : ${best(id)}/${qs.length}`:'');prog.value=done;const n=document.getElementById('sc-'+id);if(n)n.textContent=best(id)?`${best(id)}/${qs.length}`:''};
  qs.forEach((q,i)=>{const d=document.createElement('div');d.className='qz';const multi=q.a&&q.a.length>1;
   let h=`<span class="src">${q.s}</span><div class="qh">${i+1}. ${q.q}</div>`;
@@ -368,9 +369,9 @@ function build(box){const id=box.dataset.quiz,qs=shuffle(QUIZ[id]),wrap=box.quer
     ans=q.a.map(k=>q.o[k]).join(' ; ')}
    else{const v=d.querySelector('input').value.trim();if(!v)return;
     if(q.t){ok=okText(v);ans=q.t}else{const x=parseFloat(v.replace(',','.'));ok=Math.abs(x-q.n)<=q.tol+1e-9;ans=String(q.n).replace('.',',')}}
-   d.querySelectorAll('input').forEach(x=>x.disabled=true);d.classList.add('done');done++;if(ok)good++;
+   d.querySelectorAll('input').forEach(x=>x.disabled=true);d.classList.add('done');done++;if(ok)good++;else miss.push(q.q.replace(/<[^>]+>/g,'').slice(0,70));
    d.querySelector(".fb").innerHTML=`<b class="${ok?"ok":"no"}">${ok?"Juste.":"Pas encore."}</b> ${ok?"":"Réponse attendue : <b>"+ans+"</b>. "}${q.e}${!ok&&q.o?"<p><strong>À comprendre :</strong> compare ta proposition avec la réponse attendue ; repère les mots-clés, les unités et les conditions qui font la différence.</p>":""}`;
-   if(done===qs.length)best(id,good);show()});
+   if(done===qs.length){best(id,good);report()}show()});
   wrap.appendChild(d)});show()}
 document.querySelectorAll('.quiz').forEach(b=>{build(b);b.querySelector('[data-act=reset]').addEventListener('click',()=>{build(b);b.scrollIntoView({behavior:'smooth'})})});
 
