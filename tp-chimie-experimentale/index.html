@@ -205,7 +205,7 @@ footer{color:var(--mut);font-size:.85rem;text-align:center;padding:20px}
 </section>
 
 <div class="card"><h3>L'énoncé en résumé</h3>
-<p>L'eau contient des sels dissous. Une eau « dure » (riche en calcium et magnésium) entartre les tuyaux. Le but est de mesurer la <b>dureté totale</b> (titre hydrotimétrique T<sub>H</sub>) d'une eau minérale, c'est-à-dire la somme [Ca²⁺] + [Mg²⁺], puis de mesurer son pH et de comparer aux valeurs calculées avec l'étiquette.</p>
+<p>L'eau contient des sels dissous. Une eau « dure » (riche en calcium et magnésium) peut favoriser les dépôts de tartre selon les conditions. Le but est de mesurer la <b>dureté totale</b> (titre hydrotimétrique T<sub>H</sub>) d'une eau minérale, c'est-à-dire la somme [Ca²⁺] + [Mg²⁺], puis de mesurer son pH et de comparer aux valeurs calculées avec l'étiquette.</p>
 <p>La dureté s'exprime en mg/L de CaCO₃, en degrés français (°f, 1 °f = 10 mg/L de CaCO₃) ou en milliéquivalents/L.</p></div>
 
 <div class="card"><h3>Le principe, simplement</h3>
@@ -213,7 +213,7 @@ footer{color:var(--mut);font-size:.85rem;text-align:center;padding:20px}
 <div>
 <p>L'<b>EDTA</b> est une molécule « pince » : elle attrape un ion Ca²⁺ ou Mg²⁺ et forme un complexe très stable, <b>1 EDTA pour 1 ion</b>.</p>
 <div class="eq">Ca²⁺ + Y⁴⁻ → CaY²⁻ &nbsp;&nbsp; Mg²⁺ + Y⁴⁻ → MgY²⁻</div>
-<p>L'indicateur, le <b>noir ériochrome T (NET)</b>, se fixe aussi sur ces ions : complexé il est <b>rouge</b>, libre il est <b>bleu</b>. Tant qu'il reste des ions, la solution est rouge. Quand l'EDTA les a tous pris (y compris ceux de l'indicateur), elle vire au bleu : c'est l'<b>équivalence</b>.</p>
+<p>L'indicateur, le <b>noir ériochrome T (NET)</b>, se fixe aussi sur ces ions : complexé il est <b>rouge</b>, libre il est <b>bleu</b>. Avant l’équivalence, l’indicateur est majoritairement complexé et la solution reste rouge. Quand l'EDTA les a tous pris (y compris ceux de l'indicateur), elle vire au bleu : c'est l'<b>équivalence</b>.</p>
 <p>Le tampon pH ≈ 10 est indispensable : l'EDTA ne complexe bien qu'en milieu basique, et le NET n'a ces couleurs qu'à ce pH.</p>
 </div>
 <figure class="fig">
@@ -540,7 +540,7 @@ Masse théorique : 0,0371 × 474,4 = <b>17,6 g</b> pour 1,00 g d'aluminium.</p>
 <div class="eq">AH + H₂O ⇌ A⁻ + H₃O⁺ &nbsp;&nbsp; Ka₂ = [A⁻][H₃O⁺] / [AH]</div>
 <div class="eq">pH = pKa₂ + log ( [A⁻] / [AH] )</div>
 <p>À 610 nm, AH n'absorbe pratiquement pas : l'absorbance mesure donc directement la <b>quantité de forme bleue A⁻</b>.</p>
-<p>L'astuce : si l'absorbance d'un mélange vaut <b>la moitié</b> de celle de la solution toute bleue, alors la moitié de l'indicateur est sous forme A⁻ et l'autre moitié sous forme AH. Donc [A⁻] = [AH], le logarithme vaut 0, et <b>pH = pKa₂</b>.</p>
+<p>L’astuce : si la mesure du mélange est à mi-chemin entre les absorbances des références acide et basique, les deux formes sont en proportions égales (à concentration totale en indicateur constante). Si l’absorbance de la forme acide est négligeable, cela se simplifie en A<sub>mélange</sub> = A<sub>B</sub>/2. Donc [A⁻] = [AH], le logarithme vaut 0, et <b>pH = pKa₂</b>.</p>
 </div>
 <figure class="fig"><svg id="p_spec" viewBox="0 0 360 240" role="img" aria-label="Spectres d'absorption de AH et A-"></svg><figcaption>À 610 nm (trait pointillé), seule la forme bleue absorbe.</figcaption></figure>
 </div>
@@ -575,12 +575,13 @@ Masse théorique : 0,0371 × 474,4 = <b>17,6 g</b> pour 1,00 g d'aluminium.</p>
 <tr><td>Mélange ajusté</td><td>verte</td><td><b>≈ 4,2</b> (3,9 à 4,3 en pratique)</td><td>A<sub>B</sub> / 2</td><td>50 % AH, 50 % A⁻</td></tr>
 </table></div>
 <p class="cap">pH de A et B : 1 mL à 2 mol/L dans 250 mL donne 8 × 10⁻³ mol/L, soit pH = –log(8 × 10⁻³) ≈ 2,1 et pH ≈ 14 – 2,1 = 11,9. Valeur attendue dans le QCM du cours : <b>pKa = 4,2</b> (des références expérimentales usuelles rapportent plutôt 4,0 à 4,1 : 4,2 est ici une valeur annoncée comme attendue dans le questionnaire et non une constante universelle).</p>
-<p>Si l'absorbance du mélange n'est pas exactement la moitié, on peut quand même calculer :</p>
-<div class="eq">pKa₂ = pH – log ( A / (A<sub>B</sub> – A) )</div>
+<p>Si le mélange n’est pas exactement à mi-absorbance, on peut quand même calculer en corrigeant le signal de la référence acide. La formule suppose <b>la même concentration totale en indicateur</b> dans les références et le mélange :</p>
+<div class="eq">pKa₂ = pH – log ( (A − A<sub>acide</sub>) / (A<sub>B</sub> − A) )</div>
 <div class="grid">
 <div>
 <div class="calc">
 <label>A<sub>B</sub> (solution bleue)<input id="p_ab" type="number" step="0.01" value="1.20"></label>
+<label>A<sub>acide</sub> (solution jaune)<input id="p_aa" type="number" step="0.01" value="0"></label>
 <label>A du mélange<input id="p_a" type="number" step="0.01" value="0.60"></label>
 <label>pH du mélange<input id="p_ph" type="number" step="0.01" value="4.05"></label>
 </div><div class="out" id="p_out"></div>
@@ -629,7 +630,7 @@ function tubes(){let s='';V.forEach((v,i)=>{const x=30+i*80,o=.06+v*.085;
  s+=`<path d="M${x} 20 v85 a20 20 0 0 0 40 0 v-85" fill="none" stroke="currentColor" stroke-width="2"/><path d="M${x+2} 50 v55 a18 18 0 0 0 36 0 v-55z" fill="#8a94a0" opacity="${o}"/><text x="${x+20}" y="145" font-size="12" text-anchor="middle">${N[i]}</text>`});
  $('s_tubes').innerHTML=s}
 tubes();
-function plot(){const c0=num("s_c0"),k=num("s_k"),a=num("s_a"),X=45,Y=205,W=290,H=175;
+function plot(){const c0=num("s_c0"),k=num("s_k"),a=num("s_a"),X=45,Y=205,W=290,H=175;if(![c0,k,a,num("s_d")].every(Number.isFinite)||c0<=0||k<=0||a<0||num("s_d")<1){$("s_plot").innerHTML="";$("s_out").textContent="Données invalides : concentration et pente > 0 ; absorbance ≥ 0 ; dilution ≥ 1.";$("s_row").innerHTML="<td>Équivalent en mg/L de SO₄²⁻</td>"+V.map(() => "<td>—</td>").join("");return;}
  const cs=V.map(v=>c0*v/39),cm=Math.max(cs[6],1),am=Math.max(k*cm*1.1,.05);
  const px=c=>X+c/cm*W,py=y=>Y-y/am*H;
  let s=`<line x1="${X}" y1="${Y}" x2="${X+W+10}" y2="${Y}" stroke="currentColor"/><line x1="${X}" y1="${Y}" x2="${X}" y2="20" stroke="currentColor"/><text x="${X+W/2}" y="240" font-size="11" text-anchor="middle">SO₄²⁻ (mg/L)</text><text x="12" y="16" font-size="11">A (650 nm)</text><text x="${X+W}" y="${Y+14}" font-size="10" text-anchor="middle">${fr(cm,0)}</text><text x="${X-6}" y="${py(am/1.1)+4}" font-size="10" text-anchor="end">${fr(am/1.1,2)}</text>`;
@@ -651,8 +652,8 @@ on(['a_al','a_m'],()=>{const mass=num("a_al"),obt=num("a_m"),n=mass/26.98,mt=n*4
  <line x1="${px(610)}" y1="${Y}" x2="${px(610)}" y2="25" stroke="#d6455a" stroke-dasharray="5 4" stroke-width="2"/><text x="${px(610)+4}" y="34" font-size="11">610 nm</text>
  <text x="${px(436)}" y="${py(.85)}" font-size="12" text-anchor="middle">AH (jaune)</text><text x="${px(520)}" y="${py(1.9)}" font-size="12" text-anchor="middle">A⁻ (bleu)</text>
  ${[300,400,500,600,700].map(l=>`<text x="${px(l)}" y="${Y+14}" font-size="10" text-anchor="middle">${l}</text>`).join('')}<text x="${X+W}" y="${Y+28}" font-size="10" text-anchor="end">longueur d'onde (nm)</text><text x="6" y="14" font-size="10">Abs</text>`})();
-on(['p_ab','p_a','p_ph'],()=>{const ab=num("p_ab"),a=num("p_a"),ph=num("p_ph"),ok=[ab,a,ph].every(Number.isFinite)&&ab>0&&a>0&&a<ab&&ph>=0&&ph<=14;const pk=ph-Math.log10(a/(ab-a));
- $('p_out').textContent=ok?`Forme bleue A⁻ : ${fr(a/ab*100,0)} % → pKa₂ = ${fr(pk,2)}`:'Il faut 0 < A < A(B).';
+on(['p_ab','p_aa','p_a','p_ph'],()=>{const ab=num("p_ab"),aa=num("p_aa"),a=num("p_a"),ph=num("p_ph"),ok=[ab,aa,a,ph].every(Number.isFinite)&&aa>=0&&ab>aa&&a>aa&&a<ab&&ph>=0&&ph<=14;const pk=ph-Math.log10((a-aa)/(ab-a));
+ $('p_out').textContent=ok?`Forme bleue A⁻ : ${fr((a-aa)/(ab-aa)*100,0)} % → pKa₂ = ${fr(pk,2)}`:'Valeurs attendues : 0 ≤ A(acide) < A(mélange) < A(bleue) ; pH entre 0 et 14.';
  const p=ok?pk:4,X=40,Y=185,W=300,H=150,px=x=>X+(x-1)/7*W,py=f=>Y-f*H;let d='';
  for(let x=1;x<=8;x+=.1){const f=1/(1+10**(p-x));d+=`${x==1?'M':'L'}${px(x)} ${py(f)}`}
  $('p_sig').innerHTML=`<line x1="${X}" y1="${Y}" x2="${X+W}" y2="${Y}" stroke="currentColor"/><line x1="${X}" y1="${Y}" x2="${X}" y2="20" stroke="currentColor"/><path d="${d}" fill="none" stroke="#2f5fd0" stroke-width="3"/>
@@ -761,7 +762,7 @@ tp4:[
  {s:M,q:"Un acide AH est dit « fort » dans l'eau lorsque :",o:["AH et A⁻ sont présents dans les mêmes proportions","AH n'existe plus en solution","AH et A⁻ sont dans des proportions fixées par le pKa"],a:[1],e:"Dissociation totale."},
  {s:M,q:"À quelle longueur d'onde mesure-t-on l'absorbance ?",o:["593 nm","500 nm","610 nm","436 nm"],a:[2],e:"610 nm, et non 593 nm (le maximum de A⁻) : à 610 nm, AH n'absorbe plus du tout."},
  {s:M,q:"Valeur attendue du pKa du BBP ?",n:4.2,tol:.001,e:"Cette version du questionnaire attend 4,2 (tolérance stricte) ; PubChem indique pKa ≈ 4,0 et des données expérimentales citées par Canada.ca donnent 4,0–4,1. Ne pas confondre ces valeurs."},
- {s:M,q:"Qu'est-ce qui justifie cette longueur d'onde ?",o:["seul AH absorbe et l'absorbance est fonction uniquement de AH","seul AH absorbe et l'absorbance est fonction uniquement de A⁻","seul A⁻ absorbe et l'absorbance est fonction uniquement de AH","seul A⁻ absorbe et l'absorbance est fonction uniquement de A⁻"],a:[3],e:"L'absorbance devient un compteur de forme bleue."},
+ {s:M,q:"Qu'est-ce qui justifie cette longueur d'onde ?",o:["seul AH absorbe et l'absorbance est fonction uniquement de AH","seul AH absorbe et l'absorbance est fonction uniquement de A⁻","seul A⁻ absorbe et l'absorbance est fonction uniquement de AH","A⁻ absorbe de façon prédominante et le signal renseigne principalement sur A⁻"],a:[3],e:"L'absorbance devient un compteur de forme bleue."},
  {s:M,q:"Condition pour que pH = pKa ?",o:["[A⁻] = [AH]/2","[A⁻]/2 = [AH]","[A⁻] >> [AH]","[A⁻] = [AH]"],a:[3],e:"Rapport égal à 1, donc log = 0."},
  {s:M,q:"Pourquoi les volumes de HCl (2 M) et de NaOH (2 M) doivent-ils être précis ?",o:["afin de ne pas faire varier les concentrations de BBP des solutions","ce n'est pas nécessaire, les quantités de BBP ne varient pas","pour avoir exactement la même quantité de BBP qui réagit avec HCl et avec NaOH","ce n'est pas grave, les deux réactifs sont largement en excès"],a:[0],e:"Même volume ajouté des deux côtés : même dilution, donc même concentration en BBP."},
  {s:B,q:"A<sub>B</sub> = 1,20 ; A<sub>mélange</sub> = 0,90 ; pH du mélange = 4,50. pKa ?",n:4.02,tol:.02,e:"Fraction bleue 0,75, jaune 0,25, rapport 3 ; pKa = 4,50 − log 3 = 4,02."},
