@@ -117,3 +117,11 @@ footer{color:var(--mut);font-size:.85rem;text-align:center;padding:10px 20px 34p
 .katex-display{margin:.5em 0;overflow-x:auto;overflow-y:hidden;padding:2px 0}
 @media (max-width:560px){body{font-size:15.5px}.card,.quiz,.act{padding:13px 13px}.trad{grid-template-columns:1fr}.trad>div:nth-child(odd){border-bottom:0;padding-bottom:0}}
 @media print{nav.site,.act,.quiz,.next,header.top .k{display:none}body{background:#fff}.card{box-shadow:none;break-inside:avoid}header.top{background:#fff;color:#000;padding:10px}header.top p{color:#333}}
+/* audit : indices progressifs et encadrés « À retenir » */
+.ex details.hint{border-top:1px dashed var(--line)}
+.ex details.hint summary{color:#9a6a12}
+.ex details.hint>div{background:#fdf8ee;border-radius:8px;padding:8px 10px;margin-top:4px}
+.retenir{border:2px solid var(--c);background:linear-gradient(0deg,#fff,#fff),var(--soft)}
+.retenir>h3{color:var(--c)}
+.retenir li{margin:5px 0}
+.mots td:first-child{font-weight:700;color:var(--deep);white-space:nowrap}
