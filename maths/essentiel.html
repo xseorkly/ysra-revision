@@ -34,7 +34,11 @@
 <tr><td>Majorée / minorée</td><td>∃M, ∀x, f(x) ≤ M / ∃m, ∀x, f(x) ≥ m ; bornée = les deux</td></tr>
 <tr><td>Maximum / minimum</td><td>un majorant / minorant <b>atteint</b> par f</td></tr>
 <tr><td>sup / inf</td><td>le plus petit des majorants / le plus grand des minorants ; s’il est atteint, c’est le max / le min</td></tr>
-<tr><td>Exemple clé</td><td>\(\frac1x\) sur \(\mathbb R^{+*}\) : inf = 0, pas de minimum, pas majorée</td></tr></table></div></div>
+<tr><td>Exemple clé</td><td>\(\frac1x\) sur \(\mathbb R^{+*}\) : inf = 0, pas de minimum, pas majorée</td></tr>
+<tr><td>Axe x = a</td><td>\(f(a+h)=f(a-h)\) pour tout h (exercice 05.2 du prof)</td></tr>
+<tr><td>Centre Ω(a ; b)</td><td>\(f(a+h)+f(a-h)=2b\) pour tout h ; souvent au croisement des asymptotes</td></tr>
+<tr><td>Bornée</td><td>il suffit de montrer \(|f(x)|\leqslant K\) : on majore le haut et on minore le bas d’une fraction (05.5)</td></tr>
+<tr><td>Prouver inf = m</td><td>① m est un minorant ; ② pour tout \(m'>m\), on trouve x avec \(f(x)\lt m'\) (05.6)</td></tr></table></div></div>
 
 <div class="card"><h3>C · Les fonctions usuelles</h3><div class="scroll"><table>
 <tr><th>f(x)</th><th>domaine</th><th>dérivée</th><th>variations</th><th>à retenir</th></tr>
@@ -46,6 +50,15 @@
 <tr><td>\(e^x\)</td><td>ℝ</td><td>\(e^x\)</td><td>↗ strictement</td><td>eˣ > 0, e⁰ = 1 ; \(e^{a+b}=e^ae^b\) ; \(y=e^x\iff x=\ln y\) ; \((e^u)'=u'e^u\)</td></tr>
 <tr><td>\(x^\alpha\)</td><td>]0 ; +∞[</td><td>\(\alpha x^{\alpha-1}\)</td><td>↗ si α > 0, ↘ si α &lt; 0</td><td>\(x^\alpha=e^{\alpha\ln x}\) ; \(x^{1/2}=\sqrt x\) ; \(a^x=e^{x\ln a}\) ; \(u^v=e^{v\ln u}\)</td></tr></table></div></div>
 
+<div class="card"><h3>Les méthodes des exercices du prof</h3><div class="scroll"><table>
+<tr><td>Domaine</td><td>dénominateur ≠ 0 ; sous √ : ≥ 0 ; dans ln : > 0 → tableau de signes</td></tr>
+<tr><td>Dérivabilité</td><td>comme le domaine, <b>sauf</b> là où ce qui est sous √ vaut 0</td></tr>
+<tr><td>Dérivées utiles</td><td>\((\ln|u|)'=\frac{u'}{u}\) ; \((\sqrt u)'=\frac{u'}{2\sqrt u}\) ; \((u^n)'=nu'u^{n-1}\) ; \(u^v=e^{v\ln u}\) puis \((e^\varphi)'=\varphi'e^\varphi\)</td></tr>
+<tr><td>Plusieurs |…|</td><td>valeurs qui annulent → morceaux → tableau de signes → garder les solutions <b>dans</b> chaque morceau (05.7)</td></tr>
+<tr><td>Ent(…) = k</td><td>montrer que k est entier et que \(k\leqslant\ldots\lt k+1\) (05.8)</td></tr>
+<tr><td>Équation avec ln</td><td>domaine → tout en ln(A) = ln(B) → A = B → <b>tri</b> des solutions (05.10)</td></tr>
+<tr><td>Équation avec \(e^{2x}\) et \(e^x\)</td><td>poser \(X=e^x>0\) → second degré → éliminer les X ≤ 0 → \(x=\ln X\) (05.10)</td></tr>
+<tr><td>Monotonie abstraite</td><td>fixer \(a\lt b\), raisonner par l’absurde, appliquer une fonction croissante (05.3)</td></tr></table></div></div>
 <div class="card"><h3>Les limites à connaître</h3><div class="scroll"><table>
 <tr><td>Bords</td><td>\(\ln x\to-\infty\) en \(0^+\), \(+\infty\) en \(+\infty\) ; \(e^x\to0\) en \(-\infty\), \(+\infty\) en \(+\infty\) ; \(\frac1x\to\pm\infty\) en \(0^\pm\), 0 en \(\pm\infty\)</td></tr>
 <tr><td>Croissances comparées</td><td>\(\frac{\ln x}{x}\to0\) (en \(+\infty\)) ; \(x\ln x\to0\) (en \(0^+\)) ; \(\frac{e^x}{x}\to+\infty\) (en \(+\infty\)) ; \(xe^x\to0\) (en \(-\infty\)) ; \(\frac{\sqrt x}{x}\to0\) (en \(+\infty\))</td></tr>

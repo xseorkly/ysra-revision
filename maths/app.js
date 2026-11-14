@@ -388,11 +388,33 @@ function actAlpha(el){
   $$('input', el).forEach(i => i.oninput = draw); draw();
 }
 
+/* ---------- Progression : « notion acquise » (mémorisée dans ce navigateur) ---------- */
+const KEY = 'ysra.maths5.acquis';
+const PARTS = {A:['a1','a2','a3','a4','a5','a6'], B:['b1','b2','b3','b4','b5','b6'], C:['c1','c2','c3','c4','c5','c6','c7']};
+function getDone(){ try { return new Set(JSON.parse(localStorage.getItem(KEY) || '[]')); } catch (e) { return new Set(); } }
+function setDone(d){ try { localStorage.setItem(KEY, JSON.stringify([...d])); } catch (e) {} }
+function initProgress(){
+  const done = getDone();
+  $$('section.notion[id]').forEach(sec => {
+    const id = sec.id; if (!/^[abc]\d$/.test(id)) return;
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'acquis';
+    const paint = () => { const on = done.has(id); b.textContent = on ? '✔ Notion acquise' : '☐ Je marque cette notion comme acquise'; b.classList.toggle('on', on); };
+    b.onclick = () => { done.has(id) ? done.delete(id) : done.add(id); setDone(done); paint(); };
+    paint(); const quiz = $('.quiz', sec); (quiz || sec).insertAdjacentElement(quiz ? 'afterend' : 'beforeend', b);
+  });
+  const box = $('#progression');
+  if (box) box.innerHTML = Object.entries(PARTS).map(([p, ids]) => { const n = ids.filter(i => done.has(i)).length;
+    return `<div class="prog"><b>Partie ${p}</b><progress max="${ids.length}" value="${n}"></progress><span>${n} / ${ids.length}</span></div>`; }).join('') +
+    '<p class="poly" style="margin:6px 0 0">Coche « notion acquise » en bas de chaque fiche. Ces coches sont gardées dans ce navigateur seulement.</p>';
+}
+
 const ACTS = {diag: actDiag, image: actImage, compo: actCompo, recip: actRecip, parite: actParite, periode: actPeriode, mono: actMono, borne: actBorne, ent: actEnt, explore: actExplore, course: actCourse, sym: actSym, alpha: actAlpha};
 function init(){
   $$('.quiz').forEach(buildQuiz);
   render(document.body);
   $$('[data-widget]').forEach(el => { const f = ACTS[el.dataset.widget]; if (f) try { f(el); } catch (e) { console.error(e); } });
+  $$('canvas.plot').forEach(cv => { const h = cv.closest('.act'); cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', 'Graphique interactif : ' + (h && $('h3', h) ? $('h3', h).textContent.replace(/^\W+/, '') : 'courbe')); });
+  initProgress();
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 // KaTeX peut arriver après : on relance le rendu une fois chargé

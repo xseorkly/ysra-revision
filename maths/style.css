@@ -143,3 +143,8 @@ details.corr h4{color:var(--deep);margin:14px 0 4px;font-size:1rem;border-bottom
 .verif{background:#e9f6ef;border-radius:10px;padding:8px 12px;font-size:.95rem}
 .profex .retenir{margin-bottom:10px}
 .profex>.ex:last-child{margin-bottom:14px}
+button.acquis{display:block;margin:10px auto 0;padding:8px 16px;border-radius:99px;border:2px dashed var(--c);background:#fff;color:var(--c);font:inherit;font-weight:700;cursor:pointer}
+button.acquis.on{border-style:solid;background:var(--ok);border-color:var(--ok);color:#fff}
+.prog{display:flex;align-items:center;gap:10px;margin:6px 0}
+.prog b{min-width:72px;color:var(--deep)}
+.prog progress{flex:1;height:12px;accent-color:var(--ok)}
