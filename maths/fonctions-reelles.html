@@ -9,7 +9,7 @@
 <style>:root{--c:var(--cB)}</style>
 </head><body>
 <header class="top"><div class="k">Maths · Chapitre 5 · Partie B</div><h1>Les fonctions réelles</h1><p>Les propriétés qu’on regarde sur toute fonction : symétrie, répétition, sens de variation, et jusqu’où elle monte ou descend.</p></header>
-<nav class="site"><a href="../">Accueil</a><a href="./">Sommaire</a><a href="applications.html">A · Applications</a><a href="fonctions-reelles.html" aria-current="page">B · Fonctions réelles</a><a href="fonctions-usuelles.html">C · Fonctions usuelles</a><a href="essentiel.html">L’essentiel</a><a href="qcm.html">QCM final</a></nav>
+<nav class="site"><a href="../">Accueil</a><a href="./">Sommaire</a><a href="applications.html">A · Applications</a><a href="fonctions-reelles.html" aria-current="page">B · Fonctions réelles</a><a href="fonctions-usuelles.html">C · Fonctions usuelles</a><a href="essentiel.html">L’essentiel</a><a href="qcm.html">QCM final</a><a href="devoir.html">Devoir type</a></nav>
 <main>
 <div class="toc"><h2>Dans cette partie (poly : § 5.2, pages 5 à 7)</h2><ol>
 <li><a href="#b1">Parité</a></li><li><a href="#b2">Périodicité</a></li><li><a href="#b3">Fonctions monotones</a></li>
@@ -40,6 +40,72 @@
 <details class="hint"><summary>💡 Un indice</summary><div>Pour chacune, calcule \(f(-x)\). Si ça ne ressemble ni à \(f(x)\) ni à \(-f(x)\), cherche un contre-exemple avec x = 1.</div></details><details><summary>Corrigé</summary><div>a) \(\frac{(-x)^2}{(-x)^2+1}=\frac{x^2}{x^2+1}\) : <b>paire</b>.<br>b) \(\frac{-x}{x^2+1}=-\frac{x}{x^2+1}\) : <b>impaire</b>.<br>c) \(f(1)=2\), \(f(-1)=0\) et \(-f(1)=-2\) : <b>ni l’une ni l’autre</b>.<br>d) \(\mathbb R^*\) est symétrique et \(\frac{1}{-x}=-\frac1x\) : <b>impaire</b> (c’est la remarque R1 du poly sur la fonction inverse).</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> Étudie la parité de \(f(x)=e^x+e^{-x}\), de \(g(x)=e^x-e^{-x}\) et de \(h(x)=\ln\!\left(\dfrac{1+x}{1-x}\right)\) sur \(]-1\,;1[\).
 <details class="hint"><summary>💡 Un indice</summary><div>Pour h : \(\frac{1-x}{1+x}\) est l’inverse de \(\frac{1+x}{1-x}\), et \(\ln\frac1a=-\ln a\).</div></details><details><summary>Corrigé</summary><div>\(f(-x)=e^{-x}+e^{x}=f(x)\) : f est <b>paire</b>.<br>\(g(-x)=e^{-x}-e^{x}=-(e^x-e^{-x})=-g(x)\) : g est <b>impaire</b>.<br>\(]-1\,;1[\) est symétrique, et \(h(-x)=\ln\frac{1-x}{1+x}=\ln\Big(\big(\frac{1+x}{1-x}\big)^{-1}\Big)=-\ln\frac{1+x}{1-x}=-h(x)\), en utilisant \(\ln\frac1a=-\ln a\). h est <b>impaire</b>.</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="profex" id="ex05-1"><div class="pxhead"><span class="pxnum">Exercice 05.1</span> du prof · parité</div>
+<div class="enonce"><p>Soit la fonction f définie par \(f(x)=\dfrac{1-e^x}{1+e^x}\). Déterminer le domaine de définition \(D_f\) de la fonction f, puis montrer que f est impaire sur \(D_f\).</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul>
+<li><b>Domaine de définition</b> : l’ensemble des x pour lesquels on peut calculer f(x). Avec une fraction, le seul interdit est un <b>dénominateur nul</b>.</li>
+<li><b>Exponentielle</b> (fiche C6) : \(e^x>0\) pour tout réel x, et \(e^{-x}=\dfrac1{e^x}\) (c’est la formule notée dans la marge de ta feuille).</li>
+<li><b>Impaire</b> (fiche B1) : (i) le domaine est symétrique, si x est dedans, −x aussi ; (ii) \(f(-x)=-f(x)\) pour tout x du domaine.</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><ol class="steps"><li>Chercher quand le dénominateur \(1+e^x\) s’annule.</li><li>Vérifier que le domaine trouvé est symétrique.</li><li>Calculer \(f(-x)\), faire disparaître les \(e^{-x}\), et reconnaître \(-f(x)\).</li></ol></div>
+<div class="ex"><details class="hint"><summary>💡 Indice 1</summary><div>\(e^x\) est toujours strictement positif. Le dénominateur \(1+e^x\) peut-il valoir 0 ?</div></details>
+<details class="hint"><summary>💡 Indice 2</summary><div>Dans \(f(-x)=\dfrac{1-e^{-x}}{1+e^{-x}}\), multiplie le haut ET le bas par \(e^x\). Cela ne change pas la fraction et fait disparaître les \(e^{-x}\), car \(e^{-x}\times e^x=e^0=1\).</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<h4>1) Le domaine de définition</h4>
+<ol class="steps"><li>Le numérateur \(1-e^x\) se calcule pour tout réel x. Le seul danger est le dénominateur, qui ne doit pas être nul.</li>
+<li>Pour tout réel x, \(e^x>0\). Donc \(1+e^x>1>0\) : le dénominateur n’est <b>jamais nul</b>.</li>
+<li>Conclusion : \(\boxed{D_f=\mathbb R}\).</li></ol>
+<h4>2) f est impaire</h4>
+<ol class="steps"><li><b>Condition (i) :</b> ℝ est symétrique par rapport à 0 (si x est réel, −x aussi). ✔</li>
+<li><b>On calcule f(−x)</b> en remplaçant chaque x par −x : \(f(-x)=\dfrac{1-e^{-x}}{1+e^{-x}}\).</li>
+<li><b>On multiplie en haut et en bas par \(e^x\)</b> (c’est permis car \(e^x\neq0\)) :
+\[f(-x)=\frac{(1-e^{-x})\times e^x}{(1+e^{-x})\times e^x}=\frac{e^x-e^{-x}e^{x}}{e^x+e^{-x}e^x}=\frac{e^x-1}{e^x+1}.\]
+On a utilisé \(e^{-x}\times e^x=e^{-x+x}=e^0=1\).</li>
+<li><b>On fait apparaître −f(x).</b> En haut, \(e^x-1=-(1-e^x)\). En bas, \(e^x+1=1+e^x\). Donc
+\[f(-x)=\frac{-(1-e^x)}{1+e^x}=-\frac{1-e^x}{1+e^x}=-f(x).\]</li>
+<li><b>Conclusion :</b> pour tout réel x, \(f(-x)=-f(x)\), et ℝ est symétrique, donc <b>f est impaire</b>. Sa courbe est symétrique par rapport à l’origine.</li></ol>
+<p class="verif">🔎 <b>Vérification :</b> f étant impaire et définie en 0, on doit avoir \(f(0)=0\). C’est bien le cas : \(f(0)=\frac{1-1}{1+1}=0\). Avec x = 1 : \(f(1)=\frac{1-e}{1+e}\approx-0{,}46\) et \(f(-1)=\frac{1-1/e}{1+1/e}\approx0{,}46\), qui sont bien opposés.</p>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Avec des \(e^{-x}\), le réflexe est de <b>multiplier en haut et en bas par \(e^x\)</b>.</li><li>Pour montrer « impaire » : domaine symétrique, puis \(f(-x)\) calculé et transformé jusqu’à \(-f(x)\).</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Montre que \(g(x)=\dfrac{e^x+1}{e^x-1}\) est impaire sur son domaine (commence par le domaine !).
+<details><summary>Corrigé</summary><div>Domaine : \(e^x-1\neq0\iff e^x\neq1\iff x\neq0\), donc \(D=\mathbb R^*\), qui est symétrique. On multiplie en haut et en bas par \(e^x\) : \(g(-x)=\frac{e^{-x}+1}{e^{-x}-1}=\frac{1+e^x}{1-e^x}=-\frac{e^x+1}{e^x-1}=-g(x)\). g est impaire.</div></details></div>
+</div>
+
+<div class="profex" id="ex05-2"><div class="pxhead"><span class="pxnum">Exercice 05.2</span> du prof · axes et centres de symétrie</div>
+<div class="enonce"><p>Étudier les axes et centres de symétrie des fonctions suivantes : \(f_1(x)=\dfrac{x^2-5x-7}{x-1}\) et \(f_2(x)=\dfrac{e^{-x}}{1+e^{-x}}\).</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir (ce n’est pas écrit dans le poly)</h3>
+<p>La parité est un cas particulier de symétrie, autour de l’axe des ordonnées ou de l’origine. On généralise à n’importe quel axe vertical et à n’importe quel point :</p>
+<div class="grid2"><div class="mini"><h4>Axe vertical d’équation x = a</h4><p>La courbe est symétrique par rapport à la droite \(x=a\) si, pour tout h tel que \(a\pm h\in D\) :</p><p>\[f(a+h)=f(a-h)\]</p><p>Les deux points à égale distance de a, à gauche et à droite, sont <b>à la même hauteur</b>. Avec a = 0, on retrouve « paire ».</p></div>
+<div class="mini"><h4>Centre de symétrie Ω(a ; b)</h4><p>La courbe est symétrique par rapport au point Ω(a ; b) si, pour tout h tel que \(a\pm h\in D\) :</p><p>\[f(a+h)+f(a-h)=2b\]</p><p>Le <b>milieu</b> des points d’abscisses a + h et a − h est toujours Ω. Avec Ω = O(0 ; 0), on retrouve « impaire ».</p></div></div>
+<p>Il faut aussi que le domaine soit symétrique par rapport à a : si a + h est dedans, a − h aussi.</p>
+<p><b>Rappel de lycée utile :</b> pour simplifier une fraction de polynômes, on fait une <b>division</b> : on écrit le numérateur sous la forme (dénominateur) × (quelque chose) + reste.</p></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><ol class="steps"><li><b>Deviner le candidat.</b> Le domaine doit être symétrique autour de a, ce qui donne souvent a. Pour b, on regarde la valeur en a, ou le milieu des limites ou des asymptotes.</li><li><b>Vérifier par le calcul</b> que \(f(a+h)+f(a-h)=2b\) (centre) ou que \(f(a+h)=f(a-h)\) (axe), pour tout h.</li><li><b>Exclure les autres possibilités</b> avec un argument simple : domaine, monotonie…</li></ol></div>
+<div class="act" data-widget="sym"><h3>🎯 Visualise les deux centres de symétrie</h3><p class="consigne">Pour chaque fonction, les points M (en a + h) et M′ (en a − h) bougent avec h. Leur milieu reste toujours sur Ω : c’est la définition d’un centre de symétrie.</p></div>
+<div class="ex"><details class="hint"><summary>💡 Indice 1 (pour f₁)</summary><div>Le domaine est \(\mathbb R\setminus\{1\}\) : il n’est symétrique qu’autour de a = 1, donc le seul candidat possible est a = 1. Vérifie que \(x^2-5x-7=(x-1)(x-4)-11\).</div></details>
+<details class="hint"><summary>💡 Indice 2 (pour f₂)</summary><div>Multiplie en haut et en bas par \(e^x\) : \(f_2(x)=\dfrac1{e^x+1}\). Calcule \(f_2(0)\) et les limites en \(\pm\infty\) : leur milieu est 1/2. Teste Ω(0 ; 1/2).</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<h4>Fonction f₁</h4>
+<ol class="steps"><li><b>Domaine.</b> Il faut \(x-1\neq0\), donc \(D=\mathbb R\setminus\{1\}\). Le seul « trou » est en 1, donc le domaine n’est symétrique qu’autour de a = 1 : si un axe ou un centre existe, il est en x = 1.</li>
+<li><b>Simplifier f₁ par une division.</b> On cherche à écrire \(x^2-5x-7\) avec \((x-1)\). Comme \((x-1)(x-4)=x^2-5x+4\), on a \(x^2-5x-7=(x-1)(x-4)-11\). Donc, pour \(x\neq1\) :
+\[f_1(x)=\frac{(x-1)(x-4)-11}{x-1}=x-4-\frac{11}{x-1}.\]</li>
+<li><b>Calcul de \(f_1(1+h)\) et \(f_1(1-h)\)</b> pour \(h\neq0\) :
+\[f_1(1+h)=1+h-4-\frac{11}{h}=-3+h-\frac{11}{h},\qquad f_1(1-h)=1-h-4-\frac{11}{-h}=-3-h+\frac{11}{h}.\]</li>
+<li><b>On additionne :</b> \(f_1(1+h)+f_1(1-h)=-3+h-\frac{11}h-3-h+\frac{11}h=-6=2\times(-3)\). Ce résultat ne dépend pas de h : il est vrai pour tout h.</li>
+<li><b>Conclusion :</b> le point <b>Ω(1 ; −3) est un centre de symétrie</b> de la courbe de f₁. C’est le point où se croisent les deux asymptotes : la verticale x = 1 et la droite oblique y = x − 4.</li>
+<li><b>Y a-t-il un axe ?</b> Le seul candidat est x = 1. Il faudrait \(f_1(1+h)=f_1(1-h)\), c’est-à-dire \(h-\frac{11}h=-h+\frac{11}h\), soit \(2h=\frac{22}{h}\), donc \(h^2=11\). Ce n’est vrai que pour \(h=\pm\sqrt{11}\), pas pour tout h. <b>Pas d’axe de symétrie.</b></li></ol>
+<h4>Fonction f₂</h4>
+<ol class="steps"><li><b>Domaine.</b> \(1+e^{-x}>0\), donc \(D=\mathbb R\).</li>
+<li><b>Simplifier.</b> On multiplie en haut et en bas par \(e^x\) : \(f_2(x)=\dfrac{e^{-x}e^x}{e^x+e^{-x}e^x}=\dfrac{1}{e^x+1}\).</li>
+<li><b>Deviner le centre.</b> \(f_2(0)=\frac12\). En \(-\infty\), \(e^x\to0\) donc \(f_2\to1\). En \(+\infty\), \(e^x\to+\infty\) donc \(f_2\to0\). La courbe va de la hauteur 1 à la hauteur 0, et passe par 1/2 en 0 : on teste Ω(0 ; 1/2).</li>
+<li><b>Vérification.</b> \(f_2(h)+f_2(-h)=\dfrac{1}{e^h+1}+\dfrac{1}{e^{-h}+1}\). Dans la 2ᵉ fraction, on multiplie en haut et en bas par \(e^h\) : \(\dfrac{1}{e^{-h}+1}=\dfrac{e^h}{1+e^h}\). Donc
+\[f_2(h)+f_2(-h)=\frac{1}{e^h+1}+\frac{e^h}{e^h+1}=\frac{1+e^h}{e^h+1}=1=2\times\frac12.\]</li>
+<li><b>Conclusion :</b> <b>Ω(0 ; 1/2) est un centre de symétrie</b> de la courbe de f₂.</li>
+<li><b>Pas d’axe de symétrie.</b> \(f_2'(x)=-\dfrac{e^x}{(e^x+1)^2}\lt0\), donc f₂ est strictement décroissante. Or une fonction strictement décroissante ne peut jamais vérifier \(f(a+h)=f(a-h)\) avec h ≠ 0, puisque \(a-h\lt a+h\) entraîne \(f(a-h)>f(a+h)\).</li></ol>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Centre Ω(a ; b) : \(f(a+h)+f(a-h)=2b\). Axe x = a : \(f(a+h)=f(a-h)\).</li><li>Le domaine donne souvent la valeur de a. Pour une fraction, la division fait apparaître l’asymptote oblique, et le centre est souvent le croisement des asymptotes.</li><li>Une fonction strictement monotone n’a jamais d’axe de symétrie vertical.</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Montre que la courbe de \(g(x)=\dfrac{2x+1}{x-3}\) admet un centre de symétrie (indice : écris \(2x+1=2(x-3)+7\)).
+<details><summary>Corrigé</summary><div>\(g(x)=2+\frac{7}{x-3}\), et le domaine \(\mathbb R\setminus\{3\}\) donne a = 3. \(g(3+h)+g(3-h)=2+\frac7h+2-\frac7h=4=2\times2\). Le centre est Ω(3 ; 2).</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>Toujours vérifier d’abord que le domaine est symétrique.</li><li>Calcule \(f(-x)\) : égal à \(f(x)\) → paire ; égal à \(-f(x)\) → impaire ; sinon → un contre-exemple prouve « ni l’un ni l’autre ».</li></ul></div>
 <div class="quiz" id="qb1" data-label="Maths B1 — Parité"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="1" data-part="B1 parité">La courbe d’une fonction paire est symétrique par rapport à :<ul><li>l’axe des ordonnées</li><li>l’origine</li><li>l’axe des abscisses</li><li>la droite y = x</li></ul><p class="e">\(f(-x)=f(x)\) : les points d’abscisses x et −x sont à la même hauteur, la courbe est symétrique gauche/droite.</p></div>
@@ -104,6 +170,31 @@
 <details class="hint"><summary>💡 Un indice</summary><div>Prends \(a\lt b\leqslant0\) et étudie le signe de \(b^2-a^2=(b-a)(b+a)\).</div></details><details><summary>Corrigé</summary><div>Soit \(a\lt b\leqslant0\). On calcule \(f(b)-f(a)=b^2-a^2=(b-a)(b+a)\). Or \(b-a>0\), et \(b+a\lt0\) car ce sont deux nombres négatifs, a étant même strictement négatif. Le produit est donc négatif : \(f(b)\lt f(a)\). L’ordre est renversé, donc f est strictement décroissante.</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> Étudie les variations de \(f(x)=x+\dfrac1x\) sur \(]0\,;+\infty[\).
 <details class="hint"><summary>💡 Un indice</summary><div>Dérive : \(f'(x)=1-\frac1{x^2}\). Mets au même dénominateur et étudie le signe.</div></details><details><summary>Corrigé</summary><div>\(f'(x)=1-\frac{1}{x^2}=\frac{x^2-1}{x^2}=\frac{(x-1)(x+1)}{x^2}\). Sur \(]0\,;+\infty[\), \(x+1>0\) et \(x^2>0\), donc f′ a le signe de \(x-1\).<br>f est strictement décroissante sur \(]0\,;1]\) et strictement croissante sur \([1\,;+\infty[\). Elle atteint son minimum \(f(1)=2\) en 1.</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="profex" id="ex05-3"><div class="pxhead"><span class="pxnum">Exercice 05.3</span> du prof · monotonie et composition</div>
+<div class="enonce"><p>Soit \(f:\mathbb R\to\mathbb R\) une fonction telle que \(f\circ f\) soit croissante sur ℝ et \(f\circ f\circ f\) soit strictement décroissante sur ℝ. Montrer que f est strictement décroissante sur ℝ.</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul>
+<li><b>Composition</b> (fiche A5) : \(f\circ f\circ f(x)=f(f(f(x)))\). On peut le regrouper comme \((f\circ f)\big(f(x)\big)\) : on applique f, puis on applique « f∘f » au résultat.</li>
+<li><b>Strictement décroissante</b> (fiche B3) : pour tous a, b, \(a\lt b\Rightarrow f(a)>f(b)\).</li>
+<li><b>Croissante</b> : \(u\leqslant v\Rightarrow (f\circ f)(u)\leqslant(f\circ f)(v)\).</li>
+<li><b>Raisonnement par l’absurde</b> : pour prouver une phrase, on suppose son contraire et on montre que cela mène à une contradiction.</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><p>On prend deux réels \(a\lt b\) et on veut prouver \(f(a)>f(b)\). Supposons le contraire, \(f(a)\leqslant f(b)\), et appliquons la fonction croissante \(f\circ f\) à cette inégalité. On obtiendra une inégalité qui contredit la stricte décroissance de \(f\circ f\circ f\).</p></div>
+<div class="ex"><details class="hint"><summary>💡 Indice 1</summary><div>Pose \(u=f(a)\) et \(v=f(b)\). Si \(u\leqslant v\), que peux-tu dire de \((f\circ f)(u)\) et \((f\circ f)(v)\) ?</div></details>
+<details class="hint"><summary>💡 Indice 2</summary><div>\((f\circ f)(f(a))=f\circ f\circ f(a)\). Or \(a\lt b\) et \(f\circ f\circ f\) est strictement décroissante…</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<ol class="steps"><li><b>Ce qu’on veut montrer :</b> pour tous réels a et b, \(a\lt b\Rightarrow f(a)>f(b)\). On fixe donc deux réels quelconques avec \(a\lt b\).</li>
+<li><b>Ce que dit l’hypothèse sur f∘f∘f :</b> elle est strictement décroissante et \(a\lt b\), donc \(f\circ f\circ f(a)>f\circ f\circ f(b)\). Appelons cette inégalité (★).</li>
+<li><b>Raisonnons par l’absurde :</b> supposons que \(f(a)\leqslant f(b)\).</li>
+<li><b>On applique f∘f</b>, qui est croissante, donc conserve l’ordre, aux deux nombres \(f(a)\leqslant f(b)\) :
+\[(f\circ f)\big(f(a)\big)\leqslant(f\circ f)\big(f(b)\big),\quad\text{c’est-à-dire}\quad f\circ f\circ f(a)\leqslant f\circ f\circ f(b).\]</li>
+<li><b>Contradiction</b> avec (★), qui dit au contraire \(f\circ f\circ f(a)>f\circ f\circ f(b)\). L’hypothèse \(f(a)\leqslant f(b)\) est donc fausse.</li>
+<li><b>Conclusion :</b> \(f(a)>f(b)\). Comme a et b étaient quelconques avec \(a\lt b\), <b>f est strictement décroissante sur ℝ</b>.</li></ol>
+<p class="verif">🔎 <b>Exemple pour se convaincre :</b> \(f(x)=-x\). Alors \(f\circ f(x)=x\), qui est croissante, et \(f\circ f\circ f(x)=-x\), qui est strictement décroissante. On a bien f strictement décroissante.</p>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Pour prouver une monotonie « en général », on fixe \(a\lt b\) quelconques et on compare \(f(a)\) et \(f(b)\).</li><li>Appliquer une fonction croissante conserve une inégalité. C’est l’outil clé ici.</li><li>Le raisonnement par l’absurde est très efficace quand la conclusion à prouver est une inégalité.</li></ul></div>
+<div class="ex"><span class="lvl l3">🎯 À toi : exercice semblable</span> Soit \(f:\mathbb R\to\mathbb R\) telle que \(f\circ f\) soit strictement croissante et f soit décroissante. Montre que f est strictement décroissante.
+<details><summary>Corrigé</summary><div>Soit \(a\lt b\). Comme f est décroissante, \(f(a)\geqslant f(b)\). Supposons l’égalité \(f(a)=f(b)\). On applique f : \(f(f(a))=f(f(b))\). Or \(f\circ f\) est strictement croissante et \(a\lt b\), donc \(f(f(a))\lt f(f(b))\) : contradiction. Donc \(f(a)>f(b)\).</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>Croissante = l’ordre est conservé ; décroissante = l’ordre est renversé.</li><li>Méthode rapide : signe de la dérivée sur un <b>intervalle</b>.</li><li>Appliquer une fonction croissante garde le sens d’une inégalité, une décroissante le renverse.</li></ul></div>
 <div class="quiz" id="qb3" data-label="Maths B3 — Monotonie"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="3" data-part="B3 monotonie">Sur quel ensemble \(x\mapsto\frac1x\) est-elle décroissante ?<ul><li>Sur \(\mathbb R^*\)</li><li>Sur ℝ</li><li>Sur \(]-\infty\,;0[\) et sur \(]0\,;+\infty[\) séparément</li></ul><p class="e">Sur \(\mathbb R^*\), −1 &lt; 1 mais f(−1) = −1 &lt; f(1) = 1 : l’ordre n’est pas renversé. La monotonie se dit sur chaque intervalle.</p></div>
@@ -133,6 +224,48 @@
 <details class="hint"><summary>💡 Un indice</summary><div>Regarde les limites de ln en \(0^+\) et en \(+\infty\).</div></details><details><summary>Corrigé</summary><div>Ni l’un ni l’autre. Elle tend vers \(+\infty\) en \(+\infty\), donc elle n’est pas majorée, et vers \(-\infty\) en \(0^+\), donc elle n’est pas minorée. Par exemple, pour dépasser M, il suffit de prendre \(x=e^{M+1}\).</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> Montre que \(f(x)=\dfrac{2x}{1+x^2}\) est bornée par −1 et 1 sur ℝ (indice : développe \((x-1)^2\) et \((x+1)^2\)).
 <details class="hint"><summary>💡 Un indice</summary><div>Développe \((x-1)^2\geqslant0\) : tu obtiens une inégalité entre 2x et \(1+x^2\). Divise ensuite par \(1+x^2\), qui est positif.</div></details><details><summary>Corrigé</summary><div>\((x-1)^2\geqslant0\iff x^2-2x+1\geqslant0\iff 2x\leqslant1+x^2\). En divisant par \(1+x^2>0\) : \(f(x)\leqslant1\).<br>\((x+1)^2\geqslant0\iff x^2+2x+1\geqslant0\iff -(1+x^2)\leqslant 2x\), donc \(f(x)\geqslant-1\).<br>Ainsi \(-1\leqslant f(x)\leqslant1\) pour tout x.</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="profex" id="ex05-4"><div class="pxhead"><span class="pxnum">Exercice 05.4</span> du prof · fonction majorée</div>
+<div class="enonce"><p>Soit f une fonction définie sur ℝ vérifiant : \(\forall x\in\mathbb R,\ f(x)\leqslant1-\dfrac{1}{x^2}\). Justifier que f est majorée sur ℝ.</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li><b>Majorée</b> (fiche B4) : il existe <b>un</b> nombre M tel que \(f(x)\leqslant M\) pour <b>tous</b> les x.</li><li>Un carré non nul est strictement positif : \(x^2>0\) si \(x\neq0\). Donc \(\frac1{x^2}>0\).</li><li>Si \(A\leqslant B\) et \(B\lt C\), alors \(A\lt C\) : on peut « enchaîner » les inégalités.</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><p>Il faut trouver un plafond M qui ne dépende pas de x. Comme on retire \(\frac1{x^2}\), qui est positif, la quantité \(1-\frac1{x^2}\) est plus petite que 1 : M = 1 est le candidat naturel.</p></div>
+<div class="ex"><details class="hint"><summary>💡 Indice</summary><div>Quel est le signe de \(\frac{1}{x^2}\) ? Que vaut alors \(1-\frac{1}{x^2}\) comparé à 1 ?</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<ol class="steps"><li>Soit x un réel non nul. Alors \(x^2>0\), donc \(\dfrac1{x^2}>0\).</li>
+<li>On retire un nombre positif à 1, ce qui donne un résultat plus petit que 1 : \(1-\dfrac1{x^2}\lt1\).</li>
+<li>On enchaîne avec l’hypothèse : \(f(x)\leqslant1-\dfrac{1}{x^2}\lt1\), donc \(f(x)\lt1\).</li>
+<li>Le nombre 1 ne dépend pas de x : c’est un plafond commun à tous les x. <b>f est majorée par 1.</b></li></ol>
+<div class="coquille"><b>Remarque de rigueur (point délicat de l’énoncé) :</b> en x = 0, \(\frac1{x^2}\) n’existe pas, donc l’hypothèse ne dit rien de \(f(0)\). Le raisonnement ci-dessus marche pour tout \(x\neq0\). Pour couvrir aussi x = 0, on prend \(M=\max(1\,;f(0))\), le plus grand des deux nombres. Alors \(f(x)\leqslant M\) pour tout x de ℝ : f est bien majorée sur ℝ. Une seule valeur ne peut jamais empêcher une fonction d’être majorée.</div>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Pour montrer « majorée », il suffit d’exhiber <b>un</b> plafond M valable pour tous les x. Ce n’est pas forcément le meilleur.</li><li>Enlever un nombre positif fait diminuer : \(1-(\text{positif})\lt1\).</li></ul></div>
+<div class="ex"><span class="lvl l1">🎯 À toi : exercice semblable</span> On sait que \(g(x)\geqslant 2+e^{-x}\) pour tout réel x. Montre que g est minorée.
+<details><summary>Corrigé</summary><div>\(e^{-x}>0\), donc \(2+e^{-x}>2\), et \(g(x)\geqslant2+e^{-x}>2\). g est minorée par 2.</div></details></div>
+</div>
+
+<div class="profex" id="ex05-5"><div class="pxhead"><span class="pxnum">Exercice 05.5</span> du prof · fonctions bornées</div>
+<div class="enonce"><p>Soient les fonctions f et g définies sur \([0,+\infty[\) par \(f(x)=\dfrac{-x}{1+x}\) et \(g(x)=\dfrac{\cos(x)}{2+x}\). Montrer que les fonctions f et g sont bornées.</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li><b>Bornée</b> = majorée <b>et</b> minorée : il faut trouver m et M tels que \(m\leqslant f(x)\leqslant M\) pour tout x.</li><li><b>Astuce très utile :</b> f est bornée si et seulement s’il existe K tel que \(|f(x)|\leqslant K\) pour tout x. En effet, \(|f(x)|\leqslant K\iff-K\leqslant f(x)\leqslant K\) (fiche C1).</li><li>\(-1\leqslant\cos x\leqslant1\), autrement dit \(|\cos x|\leqslant1\).</li><li>Quand on divise par un nombre plus grand, le résultat est plus petit (entre nombres positifs) : si \(0\lt A\leqslant B\), alors \(\frac1B\leqslant\frac1A\).</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><p><b>Pour f :</b> comparer x et 1 + x, ce qui encadre la fraction \(\frac{x}{1+x}\) entre 0 et 1. <b>Pour g :</b> majorer \(|g(x)|\), en majorant le haut (|cos| ≤ 1) et en minorant le bas (2 + x ≥ 2).</p></div>
+<div class="ex"><details class="hint"><summary>💡 Indice 1 (f)</summary><div>Pour \(x\geqslant0\) : \(0\leqslant x\lt x+1\). Divise par \(1+x>0\).</div></details>
+<details class="hint"><summary>💡 Indice 2 (g)</summary><div>\(|g(x)|=\dfrac{|\cos x|}{2+x}\). Majore le numérateur par 1, et utilise \(2+x\geqslant2\).</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<h4>La fonction f</h4>
+<ol class="steps"><li>Soit \(x\geqslant0\). Alors \(1+x\geqslant1>0\) : on peut diviser par \(1+x\) sans changer le sens des inégalités.</li>
+<li>On a \(0\leqslant x\lt x+1\). En divisant par \(1+x\) : \(0\leqslant\dfrac{x}{1+x}\lt1\).</li>
+<li>On multiplie par −1, ce qui <b>renverse</b> les inégalités : \(-1\lt\dfrac{-x}{1+x}\leqslant0\), c’est-à-dire \(-1\lt f(x)\leqslant0\).</li>
+<li>Conclusion : f est minorée par −1 et majorée par 0. <b>f est bornée.</b></li></ol>
+<h4>La fonction g</h4>
+<ol class="steps"><li>Soit \(x\geqslant0\). Le dénominateur vérifie \(2+x\geqslant2>0\).</li>
+<li>On passe à la valeur absolue : \(|g(x)|=\dfrac{|\cos x|}{|2+x|}=\dfrac{|\cos x|}{2+x}\), car \(2+x>0\).</li>
+<li>Le numérateur : \(|\cos x|\leqslant1\). Le dénominateur : \(2+x\geqslant2\), donc \(\dfrac1{2+x}\leqslant\dfrac12\).</li>
+<li>On multiplie ces deux inégalités entre nombres positifs : \(|g(x)|\leqslant1\times\dfrac12=\dfrac12\).</li>
+<li>Donc \(-\dfrac12\leqslant g(x)\leqslant\dfrac12\) pour tout \(x\geqslant0\). <b>g est bornée.</b></li></ol>
+<p class="verif">🔎 <b>Vérification :</b> \(g(0)=\frac{\cos0}{2}=\frac12\). La borne 1/2 est donc atteinte : c’est même le maximum de g.</p>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>« Bornée » se prouve souvent en montrant \(|f(x)|\leqslant K\).</li><li>Pour majorer une fraction positive : on <b>majore le haut</b> et on <b>minore le bas</b>.</li><li>Multiplier par un négatif renverse les inégalités.</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Montre que \(h(x)=\dfrac{\sin x}{1+x^2}\) est bornée sur ℝ.
+<details><summary>Corrigé</summary><div>\(|h(x)|=\frac{|\sin x|}{1+x^2}\leqslant\frac{1}{1+x^2}\leqslant1\), car \(1+x^2\geqslant1\). Donc \(-1\leqslant h(x)\leqslant1\).</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>Majorée : il existe un plafond M valable pour tous les x. Minorée : un plancher m.</li><li>Bornée = majorée et minorée. Un majorant n’est pas unique.</li></ul></div>
 <div class="quiz" id="qb4" data-label="Maths B4 — Majorée, minorée"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="1,2" data-part="B4 majorant">Pour \(f(x)=\frac{1}{1+x^2}\) sur ℝ, lesquels sont des <b>majorants</b> ?<ul><li>1</li><li>5</li><li>0,5</li><li>0</li></ul><p class="e">\(f(x)\leqslant1\) pour tout x, donc 1 et tout nombre plus grand (5) sont des majorants. 0,5 ne marche pas car f(0) = 1 > 0,5.</p></div>
@@ -187,6 +320,34 @@
 <details class="hint"><summary>💡 Un indice</summary><div>\(e^{-x}\) est décroissante. Calcule f(0), puis la limite en \(+\infty\).</div></details><details><summary>Corrigé</summary><div>f est décroissante, avec f(0) = 1, et tend vers 0 en +∞ sans l’atteindre. sup = max = 1 (atteint en 0). inf = 0, pas de minimum.</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> Soit \(f(x)=\dfrac{x}{x+1}\) sur \([0\,;+\infty[\). Montre que f est croissante, puis détermine sup, inf, max et min.
 <details class="hint"><summary>💡 Un indice</summary><div>Calcule la dérivée avec la formule du quotient. Pour le sup, écris \(\frac{x}{x+1}=1-\frac1{x+1}\).</div></details><details><summary>Corrigé</summary><div>\(f'(x)=\frac{(x+1)-x}{(x+1)^2}=\frac1{(x+1)^2}>0\) : f est strictement croissante.<br>\(f(0)=0\), donc min = inf = 0.<br>\(f(x)=1-\frac1{x+1}\lt1\), et f tend vers 1 en +∞. Donc sup = 1, mais il n’est pas atteint : pas de maximum.</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="profex" id="ex05-6"><div class="pxhead"><span class="pxnum">Exercice 05.6</span> du prof · max, min, bornes supérieure et inférieure</div>
+<div class="enonce"><p>Soit la fonction f définie sur \([0,+\infty[\) par \(f(x)=-\dfrac{x}{1+x}\).<br>1. Sur \([0,+\infty[\), la fonction f admet-elle un maximum ? un minimum ?<br>2. Montrer que f est bornée sur \([0,+\infty[\). Déterminer ses bornes inférieure et supérieure.</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li><b>Maximum</b> (fiche B5) : un majorant <b>atteint</b>. <b>Minimum</b> : un minorant atteint.</li><li><b>sup</b> (fiche B6) : le plus petit des majorants ; <b>inf</b> : le plus grand des minorants. Ils peuvent ne pas être atteints.</li><li>Pour prouver que m est <b>le plus grand</b> minorant, on montre que tout nombre plus grand que m n’est plus un minorant : la courbe passe en dessous.</li><li>C’est la même fonction que le f de l’exercice 05.5 : on sait déjà que \(-1\lt f(x)\leqslant0\).</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><ol class="steps"><li>Réécrire \(f(x)=-1+\dfrac1{1+x}\) : on « voit » alors tout de suite le comportement de la fonction.</li><li>Étudier les variations (dérivée) et la limite en \(+\infty\).</li><li>En déduire max, min, sup et inf, en justifiant le « plus grand minorant ».</li></ol></div>
+<div class="ex"><details class="hint"><summary>💡 Indice 1</summary><div>\(-\frac{x}{1+x}=-\frac{(1+x)-1}{1+x}=-1+\frac{1}{1+x}\). Que vaut f(0) ? Vers quoi tend f(x) quand x devient très grand ?</div></details>
+<details class="hint"><summary>💡 Indice 2</summary><div>Pour montrer qu’un nombre \(m>-1\) n’est pas un minorant, cherche un x tel que \(-1+\frac1{1+x}\lt m\), c’est-à-dire \(\frac1{1+x}\lt m+1\).</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<h4>Préparation</h4>
+<ol class="steps"><li><b>Réécriture :</b> \(f(x)=-\dfrac{x}{1+x}=-\dfrac{(1+x)-1}{1+x}=-\Big(1-\dfrac1{1+x}\Big)=-1+\dfrac1{1+x}\).</li>
+<li><b>Variations :</b> \(f'(x)=-\dfrac{1}{(1+x)^2}\lt0\) (dérivée de \(\frac1u\), fiche C4). f est strictement décroissante sur \([0,+\infty[\).</li>
+<li><b>Valeurs clés :</b> \(f(0)=0\) et, quand \(x\to+\infty\), \(\frac1{1+x}\to0\), donc \(f(x)\to-1\). Comme \(\frac1{1+x}>0\), on a toujours \(f(x)>-1\).</li></ol>
+<h4>1) Maximum et minimum</h4>
+<ol class="steps"><li><b>Maximum :</b> f est décroissante, donc sa plus grande valeur est au début, en x = 0. Pour tout \(x\geqslant0\), \(f(x)\leqslant f(0)=0\), et 0 est atteint en x = 0. <b>f admet un maximum, égal à 0, atteint en 0.</b></li>
+<li><b>Minimum :</b> f descend vers −1 sans jamais l’atteindre (\(f(x)>-1\)). Supposons qu’il existe un minimum \(f(x_0)\). Alors \(f(x_0+1)\lt f(x_0)\) par stricte décroissance, ce qui contredit « minimum ». <b>f n’admet pas de minimum.</b></li></ol>
+<h4>2) Bornée, sup et inf</h4>
+<ol class="steps"><li><b>Bornée :</b> d’après ce qui précède, \(-1\lt f(x)\leqslant0\) pour tout \(x\geqslant0\). f est minorée par −1 et majorée par 0 : <b>f est bornée.</b></li>
+<li><b>Borne supérieure :</b> 0 est un majorant atteint, c’est le maximum. Tout majorant M vérifie \(M\geqslant f(0)=0\), donc 0 est le plus petit majorant : \(\boxed{\sup f=\max f=0}\).</li>
+<li><b>Borne inférieure : −1 est un minorant.</b> Il reste à montrer que c’est le plus grand. Soit \(m>-1\). On cherche x tel que \(f(x)\lt m\) :
+\[-1+\frac1{1+x}\lt m\iff\frac1{1+x}\lt m+1\iff1+x>\frac1{m+1}\iff x>\frac1{m+1}-1.\]
+On a pu inverser car \(m+1>0\) et \(1+x>0\). En prenant un \(x\geqslant0\) assez grand (au-delà de \(\frac1{m+1}-1\)), on a \(f(x)\lt m\) : m n’est pas un minorant.</li>
+<li><b>Conclusion :</b> aucun nombre plus grand que −1 n’est un minorant, donc \(\boxed{\inf f=-1}\). Elle n’est pas atteinte, ce qui confirme l’absence de minimum.</li></ol>
+<p class="verif">🔎 <b>Vérification numérique :</b> \(f(9)=-0{,}9\), \(f(99)=-0{,}99\), \(f(999)=-0{,}999\) : on se rapproche de −1 sans l’atteindre.</p>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Réécrire \(\frac{x}{1+x}=1-\frac{1}{1+x}\) : c’est l’astuce classique pour ce type de fraction.</li><li>Fonction monotone sur \([a,+\infty[\) : l’extremum est en a, et l’autre borne est la limite en \(+\infty\), en général non atteinte.</li><li>Pour prouver « inf = m », on montre : ① m est un minorant ; ② tout nombre plus grand n’en est pas un.</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Pour \(g(x)=\dfrac{2x+1}{x+1}\) sur \([0,+\infty[\), donne max, min, sup et inf.
+<details><summary>Corrigé</summary><div>\(g(x)=2-\frac{1}{x+1}\), qui est strictement croissante. \(g(0)=1\) est le minimum, donc min = inf = 1. g tend vers 2 sans l’atteindre : sup = 2 et pas de maximum.</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>sup = plus petit majorant ; inf = plus grand minorant.</li><li>S’il est atteint, le sup est le max (et l’inf est le min). Sinon, pas de max.</li><li>Exemple à connaître : \(\frac1x\) sur \(\mathbb R^{+*}\) a inf = 0 mais pas de minimum.</li></ul></div>
 <div class="quiz" id="qb6" data-label="Maths B6 — Sup et inf"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="2" data-part="B6 sup/inf">La borne supérieure d’une fonction majorée est :<ul><li>le plus grand des majorants</li><li>le plus petit des majorants</li><li>toujours une valeur prise par f</li></ul><p class="e">C’est le meilleur plafond, donc le plus petit. Il n’est pas forcément atteint.</p></div>

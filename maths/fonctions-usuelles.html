@@ -9,7 +9,7 @@
 <style>:root{--c:var(--cC)}</style>
 </head><body>
 <header class="top"><div class="k">Maths · Chapitre 5 · Partie C</div><h1>Les fonctions usuelles</h1><p>Les sept fonctions de base à connaître par cœur : leur courbe, leurs propriétés, leurs limites, leur dérivée et leurs règles de calcul.</p></header>
-<nav class="site"><a href="../">Accueil</a><a href="./">Sommaire</a><a href="applications.html">A · Applications</a><a href="fonctions-reelles.html">B · Fonctions réelles</a><a href="fonctions-usuelles.html" aria-current="page">C · Fonctions usuelles</a><a href="essentiel.html">L’essentiel</a><a href="qcm.html">QCM final</a></nav>
+<nav class="site"><a href="../">Accueil</a><a href="./">Sommaire</a><a href="applications.html">A · Applications</a><a href="fonctions-reelles.html">B · Fonctions réelles</a><a href="fonctions-usuelles.html" aria-current="page">C · Fonctions usuelles</a><a href="essentiel.html">L’essentiel</a><a href="qcm.html">QCM final</a><a href="devoir.html">Devoir type</a></nav>
 <main>
 <div class="toc"><h2>Dans cette partie (poly : § 5.3, pages 8 à 14)</h2><ol>
 <li><a href="#c1">Valeur absolue</a></li><li><a href="#c2">Partie entière</a></li><li><a href="#c3">Racine carrée</a></li><li><a href="#c4">Fonction inverse (et quotient)</a></li>
@@ -46,6 +46,33 @@
 <details class="hint"><summary>💡 Un indice</summary><div>a) deux cas : \(x+1=4\) ou \(x+1=-4\). b) utilise \(|X|\leqslant a\iff-a\leqslant X\leqslant a\). c) commence par résoudre le contraire, \(|2x+1|\leqslant3\).</div></details><details><summary>Corrigé</summary><div>a) \(x+1=4\) ou \(x+1=-4\) : \(x=3\) ou \(x=-5\).<br>b) \(-2\leqslant x-3\leqslant2\iff1\leqslant x\leqslant5\), soit \([1\,;5]\).<br>c) C’est le contraire de \(|2x+1|\leqslant3\iff-2\leqslant x\leqslant1\). La solution est donc \(]-\infty\,;-2[\,\cup\,]1\,;+\infty[\).</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> Soit \(f(x)=|x|+|x-2|\). Écris f sans valeur absolue sur \(]-\infty\,;0]\), \([0\,;2]\) et \([2\,;+\infty[\). Quel est son minimum ?
 <details class="hint"><summary>💡 Un indice</summary><div>Sur chaque intervalle, trouve le signe de x et de \(x-2\), puis enlève les valeurs absolues.</div></details><details><summary>Corrigé</summary><div>Sur \(]-\infty\,;0]\) : \(f(x)=-x+(2-x)=2-2x\).<br>Sur \([0\,;2]\) : \(f(x)=x+(2-x)=2\).<br>Sur \([2\,;+\infty[\) : \(f(x)=x+(x-2)=2x-2\).<br>f décroît, puis reste constante à 2, puis croît. Son minimum est 2, atteint pour tout \(x\in[0\,;2]\). C’est la somme des distances de x à 0 et à 2 : elle est minimale quand on se trouve entre les deux.</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="profex" id="ex05-7"><div class="pxhead"><span class="pxnum">Exercice 05.7</span> du prof · inéquation avec deux valeurs absolues</div>
+<div class="enonce"><p>Résoudre dans ℝ l’inéquation \(|2x+1|+|1-x|\leqslant3\).</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li>\(|A|=A\) si \(A\geqslant0\), et \(|A|=-A\) si \(A\leqslant0\) (fiche C1). Pour enlever une valeur absolue, il faut donc connaître le <b>signe</b> de ce qu’il y a dedans.</li><li>Avec <b>deux</b> valeurs absolues, chacune change d’expression à un endroit différent. On découpe ℝ en morceaux, et sur chaque morceau les signes sont connus.</li><li>Un <b>tableau de signes</b> range proprement ces informations.</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><ol class="steps"><li>Trouver où chaque expression s’annule : \(2x+1=0\iff x=-\frac12\), et \(1-x=0\iff x=1\).</li><li>Faire le tableau de signes sur les 3 morceaux \(]-\infty\,;-\frac12]\), \([-\frac12\,;1]\), \([1\,;+\infty[\).</li><li>Sur chaque morceau : enlever les valeurs absolues, résoudre, et <b>garder seulement les solutions qui sont dans le morceau</b>.</li><li>Réunir les solutions.</li></ol></div>
+<div class="ex"><details class="hint"><summary>💡 Indice 1</summary><div>Pour \(x\leqslant-\frac12\) : \(2x+1\leqslant0\) et \(1-x>0\). L’inéquation devient \(-(2x+1)+(1-x)\leqslant3\).</div></details>
+<details class="hint"><summary>💡 Indice 2</summary><div>Sur le morceau du milieu, l’inéquation devient \(x+2\leqslant3\). Sur le dernier, \(3x\leqslant3\).</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<ol class="steps"><li><b>Tableau de signes</b>
+<div class="scroll"><table><tr><th>x</th><th>−∞ … −1/2</th><th>−1/2 … 1</th><th>1 … +∞</th></tr>
+<tr><td>2x + 1</td><td>−</td><td>+</td><td>+</td></tr>
+<tr><td>1 − x</td><td>+</td><td>+</td><td>−</td></tr>
+<tr><td>|2x + 1|</td><td>−2x − 1</td><td>2x + 1</td><td>2x + 1</td></tr>
+<tr><td>|1 − x|</td><td>1 − x</td><td>1 − x</td><td>x − 1</td></tr>
+<tr><td>somme</td><td><b>−3x</b></td><td><b>x + 2</b></td><td><b>3x</b></td></tr></table></div>
+Exemple de calcul, 1ʳᵉ colonne : \((-2x-1)+(1-x)=-3x\).</li>
+<li><b>Morceau 1 : \(x\leqslant-\frac12\).</b> L’inéquation devient \(-3x\leqslant3\). On divise par −3, ce qui <b>renverse</b> le sens : \(x\geqslant-1\). On garde les x qui vérifient à la fois \(x\leqslant-\frac12\) et \(x\geqslant-1\) : \([-1\,;-\frac12]\).</li>
+<li><b>Morceau 2 : \(-\frac12\leqslant x\leqslant1\).</b> L’inéquation devient \(x+2\leqslant3\iff x\leqslant1\). C’est vrai sur tout le morceau : \([-\frac12\,;1]\).</li>
+<li><b>Morceau 3 : \(x\geqslant1\).</b> L’inéquation devient \(3x\leqslant3\iff x\leqslant1\). Avec \(x\geqslant1\), il reste seulement \(x=1\).</li>
+<li><b>On réunit :</b> \([-1\,;-\frac12]\cup[-\frac12\,;1]\cup\{1\}=[-1\,;1]\).
+\[\boxed{S=[-1\,;1]}\]</li></ol>
+<p class="verif">🔎 <b>Vérification :</b> en x = −1, \(|-1|+|2|=3\leqslant3\) ✔. En x = 1, \(|3|+|0|=3\) ✔. En x = 0, \(1+1=2\) ✔. En x = 2, \(5+1=6>3\) ✘, et 2 n’est bien pas dans S.</p>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Plusieurs valeurs absolues : on cherche les valeurs qui annulent chaque expression, on découpe ℝ, puis on fait un tableau de signes.</li><li>Sur chaque morceau, on garde seulement les solutions qui <b>appartiennent au morceau</b>.</li><li>Diviser par un nombre négatif renverse l’inégalité.</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Résous \(|x-2|+|x+1|\leqslant5\).
+<details><summary>Corrigé</summary><div>Les valeurs qui annulent sont −1 et 2. Pour \(x\leqslant-1\) : \(-2x+1\leqslant5\iff x\geqslant-2\), soit \([-2\,;-1]\). Pour \(-1\leqslant x\leqslant2\) : \(3\leqslant5\), toujours vrai, soit \([-1\,;2]\). Pour \(x\geqslant2\) : \(2x-1\leqslant5\iff x\leqslant3\), soit \([2\,;3]\). Donc \(S=[-2\,;3]\).</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>\(|x|\) = distance à 0 ; \(|x|=x\) si \(x\geqslant0\), \(-x\) sinon.</li><li>\(|x|\leqslant a\iff-a\leqslant x\leqslant a\) et \(|x|=a\iff x=\pm a\) (a > 0).</li><li>\(|x+y|\leqslant|x|+|y|\) ; pas dérivable en 0.</li></ul></div>
 <div class="quiz" id="qc1" data-label="Maths C1 — Valeur absolue"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="2" data-part="C1 valeur absolue">Les solutions de \(|x-1|=4\) sont :<ul><li>x = 5 seulement</li><li>x = 5 ou x = −3</li><li>x = 3 ou x = −5</li><li>aucune</li></ul><p class="e">\(x-1=4\) ou \(x-1=-4\).</p></div>
@@ -72,6 +99,24 @@
 <details class="hint"><summary>💡 Un indice</summary><div>\(\text{Ent}(X)=k\iff k\leqslant X\lt k+1\). Pour b), pose \(X=2x\).</div></details><details><summary>Corrigé</summary><div>a) \(2\leqslant x\lt3\), soit \(x\in[2\,;3[\).<br>b) \(3\leqslant2x\lt4\iff\frac32\leqslant x\lt2\), soit \(x\in[\frac32\,;2[\).<br>c) \(-1\leqslant x\lt0\), soit \(x\in[-1\,;0[\).</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> a) Donne \(\lim_{x\to2^-}\text{Ent}(x)\) et \(\lim_{x\to2^+}\text{Ent}(x)\). Ent est-elle continue en 2 ?<br>b) Avec l’encadrement \(x-1\lt\text{Ent}(x)\leqslant x\), calcule \(\lim_{x\to+\infty}\dfrac{\text{Ent}(x)}{x}\).
 <details class="hint"><summary>💡 Un indice</summary><div>Teste des valeurs juste avant 2 (1,99) et juste après (2,01). Pour b), divise l’encadrement par x (positif).</div></details><details><summary>Corrigé</summary><div>a) Juste avant 2 (comme 1,999), Ent vaut 1 : la limite à gauche est 1. Juste après (comme 2,001), Ent vaut 2 : la limite à droite est 2. Les deux limites sont différentes, donc Ent n’est <b>pas continue</b> en 2.<br>b) Pour \(x>0\), on divise l’encadrement par x : \(1-\frac1x\lt\frac{\text{Ent}(x)}{x}\leqslant1\). Comme \(1-\frac1x\to1\), le théorème des gendarmes donne \(\lim\frac{\text{Ent}(x)}{x}=1\). <i>Rappel du théorème des gendarmes :</i> si une quantité est coincée entre deux autres qui tendent vers la même limite, elle tend aussi vers cette limite. Ici, \(\frac{\text{Ent}(x)}{x}\) est coincée entre \(1-\frac1x\) et 1.</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="profex" id="ex05-8"><div class="pxhead"><span class="pxnum">Exercice 05.8</span> du prof · partie entière</div>
+<div class="enonce"><p>Montrer que pour tout \(x\in\mathbb R\), \(\text{Ent}(x+1)=\text{Ent}(x)+1\).</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li><b>La propriété clé</b> (fiche C2) : Ent(y) est l’<b>unique entier</b> k tel que \(k\leqslant y\lt k+1\).</li><li>Conséquence très pratique : si tu trouves un entier k avec \(k\leqslant y\lt k+1\), alors forcément \(\text{Ent}(y)=k\). C’est la méthode à utiliser.</li><li>Pourquoi un seul ? Les intervalles [k ; k + 1[ sont collés les uns aux autres sans se chevaucher : chaque réel tombe dans un seul de ces intervalles.</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><p>On part de l’encadrement de x par sa partie entière. On ajoute 1 partout, et on reconnaît l’encadrement qui caractérise \(\text{Ent}(x+1)\).</p></div>
+<div class="ex"><details class="hint"><summary>💡 Indice</summary><div>Pose \(n=\text{Ent}(x)\) : \(n\leqslant x\lt n+1\). Ajoute 1 à chaque membre. Le nombre \(n+1\) est-il un entier ?</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<ol class="steps"><li>Soit x un réel. On pose \(n=\text{Ent}(x)\). C’est un entier, et par définition \(n\leqslant x\lt n+1\).</li>
+<li>On ajoute 1 aux trois membres, ce qui ne change pas le sens des inégalités : \(n+1\leqslant x+1\lt n+2\).</li>
+<li>On pose \(k=n+1\). C’est un <b>entier</b>, car la somme de deux entiers est un entier. L’encadrement s’écrit \(k\leqslant x+1\lt k+1\).</li>
+<li>Par la propriété clé, l’unique entier qui vérifie cet encadrement pour le réel x + 1 est sa partie entière. Donc \(\text{Ent}(x+1)=k=n+1=\text{Ent}(x)+1\).</li>
+<li>Ceci est vrai pour tout réel x. ∎</li></ol>
+<p class="verif">🔎 <b>Vérification sur des exemples :</b> \(x=2{,}3\) : Ent(3,3) = 3 = Ent(2,3) + 1 ✔. \(x=-0{,}5\) : Ent(0,5) = 0 et Ent(−0,5) + 1 = −1 + 1 = 0 ✔.</p>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Pour démontrer une égalité « Ent(…) = k », on montre que k est un entier et que \(k\leqslant\ldots\lt k+1\).</li><li>Cette propriété explique pourquoi \(x-\text{Ent}(x)\) est 1-périodique (fiche B2).</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Montre que pour tout réel x et tout entier p, \(\text{Ent}(x+p)=\text{Ent}(x)+p\).
+<details><summary>Corrigé</summary><div>Même méthode : on part de \(n\leqslant x\lt n+1\) avec \(n=\text{Ent}(x)\), on ajoute p et on obtient \(n+p\leqslant x+p\lt n+p+1\). Comme \(n+p\) est un entier, \(\text{Ent}(x+p)=n+p\).</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>Ent(x) = le plus grand entier ≤ x : on <b>descend</b>.</li><li>\(\text{Ent}(x)\leqslant x\lt\text{Ent}(x)+1\).</li><li>Ent(−4,8) = −5 ; sauts (discontinuités) en chaque entier.</li></ul></div>
 <div class="quiz" id="qc2" data-label="Maths C2 — Partie entière"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="3" data-part="C2 partie entière">\(\text{Ent}(-2{,}3)\) vaut :<ul><li>−2</li><li>2</li><li>−3</li><li>−2,3</li></ul><p class="e">On descend vers le premier entier inférieur : −3 (car \(-3\leqslant-2{,}3\lt-2\)).</p></div>
@@ -106,6 +151,54 @@
 <details class="hint"><summary>💡 Un indice</summary><div>Pour f : \((\sqrt u)'=\frac{u'}{2\sqrt u}\). Pour g : règle du produit \((uv)'=u'v+uv'\).</div></details><details><summary>Corrigé</summary><div>\(f'(x)=\frac{2x}{2\sqrt{x^2+1}}=\frac{x}{\sqrt{x^2+1}}\).<br>On applique la règle du produit à g : \(g'(x)=1\times\sqrt x+x\times\frac{1}{2\sqrt x}=\sqrt x+\frac{\sqrt x}{2}=\frac32\sqrt x\). On le retrouvera en C7, avec \(x\sqrt x=x^{3/2}\).</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> Calcule \(\lim_{x\to+\infty}\big(\sqrt{x+1}-\sqrt x\big)\) en multipliant par la « quantité conjuguée » \(\sqrt{x+1}+\sqrt x\).
 <details class="hint"><summary>💡 Un indice</summary><div>Multiplie en haut et en bas par \(\sqrt{x+1}+\sqrt x\). En haut, utilise \((a-b)(a+b)=a^2-b^2\).</div></details><details><summary>Corrigé</summary><div>\(\sqrt{x+1}-\sqrt x=\dfrac{(\sqrt{x+1}-\sqrt x)(\sqrt{x+1}+\sqrt x)}{\sqrt{x+1}+\sqrt x}=\dfrac{(x+1)-x}{\sqrt{x+1}+\sqrt x}=\dfrac{1}{\sqrt{x+1}+\sqrt x}\).<br>Le dénominateur tend vers \(+\infty\), donc la limite vaut <b>0</b>. Au départ, c’était une forme indéterminée « ∞ − ∞ ».</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="card astuce" id="methode-059"><h3><span class="ic">🧰</span> Méthode générale pour l’exercice 05.9 du prof (domaine, dérivabilité, dérivée)</h3>
+<p>L’exercice 05.9 demande, pour 7 fonctions, trois choses. On applique toujours les mêmes étapes :</p>
+<ol class="steps"><li><b>Domaine de définition</b> : on liste les « interdits » : un dénominateur ≠ 0 ; ce qui est sous une racine ≥ 0 ; ce qui est dans un ln > 0.</li>
+<li><b>Domaine de dérivabilité</b> : en général c’est le domaine, <b>sauf</b> là où ce qui est sous une racine vaut 0, car √ n’est pas dérivable en 0 (fiche C3). ln et exp sont dérivables partout où ils sont définis.</li>
+<li><b>Dérivée</b> : on repère la forme (composée, produit, quotient) et on applique les formules : \((\sqrt u)'=\frac{u'}{2\sqrt u}\), \((\ln u)'=\frac{u'}{u}\), \((e^u)'=u'e^u\), \((u^n)'=nu'u^{n-1}\), \((uv)'=u'v+uv'\), \(\left(\frac uv\right)'=\frac{u'v-uv'}{v^2}\).</li></ol>
+<p>Les questions sont réparties dans les fiches : <a href="#ex05-9a">1, 2 et 7 (racines) juste en dessous</a>, <a href="#ex05-9b">3, 4 et 5 (ln) en C5</a>, <a href="#ex05-9c">6 (puissance) en C7</a>.</p></div>
+
+<div class="profex" id="ex05-9a"><div class="pxhead"><span class="pxnum">Exercice 05.9</span> du prof · questions 1, 2 et 7 (fonctions avec une racine)</div>
+<div class="enonce"><p>Déterminer le domaine de définition des fonctions suivantes, préciser leur domaine de dérivabilité et calculer leur dérivée là où elle existe :<br>1. \(f:x\mapsto\sqrt{2x^2+3x+1}\) &nbsp; 2. \(g:x\mapsto\sqrt{\dfrac{2x+3}{x^2-5}}\) &nbsp; 7. \(z:x\mapsto x\sqrt{-\ln(x)}\)</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li><b>Signe d’un trinôme</b> \(ax^2+bx+c\) (lycée) : s’il a deux racines, il est du signe de a <b>à l’extérieur</b> des racines et du signe opposé <b>entre</b> les racines.</li><li><b>Signe d’un quotient</b> : on fait un tableau de signes avec le numérateur et le dénominateur. Une valeur qui annule le dénominateur est <b>interdite</b> (double barre).</li><li>\((\sqrt u)'=\dfrac{u'}{2\sqrt u}\), valable là où \(u>0\).</li><li>\(\ln x\leqslant0\iff0\lt x\leqslant1\) (fiche C5).</li></ul></div>
+<div class="ex"><details class="hint"><summary>💡 Indice (1)</summary><div>\(2x^2+3x+1=(2x+1)(x+1)\). Ses racines sont −1 et −1/2.</div></details>
+<details class="hint"><summary>💡 Indice (2)</summary><div>Tableau de signes avec les valeurs −√5, −3/2 et √5. Attention, \(\pm\sqrt5\) sont interdites.</div></details>
+<details class="hint"><summary>💡 Indice (7)</summary><div>Il faut x > 0 (pour ln) et \(-\ln x\geqslant0\). Pour la dérivée : produit de \(u=x\) par \(v=\sqrt{-\ln x}\).</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<h4>Question 1 : \(f(x)=\sqrt{2x^2+3x+1}\)</h4>
+<ol class="steps"><li><b>Domaine.</b> Il faut \(2x^2+3x+1\geqslant0\). Discriminant : \(\Delta=9-8=1\), racines \(\frac{-3\pm1}{4}\), soit −1 et −1/2. Donc \(2x^2+3x+1=2(x+1)(x+\frac12)=(x+1)(2x+1)\). Le coefficient de x² est 2 > 0, donc le trinôme est positif à l’extérieur des racines :
+\[D_f=\,]-\infty\,;-1]\cup[-\tfrac12\,;+\infty[.\]</li>
+<li><b>Dérivabilité.</b> √ est dérivable là où ce qu’il y a dessous est <b>strictement</b> positif. On retire donc −1 et −1/2 : f est dérivable sur \(]-\infty\,;-1[\,\cup\,]-\frac12\,;+\infty[\).<br><i>Pourquoi pas en −1/2 ?</i> Pour \(x>-\frac12\), le taux d’accroissement vaut \(\frac{f(x)-f(-1/2)}{x+1/2}=\frac{\sqrt{2(x+\frac12)(x+1)}}{x+\frac12}=\frac{\sqrt{2(x+1)}}{\sqrt{x+\frac12}}\), qui tend vers \(+\infty\) : la tangente est verticale. C’est pareil en −1.</li>
+<li><b>Dérivée.</b> \(u=2x^2+3x+1\), \(u'=4x+3\) :
+\[f'(x)=\frac{4x+3}{2\sqrt{2x^2+3x+1}}.\]</li></ol>
+<h4>Question 2 : \(g(x)=\sqrt{\dfrac{2x+3}{x^2-5}}\)</h4>
+<ol class="steps"><li><b>Conditions.</b> ① \(x^2-5\neq0\iff x\neq\pm\sqrt5\) ; ② \(\dfrac{2x+3}{x^2-5}\geqslant0\).</li>
+<li><b>Tableau de signes.</b> \(2x+3=0\iff x=-\frac32\). \(x^2-5\) est positif à l’extérieur de \(\pm\sqrt5\approx\pm2{,}24\). On range les valeurs dans l’ordre \(-\sqrt5\lt-\frac32\lt\sqrt5\) :
+<div class="scroll"><table><tr><th>x</th><th>−∞ … −√5</th><th>−√5 … −3/2</th><th>−3/2 … √5</th><th>√5 … +∞</th></tr>
+<tr><td>2x + 3</td><td>−</td><td>−</td><td>+</td><td>+</td></tr>
+<tr><td>x² − 5</td><td>+</td><td>−</td><td>−</td><td>+</td></tr>
+<tr><td>quotient</td><td>−</td><td><b>+</b></td><td>−</td><td><b>+</b></td></tr></table></div>
+En −3/2 le quotient vaut 0 (autorisé). En ±√5 il est interdit.</li>
+<li><b>Domaine :</b> \(D_g=\,]-\sqrt5\,;-\frac32]\cup\,]\sqrt5\,;+\infty[\).</li>
+<li><b>Dérivabilité :</b> il faut le quotient strictement positif, donc on retire −3/2 : \(]-\sqrt5\,;-\frac32[\,\cup\,]\sqrt5\,;+\infty[\).</li>
+<li><b>Dérivée de \(u=\dfrac{2x+3}{x^2-5}\)</b> (formule du quotient) :
+\[u'=\frac{2(x^2-5)-(2x+3)(2x)}{(x^2-5)^2}=\frac{2x^2-10-4x^2-6x}{(x^2-5)^2}=\frac{-2(x^2+3x+5)}{(x^2-5)^2}.\]</li>
+<li><b>Dérivée de g :</b> \(g'=\dfrac{u'}{2\sqrt u}\), d’où
+\[g'(x)=-\frac{x^2+3x+5}{(x^2-5)^2\sqrt{\dfrac{2x+3}{x^2-5}}}.\]
+<i>Bonus :</i> \(x^2+3x+5\) a pour discriminant \(9-20\lt0\), donc il est toujours positif. Ainsi \(g'\lt0\) : g est décroissante sur chacun des deux intervalles.</li></ol>
+<h4>Question 7 : \(z(x)=x\sqrt{-\ln x}\)</h4>
+<ol class="steps"><li><b>Domaine.</b> ln impose \(x>0\). La racine impose \(-\ln x\geqslant0\iff\ln x\leqslant0\iff x\leqslant1\). Donc \(D_z=\,]0\,;1]\).</li>
+<li><b>Dérivabilité.</b> En x = 1, \(-\ln1=0\) : la racine s’annule, et on ne peut pas appliquer la formule. z est dérivable sur \(]0\,;1[\). En 1, près de 1 on a \(\ln x\approx x-1\) (proposition 23 du poly), donc \(\frac{z(x)-z(1)}{x-1}\approx\frac{\sqrt{1-x}}{x-1}=-\frac{1}{\sqrt{1-x}}\to-\infty\) : tangente verticale, <b>pas dérivable en 1</b>.</li>
+<li><b>Dérivée</b> (produit \(u=x\), \(v=\sqrt{-\ln x}\)). \(u'=1\) et \(v'=\dfrac{(-\ln x)'}{2\sqrt{-\ln x}}=\dfrac{-1/x}{2\sqrt{-\ln x}}\). Donc
+\[z'(x)=\sqrt{-\ln x}+x\cdot\frac{-1/x}{2\sqrt{-\ln x}}=\sqrt{-\ln x}-\frac{1}{2\sqrt{-\ln x}}=\frac{-2\ln x-1}{2\sqrt{-\ln x}}.\]
+(Pour la dernière étape, on met au même dénominateur : \(\sqrt{-\ln x}=\frac{2(-\ln x)}{2\sqrt{-\ln x}}\).)</li></ol>
+<p class="verif">🔎 <b>Vérification numérique</b> (faite à l’ordinateur) : en x = 3, la formule de g′ donne ≈ −0,958, ce qui correspond au taux d’accroissement calculé directement. En x = 0,3, z′ ≈ 0,642 dans les deux cas.</p>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Racine : domaine « ≥ 0 », dérivabilité « > 0 ». Les points où la racine s’annule sont exclus de la dérivabilité.</li><li>Signe d’un quotient : tableau de signes, en marquant les valeurs interdites par une double barre.</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Domaine, dérivabilité et dérivée de \(h(x)=\sqrt{x^2-4}\).
+<details><summary>Corrigé</summary><div>\(x^2-4\geqslant0\iff x\leqslant-2\) ou \(x\geqslant2\), donc \(D=\,]-\infty\,;-2]\cup[2\,;+\infty[\). Dérivable sur \(]-\infty\,;-2[\,\cup\,]2\,;+\infty[\), avec \(h'(x)=\frac{2x}{2\sqrt{x^2-4}}=\frac{x}{\sqrt{x^2-4}}\).</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>\(\sqrt a\) = le nombre positif dont le carré vaut a.</li><li>\(\sqrt{x^2}=|x|\) ; \(\sqrt{ab}=\sqrt a\sqrt b\) mais \(\sqrt{a+b}\neq\sqrt a+\sqrt b\).</li><li>\((\sqrt u)'=\frac{u'}{2\sqrt u}\), pas dérivable en 0.</li></ul></div>
 <div class="quiz" id="qc3" data-label="Maths C3 — Racine carrée"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="2" data-part="C3 racine">La dérivée de \(\sqrt x\) est :<ul><li>\(\frac{1}{\sqrt x}\)</li><li>\(\frac{1}{2\sqrt x}\)</li><li>\(2\sqrt x\)</li><li>\(\frac{\sqrt x}{2}\)</li></ul><p class="e">\((\sqrt x)'=\frac{1}{2\sqrt x}\), définie pour \(x>0\) seulement.</p></div>
@@ -177,6 +270,61 @@
 <details class="hint"><summary>💡 Un indice</summary><div>a) croissances comparées. b) factorise par x. c) c’est \(x^\alpha\ln x\) avec α = 2.</div></details><details><summary>Corrigé</summary><div>a) Croissances comparées avec \(\alpha=\frac12\), \(\beta=1\) : la limite vaut 0.<br>b) Forme « ∞ − ∞ ». On factorise : \(x\left(1-\frac{\ln x}{x}\right)\). Comme \(\frac{\ln x}{x}\to0\), la parenthèse tend vers 1, et la limite vaut \(+\infty\).<br>c) \(x^\alpha\ln x\to0\) avec \(\alpha=2\) : la limite vaut 0.</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> Étudie \(f(x)=\dfrac{\ln x}{x}\) sur \(]0\,;+\infty[\) : dérivée, variations, maximum, limites.
 <details class="hint"><summary>💡 Un indice</summary><div>Formule du quotient avec \(u=\ln x\), \(v=x\). Le signe de \(f'\) est celui de \(1-\ln x\).</div></details><details><summary>Corrigé</summary><div>\(f'(x)=\frac{\frac1x\cdot x-\ln x\cdot1}{x^2}=\frac{1-\ln x}{x^2}\). Elle est positive si \(\ln x\lt1\iff x\lt e\).<br>f croît sur \(]0\,;e]\) puis décroît sur \([e\,;+\infty[\). Son maximum vaut \(f(e)=\frac1e\).<br>Limites : en \(0^+\), \(\ln x\to-\infty\) et \(\frac1x\to+\infty\), donc \(f\to-\infty\). En \(+\infty\), \(f\to0\) par croissances comparées.</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="profex" id="ex05-9b"><div class="pxhead"><span class="pxnum">Exercice 05.9</span> du prof · questions 3, 4 et 5 (fonctions avec ln)</div>
+<div class="enonce"><p>Domaine de définition, domaine de dérivabilité et dérivée de :<br>3. \(h:x\mapsto\ln(\ln(|x|))\) &nbsp; 4. \(u:x\mapsto\ln^3(x)\) &nbsp; 5. \(v:x\mapsto\ln\left|\dfrac{x}{x^2-1}\right|\)</p><p class="poly">Méthode générale : voir l’encadré <a href="#methode-059">« Méthode 05.9 »</a> dans la fiche C3.</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li>\(\ln(X)\) existe si et seulement si \(X>0\). ln est dérivable partout où il est défini.</li><li>\((\ln u)'=\dfrac{u'}{u}\). Et la formule à connaître : \(\boxed{(\ln|u|)'=\dfrac{u'}{u}}\) là où \(u\neq0\). En particulier, \((\ln|x|)'=\frac1x\) pour \(x\neq0\).</li><li><b>Notation :</b> \(\ln^3(x)\) veut dire \((\ln x)^3\), le cube du logarithme. Ce n’est ni \(\ln(x^3)\), ni ln appliqué trois fois.</li><li>\(\ln\left|\frac ab\right|=\ln|a|-\ln|b|\) : on peut séparer pour dériver plus facilement.</li></ul></div>
+<div class="ex"><details class="hint"><summary>💡 Indice (3)</summary><div>Il faut \(|x|>0\) ET \(\ln|x|>0\). Or \(\ln|x|>0\iff|x|>1\).</div></details>
+<details class="hint"><summary>💡 Indice (4 et 5)</summary><div>(4) C’est \(u=(\ln x)^3\) : utilise \((w^3)'=3w'w^2\). (5) Écris \(v(x)=\ln|x|-\ln|x^2-1|\).</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<h4>Question 3 : \(h(x)=\ln(\ln|x|)\)</h4>
+<ol class="steps"><li><b>Domaine.</b> Le ln intérieur exige \(|x|>0\), donc \(x\neq0\). Le ln extérieur exige \(\ln|x|>0\iff|x|>1\iff x\lt-1\) ou \(x>1\). Donc \(D_h=\,]-\infty\,;-1[\,\cup\,]1\,;+\infty[\).</li>
+<li><b>Dérivabilité.</b> C’est une composée de fonctions dérivables, donc h est dérivable sur tout \(D_h\).</li>
+<li><b>Dérivée.</b> \(h=\ln(w)\) avec \(w=\ln|x|\) et \(w'=\frac1x\). Donc
+\[h'(x)=\frac{w'}{w}=\frac{1/x}{\ln|x|}=\frac{1}{x\ln|x|}.\]</li></ol>
+<h4>Question 4 : \(u(x)=\ln^3(x)=(\ln x)^3\)</h4>
+<ol class="steps"><li><b>Domaine et dérivabilité :</b> ln exige \(x>0\), donc \(D_u=\,]0\,;+\infty[\), et u y est dérivable.</li>
+<li><b>Dérivée</b> : \((w^3)'=3w'w^2\) avec \(w=\ln x\) et \(w'=\frac1x\) :
+\[u'(x)=3\times\frac1x\times(\ln x)^2=\frac{3\ln^2(x)}{x}.\]</li></ol>
+<h4>Question 5 : \(v(x)=\ln\left|\dfrac{x}{x^2-1}\right|\)</h4>
+<ol class="steps"><li><b>Domaine.</b> ① Le dénominateur : \(x^2-1\neq0\iff x\neq\pm1\). ② ln exige \(\left|\frac{x}{x^2-1}\right|>0\), c’est-à-dire une fraction non nulle, donc \(x\neq0\). Donc \(D_v=\mathbb R\setminus\{-1\,;0\,;1\}\).</li>
+<li><b>Dérivabilité</b> sur tout \(D_v\).</li>
+<li><b>Simplification</b> : \(v(x)=\ln|x|-\ln|x^2-1|\).</li>
+<li><b>Dérivée</b> avec \((\ln|u|)'=\frac{u'}u\) :
+\[v'(x)=\frac1x-\frac{2x}{x^2-1}=\frac{(x^2-1)-2x^2}{x(x^2-1)}=-\frac{x^2+1}{x(x^2-1)}.\]</li></ol>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Un ln dans un ln donne deux conditions : chaque ln veut un argument > 0.</li><li>\((\ln|u|)'=\frac{u'}{u}\). On sépare les produits et quotients avant de dériver.</li><li>\(\ln^3 x=(\ln x)^3\).</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Domaine et dérivée de \(k(x)=\ln(x^2-3x+2)\).
+<details><summary>Corrigé</summary><div>\(x^2-3x+2=(x-1)(x-2)>0\iff x\lt1\) ou \(x>2\). \(k'(x)=\frac{2x-3}{x^2-3x+2}\).</div></details></div>
+</div>
+
+<div class="profex" id="ex05-10a"><div class="pxhead"><span class="pxnum">Exercice 05.10</span> du prof · questions 1 et 3 (équation et inéquation avec ln)</div>
+<div class="enonce"><p>Résoudre dans ℝ :<br>1. \(\ln(\sqrt{2x-3})=\ln(6-x)-\dfrac12\ln(x)\) &nbsp;&nbsp; 3. \(\ln(|2x+1|)\leqslant1\)</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li><b>Toujours commencer par le domaine</b> : chaque ln exige un argument strictement positif.</li><li>\(\ln\sqrt a=\frac12\ln a\) ; \(\ln a+\ln b=\ln(ab)\) ; \(2\ln a=\ln(a^2)\).</li><li>\(\ln A=\ln B\iff A=B\) et \(\ln A\leqslant\ln B\iff A\leqslant B\), pour A, B > 0 (ln est strictement croissante).</li><li>\(1=\ln e\) : on transforme un nombre en ln pour pouvoir comparer.</li><li>\(|X|\leqslant a\iff-a\leqslant X\leqslant a\) (fiche C1).</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><p>① Domaine ; ② tout regrouper en « ln(quelque chose) = ln(autre chose) » ; ③ enlever les ln ; ④ résoudre ; ⑤ <b>garder seulement les solutions dans le domaine</b> et vérifier.</p></div>
+<div class="ex"><details class="hint"><summary>💡 Indice (1)</summary><div>Multiplie toute l’équation par 2 pour faire disparaître les ½. Tu obtiens \(\ln(2x-3)+\ln x=2\ln(6-x)\).</div></details>
+<details class="hint"><summary>💡 Indice (3)</summary><div>Écris \(1=\ln e\). Attention, −1/2 est une valeur interdite.</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<h4>Question 1</h4>
+<ol class="steps"><li><b>Domaine.</b> \(\ln(\sqrt{2x-3})\) exige \(\sqrt{2x-3}>0\iff2x-3>0\iff x>\frac32\). \(\ln(6-x)\) exige \(x\lt6\). \(\ln x\) exige \(x>0\). On garde ce qui vérifie tout : \(D=\,]\frac32\,;6[\).</li>
+<li><b>Réécriture.</b> \(\ln\sqrt{2x-3}=\frac12\ln(2x-3)\). L’équation devient \(\frac12\ln(2x-3)=\ln(6-x)-\frac12\ln x\).</li>
+<li><b>On multiplie par 2 :</b> \(\ln(2x-3)=2\ln(6-x)-\ln x\), puis on passe \(\ln x\) à gauche : \(\ln(2x-3)+\ln x=2\ln(6-x)\).</li>
+<li><b>On regroupe :</b> \(\ln\big(x(2x-3)\big)=\ln\big((6-x)^2\big)\).</li>
+<li><b>On enlève les ln</b> (sur D, les deux arguments sont > 0) : \(x(2x-3)=(6-x)^2\iff2x^2-3x=36-12x+x^2\iff x^2+9x-36=0\).</li>
+<li><b>Second degré :</b> \(\Delta=81+144=225=15^2\), donc \(x=\frac{-9+15}{2}=3\) ou \(x=\frac{-9-15}{2}=-12\).</li>
+<li><b>Tri :</b> −12 n’est pas dans \(]\frac32\,;6[\), on l’élimine. 3 y est. \(\boxed{S=\{3\}}\)</li></ol>
+<p class="verif">🔎 <b>Vérification :</b> à gauche, \(\ln\sqrt3=\frac12\ln3\). À droite, \(\ln3-\frac12\ln3=\frac12\ln3\) ✔.</p>
+<h4>Question 3</h4>
+<ol class="steps"><li><b>Domaine.</b> Il faut \(|2x+1|>0\iff2x+1\neq0\iff x\neq-\frac12\).</li>
+<li><b>On écrit 1 = ln e :</b> \(\ln|2x+1|\leqslant\ln e\). Comme ln est strictement croissante, cela équivaut à \(|2x+1|\leqslant e\).</li>
+<li><b>On enlève la valeur absolue :</b> \(-e\leqslant2x+1\leqslant e\iff-e-1\leqslant2x\leqslant e-1\iff\frac{-1-e}{2}\leqslant x\leqslant\frac{e-1}{2}\).</li>
+<li><b>On retire la valeur interdite −1/2</b>, qui est bien dans cet intervalle :
+\[\boxed{S=\Big[-\tfrac{1+e}{2}\,;-\tfrac12\Big[\;\cup\;\Big]-\tfrac12\,;\tfrac{e-1}{2}\Big]}\quad(\approx[-1{,}86\,;-0{,}5[\,\cup\,]-0{,}5\,;0{,}86]).\]</li></ol>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Domaine d’abord, tri des solutions à la fin : c’est là que se perdent la plupart des points.</li><li>« nombre ≤ ln(…) » : on écrit le nombre sous la forme ln(e^nombre).</li><li>Ne pas oublier de retirer les valeurs interdites de l’intervalle final.</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Résous \(\ln(x-1)+\ln(x+1)=\ln3\).
+<details><summary>Corrigé</summary><div>Domaine : \(x>1\). \(\ln(x^2-1)=\ln3\iff x^2=4\iff x=\pm2\). On garde \(x=2\) (−2 est hors du domaine).</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>ln : défini sur \(]0\,;+\infty[\), croissant, \(\ln1=0\), \(\ln e=1\), dérivée \(\frac1x\).</li><li>\(\ln(ab)=\ln a+\ln b\), \(\ln(a^n)=n\ln a\).</li><li>Croissances comparées : \(\frac{\ln x}{x}\to0\), \(x\ln x\to0\). Toujours commencer par le domaine.</li></ul></div>
 <div class="quiz" id="qc5" data-label="Maths C5 — Logarithme"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="2" data-part="C5 ln règles">\(\ln(ab)\) est égal à :<ul><li>\(\ln a\times\ln b\)</li><li>\(\ln a+\ln b\)</li><li>\(\ln(a+b)\)</li><li>\(a\ln b\)</li></ul><p class="e">Le logarithme transforme les produits en sommes.</p></div>
@@ -215,6 +363,51 @@
 <details class="hint"><summary>💡 Un indice</summary><div>a) et b) croissances comparées. c) factorise par \(e^x\).</div></details><details><summary>Corrigé</summary><div>a) \(+\infty\) (croissances comparées). b) 0. c) \(e^x\left(1-\frac{x}{e^x}\right)\) et \(\frac{x}{e^x}\to0\), donc \(+\infty\).</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> Étudie \(f(x)=xe^{-x}\) sur ℝ : dérivée, variations, maximum, limites.
 <details class="hint"><summary>💡 Un indice</summary><div>Règle du produit : \((uv)'=u'v+uv'\) avec \(u=x\) et \(v=e^{-x}\), dont la dérivée est \(-e^{-x}\).</div></details><details><summary>Corrigé</summary><div>\(f'(x)=1\times e^{-x}+x\times(-e^{-x})=(1-x)e^{-x}\). Comme \(e^{-x}>0\), f′ a le signe de \(1-x\).<br>f croît sur \(]-\infty\,;1]\) et décroît sur \([1\,;+\infty[\). Son maximum vaut \(f(1)=\frac1e\).<br>Limites : en \(+\infty\), \(\frac{x}{e^x}\to0\) par croissances comparées. En \(-\infty\), \(x\to-\infty\) et \(e^{-x}\to+\infty\), donc \(f\to-\infty\).</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="profex" id="ex05-10b"><div class="pxhead"><span class="pxnum">Exercice 05.10</span> du prof · question 2 (équation avec exp)</div>
+<div class="enonce"><p>Résoudre dans ℝ : \(e^{2x-1}-\sqrt{e^{2x+2}}-2e^3=0\).</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li>\(\sqrt{e^{a}}=e^{a/2}\), car \((e^{a/2})^2=e^a\) et \(e^{a/2}>0\).</li><li>\(e^{a+b}=e^ae^b\), \(e^{a-b}=\frac{e^a}{e^b}\), \(e^{2x}=(e^x)^2\).</li><li><b>Changement de variable</b> : on pose \(X=e^x\), qui est toujours > 0. L’équation devient une équation du second degré en X.</li><li>Trinôme : \(\Delta=b^2-4ac\), racines \(\frac{-b\pm\sqrt\Delta}{2a}\).</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🗺️</span> La stratégie</h3><ol class="steps"><li>Simplifier la racine.</li><li>Tout écrire avec \(X=e^x\).</li><li>Résoudre le second degré, et éliminer les X ≤ 0.</li><li>Revenir à x avec ln.</li></ol></div>
+<div class="ex"><details class="hint"><summary>💡 Indice 1</summary><div>\(\sqrt{e^{2x+2}}=e^{x+1}=e\cdot e^x\) et \(e^{2x-1}=\frac{(e^x)^2}{e}\).</div></details>
+<details class="hint"><summary>💡 Indice 2</summary><div>Avec \(X=e^x\) et en multipliant par e : \(X^2-e^2X-2e^4=0\).</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<ol class="steps"><li><b>Domaine :</b> tout est défini sur ℝ (\(e^{2x+2}>0\), donc la racine existe).</li>
+<li><b>La racine :</b> \(\sqrt{e^{2x+2}}=e^{\frac{2x+2}{2}}=e^{x+1}=e\times e^x\).</li>
+<li><b>Le premier terme :</b> \(e^{2x-1}=\dfrac{e^{2x}}{e}=\dfrac{(e^x)^2}{e}\).</li>
+<li><b>Changement de variable \(X=e^x\)</b> (avec X > 0) : \(\dfrac{X^2}{e}-eX-2e^3=0\). On multiplie par e : \(X^2-e^2X-2e^4=0\).</li>
+<li><b>Discriminant :</b> \(\Delta=(e^2)^2+8e^4=9e^4\), donc \(\sqrt\Delta=3e^2\). Racines : \(X=\frac{e^2+3e^2}{2}=2e^2\) ou \(X=\frac{e^2-3e^2}{2}=-e^2\).</li>
+<li><b>Tri :</b> \(X=e^x>0\), donc \(X=-e^2\) est impossible. Il reste \(e^x=2e^2\).</li>
+<li><b>Retour à x :</b> on prend ln : \(x=\ln(2e^2)=\ln2+\ln(e^2)=\ln2+2\).
+\[\boxed{S=\{2+\ln2\}}\]</li></ol>
+<p class="verif">🔎 <b>Vérification :</b> avec \(x=2+\ln2\) : \(e^{2x-1}=e^{3+2\ln2}=4e^3\) et \(\sqrt{e^{2x+2}}=e^{x+1}=e^{3+\ln2}=2e^3\). Donc \(4e^3-2e^3-2e^3=0\) ✔.</p>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Équation avec \(e^{2x}\) et \(e^{x}\) : on pose \(X=e^x\) et on obtient un second degré.</li><li>On élimine toujours les solutions \(X\leqslant0\), car une exponentielle est positive.</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Résous \(e^{2x}-5e^x+6=0\).
+<details><summary>Corrigé</summary><div>On pose \(X=e^x\) : \(X^2-5X+6=0\iff X=2\) ou \(X=3\). Donc \(x=\ln2\) ou \(x=\ln3\).</div></details></div>
+</div>
+
+<div class="profex" id="ex05-11"><div class="pxhead"><span class="pxnum">Exercice 05.11</span> du prof · allure des courbes de exp</div>
+<div class="enonce"><p>Soit \(\alpha>0\). Tracer l’allure de la courbe des fonctions \(f:x\mapsto e^{\alpha x}\) et \(g:x\mapsto e^{-\alpha x}\).</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li>« Tracer l’allure » veut dire donner, en les justifiant : le domaine, le sens de variation, les limites, un ou deux points remarquables (et la tangente en ce point), puis le dessin.</li><li>\((e^u)'=u'e^u\) ; \(e^X\to0\) quand \(X\to-\infty\) et \(e^X\to+\infty\) quand \(X\to+\infty\).</li><li>Si \(g(x)=f(-x)\), la courbe de g est le <b>symétrique</b> de celle de f par rapport à l’axe des ordonnées.</li></ul></div>
+<div class="act" data-widget="alpha"><h3>🎯 Fais varier α</h3><p class="consigne">Les deux courbes passent toujours par (0 ; 1). Observe l’effet de α : plus il est grand, plus les courbes sont raides.</p></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<h4>La fonction \(f(x)=e^{\alpha x}\)</h4>
+<ol class="steps"><li><b>Domaine :</b> ℝ.</li>
+<li><b>Dérivée :</b> \(f'(x)=\alpha e^{\alpha x}>0\), car α > 0 et une exponentielle est positive. f est <b>strictement croissante</b> sur ℝ.</li>
+<li><b>Limites :</b> quand \(x\to+\infty\), \(\alpha x\to+\infty\) (α > 0), donc \(f(x)\to+\infty\). Quand \(x\to-\infty\), \(\alpha x\to-\infty\), donc \(f(x)\to0\) : l’axe des abscisses est asymptote en \(-\infty\).</li>
+<li><b>Point et tangente :</b> \(f(0)=1\) et \(f'(0)=\alpha\), d’où la tangente en 0 : \(y=1+\alpha x\).</li>
+<li><b>Signe :</b> \(f(x)>0\) : la courbe est toujours au-dessus de l’axe des abscisses.</li></ol>
+<h4>La fonction \(g(x)=e^{-\alpha x}\)</h4>
+<ol class="steps"><li><b>Remarque clé :</b> \(g(x)=e^{\alpha(-x)}=f(-x)\). La courbe de g est donc la symétrique de celle de f par rapport à l’axe des ordonnées.</li>
+<li>On en déduit directement : g est <b>strictement décroissante</b> (\(g'(x)=-\alpha e^{-\alpha x}\lt0\)), \(g(x)\to+\infty\) en \(-\infty\), \(g(x)\to0\) en \(+\infty\), \(g(0)=1\), et la tangente en 0 est \(y=1-\alpha x\).</li></ol>
+<h4>Influence de α</h4>
+<p>Plus α est grand, plus la pente en 0 (qui vaut α) est grande : f monte plus vite et g descend plus vite. Pour α = 1, on retrouve \(e^x\) et \(e^{-x}\).</p>
+<div class="scroll"><table><tr><th></th><th>\(f(x)=e^{\alpha x}\)</th><th>\(g(x)=e^{-\alpha x}\)</th></tr><tr><td>variations</td><td>↗ strictement</td><td>↘ strictement</td></tr><tr><td>en −∞</td><td>0</td><td>+∞</td></tr><tr><td>en +∞</td><td>+∞</td><td>0</td></tr><tr><td>point (0 ; 1)</td><td>pente α</td><td>pente −α</td></tr></table></div>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>« Allure » = variations + limites + point remarquable + tangente, puis le dessin.</li><li>\(x\mapsto f(-x)\) : symétrique de la courbe de f par rapport à l’axe des ordonnées.</li></ul></div>
+<div class="ex"><span class="lvl l2">🎯 À toi : exercice semblable</span> Donne l’allure de \(x\mapsto 2^x\) et de \(x\mapsto\left(\frac12\right)^x\) (indice : \(2^x=e^{x\ln2}\)).
+<details><summary>Corrigé</summary><div>\(2^x=e^{\alpha x}\) avec \(\alpha=\ln2>0\) : croissante, de 0 à \(+\infty\), passe par (0 ; 1) avec une pente ln 2. \(\left(\frac12\right)^x=e^{-x\ln2}=2^{-x}\) : c’est la symétrique par rapport à l’axe des ordonnées, décroissante.</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>exp : définie sur ℝ, toujours > 0, croissante, \(\exp'=\exp\), réciproque de ln.</li><li>\(e^{a+b}=e^ae^b\) ; \(y=e^x\iff x=\ln y\).</li><li>Croissances comparées : \(\frac{e^x}{x}\to+\infty\), \(xe^x\to0\) en \(-\infty\) ; \((e^u)'=u'e^u\).</li></ul></div>
 <div class="quiz" id="qc6" data-label="Maths C6 — Exponentielle"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="3" data-part="C6 exp règles">\(e^{a+b}\) est égal à :<ul><li>\(e^a+e^b\)</li><li>\(e^{ab}\)</li><li>\(e^a\times e^b\)</li><li>\((e^a)^b\)</li></ul><p class="e">L’exponentielle transforme les sommes en produits.</p></div>
@@ -247,6 +440,27 @@
 <details class="hint"><summary>💡 Un indice</summary><div>Écris tout sous forme \(x^\alpha\), puis applique \(\alpha x^{\alpha-1}\). Pour \(3^x\), passe par \(e^{x\ln3}\).</div></details><details><summary>Corrigé</summary><div>a) \(5x^4\). b) \((x^{-4})'=-4x^{-5}=-\frac{4}{x^5}\). c) \((x^{1/3})'=\frac13x^{-2/3}\). d) \(3^x=e^{x\ln3}\), donc \((3^x)'=\ln3\cdot3^x\).</div></details></div>
 <div class="ex"><span class="lvl l3">★★★ type examen</span> Calcule \(\lim_{x\to0^+}x^x\).
 <details class="hint"><summary>💡 Un indice</summary><div>Écris \(x^x=e^{x\ln x}\) et cherche la limite de \(x\ln x\) en \(0^+\).</div></details><details><summary>Corrigé</summary><div>\(x^x=e^{x\ln x}\). On sait que \(\lim_{x\to0^+}x\ln x=0\) (proposition 23), et exp est continue, donc \(\lim_{x\to0^+}x^x=e^0=1\).</div></details></div></div>
+<h3 class="pxsec">📝 Exercices du prof (feuille « Fonctions usuelles ») sur cette notion</h3>
+<div class="profex" id="ex05-9c"><div class="pxhead"><span class="pxnum">Exercice 05.9</span> du prof · question 6 (puissance avec x en haut et en bas)</div>
+<div class="enonce"><p>Domaine de définition, domaine de dérivabilité et dérivée de \(w:x\mapsto(1+x)^{\frac1x}\).</p><p class="poly">Méthode générale : voir l’encadré <a href="fonctions-usuelles.html#methode-059">« Méthode 05.9 »</a> dans la fiche C3.</p></div>
+<div class="card"><h3><span class="ic">📚</span> Ce qu’il faut savoir avant de commencer</h3><ul><li><b>Proposition 28 du poly :</b> \(u^v=e^{v\ln u}\), à condition que \(u>0\). Dès que la variable est dans l’exposant, on passe par cette écriture.</li><li>\((e^\varphi)'=\varphi'e^\varphi\) et la formule du quotient pour \(\varphi=\frac{\ln(1+x)}{x}\).</li></ul></div>
+<div class="ex"><details class="hint"><summary>💡 Indice 1</summary><div>\(w(x)=e^{\frac{\ln(1+x)}{x}}\). Conditions : \(1+x>0\) et \(x\neq0\).</div></details>
+<details class="hint"><summary>💡 Indice 2</summary><div>Dérive \(\varphi(x)=\frac{\ln(1+x)}{x}\) avec la formule du quotient, puis \(w'=\varphi'\,e^{\varphi}=\varphi'\,w\).</div></details></div>
+<details class="corr"><summary>✅ Afficher la correction détaillée</summary><div>
+<ol class="steps"><li><b>Réécriture</b> (proposition 28) : \(w(x)=(1+x)^{1/x}=e^{\frac1x\ln(1+x)}\).</li>
+<li><b>Domaine :</b> \(\ln(1+x)\) exige \(1+x>0\iff x>-1\), et \(\frac1x\) exige \(x\neq0\). Donc \(D_w=\,]-1\,;0[\,\cup\,]0\,;+\infty[\).</li>
+<li><b>Dérivabilité :</b> composée de fonctions dérivables, donc w est dérivable sur tout \(D_w\).</li>
+<li><b>Dérivée de l’exposant</b> \(\varphi(x)=\dfrac{\ln(1+x)}{x}\), avec \(u=\ln(1+x)\), \(u'=\frac1{1+x}\), \(v=x\), \(v'=1\) :
+\[\varphi'(x)=\frac{\frac{x}{1+x}-\ln(1+x)}{x^2}=\frac{x-(1+x)\ln(1+x)}{x^2(1+x)}.\]
+(On a multiplié en haut et en bas par \(1+x\) pour enlever la petite fraction.)</li>
+<li><b>Dérivée de w :</b> \(w'=\varphi'e^\varphi=\varphi'\times w\) :
+\[w'(x)=\frac{x-(1+x)\ln(1+x)}{x^2(1+x)}\,(1+x)^{\frac1x}.\]</li></ol>
+<p class="verif">🔎 <b>Le saviez-vous ?</b> Quand x tend vers 0, \(\frac{\ln(1+x)}{x}\to1\) (proposition 23), donc \(w(x)\to e^1=e\). C’est une façon célèbre de définir le nombre e. Vérification numérique : en x = 2, la formule donne \(w'(2)\approx-0{,}187\), comme le calcul direct.</p>
+</div></details>
+<div class="card retenir"><h3><span class="ic">📌</span> Ce que cet exercice t’apprend</h3><ul><li>Variable dans l’exposant ⇒ on écrit \(u^v=e^{v\ln u}\), avec la condition \(u>0\).</li><li>On dérive alors l’exposant, puis on multiplie par la fonction elle-même.</li></ul></div>
+<div class="ex"><span class="lvl l3">🎯 À toi : exercice semblable</span> Domaine et dérivée de \(x\mapsto x^{x}\).
+<details><summary>Corrigé</summary><div>\(x^x=e^{x\ln x}\), défini pour \(x>0\). \((x\ln x)'=\ln x+1\), donc \((x^x)'=(\ln x+1)\,x^x\).</div></details></div>
+</div>
 <div class="card retenir"><h3><span class="ic">📌</span> À retenir</h3><ul><li>\(x^\alpha=e^{\alpha\ln x}\) (x > 0) et \((x^\alpha)'=\alpha x^{\alpha-1}\).</li><li>\(x^{1/2}=\sqrt x\), \(x^{-n}=\frac1{x^n}\).</li><li>Variable en exposant (\(2^x\), \(x^x\)) : passer par \(e^{\dots\ln\dots}\).</li></ul></div>
 <div class="quiz" id="qc7" data-label="Maths C7 — Puissances"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
 <div data-a="2" data-part="C7 puissances">Pour x > 0, \(x^\alpha\) est défini par :<ul><li>\(\alpha\ln x\)</li><li>\(e^{\alpha\ln x}\)</li><li>\(\ln(x^\alpha)\)</li><li>\(e^{x\ln\alpha}\)</li></ul><p class="e">C’est la définition 26 du poly.</p></div>

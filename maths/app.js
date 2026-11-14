@@ -356,7 +356,39 @@ function actCourse(el){
   $('[data-x]', el).oninput = draw; draw();
 }
 
-const ACTS = {diag: actDiag, image: actImage, compo: actCompo, recip: actRecip, parite: actParite, periode: actPeriode, mono: actMono, borne: actBorne, ent: actEnt, explore: actExplore, course: actCourse};
+/* ---------- Exos 05.2 : axe et centre de symétrie ---------- */
+const SYM = {
+  f1: {n:'f_1(x)=\\dfrac{x^2-5x-7}{x-1}', f: x => (x * x - 5 * x - 7) / (x - 1), a:1, b:-3, v:[-7, 9, -16, 10], sy:2, asym:true},
+  f2: {n:'f_2(x)=\\dfrac{e^{-x}}{1+e^{-x}}', f: x => Math.exp(-x) / (1 + Math.exp(-x)), a:0, b:0.5, v:[-6, 6, -0.4, 1.4], sy:0.5},
+};
+function actSym(el){
+  el.insertAdjacentHTML('beforeend', `<div class="ctrl"><label>Fonction <select data-f><option value="f1">f₁(x) = (x² − 5x − 7)/(x − 1)</option><option value="f2">f₂(x) = e⁻ˣ/(1 + e⁻ˣ)</option></select></label><label>h <input type="range" min="0.2" max="4" step="0.05" value="1.5" data-h><span></span></label></div>
+  <canvas class="plot" width="640" height="400"></canvas><div class="readout"></div>`);
+  const P = new Plot($('canvas', el), {}); const out = $('.readout', el);
+  function draw(){ const p = SYM[$('[data-f]', el).value], h = +$('[data-h]', el).value; $('[data-h]', el).nextElementSibling.textContent = fmtTxt(h);
+    P.set({xmin:p.v[0], xmax:p.v[1], ymin:p.v[2], ymax:p.v[3], sx:1, sy:p.sy}); P.clear();
+    if (p.asym) { P.vline(1, '#c9d3d8', [6, 5], 1.4); P.curve(x => x - 4, '#c9d3d8', {dash:[6, 5], w:1.4}); }
+    P.curve(p.f, TEAL, {jump:(p.v[3] - p.v[2]) * 0.8});
+    const y1 = p.f(p.a + h), y2 = p.f(p.a - h);
+    P.seg(p.a + h, y1, p.a - h, y2, VIO, [4, 4], 1.6); P.point(p.a + h, y1, BLUE, 'M'); P.point(p.a - h, y2, RED, 'M′'); P.point(p.a, p.b, '#9a6a12', 'Ω');
+    out.innerHTML = `${tex(`M(a+h)`)} et ${tex(`M'(a-h)`)} avec ${tex(`a=${fmt(p.a)}`)} et ${tex(`h\\approx${fmt(h)}`)} : ${tex(`f(a+h)\\approx${fmt(y1, 3)}`)} et ${tex(`f(a-h)\\approx${fmt(y2, 3)}`)}.<br>` +
+      `Leur somme vaut ${tex(`${fmt(y1 + y2, 3)}=2\\times(${fmt(p.b)})`)} pour <b>tous</b> les h : le milieu de [MM′] est toujours ${tex(`\\Omega(${fmt(p.a)}\\,;${fmt(p.b)})`)}. C’est un <b>centre de symétrie</b>.` + (p.asym ? ' En pointillés gris : les asymptotes x = 1 et y = x − 4, qui se croisent en Ω.' : ''); }
+  $$('input,select', el).forEach(i => i.oninput = draw); draw();
+}
+
+/* ---------- Exos 05.11 : e^{αx} et e^{−αx} ---------- */
+function actAlpha(el){
+  el.insertAdjacentHTML('beforeend', `<div class="ctrl"><label>α <input type="range" min="0.2" max="3" step="0.05" value="1" data-a><span></span></label><label><input type="checkbox" data-t checked> tangentes en 0</label></div>
+  <canvas class="plot" width="640" height="400"></canvas><div class="readout"></div>`);
+  const P = new Plot($('canvas', el), {xmin:-4, xmax:4, ymin:-0.8, ymax:6, sx:1, sy:1}); const out = $('.readout', el);
+  function draw(){ const a = +$('[data-a]', el).value; $('[data-a]', el).nextElementSibling.textContent = fmtTxt(a);
+    P.clear(); if ($('[data-t]', el).checked) { P.curve(x => 1 + a * x, '#bcd9db', {dash:[5, 4], w:1.3}); P.curve(x => 1 - a * x, '#ecd7ae', {dash:[5, 4], w:1.3}); }
+    P.curve(x => Math.exp(a * x), TEAL); P.curve(x => Math.exp(-a * x), GOLD); P.point(0, 1, '#14314c', '(0 ; 1)');
+    out.innerHTML = `En vert ${tex(`f(x)=e^{${fmt(a)}x}`)} (croissante), en jaune ${tex(`g(x)=e^{-${fmt(a)}x}`)} (décroissante). Les deux passent par ${tex('(0\\,;1)')} et sont symétriques par rapport à l’axe des ordonnées, car ${tex('g(x)=f(-x)')}. Pente en 0 : ${tex(`f'(0)=\\alpha=${fmt(a)}`)} et ${tex(`g'(0)=-\\alpha`)}. Plus α est grand, plus les courbes sont « raides ».`; }
+  $$('input', el).forEach(i => i.oninput = draw); draw();
+}
+
+const ACTS = {diag: actDiag, image: actImage, compo: actCompo, recip: actRecip, parite: actParite, periode: actPeriode, mono: actMono, borne: actBorne, ent: actEnt, explore: actExplore, course: actCourse, sym: actSym, alpha: actAlpha};
 function init(){
   $$('.quiz').forEach(buildQuiz);
   render(document.body);

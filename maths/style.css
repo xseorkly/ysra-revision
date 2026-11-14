@@ -125,3 +125,21 @@ footer{color:var(--mut);font-size:.85rem;text-align:center;padding:10px 20px 34p
 .retenir>h3{color:var(--c)}
 .retenir li{margin:5px 0}
 .mots td:first-child{font-weight:700;color:var(--deep);white-space:nowrap}
+/* exercices du prof */
+h3.pxsec{margin:26px 0 6px;color:var(--deep);font-size:1.1rem;border-top:3px solid var(--gold);padding-top:12px}
+.profex{border:2px solid var(--deep);border-radius:18px;background:#fbfcfd;margin:14px 0 22px;overflow:hidden;box-shadow:var(--shadow)}
+.profex>*{margin-left:14px;margin-right:14px}
+.profex>.pxhead{margin:0;background:var(--deep);color:#fff;padding:10px 16px;font-weight:600}
+.pxnum{background:var(--gold);color:#14314c;border-radius:8px;padding:1px 9px;font-weight:800;margin-right:6px}
+.enonce{border-left:5px solid var(--gold);background:#fffaf0;border-radius:8px;padding:8px 14px;margin-top:12px;font-size:1.02rem;overflow-x:auto}
+.enonce p{margin:6px 0}
+.profex .ex{margin-top:10px}
+details.corr{border:2px solid var(--ok);border-radius:14px;margin:12px 14px;background:#fff}
+details.corr>summary{cursor:pointer;font-weight:800;color:#fff;background:var(--ok);padding:10px 14px;border-radius:11px;list-style:none}
+details.corr>summary::-webkit-details-marker{display:none}
+details.corr[open]>summary{border-radius:11px 11px 0 0}
+details.corr>div{padding:6px 16px 12px;overflow-x:auto}
+details.corr h4{color:var(--deep);margin:14px 0 4px;font-size:1rem;border-bottom:1px dashed var(--line);padding-bottom:3px}
+.verif{background:#e9f6ef;border-radius:10px;padding:8px 12px;font-size:.95rem}
+.profex .retenir{margin-bottom:10px}
+.profex>.ex:last-child{margin-bottom:14px}

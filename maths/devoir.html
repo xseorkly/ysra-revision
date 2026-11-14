@@ -1,0 +1,109 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Devoir type · Chapitre 5 — Maths</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="suivi.js"></script><script defer src="app.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="09bb50e4-e5cd-47d4-b231-1551e99b2df5" data-domains="xseorkly.github.io" data-exclude-search="true" data-exclude-hash="true"></script>
+</head><body>
+<header class="top"><div class="k">Maths · Chapitre 5</div><h1>Devoir type · 2 heures</h1><p>Sept exercices de prépa (MPSI, ECG, E1A) du même genre que la feuille du prof, chacun avec sa source. Fais-le d’abord sans regarder, puis compare avec le corrigé détaillé.</p></header>
+<nav class="site"><a href="../">Accueil</a><a href="./">Sommaire</a><a href="applications.html">A · Applications</a><a href="fonctions-reelles.html">B · Fonctions réelles</a><a href="fonctions-usuelles.html">C · Fonctions usuelles</a><a href="essentiel.html">L’essentiel</a><a href="qcm.html">QCM final</a><a href="devoir.html" aria-current="page">Devoir type</a></nav>
+<main>
+<div class="card"><h3>📋 Consignes</h3><ul><li>Durée : <b>2 heures</b>, sans calculatrice ni document, comme un vrai devoir.</li><li>Barème indicatif sur <b>20 points</b>.</li><li>Chaque exercice est repris d’une feuille d’exercices de classe préparatoire disponible en ligne : la source est indiquée sous l’énoncé. Les consignes sont parfois reformulées, les calculs sont ceux de l’original.</li><li>Le lien « 🔗 Exercice du prof correspondant » montre à quel exercice de ta feuille il ressemble.</li></ul></div>
+
+<h2 style="color:var(--deep)">Le sujet</h2>
+<div class="card enonce-devoir">
+<p><b>Exercice 1 · Domaines de définition (2 pts).</b> Déterminer le domaine de définition des fonctions : a) \(f(x)=\sqrt{2x^2-3x-2}\) ; b) \(g(x)=\ln(x^5+1)\).<br><span class="poly">Source : MPSI Lycée Camille Jullian, feuille n° 3 « Fonctions usuelles » (2025), exercice 1. 🔗 Ressemble au 05.9 du prof.</span></p>
+<p><b>Exercice 2 · Parité (3 pts).</b> Étudier la parité de : a) \(f(x)=2x^6-5x^4+x^2+6\) ; b) \(g(x)=\ln|x|\) ; c) \(h(x)=\dfrac{x-1}{x^2+1}\).<br><span class="poly">Sources : MPSI Camille Jullian, feuille n° 3, exercice 2 (a, b) ; ECG1, TD 03 « Fonctions usuelles » (cahier-de-prepa, ecg1-dupuy) (c). 🔗 Ressemble au 05.1.</span></p>
+<p><b>Exercice 3 · Valeur absolue (3 pts).</b> Résoudre dans ℝ : a) \(|x+1|+|x+2|=1\) ; b) \(|x^2-1|=x+5\).<br><span class="poly">Sources : Lycée Carnot E1A, TD « Fonctions usuelles », exercice 11 (b) ; ECG1 Lycée Hoche, TD n° 2, exercice 1 (b). 🔗 Ressemble au 05.7.</span></p>
+<p><b>Exercice 4 · Partie entière (3 pts).</b> a) Montrer que pour tout réel x et tout entier relatif p, \(\lfloor x+p\rfloor=\lfloor x\rfloor+p\) (\(\lfloor x\rfloor\) est une autre notation de Ent(x)). b) Résoudre \(\lfloor\sqrt x\rfloor=2\).<br><span class="poly">Source : ECG1 Lycée Hoche, TD n° 2, exercices 5 et 21 (b). 🔗 Généralise le 05.8.</span></p>
+<p><b>Exercice 5 · Fonctions bornées (3 pts).</b> a) Montrer que \(x\mapsto\cos^2(x)-\cos(x)+2\) est bornée sur ℝ. b) Montrer que pour tout \(u\in[1\,;4]\), \(\dfrac15\leqslant\dfrac{1}{\sqrt u+u-1}\leqslant1\).<br><span class="poly">Sources : MPSI Lycée Saint-Exupéry, chapitre « Inégalités » (a) ; ECG1, TD 03 « Fonctions usuelles », exercice 7 (b). 🔗 Ressemble aux 05.4 et 05.5.</span></p>
+<p><b>Exercice 6 · Une puissance « x en haut et en bas » (3 pts).</b> Pour \(f(x)=x^{\frac1x}\) : déterminer le domaine, calculer la dérivée, en déduire les variations. Préciser le maximum et les limites aux bornes.<br><span class="poly">Source : Lycée Carnot E1A, TD « Fonctions usuelles », exercice 6 (c) (limites ajoutées). 🔗 Ressemble au 05.9 question 6.</span></p>
+<p><b>Exercice 7 · Inéquation avec ln et valeurs absolues (3 pts).</b> Résoudre dans ℝ : \(\ln(|x+1|)-\ln(|2x+1|)\leqslant\ln(2)\).<br><span class="poly">Source : MPSI Camille Jullian, feuille n° 3, exercice 3 (question 16). 🔗 Ressemble au 05.10 question 3.</span></p>
+</div>
+
+<h2 style="color:var(--deep)">Le corrigé détaillé</h2>
+
+<div class="profex"><div class="pxhead"><span class="pxnum">Exercice 1</span> Domaines de définition</div>
+<details class="corr"><summary>✅ Afficher le corrigé</summary><div>
+<p><b>Rappel :</b> sous une racine il faut ≥ 0, dans un ln il faut > 0.</p>
+<h4>a) \(\sqrt{2x^2-3x-2}\)</h4>
+<ol class="steps"><li>Il faut \(2x^2-3x-2\geqslant0\). \(\Delta=9+16=25\), racines \(\frac{3\pm5}{4}\), soit 2 et −1/2. Donc \(2x^2-3x-2=(x-2)(2x+1)\).</li>
+<li>Le coefficient de x² est positif, donc le trinôme est positif à l’extérieur des racines : \(D_f=\,]-\infty\,;-\frac12]\cup[2\,;+\infty[\).</li></ol>
+<h4>b) \(\ln(x^5+1)\)</h4>
+<ol class="steps"><li>Il faut \(x^5+1>0\iff x^5>-1\).</li>
+<li>La fonction \(x\mapsto x^5\) est strictement croissante sur ℝ (puissance impaire), et \((-1)^5=-1\). Donc \(x^5>(-1)^5\iff x>-1\).</li>
+<li>\(D_g=\,]-1\,;+\infty[\).</li></ol></div></details></div>
+
+<div class="profex"><div class="pxhead"><span class="pxnum">Exercice 2</span> Parité</div>
+<details class="corr"><summary>✅ Afficher le corrigé</summary><div>
+<p><b>Rappel (fiche B1) :</b> domaine symétrique, puis on compare \(f(-x)\) avec \(f(x)\) et \(-f(x)\).</p>
+<ol class="steps"><li><b>a)</b> ℝ est symétrique. Toutes les puissances sont paires : \((-x)^6=x^6\), \((-x)^4=x^4\), \((-x)^2=x^2\). Donc \(f(-x)=f(x)\) : <b>f est paire</b>.</li>
+<li><b>b)</b> Domaine \(\mathbb R^*\), qui est symétrique. \(g(-x)=\ln|-x|=\ln|x|=g(x)\) : <b>g est paire</b>.</li>
+<li><b>c)</b> Domaine ℝ, car \(x^2+1>0\). On cherche un contre-exemple : \(h(1)=0\) et \(h(-1)=\frac{-2}{2}=-1\). Comme \(h(-1)\neq h(1)\), h n’est pas paire. Comme \(h(-1)\neq-h(1)=0\), h n’est pas impaire. <b>h n’est ni paire ni impaire.</b></li></ol></div></details></div>
+
+<div class="profex"><div class="pxhead"><span class="pxnum">Exercice 3</span> Valeur absolue</div>
+<details class="corr"><summary>✅ Afficher le corrigé</summary><div>
+<h4>a) \(|x+1|+|x+2|=1\)</h4>
+<ol class="steps"><li>Les valeurs qui annulent les expressions sont −2 et −1. On découpe ℝ en 3 morceaux, comme dans le 05.7.</li>
+<li>\(x\leqslant-2\) : \(-(x+1)-(x+2)=1\iff-2x-3=1\iff x=-2\), qui est bien dans le morceau.</li>
+<li>\(-2\leqslant x\leqslant-1\) : \(-(x+1)+(x+2)=1\iff1=1\), toujours vrai : tout le morceau \([-2\,;-1]\) est solution.</li>
+<li>\(x\geqslant-1\) : \((x+1)+(x+2)=1\iff x=-1\), qui est bien dans le morceau.</li>
+<li>\(S=[-2\,;-1]\). <i>Interprétation :</i> \(|x+1|+|x+2|\) est la somme des distances de x à −1 et à −2. Elle vaut exactement 1 (la distance entre −2 et −1) quand x est entre les deux.</li></ol>
+<h4>b) \(|x^2-1|=x+5\)</h4>
+<ol class="steps"><li>Une valeur absolue est positive, donc il faut \(x+5\geqslant0\).</li>
+<li><b>Cas \(|x|\geqslant1\)</b> (\(x^2-1\geqslant0\)) : \(x^2-1=x+5\iff x^2-x-6=0\iff x=3\) ou \(x=-2\). Les deux vérifient \(|x|\geqslant1\) et \(x+5\geqslant0\).</li>
+<li><b>Cas \(|x|\lt1\)</b> : \(1-x^2=x+5\iff x^2+x+4=0\). \(\Delta=1-16\lt0\) : pas de solution.</li>
+<li>\(S=\{-2\,;3\}\). Vérification : \(|4-1|=3=-2+5\) ✔ et \(|9-1|=8=3+5\) ✔.</li></ol></div></details></div>
+
+<div class="profex"><div class="pxhead"><span class="pxnum">Exercice 4</span> Partie entière</div>
+<details class="corr"><summary>✅ Afficher le corrigé</summary><div>
+<p><b>Rappel (fiche C2) :</b> \(\lfloor y\rfloor\) est l’unique entier k tel que \(k\leqslant y\lt k+1\).</p>
+<ol class="steps"><li><b>a)</b> Soit \(n=\lfloor x\rfloor\) : \(n\leqslant x\lt n+1\). On ajoute p : \(n+p\leqslant x+p\lt n+p+1\). Comme \(n+p\) est un entier, c’est la partie entière de \(x+p\) : \(\lfloor x+p\rfloor=n+p=\lfloor x\rfloor+p\). (Avec p = 1, on retrouve le 05.8.)</li>
+<li><b>b)</b> Domaine : \(x\geqslant0\). \(\lfloor\sqrt x\rfloor=2\iff2\leqslant\sqrt x\lt3\). Tout est positif, donc on peut élever au carré, ce qui conserve l’ordre sur \(\mathbb R^+\) : \(4\leqslant x\lt9\). \(S=[4\,;9[\).</li></ol></div></details></div>
+
+<div class="profex"><div class="pxhead"><span class="pxnum">Exercice 5</span> Fonctions bornées</div>
+<details class="corr"><summary>✅ Afficher le corrigé</summary><div>
+<h4>a) \(\cos^2x-\cos x+2\)</h4>
+<ol class="steps"><li>On pose \(X=\cos x\), qui est dans \([-1\,;1]\). L’expression devient \(X^2-X+2\).</li>
+<li><b>Minoration</b> (forme canonique) : \(X^2-X+2=\left(X-\frac12\right)^2+\frac74\geqslant\frac74\).</li>
+<li><b>Majoration</b> : \(X^2\leqslant1\) et \(-X\leqslant1\) (car \(-1\leqslant X\leqslant1\)), donc \(X^2-X+2\leqslant1+1+2=4\).</li>
+<li>Donc \(\frac74\leqslant\cos^2x-\cos x+2\leqslant4\) : la fonction est <b>bornée</b>. Les bornes sont même atteintes, en \(\cos x=\frac12\) et en \(\cos x=-1\).</li></ol>
+<h4>b) \(u\in[1\,;4]\)</h4>
+<ol class="steps"><li>√ est croissante : \(1\leqslant\sqrt u\leqslant2\). Et \(0\leqslant u-1\leqslant3\).</li>
+<li>On additionne : \(1\leqslant\sqrt u+u-1\leqslant5\).</li>
+<li>La fonction inverse est décroissante sur \(]0\,;+\infty[\) et renverse donc l’ordre : \(\frac15\leqslant\frac{1}{\sqrt u+u-1}\leqslant1\). ∎</li></ol></div></details></div>
+
+<div class="profex"><div class="pxhead"><span class="pxnum">Exercice 6</span> \(f(x)=x^{1/x}\)</div>
+<details class="corr"><summary>✅ Afficher le corrigé</summary><div>
+<ol class="steps"><li><b>Réécriture</b> (proposition 28 du poly) : \(x^{1/x}=e^{\frac{\ln x}{x}}\). Domaine : \(x>0\), soit \(]0\,;+\infty[\).</li>
+<li><b>Dérivée de l’exposant</b> \(\varphi(x)=\frac{\ln x}{x}\) : \(\varphi'(x)=\frac{\frac1x\cdot x-\ln x}{x^2}=\frac{1-\ln x}{x^2}\). C’est exactement la fonction étudiée dans l’exercice ★★★ de la fiche C5.</li>
+<li><b>Dérivée de f</b> : \(f'(x)=\varphi'(x)e^{\varphi(x)}=\dfrac{1-\ln x}{x^2}\,x^{1/x}\).</li>
+<li><b>Signe</b> : \(x^{1/x}>0\) et \(x^2>0\), donc f′ a le signe de \(1-\ln x\) : positif pour \(x\lt e\), négatif pour \(x>e\). f est croissante sur \(]0\,;e]\) et décroissante sur \([e\,;+\infty[\).</li>
+<li><b>Maximum</b> : \(f(e)=e^{1/e}\approx1{,}44\).</li>
+<li><b>Limites</b> : en \(0^+\), \(\frac{\ln x}{x}\to-\infty\) (ln x → −∞ et 1/x → +∞), donc \(f\to0\). En \(+\infty\), \(\frac{\ln x}{x}\to0\) par croissances comparées, donc \(f\to e^0=1\).</li></ol></div></details></div>
+
+<div class="profex"><div class="pxhead"><span class="pxnum">Exercice 7</span> Inéquation avec ln</div>
+<details class="corr"><summary>✅ Afficher le corrigé</summary><div>
+<ol class="steps"><li><b>Domaine</b> : il faut \(|x+1|>0\) et \(|2x+1|>0\), donc \(x\neq-1\) et \(x\neq-\frac12\).</li>
+<li><b>Regrouper</b> : \(\ln|x+1|\leqslant\ln2+\ln|2x+1|=\ln\big(2|2x+1|\big)\).</li>
+<li><b>Enlever les ln</b> (ln est croissante, et les deux nombres sont > 0) : \(|x+1|\leqslant2|2x+1|\).</li>
+<li><b>Élever au carré</b>, ce qui est permis car les deux membres sont positifs et le carré est croissant sur \(\mathbb R^+\) : \((x+1)^2\leqslant4(2x+1)^2\).</li>
+<li><b>Factoriser</b> avec \(a^2-b^2=(a-b)(a+b)\) : \(\big(2(2x+1)\big)^2-(x+1)^2\geqslant0\iff(4x+2-x-1)(4x+2+x+1)\geqslant0\iff(3x+1)(5x+3)\geqslant0\).</li>
+<li><b>Signe d’un produit</b> : positif à l’extérieur des racines \(-\frac35\) et \(-\frac13\), soit \(x\leqslant-\frac35\) ou \(x\geqslant-\frac13\).</li>
+<li><b>On retire les valeurs interdites</b> : −1 est dans \(]-\infty\,;-\frac35]\), on l’enlève. −1/2 est entre −3/5 et −1/3, elle est déjà exclue.
+\[S=\,]-\infty\,;-1[\,\cup\,]-1\,;-\tfrac35]\,\cup\,[-\tfrac13\,;+\infty[.\]</li></ol>
+<p class="verif">🔎 Vérification : en x = 0, \(0-0\leqslant\ln2\) ✔. En x = −0,55, \(\frac{|x+1|}{|2x+1|}=4{,}5>2\) ✘, et −0,55 n’est pas dans S.</p></div></details></div>
+
+<div class="card"><h3>📚 Sources des exercices</h3><ul>
+<li>G. Lafon, MPSI Lycée Camille Jullian, <a href="https://www.normalesup.org/~glafon/kaju25/exos_fonctions.pdf">Feuille d’exercices n° 3 : Fonctions usuelles</a> (2025)</li>
+<li>Lycée Carnot E1A, <a href="https://www.normalesup.org/~bureaux/2018/td/td3_fonctions_usuelles.pdf">Fonctions usuelles · Exercices</a></li>
+<li>ECG1 Lycée Hoche, <a href="https://cahier-de-prepa.fr/ecg1a-hoche/download?id=37">TD de mathématiques n° 2 · Fonctions usuelles</a> (2023-2024)</li>
+<li>ECG1, <a href="https://cahier-de-prepa.fr/ecg1-dupuy/download?id=26">TD 03 · Fonctions usuelles</a> (cahier-de-prepa)</li>
+<li>MPSI Lycée Saint-Exupéry, <a href="https://cahier-de-prepa.fr/mpsi-stex/download?id=1301">Inégalités et applications</a> (cahier-de-prepa)</li></ul>
+<p class="poly">Les corrigés de cette page sont rédigés pour ce site. Ils ne reprennent pas ceux des documents sources.</p></div>
+<div class="next"><a href="./">← Sommaire du chapitre</a><a href="qcm.html">QCM final →</a></div>
+</main>
+<footer>Révisions personnelles d’après le poly « Chapitre 5 · Applications et fonctions usuelles ». En cas de doute, le cours de l’enseignant fait foi.</footer>
+</body></html>
