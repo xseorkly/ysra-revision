@@ -1,0 +1,195 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Partie B · Les fonctions réelles — Maths chap. 5</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="suivi.js"></script><script defer src="app.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="09bb50e4-e5cd-47d4-b231-1551e99b2df5" data-domains="xseorkly.github.io" data-exclude-search="true" data-exclude-hash="true"></script>
+<style>:root{--c:var(--cB)}</style>
+</head><body>
+<header class="top"><div class="k">Maths · Chapitre 5 · Partie B</div><h1>Les fonctions réelles</h1><p>Les propriétés qu’on regarde sur toute fonction : symétrie, répétition, sens de variation, et jusqu’où elle monte ou descend.</p></header>
+<nav class="site"><a href="../">Accueil</a><a href="./">Sommaire</a><a href="applications.html">A · Applications</a><a href="fonctions-reelles.html" aria-current="page">B · Fonctions réelles</a><a href="fonctions-usuelles.html">C · Fonctions usuelles</a><a href="essentiel.html">L’essentiel</a><a href="qcm.html">QCM final</a></nav>
+<main>
+<div class="toc"><h2>Dans cette partie (poly : § 5.2, pages 5 à 7)</h2><ol>
+<li><a href="#b1">Parité</a></li><li><a href="#b2">Périodicité</a></li><li><a href="#b3">Fonctions monotones</a></li>
+<li><a href="#b4">Majorée, minorée, bornée</a></li><li><a href="#b5">Maximum et minimum</a></li><li><a href="#b6">Borne supérieure et borne inférieure</a></li></ol></div>
+<div class="card"><p>Dans toute cette partie, f est une fonction définie sur un ensemble \(D\subset\mathbb R\) (son <b>domaine</b>), à valeurs réelles. I désigne un <b>intervalle</b> (un morceau de ℝ « sans trou », comme \([0\,;3]\) ou \(]0\,;+\infty[\)).</p></div>
+
+<!-- ===================== B1 ===================== -->
+<section class="notion" id="b1"><h2><span class="num">B1</span> Parité</h2><p class="poly">Poly : définition 7, page 5</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>Une fonction <b>paire</b> donne la même chose pour x et −x : sa courbe est symétrique <b>gauche/droite</b>. Une fonction <b>impaire</b> donne des résultats opposés : sa courbe est symétrique <b>par rapport à l’origine</b>.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p><b>Paire</b> : un papillon. Si on le plie le long de l’axe vertical, les deux ailes se superposent.<br><b>Impaire</b> : une hélice. Si on la fait tourner d’un demi-tour autour de son centre, elle retombe exactement sur elle-même.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="grid2"><div class="mini"><h4>f paire</h4><p>(i) \(\forall x\in D,\ -x\in D\)<br>(ii) \(\forall x\in D,\ f(-x)=f(x)\)</p><p>Courbe symétrique par rapport à l’<b>axe des ordonnées</b>.</p></div>
+<div class="mini"><h4>f impaire</h4><p>(i) \(\forall x\in D,\ -x\in D\)<br>(ii) \(\forall x\in D,\ f(-x)=-f(x)\)</p><p>Courbe symétrique par rapport à l’<b>origine</b> O.</p></div></div>
+<p>La condition (i) dit que le domaine doit être <b>symétrique</b> par rapport à 0. Si x est dedans, −x aussi. Par exemple ℝ, \(\mathbb R^*\) ou \([-2\,;2]\) conviennent, mais pas \([0\,;+\infty[\).</p></div>
+<div class="card"><h3><span class="ic">✍️</span> Méthode et exemples résolus</h3>
+<p><b>Méthode en 3 temps :</b> ① vérifier que le domaine est symétrique ; ② calculer \(f(-x)\) et simplifier ; ③ comparer avec \(f(x)\) et avec \(-f(x)\).</p>
+<ol class="steps"><li>\(f(x)=x^2\) sur ℝ : \(f(-x)=(-x)^2=x^2=f(x)\). <b>Paire.</b></li>
+<li>\(f(x)=x^3\) sur ℝ : \(f(-x)=(-x)^3=-x^3=-f(x)\). <b>Impaire.</b></li>
+<li>\(f(x)=x^2+x\) sur ℝ : \(f(-x)=x^2-x\), qui n’est égal ni à \(x^2+x\) ni à \(-x^2-x\). Pour le <b>prouver</b>, un contre-exemple suffit : \(f(1)=2\), \(f(-1)=0\) et \(-f(1)=-2\). Comme \(f(-1)\neq f(1)\) et \(f(-1)\neq-f(1)\), f n’est <b>ni paire ni impaire</b>.</li>
+<li>\(f(x)=\sqrt x\) sur \([0\,;+\infty[\) : \(-1\notin D\). La condition (i) échoue, donc f n’est <b>ni paire ni impaire</b>, sans aucun calcul.</li></ol></div>
+<div class="act" data-widget="parite"><h3>🎯 Activité : détective de parité</h3><p class="consigne">Choisis une fonction et déplace x. Le point A est en x, le point B en −x. Paire : A et B sont à la même hauteur. Impaire : B est le symétrique de A par rapport à O. Puis donne ton verdict.</p></div>
+<div class="card astuce"><h3><span class="ic">🧠</span> À quoi ça sert ?</h3><ul><li>À <b>diviser le travail par deux</b> : on étudie f sur \([0\,;+\infty[\) puis on complète par symétrie.</li><li>Si f est impaire et définie en 0, alors \(f(0)=0\), car \(f(0)=-f(0)\). C’est utile pour repérer une erreur.</li><li>Les puissances paires (\(x^2, x^4\)) donnent des fonctions paires et les puissances impaires (\(x, x^3, \frac1x\)) des fonctions impaires. D’où les noms.</li></ul></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>« Pas paire » ne veut pas dire « impaire » : la plupart des fonctions ne sont <b>ni l’une ni l’autre</b>.</li><li>Un ou deux exemples ne prouvent pas qu’une fonction est paire. Il faut un calcul avec x quelconque. En revanche, un seul contre-exemple prouve qu’elle ne l’est pas.</li><li>Ne pas oublier les parenthèses : \(f(-x)\) pour \(f(x)=x^2\) donne \((-x)^2=x^2\), et non \(-x^2\).</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Étudie la parité de \(f(x)=x^4-3x^2\) et de \(g(x)=5x-x^3\) sur ℝ.
+<details><summary>Corrigé</summary><div>\(f(-x)=(-x)^4-3(-x)^2=x^4-3x^2=f(x)\) : f est paire.<br>\(g(-x)=-5x-(-x)^3=-5x+x^3=-(5x-x^3)=-g(x)\) : g est impaire.</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Étudie la parité de : a) \(\dfrac{x^2}{x^2+1}\) b) \(\dfrac{x}{x^2+1}\) c) \(x+1\) d) \(\dfrac1x\) sur \(\mathbb R^*\).
+<details><summary>Corrigé</summary><div>a) \(\frac{(-x)^2}{(-x)^2+1}=\frac{x^2}{x^2+1}\) : <b>paire</b>.<br>b) \(\frac{-x}{x^2+1}=-\frac{x}{x^2+1}\) : <b>impaire</b>.<br>c) \(f(1)=2\), \(f(-1)=0\) et \(-f(1)=-2\) : <b>ni l’une ni l’autre</b>.<br>d) \(\mathbb R^*\) est symétrique et \(\frac{1}{-x}=-\frac1x\) : <b>impaire</b> (c’est la remarque R1 du poly sur la fonction inverse).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Étudie la parité de \(f(x)=e^x+e^{-x}\), de \(g(x)=e^x-e^{-x}\) et de \(h(x)=\ln\!\left(\dfrac{1+x}{1-x}\right)\) sur \(]-1\,;1[\).
+<details><summary>Corrigé</summary><div>\(f(-x)=e^{-x}+e^{x}=f(x)\) : f est <b>paire</b>.<br>\(g(-x)=e^{-x}-e^{x}=-(e^x-e^{-x})=-g(x)\) : g est <b>impaire</b>.<br>\(]-1\,;1[\) est symétrique, et \(h(-x)=\ln\frac{1-x}{1+x}=\ln\Big(\big(\frac{1+x}{1-x}\big)^{-1}\Big)=-\ln\frac{1+x}{1-x}=-h(x)\), en utilisant \(\ln\frac1a=-\ln a\). h est <b>impaire</b>.</div></details></div></div>
+<div class="quiz" id="qb1" data-label="Maths B1 — Parité"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="1" data-part="B1 parité">La courbe d’une fonction paire est symétrique par rapport à :<ul><li>l’axe des ordonnées</li><li>l’origine</li><li>l’axe des abscisses</li><li>la droite y = x</li></ul><p class="e">\(f(-x)=f(x)\) : les points d’abscisses x et −x sont à la même hauteur, la courbe est symétrique gauche/droite.</p></div>
+<div data-a="2" data-part="B1 parité">\(f(x)=x^3-x\) est :<ul><li>paire</li><li>impaire</li><li>ni paire ni impaire</li></ul><p class="e">\(f(-x)=-x^3+x=-(x^3-x)=-f(x)\).</p></div>
+<div data-a="3" data-part="B1 parité">\(f(x)=\sqrt x\) sur \([0\,;+\infty[\) est :<ul><li>paire</li><li>impaire</li><li>ni paire ni impaire, car son domaine n’est pas symétrique</li></ul><p class="e">−1 n’est pas dans le domaine : la condition (i) échoue.</p></div>
+<div data-a="4" data-part="B1 parité">Si f est impaire et définie en 0, alors :<ul><li>f(0) = 1</li><li>f(0) peut valoir n’importe quoi</li><li>f est aussi paire</li><li>f(0) = 0</li></ul><p class="e">\(f(-0)=-f(0)\) donne \(f(0)=-f(0)\), donc \(2f(0)=0\).</p></div>
+</div></div>
+</section>
+
+<!-- ===================== B2 ===================== -->
+<section class="notion" id="b2"><h2><span class="num">B2</span> Périodicité</h2><p class="poly">Poly : définition 8, page 5</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>Une fonction T-périodique <b>répète le même motif</b> tous les T : si on décale sa courbe de T vers la droite, elle retombe exactement sur elle-même.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Les jours de la semaine : tous les 7 jours, on retombe sur le même jour (période 7). Les aiguilles d’une horloge reviennent à la même position toutes les 12 heures. Le papier peint aussi : un motif qui se répète à intervalles réguliers.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="trad"><div>\(\forall x\in\mathbb R,\ x\in D\iff x+T\in D\)</div><div>le domaine se répète aussi : si on peut calculer f en x, on peut le faire en x + T, et inversement</div>
+<div>\(\forall x\in D,\ f(x+T)=f(x)\)</div><div>avancer de T ne change pas la valeur</div></div>
+<p>Si T est une période, alors 2T, 3T, −T… aussi. Quand on parle de « la » période, on parle en général de la plus petite période strictement positive.</p></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li><b>Rappel du lycée</b> (hors liste du poly) : \(\cos\) et \(\sin\) sont \(2\pi\)-périodiques : \(\cos(x+2\pi)=\cos x\).</li>
+<li><b>La « partie décimale » \(f(x)=x-\text{Ent}(x)\) est 1-périodique.</b> Quand on ajoute 1 à x, sa partie entière augmente aussi de 1 : \(\text{Ent}(x+1)=\text{Ent}(x)+1\). Donc \(f(x+1)=(x+1)-(\text{Ent}(x)+1)=x-\text{Ent}(x)=f(x)\).</li>
+<li><b>\(x\mapsto\cos(2x)\) est π-périodique</b> : \(\cos(2(x+\pi))=\cos(2x+2\pi)=\cos(2x)\). Le « 2 » devant x accélère la fonction, donc la période est divisée par 2.</li></ol></div>
+<div class="act" data-widget="periode"><h3>🎯 Activité : trouve la période</h3><p class="consigne">On trace f (en vert) et f décalée de T (pointillé jaune). Règle T jusqu’à ce que les deux courbes se superposent exactement.</p></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>Il faut que l’égalité \(f(x+T)=f(x)\) soit vraie pour <b>tous</b> les x, pas seulement pour quelques-uns. Par exemple \(x^2\) vérifie \(f(-1+2)=f(-1)\), mais n’est pas périodique pour autant.</li><li>Une fonction strictement monotone (comme exp ou ln) ne peut jamais être périodique.</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Montre que \(x\mapsto\sin(x)+3\) est \(2\pi\)-périodique.
+<details><summary>Corrigé</summary><div>\(\sin(x+2\pi)+3=\sin(x)+3\), car sin est \(2\pi\)-périodique.</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Montre que \(x\mapsto|\sin x|\) est π-périodique (rappel : \(\sin(x+\pi)=-\sin x\)).
+<details><summary>Corrigé</summary><div>\(|\sin(x+\pi)|=|-\sin x|=|\sin x|\). La valeur absolue « efface » le signe moins, donc la période passe de \(2\pi\) à π.</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Montre que \(f(x)=x^2\) n’est pas périodique.
+<details><summary>Corrigé</summary><div>Raisonnons par l’absurde : supposons qu’il existe \(T\neq0\) tel que \((x+T)^2=x^2\) pour tout x. En prenant \(x=0\), on obtient \(T^2=0\), donc \(T=0\). C’est une contradiction, donc x² n’est pas périodique.</div></details></div></div>
+<div class="quiz" id="qb2" data-label="Maths B2 — Périodicité"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="B2 périodicité">\(x\mapsto x-\text{Ent}(x)\) est périodique de période :<ul><li>2π</li><li>1</li><li>elle n’est pas périodique</li><li>0,5</li></ul><p class="e">\(\text{Ent}(x+1)=\text{Ent}(x)+1\), donc \(f(x+1)=f(x)\).</p></div>
+<div data-a="3" data-part="B2 périodicité">Si f est 3-périodique, alors f est aussi :<ul><li>1-périodique</li><li>1,5-périodique</li><li>6-périodique</li></ul><p class="e">\(f(x+6)=f((x+3)+3)=f(x+3)=f(x)\). Tout multiple d’une période est une période.</p></div>
+</div></div>
+</section>
+
+<!-- ===================== B3 ===================== -->
+<section class="notion" id="b3"><h2><span class="num">B3</span> Fonctions monotones</h2><p class="poly">Poly : définition 9, page 6</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>Une fonction <b>croissante</b> <b>conserve l’ordre</b> : si a est avant b, alors f(a) est avant f(b). Une fonction <b>décroissante</b> <b>renverse l’ordre</b>.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Le prix d’un plein en fonction du nombre de litres est croissant : plus de litres, plus cher. La quantité d’essence qui reste dans le réservoir en fonction des kilomètres parcourus est décroissante.</p><p><b>Strictement</b> veut dire qu’on monte ou descend toujours, sans jamais rester sur un palier. Un escalier monte, mais pas strictement, puisqu’il a des marches plates. La fonction partie entière est exactement un escalier.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="scroll"><table><tr><th>f est…</th><th>sur l’intervalle I, si…</th><th>en mots</th></tr>
+<tr><td>croissante</td><td>\(\forall a,b\in I,\ a\leqslant b\Rightarrow f(a)\leqslant f(b)\)</td><td>l’ordre est conservé (paliers permis)</td></tr>
+<tr><td>strictement croissante</td><td>\(\forall a,b\in I,\ a\lt b\Rightarrow f(a)\lt f(b)\)</td><td>l’ordre est conservé, sans palier</td></tr>
+<tr><td>décroissante</td><td>\(\forall a,b\in I,\ a\leqslant b\Rightarrow f(a)\geqslant f(b)\)</td><td>l’ordre est renversé</td></tr>
+<tr><td>strictement décroissante</td><td>\(\forall a,b\in I,\ a\lt b\Rightarrow f(a)\gt f(b)\)</td><td>l’ordre est renversé, sans palier</td></tr></table></div>
+<p>« Monotone » veut dire « croissante <b>ou</b> décroissante » sur I (elle ne change pas de sens).</p></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li><b>Par la définition :</b> \(f(x)=-3x+2\). Soit \(a\lt b\). On multiplie par −3, ce qui renverse l’inégalité : \(-3a\gt-3b\). On ajoute 2 : \(-3a+2\gt-3b+2\), c’est-à-dire \(f(a)\gt f(b)\). f est strictement décroissante sur ℝ.</li>
+<li><b>Par la dérivée (méthode du lycée, la plus rapide) :</b> sur un intervalle, si \(f'\geqslant0\) alors f est croissante, et si \(f'\leqslant0\) elle est décroissante. Exemple : \(f(x)=x^3+x\) a pour dérivée \(f'(x)=3x^2+1>0\), donc f est strictement croissante sur ℝ.</li>
+<li><b>Utiliser la monotonie pour comparer :</b> ln est croissante et \(3\lt\pi\), donc \(\ln3\lt\ln\pi\). \(x\mapsto e^{-x}\) est décroissante et \(2\lt3\), donc \(e^{-2}\gt e^{-3}\).</li></ol></div>
+<div class="act" data-widget="mono"><h3>🎯 Activité : l’ordre est-il conservé ?</h3><p class="consigne">Choisis une fonction et place a et b. Observe si f(a) et f(b) sont dans le même ordre que a et b. Avec x², place a et b tous les deux à gauche de 0, puis tous les deux à droite.</p></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul>
+<li><b>La monotonie se dit sur un intervalle.</b> \(\frac1x\) est décroissante sur \(]-\infty\,;0[\) <b>et</b> sur \(]0\,;+\infty[\), mais <b>pas</b> sur \(\mathbb R^*\) : on a \(-1\lt1\) et pourtant \(f(-1)=-1\lt f(1)=1\). Le poly le dit bien : « décroissante sur \(]-\infty,0[\) et décroissante sur \(]0,+\infty[\) ».</li>
+<li>\(x^2\) n’est ni croissante ni décroissante sur ℝ. Elle est décroissante sur \(\mathbb R^-\) et croissante sur \(\mathbb R^+\).</li>
+<li>Appliquer une fonction décroissante à une inégalité <b>la renverse</b>. Par exemple, pour passer à l’inverse entre nombres positifs : \(2\lt3\Rightarrow\frac12\gt\frac13\).</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Sans calculatrice, range dans l’ordre : a) \(\ln 2\) et \(\ln 5\) b) \(e^{0{,}3}\) et \(e^{0{,}2}\) c) \(\frac1{\sqrt2}\) et \(\frac1{\sqrt3}\).
+<details><summary>Corrigé</summary><div>a) ln croissante et \(2\lt5\), donc \(\ln2\lt\ln5\).<br>b) exp croissante et \(0{,}2\lt0{,}3\), donc \(e^{0{,}2}\lt e^{0{,}3}\).<br>c) \(\sqrt2\lt\sqrt3\) (√ croissante), puis l’inverse renverse l’ordre (positifs) : \(\frac1{\sqrt2}\gt\frac1{\sqrt3}\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Montre avec la définition que \(x\mapsto x^2\) est strictement décroissante sur \(\mathbb R^-\).
+<details><summary>Corrigé</summary><div>Soit \(a\lt b\leqslant0\). On calcule \(f(b)-f(a)=b^2-a^2=(b-a)(b+a)\). Or \(b-a>0\), et \(b+a\lt0\) car ce sont deux nombres négatifs, a étant même strictement négatif. Le produit est donc négatif : \(f(b)\lt f(a)\). L’ordre est renversé, donc f est strictement décroissante.</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Étudie les variations de \(f(x)=x+\dfrac1x\) sur \(]0\,;+\infty[\).
+<details><summary>Corrigé</summary><div>\(f'(x)=1-\frac{1}{x^2}=\frac{x^2-1}{x^2}=\frac{(x-1)(x+1)}{x^2}\). Sur \(]0\,;+\infty[\), \(x+1>0\) et \(x^2>0\), donc f′ a le signe de \(x-1\).<br>f est strictement décroissante sur \(]0\,;1]\) et strictement croissante sur \([1\,;+\infty[\). Elle atteint son minimum \(f(1)=2\) en 1.</div></details></div></div>
+<div class="quiz" id="qb3" data-label="Maths B3 — Monotonie"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="3" data-part="B3 monotonie">Sur quel ensemble \(x\mapsto\frac1x\) est-elle décroissante ?<ul><li>Sur \(\mathbb R^*\)</li><li>Sur ℝ</li><li>Sur \(]-\infty\,;0[\) et sur \(]0\,;+\infty[\) séparément</li></ul><p class="e">Sur \(\mathbb R^*\), −1 < 1 mais f(−1) = −1 < f(1) = 1 : l’ordre n’est pas renversé. La monotonie se dit sur chaque intervalle.</p></div>
+<div data-a="2" data-part="B3 monotonie">La fonction partie entière est :<ul><li>strictement croissante sur ℝ</li><li>croissante (mais pas strictement) sur ℝ</li><li>décroissante sur ℝ</li></ul><p class="e">\(\text{Ent}(0{,}2)=\text{Ent}(0{,}7)=0\) : il y a des paliers. Elle est croissante au sens large.</p></div>
+<div data-a="1" data-part="B3 comparer">Sachant que \(0\lt a\lt b\), on a :<ul><li>\(e^{-a}\gt e^{-b}\)</li><li>\(e^{-a}\lt e^{-b}\)</li><li>\(e^{-a}=e^{-b}\)</li></ul><p class="e">\(-a\gt-b\) (on multiplie par −1), puis exp est croissante : \(e^{-a}\gt e^{-b}\).</p></div>
+</div></div>
+</section>
+
+<!-- ===================== B4 ===================== -->
+<section class="notion" id="b4"><h2><span class="num">B4</span> Majorée, minorée, bornée</h2><p class="poly">Poly : définition 10 et remarque, page 6</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>Une fonction est <b>majorée</b> si elle a un <b>plafond</b> qu’elle ne dépasse jamais, <b>minorée</b> si elle a un <b>plancher</b> sous lequel elle ne descend jamais, et <b>bornée</b> si elle a les deux.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Une note sur 20 est bornée : toujours entre 0 (plancher) et 20 (plafond). 25 est aussi un plafond : c’est vrai qu’on ne dépasse jamais 25, ce n’est simplement pas le meilleur plafond. Un majorant n’est donc <b>pas unique</b>.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="trad"><div>majorée sur D</div><div>il existe un nombre M (un majorant) tel que \(f(x)\leqslant M\) pour tout x de D. Graphiquement, la courbe reste <b>sous</b> la droite \(y=M\)</div>
+<div>minorée sur D</div><div>il existe un nombre m (un minorant) tel que \(f(x)\geqslant m\) pour tout x de D. La courbe reste <b>au-dessus</b> de la droite \(y=m\)</div>
+<div>bornée sur D</div><div>majorée <b>et</b> minorée : la courbe est coincée dans une bande horizontale</div>
+<div>positive / négative</div><div>minorée par 0 / majorée par 0 (remarque du poly)</div></div>
+<p><b>Attention à l’ordre des mots :</b> c’est « il existe M » <b>puis</b> « pour tout x ». Le même M doit marcher pour tous les x à la fois.</p></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li>\(f(x)=\frac1{1+x^2}\) sur ℝ. On a \(1+x^2\geqslant1>0\), donc \(0\lt\frac1{1+x^2}\leqslant1\). f est <b>bornée</b> : minorée par 0 et majorée par 1.</li>
+<li>\(e^x\) est minorée par 0 (\(e^x>0\)) mais <b>pas majorée</b> : elle dépasse n’importe quel plafond, car elle tend vers \(+\infty\).</li>
+<li><b>Prouver qu’une fonction n’est pas majorée.</b> Pour \(x^2\) : quel que soit le M proposé, on prend \(x=\sqrt{|M|+1}\). Alors \(x^2=|M|+1>M\), donc M n’est pas un plafond. Comme aucun M ne marche, la fonction n’est pas majorée.</li></ol></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Montre que \(f(x)=2+\cos x\) est bornée sur ℝ.
+<details><summary>Corrigé</summary><div>\(-1\leqslant\cos x\leqslant1\), donc en ajoutant 2 : \(1\leqslant f(x)\leqslant3\). Elle est minorée par 1 et majorée par 3.</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> \(\ln\) est-elle majorée sur \(]0\,;+\infty[\) ? minorée ?
+<details><summary>Corrigé</summary><div>Ni l’un ni l’autre. Elle tend vers \(+\infty\) en \(+\infty\), donc elle n’est pas majorée, et vers \(-\infty\) en \(0^+\), donc elle n’est pas minorée. Par exemple, pour dépasser M, il suffit de prendre \(x=e^{M+1}\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Montre que \(f(x)=\dfrac{2x}{1+x^2}\) est bornée par −1 et 1 sur ℝ (indice : développe \((x-1)^2\) et \((x+1)^2\)).
+<details><summary>Corrigé</summary><div>\((x-1)^2\geqslant0\iff x^2-2x+1\geqslant0\iff 2x\leqslant1+x^2\). En divisant par \(1+x^2>0\) : \(f(x)\leqslant1\).<br>\((x+1)^2\geqslant0\iff x^2+2x+1\geqslant0\iff -(1+x^2)\leqslant 2x\), donc \(f(x)\geqslant-1\).<br>Ainsi \(-1\leqslant f(x)\leqslant1\) pour tout x.</div></details></div></div>
+<div class="quiz" id="qb4" data-label="Maths B4 — Majorée, minorée"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="1,2" data-part="B4 majorant">Pour \(f(x)=\frac{1}{1+x^2}\) sur ℝ, lesquels sont des <b>majorants</b> ?<ul><li>1</li><li>5</li><li>0,5</li><li>0</li></ul><p class="e">\(f(x)\leqslant1\) pour tout x, donc 1 et tout nombre plus grand (5) sont des majorants. 0,5 ne marche pas car f(0) = 1 > 0,5.</p></div>
+<div data-a="3" data-part="B4 bornée">\(x\mapsto e^x\) sur ℝ est :<ul><li>bornée</li><li>majorée mais pas minorée</li><li>minorée mais pas majorée</li><li>ni minorée ni majorée</li></ul><p class="e">\(e^x>0\) (minorée par 0), mais \(e^x\to+\infty\) : pas de plafond.</p></div>
+</div></div>
+</section>
+
+<!-- ===================== B5 ===================== -->
+<section class="notion" id="b5"><h2><span class="num">B5</span> Maximum et minimum</h2><p class="poly">Poly : définition 11, page 6</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>Le <b>maximum</b>, c’est un plafond que la fonction <b>touche vraiment</b> : la plus grande valeur effectivement atteinte. De même, le minimum est un plancher atteint.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="grid2"><div class="mini"><h4>M est le maximum de f sur I</h4><p>(i) M est un majorant : \(f(x)\leqslant M\) pour tout x ;<br>(ii) il est <b>atteint</b> : il existe \(x_0\in I\) avec \(f(x_0)=M\).</p></div>
+<div class="mini"><h4>m est le minimum de f sur I</h4><p>(i) m est un minorant ;<br>(ii) il est atteint : il existe \(x_0\in I\) avec \(f(x_0)=m\).</p></div></div>
+<div class="coquille"><b>Coquille du poly :</b> pour le minimum, le poly écrit « M est un minimum… \(f(x)=m\) ». Il faut lire <b>m</b> partout dans la deuxième puce.</div>
+<p>Contrairement aux majorants, le maximum, quand il existe, est <b>unique</b>. Il peut en revanche être atteint en plusieurs x.</p></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li>\(x^2\) sur \([-2\,;1]\) : le minimum vaut 0 (atteint en 0) et le maximum vaut 4 (atteint en −2).</li>
+<li>\(\frac{1}{1+x^2}\) sur ℝ : le maximum vaut 1, atteint en 0. 0 est un minorant mais il n’est jamais atteint, car \(\frac1{1+x^2}\) n’est jamais nul : <b>il n’y a pas de minimum</b>.</li>
+<li>\(x\) sur \(]0\,;1[\) (intervalle ouvert) : ni maximum, ni minimum. On s’approche de 1 et de 0 sans jamais les atteindre.</li></ol></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Donne le maximum et le minimum de \(f(x)=-x^2+4\) sur \([-1\,;3]\).
+<details><summary>Corrigé</summary><div>f croît sur \([-1\,;0]\) puis décroît sur \([0\,;3]\). Le maximum vaut \(f(0)=4\). Pour le minimum, on compare les bords : \(f(-1)=3\) et \(f(3)=-5\), donc le minimum vaut −5, atteint en 3.</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> \(f(x)=x+\frac1x\) sur \(]0\,;+\infty[\) a-t-elle un minimum ? un maximum ? (Utilise l’exercice ★★★ de B3.)
+<details><summary>Corrigé</summary><div>f décroît puis croît, avec \(f(1)=2\) : <b>minimum 2</b>, atteint en 1. Pas de maximum, car f tend vers \(+\infty\) en \(0^+\) et en \(+\infty\).</div></details></div></div>
+<div class="quiz" id="qb5" data-label="Maths B5 — Maximum et minimum"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="B5 max/min">Quelle est la différence entre un majorant et un maximum ?<ul><li>Aucune</li><li>Le maximum est un majorant qui est atteint par f</li><li>Le maximum est toujours plus grand qu’un majorant</li></ul><p class="e">Un maximum est un majorant qui est aussi une valeur prise par f : il existe \(x_0\) tel que \(f(x_0)=M\).</p></div>
+<div data-a="4" data-part="B5 max/min">\(\frac1x\) sur \([1\,;+\infty[\) :<ul><li>a un minimum égal à 0</li><li>n’a pas de maximum</li><li>a un maximum égal à 0</li><li>a un maximum égal à 1 et pas de minimum</li></ul><p class="e">f est décroissante : sa plus grande valeur est f(1) = 1 (atteinte). Elle s’approche de 0 sans l’atteindre : pas de minimum.</p></div>
+</div></div>
+</section>
+
+<!-- ===================== B6 ===================== -->
+<section class="notion" id="b6"><h2><span class="num">B6</span> Borne supérieure et borne inférieure</h2><p class="poly">Poly : définition 12, remarque et exemple, page 7</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>La <b>borne supérieure</b> (sup) est le <b>meilleur plafond</b>, c’est-à-dire le plus bas possible. Elle peut être <b>touchée</b> (c’est alors le maximum) ou seulement <b>frôlée</b>.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Tu montes un escalier qui s’approche d’un plafond à 2,50 m, sans jamais le toucher. 3 m est un plafond, 2,60 m aussi, mais le <b>meilleur</b> plafond, le plus bas qui marche encore, est 2,50 m. C’est le sup. Comme il n’est jamais touché, il n’y a pas de maximum.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="trad"><div>\(\sup_{x\in I}f(x)\)</div><div>si f est majorée : le <b>plus petit des majorants</b></div>
+<div>\(\inf_{x\in I}f(x)\)</div><div>si f est minorée : le <b>plus grand des minorants</b></div>
+<div>remarque</div><div>si le sup est atteint, c’est le maximum ; si l’inf est atteint, c’est le minimum</div></div>
+<div class="scroll"><table><tr><th></th><th>majorant</th><th>sup</th><th>maximum</th></tr><tr><td>combien ?</td><td>une infinité</td><td>un seul (s’il existe)</td><td>au plus un</td></tr><tr><td>atteint par f ?</td><td>pas forcément</td><td>pas forcément</td><td><b>oui</b>, toujours</td></tr><tr><td>exemple : \(\frac1{1+x^2}\) sur ℝ</td><td>1, 2, 10…</td><td>1</td><td>1 (atteint en 0)</td></tr><tr><td>exemple : \(e^{-x}\) sur \(]0\,;+\infty[\)</td><td>1, 3…</td><td>1</td><td>aucun (\(e^{-x}\lt1\) pour \(x>0\))</td></tr></table></div></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemple du poly, expliqué</h3><p>\(f(x)=\frac1x\) sur \(\mathbb R^{+*}\) :</p>
+<ol class="steps"><li>f est toujours positive : 0 est un minorant, et tout nombre négatif aussi.</li>
+<li>Aucun nombre \(m>0\) n’est un minorant : en prenant \(x=\frac2m\), on obtient \(f(x)=\frac m2\lt m\). La courbe passe sous la droite \(y=m\).</li>
+<li>Donc 0 est le plus grand minorant : \(\inf_{x\in\mathbb R^{+*}}f(x)=0\).</li>
+<li>Mais \(\frac1x\neq0\) pour tout x : l’inf n’est pas atteint, <b>il n’y a pas de minimum</b>.</li></ol></div>
+<div class="act" data-widget="borne"><h3>🎯 Activité : chasse aux plafonds et aux planchers</h3><p class="consigne">Déplace la droite bleue (m) et la rouge (M). Trouve le plus grand plancher et le plus petit plafond possibles, puis révèle la réponse pour voir s’ils sont atteints.</p></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>« sup » ne veut pas dire « max » : le sup peut ne pas être atteint.</li><li>Une fonction non majorée n’a pas de sup réel. On écrit parfois \(\sup f=+\infty\), par convention.</li><li>Dans le poly, l’exemple écrit « \(\inf_{x\in\mathbb R}\) » : il faut lire \(x\in\mathbb R^{+*}\), puisque f n’est étudiée que là.</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Donne sup et inf de \(x\mapsto x^2\) sur \(]0\,;1[\). Sont-ils atteints ?
+<details><summary>Corrigé</summary><div>Sur \(]0\,;1[\), \(0\lt x^2\lt1\). On a donc sup = 1 et inf = 0. Aucun des deux n’est atteint, car les bords de l’intervalle sont exclus : pas de maximum ni de minimum.</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Donne sup, inf, max et min de \(f(x)=e^{-x}\) sur \([0\,;+\infty[\).
+<details><summary>Corrigé</summary><div>f est décroissante, avec f(0) = 1, et tend vers 0 en +∞ sans l’atteindre. sup = max = 1 (atteint en 0). inf = 0, pas de minimum.</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Soit \(f(x)=\dfrac{x}{x+1}\) sur \([0\,;+\infty[\). Montre que f est croissante, puis détermine sup, inf, max et min.
+<details><summary>Corrigé</summary><div>\(f'(x)=\frac{(x+1)-x}{(x+1)^2}=\frac1{(x+1)^2}>0\) : f est strictement croissante.<br>\(f(0)=0\), donc min = inf = 0.<br>\(f(x)=1-\frac1{x+1}\lt1\), et f tend vers 1 en +∞. Donc sup = 1, mais il n’est pas atteint : pas de maximum.</div></details></div></div>
+<div class="quiz" id="qb6" data-label="Maths B6 — Sup et inf"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="B6 sup/inf">La borne supérieure d’une fonction majorée est :<ul><li>le plus grand des majorants</li><li>le plus petit des majorants</li><li>toujours une valeur prise par f</li></ul><p class="e">C’est le meilleur plafond, donc le plus petit. Il n’est pas forcément atteint.</p></div>
+<div data-a="3" data-part="B6 sup/inf">Pour \(f(x)=\frac1x\) sur \(\mathbb R^{+*}\) :<ul><li>min f = 0</li><li>inf f n’existe pas</li><li>inf f = 0 mais f n’a pas de minimum</li><li>inf f = 1</li></ul><p class="e">0 est le plus grand minorant, mais \(\frac1x\neq0\) : il n’est pas atteint.</p></div>
+<div data-a="1" data-part="B6 sup/inf">Si le sup de f est atteint, alors :<ul><li>c’est le maximum de f</li><li>f est constante</li><li>f n’est pas majorée</li></ul><p class="e">C’est la remarque du poly : un sup atteint est un maximum.</p></div>
+</div></div>
+</section>
+
+<div class="next"><a href="applications.html">← Partie A · Applications</a><a href="fonctions-usuelles.html">Partie C · Fonctions usuelles →</a></div>
+</main>
+<footer>Révisions personnelles d’après le poly « Chapitre 5 · Applications et fonctions usuelles ». En cas de doute, le cours de l’enseignant fait foi.</footer>
+</body></html>

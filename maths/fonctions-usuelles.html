@@ -1,0 +1,253 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Partie C · Les fonctions usuelles — Maths chap. 5</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="suivi.js"></script><script defer src="app.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="09bb50e4-e5cd-47d4-b231-1551e99b2df5" data-domains="xseorkly.github.io" data-exclude-search="true" data-exclude-hash="true"></script>
+<style>:root{--c:var(--cC)}</style>
+</head><body>
+<header class="top"><div class="k">Maths · Chapitre 5 · Partie C</div><h1>Les fonctions usuelles</h1><p>Les sept fonctions de base à connaître par cœur : leur courbe, leurs propriétés, leurs limites, leur dérivée et leurs règles de calcul.</p></header>
+<nav class="site"><a href="../">Accueil</a><a href="./">Sommaire</a><a href="applications.html">A · Applications</a><a href="fonctions-reelles.html">B · Fonctions réelles</a><a href="fonctions-usuelles.html" aria-current="page">C · Fonctions usuelles</a><a href="essentiel.html">L’essentiel</a><a href="qcm.html">QCM final</a></nav>
+<main>
+<div class="toc"><h2>Dans cette partie (poly : § 5.3, pages 8 à 14)</h2><ol>
+<li><a href="#c1">Valeur absolue</a></li><li><a href="#c2">Partie entière</a></li><li><a href="#c3">Racine carrée</a></li><li><a href="#c4">Fonction inverse (et quotient)</a></li>
+<li><a href="#c5">Logarithme népérien ln</a></li><li><a href="#c6">Exponentielle exp</a></li><li><a href="#c7">Fonctions puissance</a></li></ol></div>
+<div class="act" data-widget="explore"><h3>🎯 Explorateur : les 7 fonctions en un coup d’œil</h3><p class="consigne">Choisis une fonction : sa courbe et sa fiche d’identité s’affichent. Reviens ici dès que tu as un doute sur une allure de courbe.</p></div>
+
+<!-- ===================== C1 ===================== -->
+<section class="notion" id="c1"><h2><span class="num">C1</span> Valeur absolue</h2><p class="poly">Poly : définition 13, propositions 14 et 15, remarques R1–R6, page 8</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>\(|x|\) est la <b>distance</b> entre x et 0 : on « enlève le signe moins ». Plus généralement, \(|a-b|\) est la distance entre a et b.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="defbox">\[ |x|=\begin{cases}x&\text{si }x\geqslant0\\-x&\text{si }x\leqslant0\end{cases}\qquad |3|=3,\quad |-3|=-(-3)=3 \]</div>
+<p>Si x est négatif, \(-x\) est positif. Le « −x » de la définition ne rend donc pas le résultat négatif, il le rend <b>positif</b>.</p>
+<div class="coquille"><b>Coquilles du poly :</b> ① la définition 13 dit « l’image par la fonction <i>partie entière</i> est notée |x| » : il faut lire <b>valeur absolue</b>. ② Dans la proposition 15, la dérivée est donnée « pour tout x ∈ ℝ » : il faut lire <b>x ∈ ℝ*</b>, car |x| n’est pas dérivable en 0 (le point 4 le dit bien).</div>
+<div class="scroll"><table><tr><th>Propriété</th><th>Ce que ça dit</th></tr>
+<tr><td>\(|x|\geqslant0\), \(|x|=0\iff x=0\)</td><td>une distance est positive, et elle n’est nulle qu’en 0</td></tr>
+<tr><td>\(|-x|=|x|\)</td><td>la fonction est paire</td></tr>
+<tr><td>\(a>0:\ |x|=a\iff x=a\text{ ou }x=-a\)</td><td>deux points à la distance a de 0</td></tr>
+<tr><td>\(|xy|=|x|\,|y|\), \(\left|\frac xy\right|=\frac{|x|}{|y|}\)</td><td>la valeur absolue passe à travers × et ÷ (R1)</td></tr>
+<tr><td>\(|x|^2=x^2\), \(\sqrt{x^2}=|x|\)</td><td>R2 (et R2 de la racine carrée)</td></tr>
+<tr><td>\(a>0:\ |x|\leqslant a\iff -a\leqslant x\leqslant a\)</td><td>R4 : x est à moins de a de 0</td></tr>
+<tr><td>\(-|x|\leqslant x\leqslant|x|\)</td><td>R5</td></tr>
+<tr><td>\(|x+y|\leqslant|x|+|y|\)</td><td>R6 : <b>inégalité triangulaire</b></td></tr>
+<tr><td>dérivée : −1 si x < 0, 1 si x > 0</td><td>la courbe a une pointe en 0 : pas dérivable en 0</td></tr></table></div></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li><b>\(|x-2|=3\)</b> : x est à distance 3 de 2. On trouve \(x-2=3\) ou \(x-2=-3\), soit \(x=5\) ou \(x=-1\).</li>
+<li><b>\(|x|\leqslant3\)</b> : d’après R4, \(-3\leqslant x\leqslant3\), donc \(x\in[-3\,;3]\).</li>
+<li><b>\(|2x-1|\lt5\)</b> : \(-5\lt2x-1\lt5\iff-4\lt2x\lt6\iff-2\lt x\lt3\), donc \(x\in\,]-2\,;3[\).</li>
+<li><b>Enlever une valeur absolue :</b> \(|x-5|=x-5\) si \(x\geqslant5\), et \(|x-5|=5-x\) si \(x\lt5\). On regarde le signe de ce qu’il y a dedans.</li></ol></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>\(|a+b|\neq|a|+|b|\) en général : \(|-1+1|=0\), alors que \(|-1|+|1|=2\). On a seulement l’inégalité ≤.</li><li>\(\sqrt{x^2}=|x|\), et pas x : \(\sqrt{(-3)^2}=3\).</li><li>« |x| = −x » n’est pas absurde : c’est vrai quand x ≤ 0.</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Calcule \(|-7|\), \(|3-\pi|\), \(|\sqrt2-1|\).
+<details><summary>Corrigé</summary><div>\(|-7|=7\). Comme \(3-\pi\lt0\), \(|3-\pi|=\pi-3\). Comme \(\sqrt2>1\), \(|\sqrt2-1|=\sqrt2-1\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Résous : a) \(|x+1|=4\) b) \(|x-3|\leqslant2\) c) \(|2x+1|>3\).
+<details><summary>Corrigé</summary><div>a) \(x+1=4\) ou \(x+1=-4\) : \(x=3\) ou \(x=-5\).<br>b) \(-2\leqslant x-3\leqslant2\iff1\leqslant x\leqslant5\), soit \([1\,;5]\).<br>c) C’est le contraire de \(|2x+1|\leqslant3\iff-2\leqslant x\leqslant1\). La solution est donc \(]-\infty\,;-2[\,\cup\,]1\,;+\infty[\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Soit \(f(x)=|x|+|x-2|\). Écris f sans valeur absolue sur \(]-\infty\,;0]\), \([0\,;2]\) et \([2\,;+\infty[\). Quel est son minimum ?
+<details><summary>Corrigé</summary><div>Sur \(]-\infty\,;0]\) : \(f(x)=-x+(2-x)=2-2x\).<br>Sur \([0\,;2]\) : \(f(x)=x+(2-x)=2\).<br>Sur \([2\,;+\infty[\) : \(f(x)=x+(x-2)=2x-2\).<br>f décroît, puis reste constante à 2, puis croît. Son minimum est 2, atteint pour tout \(x\in[0\,;2]\). C’est la somme des distances de x à 0 et à 2 : elle est minimale quand on se trouve entre les deux.</div></details></div></div>
+<div class="quiz" id="qc1" data-label="Maths C1 — Valeur absolue"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="C1 valeur absolue">Les solutions de \(|x-1|=4\) sont :<ul><li>x = 5 seulement</li><li>x = 5 ou x = −3</li><li>x = 3 ou x = −5</li><li>aucune</li></ul><p class="e">\(x-1=4\) ou \(x-1=-4\).</p></div>
+<div data-a="3" data-part="C1 valeur absolue">\(|x|\leqslant2\) équivaut à :<ul><li>\(x\leqslant2\)</li><li>\(x\leqslant-2\) ou \(x\geqslant2\)</li><li>\(-2\leqslant x\leqslant2\)</li></ul><p class="e">x est à distance au plus 2 de 0 (remarque R4).</p></div>
+<div data-a="1,3" data-part="C1 valeur absolue">Lesquelles sont vraies pour tous réels x, y ?<ul><li>\(|xy|=|x||y|\)</li><li>\(|x+y|=|x|+|y|\)</li><li>\(\sqrt{x^2}=|x|\)</li><li>\(\sqrt{x^2}=x\)</li></ul><p class="e">La valeur absolue passe à travers le produit, pas à travers la somme (seulement l’inégalité triangulaire ≤). Et \(\sqrt{(-2)^2}=2\neq-2\).</p></div>
+<div data-a="4" data-part="C1 dérivabilité">La fonction valeur absolue est :<ul><li>dérivable sur ℝ</li><li>non continue en 0</li><li>impaire</li><li>continue sur ℝ mais pas dérivable en 0</li></ul><p class="e">Elle a une pointe en 0 : la pente vaut −1 à gauche et 1 à droite.</p></div>
+</div></div>
+</section>
+
+<!-- ===================== C2 ===================== -->
+<section class="notion" id="c2"><h2><span class="num">C2</span> Partie entière</h2><p class="poly">Poly : définition 16, proposition 17, remarques R1–R3, page 9</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>\(\text{Ent}(x)\) est l’entier qu’on trouve en <b>descendant</b> depuis x, c’est-à-dire en allant vers la gauche sur la droite des réels : le plus grand entier ≤ x.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Ton âge : si tu as 19 ans et 8 mois (19,67 ans), tu dis « 19 ans ». Tu prends la partie entière, et tu ne dis 20 ans que le jour de ton anniversaire. Sur une échelle de thermomètre, \(\text{Ent}(-4{,}8)=-5\) : en dessous de −4,8, le premier entier est −5, pas −4.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="defbox">\[ \text{Ent}(x)\leqslant x\lt\text{Ent}(x)+1\qquad\text{et}\qquad x-1\lt\text{Ent}(x)\leqslant x \]</div>
+<p>Ces deux encadrements disent la même chose : x est entre Ent(x) (inclus) et l’entier suivant (exclu). Ils servent à calculer des limites (voir l’exercice ★★★).</p>
+<ul><li>Définie sur ℝ, <b>croissante</b> mais pas strictement (des paliers).</li><li>Constante sur chaque \([k\,;k+1[\) : dérivée nulle sur \(]k\,;k+1[\).</li><li><b>Discontinue en chaque entier</b> : elle saute de 1 (donc elle n’y est pas dérivable non plus).</li><li>En un entier k : \(\lim_{x\to k^-}\text{Ent}(x)=k-1\) (en arrivant par la gauche) et \(\lim_{x\to k^+}\text{Ent}(x)=k\). Limites \(-\infty\) en \(-\infty\) et \(+\infty\) en \(+\infty\).</li></ul></div>
+<div class="act" data-widget="ent"><h3>🎯 Activité : l’escalier</h3><p class="consigne">Déplace x (ou tape une valeur). Essaie 2,56 puis −4,86541 (les exemples du poly), puis approche-toi de 2 par la gauche et par la droite.</p></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Le piège n°1 (remarque R1 du poly)</h3><p>La partie entière n’est <b>pas</b> « le chiffre avant la virgule » pour les négatifs : \(\text{Ent}(2{,}56)=2\) mais \(\text{Ent}(-4{,}86)=-5\), pas −4. Vérifie toujours avec l’encadrement : \(-5\leqslant-4{,}86\lt-4\) ✔.</p></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Calcule \(\text{Ent}(\pi)\), \(\text{Ent}(-\pi)\), \(\text{Ent}(-3)\), \(\text{Ent}(\frac72)\), \(\text{Ent}(-0{,}5)\).
+<details><summary>Corrigé</summary><div>\(\text{Ent}(\pi)=3\) ; \(\text{Ent}(-\pi)=-4\), car \(-4\leqslant-3{,}14\lt-3\) ; \(\text{Ent}(-3)=-3\), car un entier est sa propre partie entière ; \(\text{Ent}(3{,}5)=3\) ; \(\text{Ent}(-0{,}5)=-1\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Résous a) \(\text{Ent}(x)=2\) b) \(\text{Ent}(2x)=3\) c) \(\text{Ent}(x)=-1\).
+<details><summary>Corrigé</summary><div>a) \(2\leqslant x\lt3\), soit \(x\in[2\,;3[\).<br>b) \(3\leqslant2x\lt4\iff\frac32\leqslant x\lt2\), soit \(x\in[\frac32\,;2[\).<br>c) \(-1\leqslant x\lt0\), soit \(x\in[-1\,;0[\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> a) Donne \(\lim_{x\to2^-}\text{Ent}(x)\) et \(\lim_{x\to2^+}\text{Ent}(x)\). Ent est-elle continue en 2 ?<br>b) Avec l’encadrement \(x-1\lt\text{Ent}(x)\leqslant x\), calcule \(\lim_{x\to+\infty}\dfrac{\text{Ent}(x)}{x}\).
+<details><summary>Corrigé</summary><div>a) Juste avant 2 (comme 1,999), Ent vaut 1 : la limite à gauche est 1. Juste après (comme 2,001), Ent vaut 2 : la limite à droite est 2. Les deux limites sont différentes, donc Ent n’est <b>pas continue</b> en 2.<br>b) Pour \(x>0\), on divise l’encadrement par x : \(1-\frac1x\lt\frac{\text{Ent}(x)}{x}\leqslant1\). Comme \(1-\frac1x\to1\), le théorème des gendarmes donne \(\lim\frac{\text{Ent}(x)}{x}=1\).</div></details></div></div>
+<div class="quiz" id="qc2" data-label="Maths C2 — Partie entière"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="3" data-part="C2 partie entière">\(\text{Ent}(-2{,}3)\) vaut :<ul><li>−2</li><li>2</li><li>−3</li><li>−2,3</li></ul><p class="e">On descend vers le premier entier inférieur : −3 (car \(-3\leqslant-2{,}3\lt-2\)).</p></div>
+<div data-a="1" data-part="C2 partie entière">\(\lim_{x\to3^-}\text{Ent}(x)\) vaut :<ul><li>2</li><li>3</li><li>4</li><li>elle n’existe pas</li></ul><p class="e">Juste avant 3 (par exemple 2,99), la partie entière vaut 2.</p></div>
+<div data-a="2" data-part="C2 partie entière">L’ensemble des solutions de \(\text{Ent}(x)=4\) est :<ul><li>{4}</li><li>[4 ; 5[</li><li>]3 ; 4]</li><li>[4 ; 5]</li></ul><p class="e">\(4\leqslant x\lt5\). Le 5 est exclu car Ent(5) = 5.</p></div>
+</div></div>
+</section>
+
+<!-- ===================== C3 ===================== -->
+<section class="notion" id="c3"><h2><span class="num">C3</span> Racine carrée</h2><p class="poly">Poly : définition 18, remarques R1–R4, proposition 19, page 10</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>\(\sqrt a\) répond à « quel nombre <b>positif</b>, élevé au carré, donne a ? ». C’est l’opération qui défait le carré, pour les nombres positifs.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<p>Pour \(a\geqslant0\), \(\sqrt a\) est l’unique solution <b>positive</b> de \(x^2=a\). L’équation \(x^2=9\) a deux solutions, 3 et −3, et on choisit \(\sqrt9=3\).</p>
+<div class="scroll"><table><tr><th>Règle</th><th>Condition</th></tr>
+<tr><td>\((\sqrt a)^2=a\) et \(\sqrt{a^2}=a\)</td><td>\(a\geqslant0\)</td></tr>
+<tr><td>\(\sqrt{x^2}=|x|\)</td><td>tout réel x</td></tr>
+<tr><td>\(\sqrt{ab}=\sqrt a\sqrt b\), \(\sqrt{\frac ab}=\frac{\sqrt a}{\sqrt b}\)</td><td>\(a,b\geqslant0\) (et \(b>0\) pour le quotient)</td></tr>
+<tr><td>\(\sqrt{xy}=\sqrt{|x|}\sqrt{|y|}\)</td><td>\(xy\geqslant0\) (utile si x et y sont tous deux négatifs)</td></tr></table></div>
+<ul><li>Définie et continue sur \(\mathbb R^+\), croissante, \(\sqrt0=0\), \(\lim_{x\to+\infty}\sqrt x=+\infty\).</li>
+<li>\(\lim_{x\to+\infty}\frac{\sqrt x}{x}=0\) : √x grandit <b>moins vite</b> que x. Et \(\lim_{x\to0^+}\frac{\sqrt x}{x}=+\infty\).</li>
+<li>Dérivable sur \(]0\,;+\infty[\) avec \(\boxed{(\sqrt x)'=\frac{1}{2\sqrt x}}\). Elle n’est <b>pas dérivable en 0</b>, où la tangente est verticale.</li>
+<li>Pour une fonction u positive : \(\boxed{(\sqrt u)'=\frac{u'}{2\sqrt u}}\). C’est la règle de la composée de A5.</li></ul></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li><b>Simplifier \(\sqrt{50}\)</b> : \(\sqrt{50}=\sqrt{25\times2}=\sqrt{25}\sqrt2=5\sqrt2\). On cherche un carré parfait caché dans le nombre.</li>
+<li><b>Dériver \(\sqrt{3x+1}\)</b> : \(u=3x+1\) et \(u'=3\), donc \(\dfrac{3}{2\sqrt{3x+1}}\), pour \(x>-\frac13\).</li>
+<li><b>Résoudre \(\sqrt{x+3}=x+1\)</b> : on élève au carré, ce qui peut <b>ajouter</b> de fausses solutions. On obtient \(x+3=x^2+2x+1\iff x^2+x-2=0\iff x=1\) ou \(x=-2\). <b>On vérifie :</b> pour \(x=1\), \(\sqrt4=2=1+1\) ✔ ; pour \(x=-2\), \(\sqrt1=1\neq-1\) ✘. La seule solution est \(x=1\).</li></ol></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>\(\sqrt{a+b}\neq\sqrt a+\sqrt b\) : \(\sqrt{9+16}=5\), alors que \(\sqrt9+\sqrt{16}=7\).</li><li>Élever au carré une équation peut créer de fausses solutions : vérifie toujours à la fin.</li><li>\(\sqrt x\) n’existe pas pour \(x\lt0\), et sa dérivée n’existe pas en 0.</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Simplifie \(\sqrt{12}\times\sqrt3\), \(\sqrt{\frac{49}{4}}\), \(\sqrt{72}\), \(\sqrt{(-5)^2}\).
+<details><summary>Corrigé</summary><div>\(\sqrt{36}=6\) ; \(\frac72\) ; \(\sqrt{36\times2}=6\sqrt2\) ; \(|-5|=5\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Dérive \(f(x)=\sqrt{x^2+1}\) et \(g(x)=x\sqrt x\) (pour \(x>0\)).
+<details><summary>Corrigé</summary><div>\(f'(x)=\frac{2x}{2\sqrt{x^2+1}}=\frac{x}{\sqrt{x^2+1}}\).<br>On applique la règle du produit à g : \(g'(x)=1\times\sqrt x+x\times\frac{1}{2\sqrt x}=\sqrt x+\frac{\sqrt x}{2}=\frac32\sqrt x\). On le retrouvera en C7, avec \(x\sqrt x=x^{3/2}\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Calcule \(\lim_{x\to+\infty}\big(\sqrt{x+1}-\sqrt x\big)\) en multipliant par la « quantité conjuguée » \(\sqrt{x+1}+\sqrt x\).
+<details><summary>Corrigé</summary><div>\(\sqrt{x+1}-\sqrt x=\dfrac{(\sqrt{x+1}-\sqrt x)(\sqrt{x+1}+\sqrt x)}{\sqrt{x+1}+\sqrt x}=\dfrac{(x+1)-x}{\sqrt{x+1}+\sqrt x}=\dfrac{1}{\sqrt{x+1}+\sqrt x}\).<br>Le dénominateur tend vers \(+\infty\), donc la limite vaut <b>0</b>. Au départ, c’était une forme indéterminée « ∞ − ∞ ».</div></details></div></div>
+<div class="quiz" id="qc3" data-label="Maths C3 — Racine carrée"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="C3 racine">La dérivée de \(\sqrt x\) est :<ul><li>\(\frac{1}{\sqrt x}\)</li><li>\(\frac{1}{2\sqrt x}\)</li><li>\(2\sqrt x\)</li><li>\(\frac{\sqrt x}{2}\)</li></ul><p class="e">\((\sqrt x)'=\frac{1}{2\sqrt x}\), définie pour \(x>0\) seulement.</p></div>
+<div data-a="4" data-part="C3 racine">\(\sqrt{9+16}\) vaut :<ul><li>7</li><li>\(3+4\)</li><li>12</li><li>5</li></ul><p class="e">\(\sqrt{25}=5\). La racine ne se distribue pas sur une somme.</p></div>
+<div data-a="1" data-part="C3 racine">La dérivée de \(\sqrt{5x-1}\) est :<ul><li>\(\frac{5}{2\sqrt{5x-1}}\)</li><li>\(\frac{1}{2\sqrt{5x-1}}\)</li><li>\(\frac{5}{\sqrt{5x-1}}\)</li></ul><p class="e">\((\sqrt u)'=\frac{u'}{2\sqrt u}\) avec \(u'=5\).</p></div>
+</div></div>
+</section>
+
+<!-- ===================== C4 ===================== -->
+<section class="notion" id="c4"><h2><span class="num">C4</span> Fonction inverse (et dérivée d’un quotient)</h2><p class="poly">Poly : définition 20, remarques R1–R2, proposition 21, remarque sur u/v, page 11</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>\(\frac1x\) : plus x est grand, plus \(\frac1x\) est petit, et inversement. On ne peut <b>jamais</b> diviser par 0.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Une pizza partagée entre x personnes : chacun a \(\frac1x\) de pizza. À 1 personne, une pizza entière ; à 1000, une miette ; à 0 personne, la question n’a pas de sens.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<ul><li>Définie sur \(\mathbb R^*\) (tout sauf 0), <b>impaire</b> (R1). Sa courbe est une <b>hyperbole</b> (R2).</li>
+<li>Continue et dérivable sur \(]-\infty\,;0[\) et sur \(]0\,;+\infty[\), avec \(\boxed{\left(\frac1x\right)'=-\frac{1}{x^2}}\).</li>
+<li>Décroissante sur \(]-\infty\,;0[\) <b>et</b> décroissante sur \(]0\,;+\infty[\), mais pas sur \(\mathbb R^*\) tout entier (voir B3).</li>
+<li>Pour u dérivable et non nulle : \(\boxed{\left(\frac1u\right)'=-\frac{u'}{u^2}}\). Pour v non nulle : \(\boxed{\left(\frac uv\right)'=\frac{u'v-uv'}{v^2}}\).</li>
+<li>Limites : \(\frac1x\to0\) en \(\pm\infty\) ; \(\frac1x\to+\infty\) en \(0^+\) et \(-\infty\) en \(0^-\).</li></ul>
+<p><b>Retenir la formule du quotient :</b> « dérivée du haut fois le bas, <b>moins</b> le haut fois dérivée du bas, sur le bas au carré ».</p></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li>\(\left(\frac{1}{x^2+1}\right)'\) : \(u=x^2+1\) et \(u'=2x\), donc la dérivée vaut \(-\frac{2x}{(x^2+1)^2}\).</li>
+<li>\(\left(\frac{2x+1}{x-3}\right)'\) : \(u=2x+1\), \(u'=2\), \(v=x-3\), \(v'=1\). On obtient \(\frac{2(x-3)-(2x+1)\times1}{(x-3)^2}=\frac{2x-6-2x-1}{(x-3)^2}=\frac{-7}{(x-3)^2}\).</li>
+<li><b>Résoudre \(\frac1x\lt2\) :</b> on <b>ne multiplie pas</b> par x sans connaître son signe. Si \(x\lt0\), \(\frac1x\) est négatif, donc toujours \(\lt2\) ✔. Si \(x>0\), on peut multiplier : \(1\lt2x\iff x>\frac12\). Solution : \(]-\infty\,;0[\,\cup\,]\frac12\,;+\infty[\).</li></ol></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>\(\left(\frac1x\right)'=-\frac1{x^2}\) : n’oublie pas le signe moins.</li><li>Dans \(\frac{u'v-uv'}{v^2}\), l’ordre compte à cause du « − ».</li><li>Ne multiplie jamais une inégalité par un nombre dont tu ne connais pas le signe.</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Dérive \(f(x)=\frac{3}{x}\) et \(g(x)=\frac{1}{2x+5}\).
+<details><summary>Corrigé</summary><div>\(f'(x)=-\frac{3}{x^2}\). \(g'(x)=-\frac{2}{(2x+5)^2}\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Dérive \(h(x)=\dfrac{x^2}{x+1}\) et donne le signe de \(h'\).
+<details><summary>Corrigé</summary><div>\(h'(x)=\frac{2x(x+1)-x^2}{(x+1)^2}=\frac{x^2+2x}{(x+1)^2}=\frac{x(x+2)}{(x+1)^2}\). Le dénominateur est positif, donc h′ a le signe de \(x(x+2)\) : positif sur \(]-\infty\,;-2[\) et \(]0\,;+\infty[\), négatif sur \(]-2\,;-1[\) et \(]-1\,;0[\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Résous \(\dfrac{1}{x-1}\geqslant1\).
+<details><summary>Corrigé</summary><div>On passe tout du même côté : \(\frac{1}{x-1}-1\geqslant0\iff\frac{1-(x-1)}{x-1}\geqslant0\iff\frac{2-x}{x-1}\geqslant0\). Tableau de signes : le quotient est positif ou nul pour \(1\lt x\leqslant2\) (1 est exclu, car c’est une valeur interdite). Solution : \(]1\,;2]\).</div></details></div></div>
+<div class="quiz" id="qc4" data-label="Maths C4 — Inverse et quotient"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="3" data-part="C4 inverse">La dérivée de \(\frac1x\) est :<ul><li>\(\frac{1}{x^2}\)</li><li>\(\ln x\)</li><li>\(-\frac{1}{x^2}\)</li><li>\(-\frac1x\)</li></ul><p class="e">\(\left(\frac1x\right)'=-\frac1{x^2}\). (Attention : c’est ln qui a pour dérivée \(\frac1x\).)</p></div>
+<div data-a="2" data-part="C4 quotient">\(\left(\frac uv\right)'=\)<ul><li>\(\frac{u'}{v'}\)</li><li>\(\frac{u'v-uv'}{v^2}\)</li><li>\(\frac{uv'-u'v}{v^2}\)</li><li>\(\frac{u'v+uv'}{v^2}\)</li></ul><p class="e">Dérivée du haut fois le bas, moins le haut fois dérivée du bas, sur le bas au carré.</p></div>
+<div data-a="1" data-part="C4 inverse">La fonction inverse est décroissante :<ul><li>sur \(]-\infty\,;0[\) et sur \(]0\,;+\infty[\), séparément</li><li>sur \(\mathbb R^*\)</li><li>sur ℝ</li></ul><p class="e">La monotonie se dit sur un intervalle : \(\mathbb R^*\) n’en est pas un (il a un trou en 0).</p></div>
+</div></div>
+</section>
+
+<!-- ===================== C5 ===================== -->
+<section class="notion" id="c5"><h2><span class="num">C5</span> Logarithme népérien ln</h2><p class="poly">Poly : définition 22, remarques, proposition 23, page 12</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>\(\ln x\) répond à « à quelle puissance faut-il élever \(e\approx2{,}718\) pour obtenir x ? ». Sa propriété magique : il <b>transforme les produits en sommes</b>.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Les échelles « logarithmiques » : le pH, les décibels, la magnitude des séismes. Quand l’intensité est multipliée par 10, le nombre affiché n’augmente que d’une petite quantité fixe. Le logarithme <b>écrase les très grands nombres</b>. C’est aussi pour ça qu’il croît très lentement.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<p><b>Définition :</b> ln est l’unique primitive de \(x\mapsto\frac1x\) sur \(]0\,;+\infty[\) qui vaut 0 en 1. Autrement dit : \(\ln'(x)=\frac1x\) et \(\ln1=0\).</p>
+<div class="grid2"><div class="mini"><h4>Propriétés de la fonction</h4><ul><li>Définie sur \(]0\,;+\infty[\) <b>seulement</b></li><li>\(\ln1=0\), \(\ln e=1\)</li><li>Strictement croissante, dérivée \(\frac1x\)</li><li>\(\ln a=\ln b\iff a=b\) ; \(\ln a\lt\ln b\iff a\lt b\)</li><li>\(\ln x\lt0\) pour \(0\lt x\lt1\), \(\ln x>0\) pour \(x>1\)</li></ul></div>
+<div class="mini"><h4>Règles de calcul (a, b > 0)</h4><ul><li>\(\ln(ab)=\ln a+\ln b\)</li><li>\(\ln\frac ab=\ln a-\ln b\) ; \(\ln\frac1b=-\ln b\)</li><li>\(\ln(a^x)=x\ln a\) ; \(\ln\sqrt a=\frac12\ln a\)</li><li>si \(xy>0\) : \(\ln(xy)=\ln|x|+\ln|y|\)</li><li>\((\ln u)'=\frac{u'}{u}\) (règle de la composée)</li></ul></div></div>
+<div class="scroll" style="margin-top:10px"><table><tr><th>Limites à connaître (proposition 23)</th><th>En mots</th></tr>
+<tr><td>\(\lim_{x\to0^+}\ln x=-\infty\), \(\lim_{x\to+\infty}\ln x=+\infty\)</td><td>aux bords du domaine</td></tr>
+<tr><td>\(\lim_{x\to+\infty}\frac{\ln x}{x}=0\)</td><td>x gagne contre ln x à l’infini</td></tr>
+<tr><td>\(\lim_{x\to0^+}x\ln x=0\)</td><td>x gagne contre ln x en 0</td></tr>
+<tr><td>\(\lim_{x\to+\infty}\frac{(\ln x)^\beta}{x^\alpha}=0\), \(\lim_{x\to0^+}x^\alpha|\ln x|^\beta=0\) \((\alpha,\beta>0)\)</td><td>toute puissance de x gagne contre toute puissance de ln</td></tr>
+<tr><td>\(\lim_{x\to0}\frac{\ln(1+x)}{x}=1\)</td><td>près de 0, \(\ln(1+x)\approx x\)</td></tr></table></div>
+<div class="coquille"><b>Précisions sur le poly :</b> dans la limite généralisée en 0, le poly écrit \((\ln x)^\beta\). Comme \(\ln x\lt0\) près de 0, il est plus sûr d’écrire \(|\ln x|^\beta\). Et la limite \(\frac{\ln(1+x)}{x}\to1\) est vraie quand x tend vers 0 des deux côtés, pas seulement en \(0^+\).</div></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li><b>Simplifier :</b> \(\ln8=\ln(2^3)=3\ln2\) ; \(\ln\frac1e=-\ln e=-1\) ; \(\ln(e^3)-\ln e=3-1=2\).</li>
+<li><b>Équation \(\ln x=2\)</b> : on applique exp des deux côtés, ce qui donne \(x=e^2\).</li>
+<li><b>Inéquation \(\ln(2x-1)\leqslant0\)</b> : ① domaine : \(2x-1>0\iff x>\frac12\) ; ② \(\ln(2x-1)\leqslant\ln1\iff2x-1\leqslant1\iff x\leqslant1\), car ln est croissante. Solution : \(]\frac12\,;1]\).</li>
+<li><b>Dériver \(\ln(x^2+1)\)</b> : \(\frac{u'}{u}=\frac{2x}{x^2+1}\).</li></ol></div>
+<div class="act" data-widget="course"><h3>🎯 Activité : la course des fonctions (croissances comparées)</h3><p class="consigne">Fais grandir x et regarde qui gagne. ln x est la plus lente, eˣ écrase tout le monde. Puis rapproche x de 0 pour voir x ln x.</p></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>\(\ln(a+b)\neq\ln a+\ln b\). C’est le <b>produit</b> qui devient une somme.</li><li>\(\ln(x)^2\) est ambigu : \((\ln x)^2\neq\ln(x^2)=2\ln x\). Par exemple, en \(x=e\), \((\ln e)^2=1\) mais \(\ln(e^2)=2\).</li><li>Commence <b>toujours</b> par le domaine : ce qu’il y a dans le ln doit être strictement positif.</li><li>\(\ln\) d’un nombre entre 0 et 1 est <b>négatif</b>.</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Simplifie : \(A=\ln12-\ln3\), \(B=\ln\sqrt e\), \(C=\dfrac{\ln(e^5)}{\ln(e^2)}\), \(D=\ln(4)+\ln\left(\frac14\right)\).
+<details><summary>Corrigé</summary><div>\(A=\ln4=2\ln2\) ; \(B=\frac12\) ; \(C=\frac52\) ; \(D=\ln(4\times\frac14)=\ln1=0\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Résous : a) \(\ln(x+1)=\ln(3x-5)\) b) \(\ln x+\ln(x-1)=\ln2\) c) \(\ln(x)\gt-1\).
+<details><summary>Corrigé</summary><div>a) Domaine : \(x>-1\) et \(x>\frac53\), donc \(x>\frac53\). On obtient \(x+1=3x-5\iff x=3\), qui est bien dans le domaine ✔. Solution : 3.<br>b) Domaine : \(x>1\). \(\ln(x(x-1))=\ln2\iff x^2-x-2=0\iff x=2\) ou \(x=-1\). On garde \(x=2\) (−1 est hors du domaine).<br>c) \(\ln x>\ln(e^{-1})\iff x>\frac1e\). Solution : \(]\frac1e\,;+\infty[\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Limites : a) \(\lim_{x\to+\infty}\frac{\ln x}{\sqrt x}\) b) \(\lim_{x\to+\infty}(x-\ln x)\) c) \(\lim_{x\to0^+}x^2\ln x\).
+<details><summary>Corrigé</summary><div>a) Croissances comparées avec \(\alpha=\frac12\), \(\beta=1\) : la limite vaut 0.<br>b) Forme « ∞ − ∞ ». On factorise : \(x\left(1-\frac{\ln x}{x}\right)\). Comme \(\frac{\ln x}{x}\to0\), la parenthèse tend vers 1, et la limite vaut \(+\infty\).<br>c) \(x^\alpha\ln x\to0\) avec \(\alpha=2\) : la limite vaut 0.</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Étudie \(f(x)=\dfrac{\ln x}{x}\) sur \(]0\,;+\infty[\) : dérivée, variations, maximum, limites.
+<details><summary>Corrigé</summary><div>\(f'(x)=\frac{\frac1x\cdot x-\ln x\cdot1}{x^2}=\frac{1-\ln x}{x^2}\). Elle est positive si \(\ln x\lt1\iff x\lt e\).<br>f croît sur \(]0\,;e]\) puis décroît sur \([e\,;+\infty[\). Son maximum vaut \(f(e)=\frac1e\).<br>Limites : en \(0^+\), \(\ln x\to-\infty\) et \(\frac1x\to+\infty\), donc \(f\to-\infty\). En \(+\infty\), \(f\to0\) par croissances comparées.</div></details></div></div>
+<div class="quiz" id="qc5" data-label="Maths C5 — Logarithme"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="C5 ln règles">\(\ln(ab)\) est égal à :<ul><li>\(\ln a\times\ln b\)</li><li>\(\ln a+\ln b\)</li><li>\(\ln(a+b)\)</li><li>\(a\ln b\)</li></ul><p class="e">Le logarithme transforme les produits en sommes.</p></div>
+<div data-a="4" data-part="C5 ln domaine">L’ensemble de définition de \(x\mapsto\ln(3-x)\) est :<ul><li>ℝ</li><li>\(]3\,;+\infty[\)</li><li>\([3\,;+\infty[\)</li><li>\(]-\infty\,;3[\)</li></ul><p class="e">Il faut \(3-x>0\iff x\lt3\).</p></div>
+<div data-a="1" data-part="C5 ln limites">\(\lim_{x\to+\infty}\frac{\ln x}{x}\) vaut :<ul><li>0</li><li>1</li><li>\(+\infty\)</li><li>c’est une forme indéterminée sans réponse</li></ul><p class="e">Croissances comparées : x l’emporte sur ln x.</p></div>
+<div data-a="3" data-part="C5 ln dérivée">La dérivée de \(\ln(x^2+1)\) est :<ul><li>\(\frac{1}{x^2+1}\)</li><li>\(\frac{2}{x^2+1}\)</li><li>\(\frac{2x}{x^2+1}\)</li><li>\(2x\ln(x^2+1)\)</li></ul><p class="e">\((\ln u)'=\frac{u'}{u}\) avec \(u'=2x\).</p></div>
+<div data-a="2" data-part="C5 ln valeurs">\(\ln\left(\frac{1}{e^2}\right)\) vaut :<ul><li>\(\frac12\)</li><li>−2</li><li>2</li><li>\(-\frac12\)</li></ul><p class="e">\(\ln(e^{-2})=-2\).</p></div>
+</div></div>
+</section>
+
+<!-- ===================== C6 ===================== -->
+<section class="notion" id="c6"><h2><span class="num">C6</span> Exponentielle exp</h2><p class="poly">Poly : définition 24, remarques, proposition 25, page 13</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>exp est la <b>réciproque</b> de ln : elle défait ce que ln fait. Elle <b>transforme les sommes en produits</b>, et c’est la seule fonction (avec \(f(0)=1\)) qui est sa propre dérivée.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Une population de bactéries qui double toutes les heures, ou un capital placé à intérêts composés. Plus il y en a, plus ça augmente vite. C’est exactement \(\exp'=\exp\) : la vitesse de croissance est égale à la quantité elle-même.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="defbox">\[ y=e^x\iff x=\ln y\qquad(x\in\mathbb R,\ y>0) \]</div>
+<div class="grid2"><div class="mini"><h4>Propriétés</h4><ul><li>Définie sur ℝ, <b>toujours > 0</b></li><li>\(e^0=1\), \(e^1=e\approx2{,}718\)</li><li>Strictement croissante, \(\exp'=\exp\)</li><li>\(e^{\ln x}=x\) (x > 0) et \(\ln(e^x)=x\)</li><li>\(e^a=e^b\iff a=b\), \(e^a\lt e^b\iff a\lt b\)</li></ul></div>
+<div class="mini"><h4>Règles de calcul</h4><ul><li>\(e^{a+b}=e^a\,e^b\)</li><li>\(e^{a-b}=\frac{e^a}{e^b}\) ; \(e^{-a}=\frac{1}{e^a}\)</li><li>\(e^{ab}=(e^a)^b=(e^b)^a\)</li><li>\(a^x=e^{x\ln a}\) (a > 0)</li><li>\((e^u)'=u'e^u\)</li></ul></div></div>
+<div class="scroll" style="margin-top:10px"><table><tr><th>Limites à connaître (proposition 25)</th><th>En mots</th></tr>
+<tr><td>\(\lim_{x\to-\infty}e^x=0\), \(\lim_{x\to+\infty}e^x=+\infty\)</td><td>aux bords</td></tr>
+<tr><td>\(\lim_{x\to+\infty}\frac{e^x}{x}=+\infty\), \(\lim_{x\to-\infty}xe^x=0\)</td><td>l’exponentielle gagne contre x</td></tr>
+<tr><td>\(\lim_{x\to+\infty}\frac{e^{\beta x}}{x^\alpha}=+\infty\), \(\lim_{x\to-\infty}|x|^\alpha e^{\beta x}=0\) \((\alpha,\beta>0)\)</td><td>contre toute puissance de x</td></tr>
+<tr><td>\(\lim_{x\to0}\frac{e^x-1}{x}=1\)</td><td>près de 0, \(e^x\approx1+x\)</td></tr></table></div></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li><b>Simplifier</b> \(\frac{e^{2x}\times e^{3}}{e^{x+1}}=e^{2x+3-(x+1)}=e^{x+2}\).</li>
+<li><b>Équation \(e^{2x-1}=5\)</b> : on prend ln : \(2x-1=\ln5\iff x=\frac{1+\ln5}{2}\).</li>
+<li><b>Équation \(e^{2x}-3e^x+2=0\)</b> : on pose \(X=e^x\), ce qui donne \(X^2-3X+2=0\iff X=1\) ou \(X=2\). On revient à x : \(e^x=1\iff x=0\), et \(e^x=2\iff x=\ln2\).</li>
+<li><b>Limite \(\lim_{x\to0}\frac{e^{2x}-1}{x}\)</b> : on écrit \(\frac{e^{2x}-1}{2x}\times2\). Le premier facteur tend vers 1 (avec \(X=2x\to0\)), donc la limite vaut 2.</li></ol></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>\(e^{a+b}\neq e^a+e^b\). La somme dans l’exposant devient un <b>produit</b>.</li><li>\(e^x=-2\) n’a <b>aucune</b> solution, car l’exponentielle est toujours positive.</li><li>\((e^{3x})'=3e^{3x}\), pas \(e^{3x}\).</li><li>\(e^{x^2}\neq(e^x)^2=e^{2x}\).</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Simplifie : \(e^2\times e^3\), \((e^x)^2\), \(\dfrac{e^x}{e^{x-1}}\), \(e^{\ln 7}\), \(e^{-\ln2}\).
+<details><summary>Corrigé</summary><div>\(e^5\) ; \(e^{2x}\) ; \(e^{x-(x-1)}=e^1=e\) ; 7 ; \(\frac{1}{e^{\ln2}}=\frac12\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Résous : a) \(e^x>3\) b) \(e^{x^2}=e^{4}\) c) \(e^{2x}=e^x\).
+<details><summary>Corrigé</summary><div>a) \(x>\ln3\).<br>b) \(x^2=4\iff x=\pm2\).<br>c) \(2x=x\iff x=0\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Limites : a) \(\lim_{x\to+\infty}\frac{e^x}{x^2}\) b) \(\lim_{x\to-\infty}x^2e^x\) c) \(\lim_{x\to+\infty}(e^x-x)\).
+<details><summary>Corrigé</summary><div>a) \(+\infty\) (croissances comparées). b) 0. c) \(e^x\left(1-\frac{x}{e^x}\right)\) et \(\frac{x}{e^x}\to0\), donc \(+\infty\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Étudie \(f(x)=xe^{-x}\) sur ℝ : dérivée, variations, maximum, limites.
+<details><summary>Corrigé</summary><div>\(f'(x)=1\times e^{-x}+x\times(-e^{-x})=(1-x)e^{-x}\). Comme \(e^{-x}>0\), f′ a le signe de \(1-x\).<br>f croît sur \(]-\infty\,;1]\) et décroît sur \([1\,;+\infty[\). Son maximum vaut \(f(1)=\frac1e\).<br>Limites : en \(+\infty\), \(\frac{x}{e^x}\to0\) par croissances comparées. En \(-\infty\), \(x\to-\infty\) et \(e^{-x}\to+\infty\), donc \(f\to-\infty\).</div></details></div></div>
+<div class="quiz" id="qc6" data-label="Maths C6 — Exponentielle"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="3" data-part="C6 exp règles">\(e^{a+b}\) est égal à :<ul><li>\(e^a+e^b\)</li><li>\(e^{ab}\)</li><li>\(e^a\times e^b\)</li><li>\((e^a)^b\)</li></ul><p class="e">L’exponentielle transforme les sommes en produits.</p></div>
+<div data-a="4" data-part="C6 exp équation">L’équation \(e^x=-1\) a pour solution(s) :<ul><li>x = 0</li><li>\(x=\ln(-1)\)</li><li>x = −1</li><li>aucune</li></ul><p class="e">\(e^x>0\) pour tout réel x.</p></div>
+<div data-a="1" data-part="C6 exp limites">\(\lim_{x\to0}\frac{e^x-1}{x}\) vaut :<ul><li>1</li><li>0</li><li>e</li><li>\(+\infty\)</li></ul><p class="e">C’est le taux d’accroissement de exp en 0, égal à \(\exp'(0)=e^0=1\).</p></div>
+<div data-a="2" data-part="C6 exp dérivée">La dérivée de \(e^{-x^2}\) est :<ul><li>\(e^{-x^2}\)</li><li>\(-2xe^{-x^2}\)</li><li>\(-x^2e^{-x^2-1}\)</li><li>\(2xe^{-x^2}\)</li></ul><p class="e">\((e^u)'=u'e^u\) avec \(u=-x^2\) et \(u'=-2x\).</p></div>
+</div></div>
+</section>
+
+<!-- ===================== C7 ===================== -->
+<section class="notion" id="c7"><h2><span class="num">C7</span> Fonctions puissance</h2><p class="poly">Poly : définition 26, remarques, propositions 27 et 28, page 14</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>Pour élever x à une puissance <b>quelconque</b> (\(x^{0{,}5}\), \(x^{\pi}\)…), on passe par exp et ln : \(x^\alpha=e^{\alpha\ln x}\). C’est pour ça qu’on demande \(x>0\).</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="defbox">\[ x^\alpha=e^{\alpha\ln x}\quad(x>0,\ \alpha\in\mathbb R)\qquad\qquad (x^\alpha)'=\alpha\,x^{\alpha-1} \]</div>
+<ul><li>Si α est un entier naturel n, \(x^n\) est définie sur tout ℝ : c’est \(x\times x\times\dots\times x\), avec la convention \(x^0=1\).</li><li>Si α est un entier négatif (−n), \(x^{-n}=\frac{1}{x^n}\) est définie sur \(\mathbb R^*\).</li>
+<li>Règles (x, y > 0) : \((xy)^\alpha=x^\alpha y^\alpha\), \(\left(\frac xy\right)^\alpha=\frac{x^\alpha}{y^\alpha}\), \(x^\alpha x^\beta=x^{\alpha+\beta}\), \((x^\alpha)^\beta=x^{\alpha\beta}\).</li>
+<li>Puissances fractionnaires : \(x^{\frac pq}=\sqrt[q]{x^p}=(\sqrt[q]x)^p\). En particulier, \(x^{\frac12}=\sqrt x\).</li>
+<li><b>Proposition 28 :</b> une fonction de la forme \(u(x)^{v(x)}\), avec la variable en bas <b>et</b> en haut, se réécrit \(e^{v\ln u}\) (si u > 0). On dérive alors avec la règle de exp : \((u^v)'=(v\ln u)'\,u^v\).</li></ul>
+<div class="coquille"><b>Précision :</b> le poly écrit « \(\alpha=\frac pq\) avec \(q\in\mathbb Z^*\) ». En pratique, on prend q entier strictement positif (\(q\in\mathbb N^*\)) pour que \(\sqrt[q]{\ }\) ait un sens.</div></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li><b>Écrire avec des puissances :</b> \(\sqrt x=x^{1/2}\), \(\frac1{x^3}=x^{-3}\), \(x\sqrt x=x^{1}x^{1/2}=x^{3/2}\), \(\sqrt[3]{x^2}=x^{2/3}\), \(\frac1{\sqrt x}=x^{-1/2}\).</li>
+<li><b>Dériver avec \(\alpha x^{\alpha-1}\) :</b> \((x^{3/2})'=\frac32x^{1/2}=\frac32\sqrt x\). On retrouve l’exercice de C3. Et \(\left(\frac{1}{\sqrt x}\right)'=(x^{-1/2})'=-\frac12x^{-3/2}=-\frac{1}{2x\sqrt x}\).</li>
+<li><b>\(2^x\)</b> : la variable est en exposant. On écrit \(2^x=e^{x\ln2}\), d’où \((2^x)'=\ln2\times e^{x\ln2}=\ln2\times2^x\). Ce n’est <b>pas</b> \(x2^{x-1}\) !</li>
+<li><b>\(x^x\) (x > 0)</b> : \(x^x=e^{x\ln x}\). On dérive : \((x\ln x)'=\ln x+1\), donc \((x^x)'=(\ln x+1)x^x\).</li></ol></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li><b>Ne confonds pas \(x^a\) et \(a^x\)</b>. Dans \(x^3\), la variable est en bas et on applique \(\alpha x^{\alpha-1}\). Dans \(3^x\), la variable est en haut et on passe par \(e^{x\ln3}\).</li><li>\(x^{-2}=\frac1{x^2}\), et non \(-x^2\).</li><li>\((x^2)^3=x^6\) (on multiplie les exposants), mais \(x^2\times x^3=x^5\) (on les additionne).</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Calcule sans calculatrice : \(8^{2/3}\), \(16^{-1/2}\), \(27^{1/3}\), \(4^{3/2}\).
+<details><summary>Corrigé</summary><div>\(8^{2/3}=(\sqrt[3]8)^2=2^2=4\) ; \(16^{-1/2}=\frac1{\sqrt{16}}=\frac14\) ; \(27^{1/3}=3\) ; \(4^{3/2}=(\sqrt4)^3=8\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Dérive : a) \(x^{5}\) b) \(\frac{1}{x^4}\) c) \(\sqrt[3]{x}\) d) \(3^x\).
+<details><summary>Corrigé</summary><div>a) \(5x^4\). b) \((x^{-4})'=-4x^{-5}=-\frac{4}{x^5}\). c) \((x^{1/3})'=\frac13x^{-2/3}\). d) \(3^x=e^{x\ln3}\), donc \((3^x)'=\ln3\cdot3^x\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Calcule \(\lim_{x\to0^+}x^x\).
+<details><summary>Corrigé</summary><div>\(x^x=e^{x\ln x}\). On sait que \(\lim_{x\to0^+}x\ln x=0\) (proposition 23), et exp est continue, donc \(\lim_{x\to0^+}x^x=e^0=1\).</div></details></div></div>
+<div class="quiz" id="qc7" data-label="Maths C7 — Puissances"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="C7 puissances">Pour x > 0, \(x^\alpha\) est défini par :<ul><li>\(\alpha\ln x\)</li><li>\(e^{\alpha\ln x}\)</li><li>\(\ln(x^\alpha)\)</li><li>\(e^{x\ln\alpha}\)</li></ul><p class="e">C’est la définition 26 du poly.</p></div>
+<div data-a="1" data-part="C7 puissances">\(x\sqrt x\) s’écrit :<ul><li>\(x^{3/2}\)</li><li>\(x^{1/2}\)</li><li>\(x^{2}\)</li><li>\(x^{2/3}\)</li></ul><p class="e">\(x^1\times x^{1/2}=x^{1+1/2}=x^{3/2}\).</p></div>
+<div data-a="3" data-part="C7 dérivée">La dérivée de \(2^x\) est :<ul><li>\(x\,2^{x-1}\)</li><li>\(2^x\)</li><li>\(\ln2\times2^x\)</li><li>\(\frac{2^x}{\ln2}\)</li></ul><p class="e">\(2^x=e^{x\ln2}\), donc \((2^x)'=\ln2\cdot e^{x\ln2}\).</p></div>
+</div></div>
+</section>
+
+<div class="next"><a href="fonctions-reelles.html">← Partie B · Fonctions réelles</a><a href="essentiel.html">L’essentiel (fiche résumé) →</a></div>
+</main>
+<footer>Révisions personnelles d’après le poly « Chapitre 5 · Applications et fonctions usuelles ». En cas de doute, le cours de l’enseignant fait foi.</footer>
+</body></html>

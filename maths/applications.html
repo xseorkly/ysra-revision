@@ -1,0 +1,230 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Partie A · Les applications — Maths chap. 5</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="suivi.js"></script><script defer src="app.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="09bb50e4-e5cd-47d4-b231-1551e99b2df5" data-domains="xseorkly.github.io" data-exclude-search="true" data-exclude-hash="true"></script>
+<style>:root{--c:var(--cA)}</style>
+</head><body>
+<header class="top"><div class="k">Maths · Chapitre 5 · Partie A</div><h1>Les applications</h1><p>Le vocabulaire de base : image, antécédent, image d’un ensemble, composition, réciproque. Tout le reste du chapitre s’appuie dessus.</p></header>
+<nav class="site"><a href="../">Accueil</a><a href="./">Sommaire</a><a href="applications.html" aria-current="page">A · Applications</a><a href="fonctions-reelles.html">B · Fonctions réelles</a><a href="fonctions-usuelles.html">C · Fonctions usuelles</a><a href="essentiel.html">L’essentiel</a><a href="qcm.html">QCM final</a></nav>
+<main>
+<div class="toc"><h2>Dans cette partie (poly : § 5.1, pages 1 à 5)</h2><ol>
+<li><a href="#a1">Application, image, antécédent</a></li><li><a href="#a2">Égalité de deux applications</a></li><li><a href="#a3">Restriction et prolongement</a></li>
+<li><a href="#a4">Image directe et image réciproque</a></li><li><a href="#a5">Composition (et dérivée d’une composée)</a></li><li><a href="#a6">Applications inversibles, réciproque</a></li></ol></div>
+
+<!-- ===================== A1 ===================== -->
+<section class="notion" id="a1"><h2><span class="num">A1</span> Application, image, antécédent</h2><p class="poly">Poly : Définition 1, exemples E1–E2, remarque R1</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>Une application, c’est une <b>machine</b> qui, à <b>chaque</b> élément de départ, associe <b>une seule</b> réponse.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3>
+<p>Prends les élèves d’une classe et associe à chaque élève <b>sa ville de résidence</b> (c’est l’exemple E2 du poly). C’est une application, parce que :</p>
+<ul><li><b>tous</b> les élèves ont une ville : personne n’est oublié ;</li><li>chaque élève a <b>une seule</b> ville de résidence.</li></ul>
+<p>En revanche, une ville peut n’avoir <b>aucun</b> élève (personne n’habite à Nice), ou en avoir <b>plusieurs</b> (trois élèves habitent Strasbourg). Ce n’est pas un problème.</p>
+<p><b>Règle d’or :</b> on regarde le <b>départ</b>. Une flèche, et une seule, part de chaque élément de départ. À l’arrivée, tout est permis.</p></div>
+<div class="card"><h3><span class="ic">📘</span> La définition du poly, traduite</h3>
+<div class="defbox">\[ f : \begin{array}{ccc} E & \longrightarrow & F \\ x & \longmapsto & f(x) \end{array} \]</div>
+<div class="trad">
+<div>\(E\)</div><div>l’<b>ensemble de départ</b> : les éléments qu’on a le droit de mettre dans la machine</div>
+<div>\(F\)</div><div>l’<b>ensemble d’arrivée</b> : là où tombent les résultats</div>
+<div>\(x \longmapsto f(x)\)</div><div>« x est envoyé sur f(x) » : c’est la règle de calcul (attention, flèche avec une barre ↦ pour les éléments, flèche simple → pour les ensembles)</div>
+<div>\(f(x)\)</div><div>l’<b>image</b> de x : <u>toujours une seule</u></div>
+<div>antécédent</div><div>on dit que « x est <b>un antécédent</b> de y » si \(f(x)=y\). C’est le chemin inverse de l’image. Un y peut avoir 0, 1 ou plusieurs antécédents</div>
+<div>\(F^E\)</div><div>l’ensemble de <b>toutes</b> les applications de E dans F (on le lit « F puissance E »)</div>
+<div>\(\mathbb R\setminus\{0\}\)</div><div>« ℝ privé de 0 » : tous les réels sauf 0 (on l’écrit aussi \(\mathbb R^*\))</div></div></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemple résolu</h3>
+<p>Soit \(f : \mathbb R\setminus\{0\} \to \mathbb R,\ x \mapsto \dfrac1x\) (exemple E1 du poly).</p>
+<ol class="steps">
+<li><b>Pourquoi on enlève 0 au départ ?</b> Parce que \(\frac10\) n’existe pas. Si on laissait 0 dans E, l’élément 0 n’aurait pas d’image : ce ne serait plus une application.</li>
+<li><b>Image de 2 :</b> \(f(2)=\frac12\). On remplace x par 2, c’est tout.</li>
+<li><b>Antécédent(s) de 4 :</b> on cherche les x tels que \(f(x)=4\) : \(\frac1x=4 \iff x=\frac14\). Un seul antécédent : \(\frac14\).</li>
+<li><b>Antécédent(s) de 0 :</b> \(\frac1x=0\) n’a <b>aucune</b> solution (une fraction de numérateur 1 n’est jamais nulle). Donc 0 n’a pas d’antécédent. C’est la remarque R1 du poly : l’ensemble d’arrivée peut être « trop gros ».</li></ol>
+<p>Un autre exemple, \(g:\mathbb R\to\mathbb R,\ x\mapsto x^2\). Les antécédents de 9 sont 3 <b>et</b> −3 (deux antécédents). −1 n’a aucun antécédent, puisqu’un carré n’est jamais négatif.</p></div>
+<div class="card astuce"><h3><span class="ic">🧮</span> Pour comprendre la notation \(F^E\)</h3>
+<p>Prenons \(E=\{1,2\}\) et \(F=\{a,b\}\). Pour fabriquer une application, il faut choisir l’image de 1 (a ou b, soit 2 choix) puis l’image de 2 (encore 2 choix). Il y a donc \(2\times2=4\) applications :</p>
+<div class="scroll"><table><tr><th></th><th>\(f_1\)</th><th>\(f_2\)</th><th>\(f_3\)</th><th>\(f_4\)</th></tr><tr><td>image de 1</td><td>a</td><td>a</td><td>b</td><td>b</td></tr><tr><td>image de 2</td><td>a</td><td>b</td><td>a</td><td>b</td></tr></table></div>
+<p>En général, si E a n éléments et F en a p, il y a \(p^n\) applications de E dans F. C’est pour ça qu’on note leur ensemble \(F^E\).</p></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul>
+<li><b>L’image est unique, l’antécédent ne l’est pas.</b> Ne dis jamais « l’antécédent de 9 par x ↦ x² » : il y en a deux.</li>
+<li><b>f et f(x), ce n’est pas la même chose.</b> f est la machine, f(x) est un nombre (le résultat). On écrit « la fonction f » ou « la fonction \(x\mapsto x^2\) », pas « la fonction f(x) ».</li>
+<li><b>Le départ fait partie de l’application.</b> \(x\mapsto\sqrt x\) n’est pas une application de ℝ dans ℝ, puisque \(\sqrt{-1}\) n’existe pas. C’en est une de \(\mathbb R^+\) dans ℝ.</li></ul></div>
+<div class="act" data-widget="diag"><h3>🎯 Activité : application ou pas ?</h3><p class="consigne">Regarde les flèches. Rappel : de chaque élément de gauche doit partir <b>une flèche et une seule</b>.</p></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Soit \(f:\mathbb R\to\mathbb R,\ x\mapsto 3x-2\). Calcule \(f(0)\) et \(f(2)\), puis trouve le ou les antécédents de 7.
+<details><summary>Corrigé</summary><div>\(f(0)=3\times0-2=-2\) et \(f(2)=3\times2-2=4\).<br>Antécédents de 7 : on résout \(3x-2=7\iff 3x=9\iff x=3\). Un seul antécédent : 3. On vérifie : \(f(3)=9-2=7\) ✔.</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Soit \(g:\mathbb R\to\mathbb R,\ x\mapsto x^2-4\). Trouve les antécédents de 5, de −4 et de −5.
+<details><summary>Corrigé</summary><div><b>5 :</b> \(x^2-4=5\iff x^2=9\iff x=3\) ou \(x=-3\). Deux antécédents.<br><b>−4 :</b> \(x^2-4=-4\iff x^2=0\iff x=0\). Un seul antécédent.<br><b>−5 :</b> \(x^2-4=-5\iff x^2=-1\) : impossible, un carré est toujours ≥ 0. Aucun antécédent.<br><i>Conclusion : selon le y, on peut avoir 0, 1 ou 2 antécédents. L’image, elle, est toujours unique.</i></div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Pour chaque règle, dis si elle définit une application de E dans F.<br>a) E = ℝ, F = ℝ, \(x\mapsto \dfrac{1}{x-2}\) &nbsp; b) E = ℝ\{2}, F = ℝ, même règle &nbsp; c) E = \(\mathbb R^+\), F = ℝ, « x est associé aux nombres dont le carré vaut x ».
+<details><summary>Corrigé</summary><div>a) <b>Non</b> : 2 est dans E mais \(\frac1{2-2}=\frac10\) n’existe pas. 2 n’a pas d’image.<br>b) <b>Oui</b> : on a retiré le seul nombre qui posait problème.<br>c) <b>Non</b> : 4 serait associé à 2 et à −2. Un élément avec deux images, ce n’est pas une application. (C’est justement pour avoir une seule réponse qu’on définit \(\sqrt x\) comme <i>la</i> solution positive.)</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Soit \(E=\{1,2,3\}\) et \(F=\{0,1\}\). Combien y a-t-il d’applications de E dans F ? Combien d’entre elles prennent au moins une fois la valeur 1 ?
+<details><summary>Corrigé</summary><div>Pour chacun des 3 éléments de E, on choisit son image parmi 2 valeurs : \(2\times2\times2=2^3=8\) applications, donc \(F^E\) contient 8 éléments.<br>Une seule de ces applications ne prend jamais la valeur 1 : celle qui envoie tout sur 0. Il en reste donc \(8-1=7\).</div></details></div></div>
+<div class="quiz" id="qa1" data-label="Maths A1 — Application, image, antécédent"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="A1 image/antécédent">Par \(f:x\mapsto x^2\) de ℝ dans ℝ, combien le nombre 16 a-t-il d’antécédents ?<ul><li>Un seul : 4</li><li>Deux : 4 et −4</li><li>Aucun</li><li>Une infinité</li></ul><p class="e">\(x^2=16\iff x=4\) ou \(x=-4\). L’image est unique, mais un nombre peut avoir plusieurs antécédents.</p></div>
+<div data-a="3" data-part="A1 application">Laquelle de ces phrases est <b>toujours</b> vraie pour une application \(f:E\to F\) ?<ul><li>Tout élément de F a au moins un antécédent</li><li>Tout élément de F a exactement un antécédent</li><li>Tout élément de E a exactement une image</li><li>Deux éléments différents de E ont des images différentes</li></ul><p class="e">C’est la définition même : chaque x de E a une et une seule image. Les autres phrases peuvent être fausses : avec x ↦ x², −1 n’a pas d’antécédent et −2 et 2 ont la même image.</p></div>
+<div data-a="1" data-part="A1 application">\(x\mapsto \sqrt{x}\) est-elle une application de ℝ dans ℝ ?<ul><li>Non, car les réels négatifs n’ont pas d’image</li><li>Oui, car \(\sqrt x\) est toujours positive</li><li>Oui, si on accepte deux valeurs</li></ul><p class="e">\(\sqrt{-1}\) n’existe pas : l’élément −1 de l’ensemble de départ n’aurait pas d’image. Il faut prendre \(\mathbb R^+\) comme ensemble de départ.</p></div>
+<div data-a="4" data-part="A1 F^E">Si E a 2 éléments et F en a 3, combien d’éléments a \(F^E\) ?<ul><li>5</li><li>6</li><li>8</li><li>9</li></ul><p class="e">\(F^E\) est l’ensemble des applications de E dans F. On a 3 choix pour l’image du premier élément et 3 pour le second, soit \(3^2=9\).</p></div>
+</div></div>
+</section>
+
+<!-- ===================== A2 ===================== -->
+<section class="notion" id="a2"><h2><span class="num">A2</span> Égalité de deux applications</h2><p class="poly">Poly : remarque R2, page 2</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>Deux applications sont égales si elles ont <b>le même départ</b>, <b>la même arrivée</b>, et donnent <b>le même résultat partout</b>.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3><p>\(f=g\) si et seulement si :</p><ol><li>elles ont le même ensemble de départ E ;</li><li>elles ont le même ensemble d’arrivée F ;</li><li>\(\forall x\in E,\ f(x)=g(x)\), ce qui se lit « <b>pour tout</b> x de E, f(x) = g(x) ».</li></ol>
+<p>Les trois conditions sont nécessaires. Une même formule avec des ensembles de départ différents donne des applications <b>différentes</b>.</p></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus</h3>
+<ol class="steps"><li>\(f:\mathbb R\to\mathbb R,\ x\mapsto\sqrt{x^2}\) et \(g:\mathbb R\to\mathbb R,\ x\mapsto |x|\). Même départ, même arrivée, et \(\sqrt{x^2}=|x|\) pour tout réel x (remarque R2 de la racine carrée). Donc <b>f = g</b>, même si les formules sont écrites différemment.</li>
+<li>\(f:\mathbb R\to\mathbb R,\ x\mapsto x^2\) et \(g:\mathbb R^+\to\mathbb R,\ x\mapsto x^2\). Même formule, mais pas le même départ. Donc <b>f ≠ g</b> (g est une « restriction » de f, voir A3).</li>
+<li>\(f(x)=\dfrac{x^2-1}{x-1}\) sur \(\mathbb R\setminus\{1\}\) et \(g(x)=x+1\) sur ℝ. Pour \(x\neq1\), \(\frac{(x-1)(x+1)}{x-1}=x+1\), donc les formules coïncident là où f existe. Mais les départs diffèrent, donc <b>f ≠ g</b>.</li></ol></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Le piège</h3><p>Pour prouver que f ≠ g, <b>un seul contre-exemple suffit</b> : un x tel que \(f(x)\neq g(x)\). Pour prouver que f = g, il faut que l’égalité marche pour <b>tous</b> les x : tester quelques valeurs ne suffit pas.</p></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Sur ℝ (départ et arrivée), \(f(x)=(x+1)^2\) et \(g(x)=x^2+1\). Sont-elles égales ?
+<details><summary>Corrigé</summary><div>Non. Contre-exemple : \(f(1)=4\) et \(g(1)=2\). (Développe : \((x+1)^2=x^2+2x+1\), il y a un \(2x\) en plus.)</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Sur \(\mathbb R^{+*}\) (départ) et ℝ (arrivée), \(f(x)=\ln(x^2)\) et \(g(x)=2\ln x\). Égales ? Et si on prenait \(\mathbb R^*\) comme départ ?
+<details><summary>Corrigé</summary><div>Sur \(\mathbb R^{+*}\) : \(\ln(x^2)=2\ln x\) pour tout \(x>0\), donc <b>f = g</b>.<br>Sur \(\mathbb R^*\) : g n’est même pas définie pour \(x\lt0\) (ln d’un négatif), alors que \(f(-1)=\ln 1=0\). Ce ne sont pas des applications avec le même départ. En fait, \(\ln(x^2)=2\ln|x|\) sur \(\mathbb R^*\).</div></details></div></div>
+<div class="quiz" id="qa2" data-label="Maths A2 — Égalité"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="3" data-part="A2 égalité">\(f:\mathbb R\to\mathbb R,\ x\mapsto x^2\) et \(g:\mathbb R^+\to\mathbb R,\ x\mapsto x^2\). Alors :<ul><li>f = g car elles ont la même formule</li><li>f = g car elles ont la même arrivée</li><li>f ≠ g car elles n’ont pas le même ensemble de départ</li></ul><p class="e">Il faut le même départ, la même arrivée et les mêmes valeurs. Ici les départs diffèrent.</p></div>
+<div data-a="1" data-part="A2 égalité">Pour montrer que deux applications de ℝ dans ℝ sont <b>différentes</b>, il suffit de…<ul><li>trouver un seul x où \(f(x)\neq g(x)\)</li><li>vérifier sur trois valeurs</li><li>comparer les dérivées</li></ul><p class="e">Un seul contre-exemple suffit à casser « pour tout x, f(x) = g(x) ».</p></div>
+</div></div>
+</section>
+
+<!-- ===================== A3 ===================== -->
+<section class="notion" id="a3"><h2><span class="num">A3</span> Restriction et prolongement</h2><p class="poly">Poly : définitions 2 et 3, page 2</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p><b>Restreindre</b>, c’est garder la même règle sur un <b>plus petit</b> ensemble de départ. <b>Prolonger</b>, c’est <b>agrandir</b> l’ensemble de départ en gardant les anciennes valeurs, et en <b>choisissant</b> les nouvelles.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Le tableau des notes de toute la promo, c’est f. Si tu ne gardes que les lignes de ton groupe de TD, c’est une <b>restriction</b>. Les notes n’ont pas changé, tu as seulement réduit la liste.</p><p>Si un nouvel étudiant arrive et qu’on l’ajoute au tableau, c’est un <b>prolongement</b>. Les anciennes notes restent les mêmes, mais il faut bien <b>décider</b> de la note du nouveau. Plusieurs choix sont possibles, donc il y a plusieurs prolongements.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="mini"><h4>Restriction (définition 2)</h4><p>Si \(A\subset E\) (« A est inclus dans E » : A est un morceau de E), la restriction de f à A est \(f_{|A}:A\to F\) avec \(f_{|A}(x)=f(x)\) pour tout x de A.</p></div>
+<div class="mini" style="margin-top:10px"><h4>Prolongement (définition 3)</h4><p>Si \(E\subset E'\) (E′ est plus grand), un prolongement de f à E′ est n’importe quelle \(g:E'\to F\) telle que \(g(x)=f(x)\) pour tout x de E. Autrement dit \(g_{|E}=f\) : si on restreint g à E, on retrouve f.</p></div></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples résolus (ceux du poly, expliqués)</h3>
+<ol class="steps"><li><b>Restriction.</b> \(f(x)=\ln|x|\) pour \(x\neq0\) et \(f(0)=0\). Sur \(\mathbb R^{-*}\) (les réels strictement négatifs), \(|x|=-x\). La restriction de f à \(\mathbb R^{-*}\) est donc \(g(x)=\ln(-x)\). La formule devient plus simple parce qu’on connaît le signe de x.</li>
+<li><b>Prolongement.</b> \(\ln\) n’est définie que sur \(\mathbb R^{+*}\). Pour la prolonger à \(\mathbb R^+\), il faut ajouter le point 0 et lui inventer une valeur. Le poly choisit \(f(0)=0\), puis \(g(0)=2\). <b>Les deux sont des prolongements valables.</b> Un prolongement n’est donc pas unique.</li></ol></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>On dit « <b>la</b> restriction » (elle est unique), mais « <b>un</b> prolongement » (il y en a plusieurs).</li><li>Restreindre ne change aucune valeur. Cela peut en revanche simplifier la formule, comme \(|x|\) qui devient \(x\) sur \(\mathbb R^+\).</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Écris sans valeur absolue la restriction de \(x\mapsto|x|\) à \(\mathbb R^+\), puis à \(\mathbb R^-\).
+<details><summary>Corrigé</summary><div>Sur \(\mathbb R^+\), \(|x|=x\) : la restriction est \(x\mapsto x\). Sur \(\mathbb R^-\), \(|x|=-x\) : la restriction est \(x\mapsto -x\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Que vaut la restriction de la partie entière Ent à l’intervalle \([0\,;1[\) ? Et à \([3\,;4[\) ?
+<details><summary>Corrigé</summary><div>Pour \(0\leqslant x\lt1\), le plus grand entier ≤ x est 0 : la restriction est la fonction constante \(x\mapsto 0\). Sur \([3\,;4[\), c’est la fonction constante \(x\mapsto3\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Soit \(f:\mathbb R\setminus\{1\}\to\mathbb R,\ x\mapsto\dfrac{x^2-1}{x-1}\). Donne deux prolongements de f à ℝ. Lequel « recolle » la courbe sans trou ?
+<details><summary>Corrigé</summary><div>Pour \(x\neq1\), \(f(x)=x+1\). Un prolongement g à ℝ doit vérifier \(g(x)=x+1\) pour \(x\neq1\), et on choisit librement \(g(1)\).<br>• \(g_1(1)=2\) : alors \(g_1(x)=x+1\) partout, et la courbe est la droite entière, sans trou.<br>• \(g_2(1)=0\) : c’est aussi un prolongement, mais la courbe a un point « décroché ».<br>Seul \(g_1\) bouche le trou proprement. C’est ce qu’on appellera plus tard un « prolongement par continuité ».</div></details></div></div>
+<div class="quiz" id="qa3" data-label="Maths A3 — Restriction et prolongement"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="A3 restriction">La restriction de \(x\mapsto\ln|x|\) à \(\mathbb R^{-*}\) est :<ul><li>\(x\mapsto\ln x\)</li><li>\(x\mapsto\ln(-x)\)</li><li>\(x\mapsto-\ln x\)</li></ul><p class="e">Pour \(x\lt0\), \(|x|=-x\), donc \(\ln|x|=\ln(-x)\). Attention, \(-\ln x\) n’existe même pas pour x < 0.</p></div>
+<div data-a="1,3" data-part="A3 prolongement">On prolonge \(\ln\) (définie sur \(\mathbb R^{+*}\)) à \(\mathbb R^+\). Quelles affirmations sont vraies ?<ul><li>On peut choisir g(0) = 0</li><li>Il n’existe qu’un seul prolongement</li><li>On peut choisir g(0) = 2</li><li>Le prolongement doit changer la valeur de ln(1)</li></ul><p class="e">Un prolongement garde toutes les anciennes valeurs (ln 1 = 0 reste vrai) et on choisit librement la nouvelle valeur g(0) : il y a une infinité de prolongements.</p></div>
+</div></div>
+</section>
+
+<!-- ===================== A4 ===================== -->
+<section class="notion" id="a4"><h2><span class="num">A4</span> Image directe et image réciproque</h2><p class="poly">Poly : définition 4, exemple E1 et remarque, page 3</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>\(f(A)\) répond à : « <b>où atterrissent</b> les éléments de A ? ». \(f^{-1}(B)\) répond à : « <b>qui vient atterrir</b> dans B ? »</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Reprenons « élève ↦ ville de résidence ». Si A = {les élèves du groupe 1}, alors <b>f(A)</b> est la liste des villes où habitent les élèves du groupe 1.</p><p>Si B = {Strasbourg, Colmar}, alors <b>f⁻¹(B)</b> est la liste des élèves qui habitent à Strasbourg ou à Colmar. On part de l’arrivée et on remonte les flèches.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="defbox">\[ f(A)=\{\,f(x)\ /\ x\in A\,\} \qquad\qquad f^{-1}(B)=\{\,x\in E\ /\ f(x)\in B\,\} \]</div>
+<div class="trad"><div>\(\{f(x)\ /\ x\in A\}\)</div><div>« l’ensemble des f(x), pour x parcourant A ». Le « / » se lit « tel que » ou « où »</div>
+<div>\(\{y\in F\,/\,\exists x\in E,\ y=f(x)\}\)</div><div>(2ᵉ écriture du poly, avec A à la place de E) « les y pour lesquels il existe au moins un x qui donne y ». C’est la même chose dite autrement</div>
+<div>\(\{x\in E\ /\ f(x)\in B\}\)</div><div>« les x de départ dont l’image tombe dans B »</div>
+<div>\(A\subset E\), \(B\subset F\)</div><div>A est un morceau du départ, B un morceau de l’arrivée</div></div></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemple résolu (celui du poly, en détail)</h3>
+<p>\(f:\mathbb R^+\to\mathbb R,\ x\mapsto\sqrt{x+1}\).</p>
+<ol class="steps"><li><b>Image directe de \(A=[0\,;3]\).</b> On part de \(0\leqslant x\leqslant3\) et on reconstruit \(f(x)\) étape par étape :<br>on ajoute 1 : \(1\leqslant x+1\leqslant4\) ;<br>on prend la racine, qui est croissante donc conserve l’ordre : \(1\leqslant\sqrt{x+1}\leqslant2\).<br>Donc \(f([0\,;3])=[1\,;2]\).</li>
+<li><b>Image réciproque de \(B=[2\,;5]\).</b> On cherche les x tels que \(2\leqslant\sqrt{x+1}\leqslant5\).<br>On élève au carré, ce qui est permis car tout est positif : \(4\leqslant x+1\leqslant25\) ;<br>on enlève 1 : \(3\leqslant x\leqslant24\).<br>Donc \(f^{-1}([2\,;5])=[3\,;24]\).</li>
+<li><b>Vérification rapide :</b> \(f(3)=\sqrt4=2\) et \(f(24)=\sqrt{25}=5\) ✔.</li></ol></div>
+<div class="act" data-widget="image"><h3>🎯 Activité : voir f(A) et f⁻¹(B) sur le graphe</h3><p class="consigne">Mode « image directe » : bouge a et b, l’intervalle A (en vert) est envoyé sur f(A) (en jaune). Mode « image réciproque » : choisis B sur l’axe vertical et regarde quels x y arrivent. Essaie d’avoir B = [0 ; 0,8] : que se passe-t-il ?</p></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul>
+<li><b>La méthode « on calcule f(a) et f(b) » ne marche que si f est monotone sur A.</b> Avec \(f(x)=x^2\) et \(A=[-1\,;2]\), on n’a pas \(f(A)=[1\,;4]\) ! En passant par 0, la fonction descend jusqu’à 0. On a donc \(f([-1\,;2])=[0\,;4]\). Fais un dessin en cas de doute.</li>
+<li><b>\(f^{-1}(x)\) n’a pas de sens ici</b> (remarque du poly). L’image réciproque s’applique à un <b>ensemble</b>. Pour les antécédents de x, on écrit \(f^{-1}(\{x\})\) avec des accolades.</li>
+<li><b>\(f^{-1}(B)\) existe toujours</b>, même si f n’a pas de réciproque (voir A6). Elle peut être vide : \(\varnothing\).</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> \(f:\mathbb R\to\mathbb R,\ x\mapsto2x+1\). Détermine \(f([0\,;3])\) et \(f^{-1}([3\,;5])\).
+<details><summary>Corrigé</summary><div>\(0\leqslant x\leqslant3\Rightarrow0\leqslant2x\leqslant6\Rightarrow1\leqslant2x+1\leqslant7\). Donc \(f([0\,;3])=[1\,;7]\).<br>\(3\leqslant2x+1\leqslant5\iff2\leqslant2x\leqslant4\iff1\leqslant x\leqslant2\). Donc \(f^{-1}([3\,;5])=[1\,;2]\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> \(g:\mathbb R\to\mathbb R,\ x\mapsto x^2\). Détermine : a) \(g([1\,;3])\) b) \(g([-2\,;1])\) c) \(g^{-1}(\{4\})\) d) \(g^{-1}([0\,;9])\) e) \(g^{-1}([-3\,;-1])\).
+<details><summary>Corrigé</summary><div>a) Sur [1 ; 3], g est croissante : \(g([1\,;3])=[1\,;9]\).<br>b) Sur [−2 ; 1], g descend de 4 à 0 (en x = 0) puis remonte à 1. Les valeurs prises vont de 0 à 4 : \(g([-2\,;1])=[0\,;4]\). Le piège serait de répondre [1 ; 4].<br>c) \(x^2=4\iff x=\pm2\) : \(g^{-1}(\{4\})=\{-2\,;2\}\).<br>d) \(0\leqslant x^2\leqslant9\iff -3\leqslant x\leqslant3\) : \(g^{-1}([0\,;9])=[-3\,;3]\).<br>e) Un carré n’est jamais négatif : \(g^{-1}([-3\,;-1])=\varnothing\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Avec \(\exp:\mathbb R\to\mathbb R\), détermine \(\exp(]-\infty\,;0])\), \(\exp^{-1}([1\,;e])\) et \(\exp^{-1}(]-\infty\,;0])\).
+<details><summary>Corrigé</summary><div>exp est strictement croissante, tend vers 0 en −∞ sans l’atteindre, et vaut 1 en 0. Donc \(\exp(]-\infty\,;0])=]0\,;1]\) (0 est exclu, 1 est inclus).<br>\(1\leqslant e^x\leqslant e\iff \ln1\leqslant x\leqslant\ln e\iff0\leqslant x\leqslant1\) : \(\exp^{-1}([1\,;e])=[0\,;1]\).<br>\(e^x>0\) pour tout x, donc aucun x ne donne une valeur ≤ 0 : \(\exp^{-1}(]-\infty\,;0])=\varnothing\).</div></details></div></div>
+<div class="quiz" id="qa4" data-label="Maths A4 — Image directe et réciproque"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="A4 image directe">Avec \(f(x)=x^2\), que vaut \(f([-1\,;2])\) ?<ul><li>[1 ; 4]</li><li>[0 ; 4]</li><li>[−1 ; 4]</li><li>[1 ; 2]</li></ul><p class="e">La fonction passe par 0 en x = 0 (qui est dans [−1 ; 2]) et monte jusqu’à 4 en x = 2. Les valeurs prises vont de 0 à 4.</p></div>
+<div data-a="3" data-part="A4 image réciproque">Avec \(f(x)=\sqrt{x+1}\) sur \(\mathbb R^+\), que vaut \(f^{-1}([2\,;5])\) ?<ul><li>[1 ; 2]</li><li>[√3 ; √6]</li><li>[3 ; 24]</li><li>[4 ; 25]</li></ul><p class="e">\(2\leqslant\sqrt{x+1}\leqslant5\iff4\leqslant x+1\leqslant25\iff3\leqslant x\leqslant24\).</p></div>
+<div data-a="1" data-part="A4 notation">Pour désigner l’ensemble des antécédents de 3, on écrit :<ul><li>\(f^{-1}(\{3\})\)</li><li>\(f^{-1}(3)\)</li><li>\(f(3)\)</li><li>\(\frac{1}{f(3)}\)</li></ul><p class="e">L’image réciproque s’applique à un ensemble, d’où les accolades \(\{3\}\). Écrire \(f^{-1}(3)\) n’a de sens que si f est inversible.</p></div>
+<div data-a="4" data-part="A4 image réciproque">Avec \(f(x)=x^2\), que vaut \(f^{-1}(\{-4\})\) ?<ul><li>{−2 ; 2}</li><li>{−2}</li><li>{16}</li><li>\(\varnothing\)</li></ul><p class="e">Aucun réel n’a un carré égal à −4 : l’image réciproque est vide.</p></div>
+</div></div>
+</section>
+
+<!-- ===================== A5 ===================== -->
+<section class="notion" id="a5"><h2><span class="num">A5</span> Composition d’applications</h2><p class="poly">Poly : définition 5, remarques R1–R2, exemple page 4, et ta note manuscrite page 7 (dérivée d’une composée)</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>\(g\circ f\) (on lit « g <b>rond</b> f »), c’est <b>d’abord f, puis g</b> : la sortie de la machine f entre dans la machine g.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>Une chaîne de deux machines : la machine f épluche une pomme, la machine g la coupe. \(g\circ f\) donne une pomme épluchée puis coupée. Si on inverse l’ordre (\(f\circ g\) : couper puis éplucher), le résultat n’est pas le même. <b>L’ordre compte.</b></p>
+<p><b>Astuce de lecture :</b> \(g\circ f(x)=g(f(x))\) se lit de <b>droite à gauche</b>. La fonction la plus proche du x s’applique en premier.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3>
+<div class="defbox">\[ g\circ f:\begin{array}{ccc}E&\longrightarrow&G\\ x&\longmapsto&(g\circ f)(x)=g\big(f(x)\big)\end{array}\qquad E\xrightarrow{\ f\ }F\xrightarrow{\ g\ }G \]</div>
+<ul><li><b>R1 :</b> pour que \(g\circ f\) existe, il faut que les résultats de f soient <b>acceptés</b> par g. Autrement dit, l’arrivée de f doit être incluse dans le départ de g.</li>
+<li><b>R2 :</b> en général, \(g\circ f\neq f\circ g\). On dit que la composition n’est pas <b>commutative</b>.</li></ul></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemple résolu (celui du poly)</h3><p>\(f:\mathbb R\to\mathbb R,\ x\mapsto2x-3\) et \(g:\mathbb R^{+*}\to\mathbb R,\ x\mapsto\ln x\).</p>
+<ol class="steps"><li><b>\(f\circ g\) : d’abord ln, puis f.</b> ln donne un réel, et f accepte tous les réels : pas de problème. \((f\circ g)(x)=f(\ln x)=2\ln x-3\), pour tout \(x>0\).</li>
+<li><b>\(g\circ f\) : d’abord f, puis ln.</b> f peut donner des nombres négatifs, que ln refuse. Il faut donc \(2x-3>0\iff x>\frac32\).</li>
+<li>Pour \(x>\frac32\) : \((g\circ f)(x)=g(2x-3)=\ln(2x-3)\).</li></ol>
+<div class="coquille"><b>Coquille du poly :</b> à la dernière ligne, il est écrit \(x\in[\frac32\,;+\infty[\) avec un crochet fermé. Or en \(x=\frac32\), on obtient \(\ln(0)\), qui n’existe pas. Il faut lire \(]\frac32\,;+\infty[\), comme dans la phrase juste au-dessus (« pour tout \(x>\frac32\) »).</div></div>
+<div class="act" data-widget="compo"><h3>🎯 Activité : la machine à composer</h3><p class="consigne">f(x) = 2x − 3 et g(x) = ln x. Choisis x et suis le trajet dans les deux ordres. Essaie x = 1 : que se passe-t-il pour \(g\circ f\) ? Et x = −1 pour \(f\circ g\) ?</p></div>
+<div class="card astuce"><h3><span class="ic">📝</span> Ta note manuscrite : dériver une composée</h3>
+<p>Si \(f:I\to J\) et \(g:J\to\mathbb R\) sont dérivables, alors \(g\circ f\) est dérivable sur I et :</p>
+<div class="defbox">\[ (g\circ f)'(x)=f'(x)\times g'\big(f(x)\big) \]</div>
+<p>En mots : on dérive la machine <b>intérieure</b> f, puis on multiplie par la dérivée de la machine <b>extérieure</b> g, <b>évaluée en f(x)</b>.</p>
+<ol class="steps"><li>\(\ln(2x-3)\) : intérieure \(f(x)=2x-3\), \(f'(x)=2\) ; extérieure \(g=\ln\), \(g'(u)=\frac1u\). Donc \((\ln(2x-3))'=2\times\frac{1}{2x-3}=\frac{2}{2x-3}\).</li>
+<li>\(e^{x^2}\) : intérieure \(x^2\) (dérivée \(2x\)), extérieure exp (dérivée exp). Donc \((e^{x^2})'=2x\,e^{x^2}\).</li>
+<li>Toutes les formules « \((\sqrt u)'\) », « \((\frac1u)'\) », « \((u^v)'\) » de la partie C sont des cas particuliers de cette règle.</li></ol></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul><li>Ne confonds pas \(g\circ f\) (composer) et \(g\times f\) (multiplier). Par exemple, \(\ln\circ f(x)=\ln(2x-3)\), alors que \(\ln x\times(2x-3)\) est tout autre chose.</li><li>Avant de composer, <b>vérifie toujours le domaine</b> : « ce que je mets dans g est-il permis ? » (positif pour ln et √, non nul pour un dénominateur).</li><li>Dans la dérivée, on n’oublie pas \(f'(x)\) (le « facteur intérieur ») : \((e^{3x})'=3e^{3x}\), et non \(e^{3x}\).</li></ul></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> \(f(x)=x+1\) et \(g(x)=x^2\) (sur ℝ). Calcule \(g\circ f(x)\) et \(f\circ g(x)\), puis les deux en \(x=1\).
+<details><summary>Corrigé</summary><div>\(g\circ f(x)=g(x+1)=(x+1)^2\) et \(f\circ g(x)=f(x^2)=x^2+1\). En 1 : \(g\circ f(1)=4\) et \(f\circ g(1)=2\). Elles sont différentes : la composition n’est pas commutative.</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Écris chaque fonction comme \(g\circ f\) avec deux fonctions simples : a) \(\sqrt{3x+1}\) b) \(e^{-x^2}\) c) \((2x+1)^5\) d) \(\dfrac{1}{x^2+1}\).
+<details><summary>Corrigé</summary><div>a) \(f(x)=3x+1\), \(g(u)=\sqrt u\). b) \(f(x)=-x^2\), \(g(u)=e^u\). c) \(f(x)=2x+1\), \(g(u)=u^5\). d) \(f(x)=x^2+1\), \(g(u)=\frac1u\).<br><i>Méthode : demande-toi « qu’est-ce que je calcule en dernier ? » C’est g. Ce qu’il y a « dedans », c’est f.</i></div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> Sur quel ensemble peut-on définir \(x\mapsto\sqrt{1-x}\) ? Et \(x\mapsto\ln(x^2)\) ?
+<details><summary>Corrigé</summary><div>\(\sqrt{1-x}\) : il faut \(1-x\geqslant0\iff x\leqslant1\), soit \(]-\infty\,;1]\).<br>\(\ln(x^2)\) : il faut \(x^2>0\iff x\neq0\), soit \(\mathbb R^*\).</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> Dérive avec la règle de la composée : a) \(\ln(x^2+1)\) b) \(e^{5x-2}\) c) \(\sqrt{x^2+4}\).
+<details><summary>Corrigé</summary><div>a) intérieure \(x^2+1\) (dérivée \(2x\)), extérieure ln : \(\dfrac{2x}{x^2+1}\).<br>b) intérieure \(5x-2\) (dérivée 5), extérieure exp : \(5e^{5x-2}\).<br>c) intérieure \(x^2+4\) (dérivée \(2x\)), extérieure √ (dérivée \(\frac{1}{2\sqrt u}\)) : \(\dfrac{2x}{2\sqrt{x^2+4}}=\dfrac{x}{\sqrt{x^2+4}}\).</div></details></div></div>
+<div class="quiz" id="qa5" data-label="Maths A5 — Composition"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="A5 composition">\(g\circ f(x)\) signifie :<ul><li>\(f(g(x))\)</li><li>\(g(f(x))\)</li><li>\(g(x)\times f(x)\)</li></ul><p class="e">On lit de droite à gauche : on applique f d’abord, puis g au résultat.</p></div>
+<div data-a="3" data-part="A5 domaine">Avec \(f(x)=2x-3\) et \(g=\ln\), \(g\circ f\) est définie pour :<ul><li>tout réel x</li><li>\(x>0\)</li><li>\(x>\frac32\)</li><li>\(x\geqslant\frac32\)</li></ul><p class="e">\(\ln(2x-3)\) exige \(2x-3>0\), soit \(x>\frac32\) (strictement, car ln 0 n’existe pas).</p></div>
+<div data-a="1" data-part="A5 dérivée composée">La dérivée de \(x\mapsto e^{3x}\) est :<ul><li>\(3e^{3x}\)</li><li>\(e^{3x}\)</li><li>\(3xe^{3x-1}\)</li><li>\(e^3\)</li></ul><p class="e">\((g\circ f)'=f'\times g'(f)\) avec \(f(x)=3x\) (dérivée 3) et \(g=\exp\) : \(3e^{3x}\).</p></div>
+<div data-a="2" data-part="A5 composition">\(f(x)=x+1\), \(g(x)=x^2\). Que vaut \(f\circ g(2)\) ?<ul><li>9</li><li>5</li><li>6</li><li>4</li></ul><p class="e">\(f\circ g(2)=f(g(2))=f(4)=5\). (Alors que \(g\circ f(2)=g(3)=9\).)</p></div>
+</div></div>
+</section>
+
+<!-- ===================== A6 ===================== -->
+<section class="notion" id="a6"><h2><span class="num">A6</span> Applications inversibles et réciproque</h2><p class="poly">Poly : définition 6, exemples E1–E2, remarque, page 5</p>
+<div class="card idee"><h3><span class="ic">💡</span> L’idée en une phrase</h3><p>La réciproque \(f^{-1}\) est la machine qui <b>défait</b> ce que f a fait : elle ramène chaque résultat à son point de départ.</p></div>
+<div class="card"><h3><span class="ic">🏠</span> Une image du quotidien</h3><p>f = « mettre ses chaussettes », \(f^{-1}\) = « enlever ses chaussettes ». Faire l’un puis l’autre ramène à la situation de départ. Autre exemple : chiffrer un message, puis le déchiffrer.</p><p>Toutes les machines ne peuvent pas être défaites. Si f(x) = x² sur ℝ, et qu’on te dit « le résultat est 4 », tu ne peux pas savoir si on était parti de 2 ou de −2. On ne peut pas revenir en arrière de façon unique.</p></div>
+<div class="card"><h3><span class="ic">📘</span> Le poly, traduit</h3><p>\(f:E\to F\) est <b>inversible</b> s’il existe \(g:F\to E\) telle que :</p>
+<div class="trad"><div>(i) \(\forall x\in E,\ g\circ f(x)=x\)</div><div>partir de x, faire f puis g, ramène à x</div>
+<div>(ii) \(\forall y\in F,\ f\circ g(y)=y\)</div><div>partir de y, faire g puis f, ramène à y</div></div>
+<p>g s’appelle la <b>réciproque</b> de f, notée \(f^{-1}\). Les deux conditions sont nécessaires.</p>
+<p><b>Remarque du poly :</b> les courbes de f et de \(f^{-1}\) sont <b>symétriques par rapport à la droite \(y=x\)</b>. Si \(M(a\,;b)\) est sur la courbe de f, alors \(M'(b\,;a)\) est sur celle de \(f^{-1}\).</p></div>
+<div class="card"><h3><span class="ic">✍️</span> Exemples du poly, expliqués</h3>
+<ol class="steps"><li><b>exp et ln.</b> \(\exp:\mathbb R\to\mathbb R^{+*}\) a pour réciproque \(\ln:\mathbb R^{+*}\to\mathbb R\), car \(\ln(e^x)=x\) pour tout réel x (condition i) et \(e^{\ln x}=x\) pour tout \(x>0\) (condition ii).</li>
+<li><b>Carré et racine.</b> \(x\mapsto x^2\) <b>de \(\mathbb R^+\) dans \(\mathbb R^+\)</b> a pour réciproque \(\sqrt{\ }\), car \(\sqrt{x^2}=x\) et \((\sqrt x)^2=x\) pour \(x\geqslant0\). On a restreint le carré à \(\mathbb R^+\) pour éviter le problème du « 2 ou −2 ».</li></ol>
+<p><b>Méthode pour trouver une réciproque :</b> on écrit \(y=f(x)\) et on isole x en fonction de y.</p>
+<p>Exemple : \(f:\mathbb R\to\mathbb R,\ f(x)=2x+1\). On écrit \(y=2x+1\), d’où \(x=\frac{y-1}{2}\). Donc \(f^{-1}(y)=\frac{y-1}2\), ou, avec la lettre x : \(f^{-1}(x)=\frac{x-1}{2}\).<br>Vérification : \(f^{-1}(f(x))=\frac{(2x+1)-1}{2}=x\) ✔.</p></div>
+<div class="act" data-widget="recip"><h3>🎯 Activité : le miroir y = x</h3><p class="consigne">Choisis un couple et déplace le point M sur la courbe de f. Son reflet M′ dans le miroir y = x décrit la courbe de f⁻¹.</p></div>
+<div class="card piege"><h3><span class="ic">⚠️</span> Les pièges</h3><ul>
+<li><b>Réciproque ≠ inverse !</b> \(f^{-1}\) (réciproque) n’est pas \(\frac1f\) (inverse). Pour f = exp : \(f^{-1}=\ln\), alors que \(\frac{1}{f(x)}=e^{-x}\).</li>
+<li>\(x\mapsto x^2\) <b>sur ℝ</b> n’est pas inversible (2 et −2 ont la même image). Sur \(\mathbb R^+\), elle l’est.</li>
+<li>Les ensembles s’échangent : si \(f:E\to F\), alors \(f^{-1}:F\to E\).</li></ul></div>
+<div class="card astuce"><h3><span class="ic">🔭</span> Pour aller plus loin (hors poly)</h3><p>Dans d’autres cours, on dit que f est <b>bijective</b> quand chaque élément de F a <b>exactement un</b> antécédent. C’est exactement la même chose qu’« inversible » : la réciproque envoie chaque y sur son unique antécédent. Si ton prof utilise les mots injective, surjective ou bijective, c’est de cela qu’il parle.</p></div>
+<div class="card"><h3><span class="ic">🏋️</span> Exercices</h3>
+<div class="ex"><span class="lvl l1">★ facile</span> Trouve la réciproque de \(f:\mathbb R\to\mathbb R,\ x\mapsto3x-6\) et vérifie la condition (i).
+<details><summary>Corrigé</summary><div>\(y=3x-6\iff x=\frac{y+6}{3}\). Donc \(f^{-1}(x)=\frac{x+6}3=\frac x3+2\). Vérification : \(f^{-1}(f(x))=\frac{3x-6+6}{3}=x\) ✔.</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> \(f:\mathbb R\to\mathbb R^{+*},\ x\mapsto e^{2x}\). Trouve \(f^{-1}\).
+<details><summary>Corrigé</summary><div>\(y=e^{2x}\iff \ln y=2x\iff x=\frac{\ln y}{2}\) (pour \(y>0\)). Donc \(f^{-1}:\mathbb R^{+*}\to\mathbb R,\ x\mapsto\frac{\ln x}{2}\).</div></details></div>
+<div class="ex"><span class="lvl l2">★★ moyen</span> \(f:[0\,;+\infty[\to[1\,;+\infty[,\ x\mapsto x^2+1\). Trouve \(f^{-1}\). Pourquoi a-t-on pris \([0\,;+\infty[\) au départ ?
+<details><summary>Corrigé</summary><div>\(y=x^2+1\iff x^2=y-1\iff x=\sqrt{y-1}\), car \(x\geqslant0\) (et \(y\geqslant1\) pour que ce soit défini). Donc \(f^{-1}(x)=\sqrt{x-1}\) sur \([1\,;+\infty[\).<br>Si on avait pris ℝ au départ, 2 et −2 donneraient tous les deux 5 : impossible de revenir en arrière de façon unique.</div></details></div>
+<div class="ex"><span class="lvl l3">★★★ type examen</span> \(f:\mathbb R^+\to[0\,;1[,\ x\mapsto\dfrac{x}{1+x}\). Montre que f est inversible et donne \(f^{-1}\).
+<details><summary>Corrigé</summary><div>On résout \(y=\frac{x}{1+x}\) pour \(y\in[0\,;1[\) : \(y(1+x)=x\iff y+yx=x\iff y=x(1-y)\iff x=\frac{y}{1-y}\) (possible car \(y\neq1\)), et \(x\geqslant0\) car \(y\geqslant0\) et \(1-y>0\).<br>Chaque y a donc exactement un antécédent : f est inversible, et \(f^{-1}(x)=\frac{x}{1-x}\) sur \([0\,;1[\).<br>Vérification : \(f(f^{-1}(y))=\dfrac{\frac{y}{1-y}}{1+\frac{y}{1-y}}=\dfrac{\frac{y}{1-y}}{\frac{1}{1-y}}=y\) ✔.</div></details></div></div>
+<div class="quiz" id="qa6" data-label="Maths A6 — Réciproque"><h3>✅ Vérifie que tu as compris</h3><div class="qsrc">
+<div data-a="2" data-part="A6 réciproque">La réciproque de \(x\mapsto e^x\) (de ℝ dans \(\mathbb R^{+*}\)) est :<ul><li>\(x\mapsto e^{-x}\)</li><li>\(x\mapsto\ln x\)</li><li>\(x\mapsto\frac1{e^x}\)</li><li>\(x\mapsto-e^x\)</li></ul><p class="e">\(\ln(e^x)=x\) et \(e^{\ln x}=x\). \(\frac{1}{e^x}=e^{-x}\) est l’<i>inverse</i>, pas la réciproque.</p></div>
+<div data-a="3" data-part="A6 graphique">Les courbes de f et de \(f^{-1}\) sont symétriques par rapport à :<ul><li>l’axe des abscisses</li><li>l’origine</li><li>la droite \(y=x\)</li><li>l’axe des ordonnées</li></ul><p class="e">On échange les rôles de x et y : \((a\,;b)\) devient \((b\,;a)\), c’est la symétrie par rapport à la première bissectrice \(y=x\).</p></div>
+<div data-a="1" data-part="A6 inversible">\(x\mapsto x^2\) de ℝ dans \(\mathbb R^+\) est-elle inversible ?<ul><li>Non : 2 et −2 ont la même image, on ne peut pas revenir en arrière</li><li>Oui, sa réciproque est \(\sqrt{\ }\)</li><li>Oui, sa réciproque est \(\frac{1}{x^2}\)</li></ul><p class="e">\(\sqrt{(-2)^2}=2\neq-2\) : la condition (i) échoue. Elle devient inversible si on la restreint à \(\mathbb R^+\).</p></div>
+<div data-a="4" data-part="A6 réciproque">La réciproque de \(x\mapsto 2x+1\) est :<ul><li>\(x\mapsto\frac1{2x+1}\)</li><li>\(x\mapsto 2x-1\)</li><li>\(x\mapsto\frac x2+1\)</li><li>\(x\mapsto\frac{x-1}{2}\)</li></ul><p class="e">\(y=2x+1\iff x=\frac{y-1}{2}\). On défait dans l’ordre inverse : on enlève 1, puis on divise par 2.</p></div>
+</div></div>
+</section>
+
+<div class="next"><a href="./">← Sommaire</a><a href="fonctions-reelles.html">Partie B · Fonctions réelles →</a></div>
+</main>
+<footer>Révisions personnelles d’après le poly « Chapitre 5 · Applications et fonctions usuelles ». En cas de doute, le cours de l’enseignant fait foi.</footer>
+</body></html>

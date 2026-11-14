@@ -1,0 +1,72 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L’essentiel du chapitre 5 — Maths</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="suivi.js"></script><script defer src="app.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="09bb50e4-e5cd-47d4-b231-1551e99b2df5" data-domains="xseorkly.github.io" data-exclude-search="true" data-exclude-hash="true"></script>
+<style>.card h3{color:var(--deep)}td,th{text-align:left}.scroll table td:first-child{white-space:nowrap}</style>
+</head><body>
+<header class="top"><div class="k">Maths · Chapitre 5</div><h1>L’essentiel à savoir par cœur</h1><p>Tout le chapitre sur une seule page, à relire la veille de l’examen. Pour l’imprimer, utilise Ctrl + P (les activités disparaissent à l’impression).</p></header>
+<nav class="site"><a href="../">Accueil</a><a href="./">Sommaire</a><a href="applications.html">A · Applications</a><a href="fonctions-reelles.html">B · Fonctions réelles</a><a href="fonctions-usuelles.html">C · Fonctions usuelles</a><a href="essentiel.html" aria-current="page">L’essentiel</a><a href="qcm.html">QCM final</a></nav>
+<main>
+<div class="card"><h3>A · Applications</h3><div class="scroll"><table>
+<tr><td>Application \(f:E\to F\)</td><td>chaque x de E a <b>une et une seule</b> image f(x) dans F</td></tr>
+<tr><td>Antécédent de y</td><td>un x tel que f(x) = y ; il peut y en avoir 0, 1 ou plusieurs</td></tr>
+<tr><td>\(F^E\)</td><td>l’ensemble des applications de E dans F (\(p^n\) éléments si |E| = n et |F| = p)</td></tr>
+<tr><td>f = g</td><td>même départ, même arrivée, et f(x) = g(x) pour tout x</td></tr>
+<tr><td>Restriction \(f_{|A}\)</td><td>même règle, sur un départ plus petit A ⊂ E (unique)</td></tr>
+<tr><td>Prolongement</td><td>départ plus grand, les anciennes valeurs sont gardées et les nouvelles choisies (pas unique)</td></tr>
+<tr><td>Image directe</td><td>\(f(A)=\{f(x)\,/\,x\in A\}\) : où atterrit A</td></tr>
+<tr><td>Image réciproque</td><td>\(f^{-1}(B)=\{x\in E\,/\,f(x)\in B\}\) : qui atterrit dans B (existe toujours, peut être ∅)</td></tr>
+<tr><td>Composée</td><td>\(g\circ f(x)=g(f(x))\) : d’abord f, puis g ; en général \(g\circ f\neq f\circ g\)</td></tr>
+<tr><td>Dérivée d’une composée</td><td>\((g\circ f)'(x)=f'(x)\,g'(f(x))\)</td></tr>
+<tr><td>Réciproque \(f^{-1}\)</td><td>\(f^{-1}\circ f(x)=x\) et \(f\circ f^{-1}(y)=y\) ; courbes symétriques par rapport à y = x ; on la trouve en isolant x dans y = f(x)</td></tr>
+<tr><td>⚠️</td><td>\(f^{-1}\) (réciproque) n’est pas \(\frac1f\) (inverse) ; on écrit \(f^{-1}(\{y\})\) pour les antécédents de y</td></tr></table></div></div>
+
+<div class="card"><h3>B · Propriétés des fonctions réelles</h3><div class="scroll"><table>
+<tr><td>Paire</td><td>D symétrique et f(−x) = f(x) : symétrie par rapport à l’axe des ordonnées</td></tr>
+<tr><td>Impaire</td><td>D symétrique et f(−x) = −f(x) : symétrie par rapport à l’origine ; f(0) = 0 si f est définie en 0</td></tr>
+<tr><td>T-périodique</td><td>f(x + T) = f(x) pour tout x : le motif se répète tous les T</td></tr>
+<tr><td>Croissante sur I</td><td>a ≤ b ⇒ f(a) ≤ f(b) (l’ordre est conservé) ; strictement : a < b ⇒ f(a) < f(b)</td></tr>
+<tr><td>Décroissante sur I</td><td>a ≤ b ⇒ f(a) ≥ f(b) (l’ordre est renversé)</td></tr>
+<tr><td>Majorée / minorée</td><td>∃M, ∀x, f(x) ≤ M / ∃m, ∀x, f(x) ≥ m ; bornée = les deux</td></tr>
+<tr><td>Maximum / minimum</td><td>un majorant / minorant <b>atteint</b> par f</td></tr>
+<tr><td>sup / inf</td><td>le plus petit des majorants / le plus grand des minorants ; s’il est atteint, c’est le max / le min</td></tr>
+<tr><td>Exemple clé</td><td>\(\frac1x\) sur \(\mathbb R^{+*}\) : inf = 0, pas de minimum, pas majorée</td></tr></table></div></div>
+
+<div class="card"><h3>C · Les fonctions usuelles</h3><div class="scroll"><table>
+<tr><th>f(x)</th><th>domaine</th><th>dérivée</th><th>variations</th><th>à retenir</th></tr>
+<tr><td>\(|x|\)</td><td>ℝ</td><td>−1 (x < 0), 1 (x > 0)</td><td>↘ sur ℝ⁻, ↗ sur ℝ⁺</td><td>paire ; pas dérivable en 0 ; \(|x|\leqslant a\iff-a\leqslant x\leqslant a\) ; \(|x+y|\leqslant|x|+|y|\)</td></tr>
+<tr><td>\(\text{Ent}(x)\)</td><td>ℝ</td><td>0 sur ]k ; k+1[</td><td>↗ (pas strictement)</td><td>\(\text{Ent}(x)\leqslant x\lt\text{Ent}(x)+1\) ; discontinue en chaque entier ; Ent(−4,8) = −5</td></tr>
+<tr><td>\(\sqrt x\)</td><td>[0 ; +∞[</td><td>\(\frac{1}{2\sqrt x}\) (x > 0)</td><td>↗</td><td>\(\sqrt{x^2}=|x|\) ; \(\sqrt{ab}=\sqrt a\sqrt b\) ; pas dérivable en 0 ; \((\sqrt u)'=\frac{u'}{2\sqrt u}\)</td></tr>
+<tr><td>\(\frac1x\)</td><td>ℝ*</td><td>\(-\frac1{x^2}\)</td><td>↘ sur ]−∞ ; 0[ et sur ]0 ; +∞[</td><td>impaire, hyperbole ; \((\frac1u)'=-\frac{u'}{u^2}\) ; \((\frac uv)'=\frac{u'v-uv'}{v^2}\)</td></tr>
+<tr><td>\(\ln x\)</td><td>]0 ; +∞[</td><td>\(\frac1x\)</td><td>↗ strictement</td><td>ln 1 = 0, ln e = 1 ; ln(ab) = ln a + ln b ; ln(aˣ) = x ln a ; \((\ln u)'=\frac{u'}{u}\)</td></tr>
+<tr><td>\(e^x\)</td><td>ℝ</td><td>\(e^x\)</td><td>↗ strictement</td><td>eˣ > 0, e⁰ = 1 ; \(e^{a+b}=e^ae^b\) ; \(y=e^x\iff x=\ln y\) ; \((e^u)'=u'e^u\)</td></tr>
+<tr><td>\(x^\alpha\)</td><td>]0 ; +∞[</td><td>\(\alpha x^{\alpha-1}\)</td><td>↗ si α > 0, ↘ si α < 0</td><td>\(x^\alpha=e^{\alpha\ln x}\) ; \(x^{1/2}=\sqrt x\) ; \(a^x=e^{x\ln a}\) ; \(u^v=e^{v\ln u}\)</td></tr></table></div></div>
+
+<div class="card"><h3>Les limites à connaître</h3><div class="scroll"><table>
+<tr><td>Bords</td><td>\(\ln x\to-\infty\) en \(0^+\), \(+\infty\) en \(+\infty\) ; \(e^x\to0\) en \(-\infty\), \(+\infty\) en \(+\infty\) ; \(\frac1x\to\pm\infty\) en \(0^\pm\), 0 en \(\pm\infty\)</td></tr>
+<tr><td>Croissances comparées</td><td>\(\frac{\ln x}{x}\to0\) (en \(+\infty\)) ; \(x\ln x\to0\) (en \(0^+\)) ; \(\frac{e^x}{x}\to+\infty\) (en \(+\infty\)) ; \(xe^x\to0\) (en \(-\infty\)) ; \(\frac{\sqrt x}{x}\to0\) (en \(+\infty\))</td></tr>
+<tr><td>Le classement</td><td>en \(+\infty\) : \(\ln x\ \ll\ x^\alpha\ \ll\ e^x\). L’exponentielle gagne toujours, le logarithme perd toujours</td></tr>
+<tr><td>Taux d’accroissement</td><td>\(\frac{\ln(1+x)}{x}\to1\) et \(\frac{e^x-1}{x}\to1\) quand \(x\to0\)</td></tr>
+<tr><td>Partie entière</td><td>en un entier k : \(k-1\) à gauche, k à droite</td></tr></table></div></div>
+
+<div class="card piege"><h3>Les 12 erreurs qui coûtent des points</h3><ol>
+<li>Dire « l’antécédent » alors qu’il peut y en avoir plusieurs, ou aucun.</li>
+<li>Calculer f(A) avec f(a) et f(b) quand f n’est pas monotone sur A. Avec x² : f([−1 ; 2]) = [0 ; 4].</li>
+<li>Écrire \(f^{-1}(x)\) pour les antécédents, ou confondre \(f^{-1}\) et \(\frac1f\).</li>
+<li>Composer dans le mauvais ordre : \(g\circ f\) = f d’abord.</li>
+<li>Oublier le domaine (ln, √, dénominateur) avant de composer, de résoudre ou de dériver.</li>
+<li>Oublier de vérifier que le domaine est symétrique avant de parler de parité.</li>
+<li>Dire que \(\frac1x\) est décroissante sur ℝ*.</li>
+<li>Confondre sup et max : le sup n’est pas forcément atteint.</li>
+<li>Ent(−2,3) = −3, et non −2.</li>
+<li>\(\sqrt{a+b}\neq\sqrt a+\sqrt b\), \(\ln(a+b)\neq\ln a+\ln b\), \(e^{a+b}\neq e^a+e^b\).</li>
+<li>Oublier le facteur u′ : \((e^{3x})'=3e^{3x}\), \((\ln(2x))'=\frac1x\).</li>
+<li>Dériver \(2^x\) comme \(x^2\) : \((2^x)'=\ln2\cdot2^x\).</li></ol></div>
+<div class="next"><a href="fonctions-usuelles.html">← Partie C</a><a href="qcm.html">Je m’entraîne au QCM final →</a></div>
+</main>
+<footer>Révisions personnelles d’après le poly « Chapitre 5 · Applications et fonctions usuelles ». En cas de doute, le cours de l’enseignant fait foi.</footer>
+</body></html>

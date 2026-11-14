@@ -1,0 +1,48 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maths · Chapitre 5 · Applications et fonctions usuelles</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="suivi.js"></script><script defer src="app.js"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="09bb50e4-e5cd-47d4-b231-1551e99b2df5" data-domains="xseorkly.github.io" data-exclude-search="true" data-exclude-hash="true"></script>
+</head><body>
+<header class="top"><div class="k">CPES L1 · Mathématiques · Chapitre 5</div><h1>Applications et fonctions usuelles</h1><p>Le poly de 14 pages repris notion par notion, très simplement : l’idée, une image du quotidien, la définition traduite, un exemple résolu, les pièges, des exercices corrigés, des activités et des QCM.</p></header>
+<nav class="site"><a href="../">Accueil</a><a href="./" aria-current="page">Sommaire</a><a href="applications.html">A · Applications</a><a href="fonctions-reelles.html">B · Fonctions réelles</a><a href="fonctions-usuelles.html">C · Fonctions usuelles</a><a href="essentiel.html">L’essentiel</a><a href="qcm.html">QCM final</a></nav>
+<main>
+<div class="cards">
+<a class="part" href="applications.html" style="--c:var(--cA)"><div class="band">A · Les applications</div><div class="body"><ul><li>Application, image, antécédent</li><li>Égalité, restriction, prolongement</li><li>Image directe et image réciproque</li><li>Composition (et dérivée d’une composée)</li><li>Réciproque</li></ul><div class="go">Poly p. 1-5 →</div></div></a>
+<a class="part" href="fonctions-reelles.html" style="--c:var(--cB)"><div class="band">B · Les fonctions réelles</div><div class="body"><ul><li>Parité, périodicité</li><li>Monotonie</li><li>Majorée, minorée, bornée</li><li>Maximum, minimum</li><li>Borne supérieure et inférieure</li></ul><div class="go">Poly p. 5-7 →</div></div></a>
+<a class="part" href="fonctions-usuelles.html" style="--c:var(--cC)"><div class="band">C · Les fonctions usuelles</div><div class="body"><ul><li>Valeur absolue, partie entière</li><li>Racine carrée, inverse</li><li>ln et exp (croissances comparées)</li><li>Fonctions puissance</li></ul><div class="go">Poly p. 8-14 →</div></div></a>
+<a class="part" href="essentiel.html" style="--c:#9a6a12"><div class="band">L’essentiel</div><div class="body"><p style="margin:0">Tout le chapitre sur une page : tableaux des fonctions, limites à connaître et les 12 erreurs qui coûtent des points. À relire la veille.</p><div class="go">Ouvrir la fiche →</div></div></a>
+<a class="part" href="qcm.html" style="--c:var(--deep)"><div class="band">QCM final</div><div class="body"><p style="margin:0">25 questions tirées dans une banque de 60, note sur 20 et liste des notions à revoir. Un nouveau sujet à chaque tirage.</p><div class="go">Je m’entraîne →</div></div></a>
+</div>
+
+<div class="card"><h3>🧭 Comment travailler avec ce site</h3><ol class="steps">
+<li><b>Commence par le lexique ci-dessous.</b> La moitié des difficultés du poly vient des symboles. Une fois qu’on sait les lire, les définitions deviennent des phrases normales.</li>
+<li><b>Une notion à la fois, dans l’ordre A → B → C.</b> Pour chaque notion : lis « L’idée » et l’exemple résolu, fais l’activité, puis les exercices ★ et ★★ <i>sans regarder le corrigé</i>. Termine par le petit QCM « Vérifie que tu as compris ».</li>
+<li><b>Les ★★★ sont du niveau examen.</b> Garde-les pour un deuxième passage.</li>
+<li><b>Fin de partie :</b> relis la fiche « L’essentiel ». <b>Avant l’examen :</b> fais le QCM final plusieurs fois, jusqu’à dépasser 16/20.</li></ol>
+<p class="poly" style="margin-top:8px">Les « coquilles du poly » repérées (fautes de frappe dans le document du prof) sont signalées dans des encadrés orange. Elles ne changent pas le fond du cours.</p></div>
+
+<div class="card"><h3>🔤 Avant de commencer : savoir lire les symboles</h3><div class="scroll"><table class="lex">
+<tr><th>Symbole</th><th>Se lit</th><th>Exemple</th></tr>
+<tr><td>\(\forall\)</td><td>« pour tout »</td><td>\(\forall x\in\mathbb R,\ x^2\geqslant0\) : pour tout réel x, x² est positif</td></tr>
+<tr><td>\(\exists\)</td><td>« il existe (au moins un) »</td><td>\(\exists x\in\mathbb R,\ x^2=4\) : il existe un réel dont le carré vaut 4</td></tr>
+<tr><td>\(\in\) / \(\notin\)</td><td>« appartient à » / « n’appartient pas à »</td><td>\(2\in\mathbb N\), \(-1\notin\mathbb R^+\)</td></tr>
+<tr><td>\(\subset\)</td><td>« est inclus dans »</td><td>\(\mathbb N\subset\mathbb Z\subset\mathbb R\)</td></tr>
+<tr><td>\(\Rightarrow\)</td><td>« implique », « donc »</td><td>\(x>2\Rightarrow x>1\)</td></tr>
+<tr><td>\(\iff\)</td><td>« équivaut à », « si et seulement si »</td><td>\(2x=6\iff x=3\)</td></tr>
+<tr><td>\(\{\ldots\ /\ \ldots\}\)</td><td>« l’ensemble des … tels que … »</td><td>\(\{x\in\mathbb R\ /\ x>0\}=\,]0\,;+\infty[\)</td></tr>
+<tr><td>\(\mathbb R^+,\ \mathbb R^-\)</td><td>réels positifs / négatifs (0 compris)</td><td>\(\mathbb R^+=[0\,;+\infty[\)</td></tr>
+<tr><td>\(\mathbb R^*,\ \mathbb R^{+*}\)</td><td>« étoile » = privé de 0</td><td>\(\mathbb R^{+*}=\,]0\,;+\infty[\) ; \(\mathbb R^*=\mathbb R\setminus\{0\}\)</td></tr>
+<tr><td>\(\mathbb N,\ \mathbb Z\)</td><td>entiers naturels / entiers relatifs</td><td>\(\mathbb N=\{0,1,2,\dots\}\), \(\mathbb Z=\{\dots,-1,0,1,\dots\}\)</td></tr>
+<tr><td>\([a\,;b]\), \(]a\,;b[\)</td><td>intervalle fermé (bornes comprises) / ouvert (bornes exclues)</td><td>\([0\,;1[\) contient 0 mais pas 1</td></tr>
+<tr><td>\(\setminus\)</td><td>« privé de »</td><td>\(\mathbb R\setminus\{1\}\) : tous les réels sauf 1</td></tr>
+<tr><td>\(\varnothing\)</td><td>ensemble vide</td><td>\(\{x\in\mathbb R\ /\ x^2=-1\}=\varnothing\)</td></tr>
+<tr><td>\(\to\) et \(\mapsto\)</td><td>« de … dans … » (ensembles) / « est envoyé sur » (éléments)</td><td>\(f:\mathbb R\to\mathbb R,\ x\mapsto x^2\)</td></tr>
+<tr><td>\(\circ\)</td><td>« rond » (composition)</td><td>\(g\circ f\) : « g rond f »</td></tr>
+<tr><td>\(x\to a^+\)</td><td>« x tend vers a par la droite » (x > a)</td><td>\(\lim_{x\to0^+}\ln x=-\infty\)</td></tr></table></div></div>
+</main>
+<footer>Révisions personnelles d’après le poly « Chapitre 5 · Applications et fonctions usuelles ». En cas de doute, le cours de l’enseignant fait foi.</footer>
+</body></html>
