@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Réussir sa khôlle de français · Révisions CPES</title>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="09bb50e4-e5cd-47d4-b231-1551e99b2df5" data-domains="xseorkly.github.io" data-exclude-search="true" data-exclude-hash="true"></script>
+<style>
+  :root{
+    --ink:#243c50; --muted:#647587; --bg:#f3f5f6; --card:#ffffff;
+    --accent:#14314c; --accent2:#117b83; --ok:#167558; --warn:#b5651d;
+    --line:#dfe6e9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  header{background:linear-gradient(135deg,#14314c,#1b4a5c);color:#fff;padding:28px 20px 22px}
+  header h1{margin:0 0 6px;font-size:1.7rem}
+  header p{margin:0;opacity:.9;font-family:system-ui,sans-serif;font-size:.95rem}
+  nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;font-family:system-ui,sans-serif;font-size:.85rem}
+  nav a{display:inline-block;padding:10px 12px;color:var(--accent);text-decoration:none;font-weight:600}
+  main{max-width:860px;margin:0 auto;padding:18px 16px 60px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 10px;margin:18px 0;scroll-margin-top:50px}
+  h2{margin:0 0 10px;color:var(--accent);font-size:1.3rem}
+  h3{margin:16px 0 6px;color:var(--accent2);font-size:1.05rem}
+  ul,ol{padding-left:22px} li{margin:4px 0}
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;font-family:system-ui,sans-serif}
+  .tl{border-radius:10px;padding:12px;color:#fff;text-align:center}
+  .tl b{display:block;font-size:1.4rem}
+  .t1{background:var(--accent2)} .t2{background:var(--accent)} .t3{background:var(--ok)}
+  .box{border-left:4px solid var(--accent2);background:#f1f6f8;padding:10px 14px;border-radius:6px;margin:10px 0}
+  .warn{border-left-color:var(--warn);background:#fbf3ea}
+  .good{border-left-color:var(--ok);background:#eef6f0}
+  .q{font-weight:bold}
+  table{width:100%;border-collapse:collapse;font-size:.92rem;margin:8px 0}
+  th,td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+  th{background:#e7f4f2}
+  .check label{display:flex;gap:10px;align-items:flex-start;padding:7px 4px;border-bottom:1px dashed var(--line);cursor:pointer;font-family:system-ui,sans-serif;font-size:.95rem}
+  .check input{margin-top:4px;transform:scale(1.2)}
+  .check input:checked + span{text-decoration:line-through;color:var(--muted)}
+  .prep{font-family:system-ui,sans-serif}
+  .step{display:flex;gap:12px;margin:10px 0}
+  .step .min{flex:0 0 64px;background:var(--accent2);color:#fff;border-radius:8px;text-align:center;padding:8px 4px;font-weight:700;font-size:.9rem;height:fit-content}
+  .formula{font-family:system-ui,sans-serif;background:#fff7e6;border:1px dashed var(--warn);padding:10px 12px;border-radius:8px;margin:8px 0}
+  details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:8px 0;background:#fdfcf9}
+  summary{cursor:pointer;font-weight:bold;color:var(--accent2)}
+  .tags span{display:inline-block;background:#e7f4f2;border-radius:20px;padding:3px 10px;margin:3px;font-family:system-ui,sans-serif;font-size:.85rem}
+  footer{text-align:center;color:var(--muted);font-family:system-ui,sans-serif;font-size:.8rem;padding:20px}
+  @media(max-width:560px){.timeline{grid-template-columns:1fr}}
+  @media print{nav{display:none}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="../" style="color:#ecb85e;text-decoration:none;font-family:system-ui,sans-serif;font-size:.85rem;font-weight:700">← Mes révisions</a>
+  <h1>Réussir sa khôlle de français</h1>
+  <p>CPES / prépa — analyse de texte + développement personnel + entretien. La méthode point par point.</p>
+</header>
+
+<nav>
+  <a href="#cadre">Cadre</a><a href="#prep">Préparation</a><a href="#questions">Les questions</a>
+  <a href="#analyse">Analyse</a><a href="#dev">Développement</a><a href="#entretien">Entretien</a>
+  <a href="#outils">Boîte à outils</a><a href="#exemple">Exemple</a><a href="#check">Checklist</a>
+</nav>
+
+<main>
+
+<section id="cadre">
+  <h2>1. Le cadre de l'épreuve</h2>
+  <p><b>30 min de préparation</b>, puis <b>30 min de passage</b> :</p>
+  <div class="timeline">
+    <div class="tl t1"><b>5–7 min</b>Analyse du texte</div>
+    <div class="tl t2"><b>12–15 min</b>Développement personnel</div>
+    <div class="tl t3"><b>≈ 10 min</b>Entretien avec le jury</div>
+  </div>
+  <ul>
+    <li>Le texte : une page de réflexion (environ 700 mots), avec des <b>lignes numérotées</b>.</li>
+    <li>Le <b>dictionnaire est autorisé</b> : sers-t'en pour vérifier les mots de ta problématique.</li>
+    <li>Ce qui est évalué : ta <b>compréhension</b> de la pensée de l'auteur, ta <b>capacité à argumenter</b>, ta <b>culture générale</b> et ton <b>sens du dialogue</b>.</li>
+  </ul>
+  <div class="box warn"><b>Les deux reproches les plus fréquents du jury :</b> un plan flou et perdu dans les détails, et une problématique bâclée dont les mots ne sont pas définis.</div>
+</section>
+
+<section id="prep" class="prep">
+  <h2>2. Les 30 minutes de préparation, minute par minute</h2>
+  <div class="step"><div class="min">0–3</div><div><b>1<sup>re</sup> lecture, stylo posé.</b> Lis le texte en entier sans rien écrire. Objectif : trouver le <b>thème</b> et la <b>thèse</b>.</div></div>
+  <div class="step"><div class="min">3–13</div><div><b>2<sup>e</sup> lecture, en annotant.</b> Utilise ton code couleur (arguments, questions rhétoriques, citations, idées à discuter). Ajoute <b>un trait dans la marge à chaque changement de mouvement</b>, avec le numéro de ligne. Entoure les <b>connecteurs</b>.</div></div>
+  <div class="step"><div class="min">13–18</div><div><b>Prépare l'analyse.</b> Écris une phrase pour la thèse, puis 2 à 4 mouvements notés « l. x–y : idée ». Retiens 2 ou 3 procédés avec leur effet.</div></div>
+  <div class="step"><div class="min">18–28</div><div><b>Prépare le développement.</b> Choisis un enjeu, formule ta problématique, vérifie ses mots au dictionnaire, construis un plan en 2 ou 3 parties et trouve <b>un exemple par partie</b>.</div></div>
+  <div class="step"><div class="min">28–30</div><div><b>Relis</b> tes phrases d'introduction et tes transitions. N'écris jamais un texte complet : prépare seulement des mots-clés, à l'exception de l'introduction.</div></div>
+</section>
+
+<section id="questions">
+  <h2>3. Les questions à se poser, point par point</h2>
+
+  <h3>A. Le contexte (avant même de lire en détail)</h3>
+  <ol>
+    <li class="q">Qui parle ? Un savant, un philosophe, un père, un collectif ?</li>
+    <li class="q">À qui s'adresse-t-il ? Au grand public, aux décideurs, à un fils, à des lecteurs savants ?</li>
+    <li class="q">Quelle est la forme du texte ? Un essai, une lettre ouverte, un article d'encyclopédie, une lettre fictive, une charte ?</li>
+    <li class="q">Que veut-il obtenir ? Convaincre, alerter, définir, réfuter, transmettre ?</li>
+  </ol>
+
+  <h3>B. Le sens</h3>
+  <ol start="5">
+    <li class="q">De quoi parle le texte ? → c'est le <u>thème</u>, à dire en 3 ou 4 mots.</li>
+    <li class="q">Que dit l'auteur sur ce sujet ? → c'est la <u>thèse</u>, en une seule phrase.</li>
+    <li class="q">Contre quelle idée écrit-il ? → c'est la <u>thèse adverse</u>, qu'elle soit dite ou sous-entendue.</li>
+    <li class="q">Y a-t-il des mots-clés à définir ? (vérité, morale, progrès, raison…)</li>
+  </ol>
+
+  <h3>C. La structure</h3>
+  <ol start="9">
+    <li class="q">Où le texte change-t-il de direction ? Repère les connecteurs : <i>mais, donc, par conséquent, au contraire, de surcroît, ainsi</i>.</li>
+    <li class="q">Combien y a-t-il de mouvements ? En général 2 à 4. Note les lignes de chacun.</li>
+    <li class="q">Quel est le schéma logique ? Constat → problème → solution ? Réfutation → thèse ? Opposition « eux / nous » ? Définition → portrait → conclusion ?</li>
+  </ol>
+
+  <h3>D. Les procédés (le « comment »)</h3>
+  <ol start="12">
+    <li class="q">Quel est le registre ? Polémique, didactique, lyrique, ironique, prophétique ?</li>
+    <li class="q">Quels types d'arguments sont utilisés ? Argument d'autorité, exemple, analogie, raisonnement par l'absurde, concession ?</li>
+    <li class="q">Quelles figures de style ? Métaphore, questions rhétoriques, énumération, antithèse, hyperbole ?</li>
+    <li class="q">Quels temps et quels modes ? Le conditionnel pour la prudence ou la recommandation, l'impératif pour l'ordre, le futur pour la prophétie.</li>
+    <li class="q">Et surtout : <b>à quoi sert ce procédé dans l'argumentation ?</b> Un procédé sans son effet ne rapporte aucun point.</li>
+  </ol>
+
+  <h3>E. Le débat (pour le développement)</h3>
+  <ol start="17">
+    <li class="q">Qu'est-ce qui est discutable, excessif ou ambigu dans le texte ?</li>
+    <li class="q">Quel enjeu fait vraiment débat ? Choisis-le de préférence à la thèse elle-même, que le jury déconseille de reprendre telle quelle.</li>
+    <li class="q">Quels exemples concrets puis-je mobiliser pour et contre ?</li>
+  </ol>
+</section>
+
+<section id="analyse">
+  <h2>4. L'analyse du texte (5–7 min)</h2>
+  <h3>Introduction (≈ 1 min)</h3>
+  <div class="formula">« Ce texte de <i>[auteur]</i>, <i>[nature du texte]</i>, porte sur <i>[thème]</i>. L'auteur y soutient que <i>[thèse en une phrase]</i>. Son raisonnement se déroule en <i>[2/3]</i> temps : d'abord (l. x à y) … ; ensuite (l. y à z) … ; enfin … »</div>
+  <h3>Développement (4–5 min)</h3>
+  <ul>
+    <li>Suis les mouvements dans l'ordre et <b>reformule l'enchaînement logique</b> : « l'auteur part de…, ce qui le conduit à…, d'où… ».</li>
+    <li>Cite seulement des mots ou des expressions courtes, jamais des phrases entières.</li>
+    <li>Intègre 2 ou 3 procédés en expliquant <b>leur effet</b>.</li>
+  </ul>
+  <h3>Conclusion (≈ 30 s)</h3>
+  <p>Résume la stratégie de l'auteur en une phrase, puis fais la transition vers ton développement : « Ce texte soulève une question : … »</p>
+  <div class="box warn"><b>Interdit :</b> la paraphrase (répéter le texte avec d'autres mots), le montage de citations et le jugement personnel. Dans l'analyse, tu restes <b>neutre</b>.</div>
+</section>
+
+<section id="dev">
+  <h2>5. Le développement personnel (12–15 min)</h2>
+  <p>C'est une <b>petite dissertation orale</b> sur un enjeu du texte.</p>
+  <h3>Introduction</h3>
+  <ol>
+    <li><b>Le sujet choisi</b> : une citation du texte ou un enjeu qu'il soulève.</li>
+    <li><b>La définition des termes clés</b>, vérifiée au dictionnaire.</li>
+    <li><b>La problématique</b> : une question simple et précise, qui montre une tension.</li>
+    <li><b>L'annonce du plan</b>.</li>
+  </ol>
+  <div class="formula">Formule utile : « <i>X</i> semble <i>[évidence]</i> ; pourtant <i>[objection]</i>. Dès lors, dans quelle mesure… ? »</div>
+  <h3>Le plan type</h3>
+  <table>
+    <tr><th>Partie</th><th>Rôle</th><th>Contenu</th></tr>
+    <tr><td>I. Thèse</td><td>Oui, parce que…</td><td>2 arguments + 1 ou 2 exemples</td></tr>
+    <tr><td>II. Antithèse</td><td>Mais…</td><td>2 arguments + 1 ou 2 exemples</td></tr>
+    <tr><td>III. Dépassement (facultatif)</td><td>À condition que… / en réalité…</td><td>Nuance, critère, synthèse</td></tr>
+  </table>
+  <ul>
+    <li>Varie les <b>exemples</b> : actualité, histoire, sciences, littérature, cinéma, arts, BD.</li>
+    <li>Les <b>œuvres au programme sont interdites</b>.</li>
+    <li>Fais des <b>transitions explicites</b> entre les parties.</li>
+    <li><b>Conclusion</b> : réponds clairement à la problématique. L'ouverture est possible mais pas obligatoire.</li>
+  </ul>
+</section>
+
+<section id="entretien">
+  <h2>6. L'entretien (≈ 10 min)</h2>
+  <ul>
+    <li>Le jury veut te faire <b>aller plus loin</b>. Ses questions sont des occasions, pas des pièges.</li>
+    <li>Écoute la question jusqu'au bout, prends 2 secondes, puis réponds directement.</li>
+    <li>Si tu t'es trompé, dis-le simplement : « Vous avez raison, je nuancerais… ». Ne reste pas sur la défensive.</li>
+    <li>Rebondis avec un nouvel exemple ou une nouvelle définition.</li>
+    <li>Questions probables : « Que veut dire le mot X ? », « Pouvez-vous donner un autre exemple ? », « Êtes-vous d'accord avec l'auteur ? », « Quel lien faites-vous avec… ? »</li>
+  </ul>
+</section>
+
+<section id="outils">
+  <h2>7. Boîte à outils</h2>
+  <h3>Procédé → effet (exemples tirés de tes textes)</h3>
+  <table>
+    <tr><th>Procédé</th><th>Effet</th><th>Exemple</th></tr>
+    <tr><td>Argument d'autorité</td><td>Rendre la thèse légitime</td><td>« recherches approfondies… meilleurs laboratoires » (lettre IA)</td></tr>
+    <tr><td>Questions rhétoriques</td><td>Impliquer le lecteur et faire naître l'inquiétude</td><td>« Devrions-nous… ? » ×4 (lettre IA)</td></tr>
+    <tr><td>Métaphore</td><td>Rendre une idée frappante</td><td>« été de l'IA » / « automne » ; « une horloge qui se monte elle-même » (Dumarsais)</td></tr>
+    <tr><td>Conditionnel</td><td>Prudence ou recommandation</td><td>« devraient » (lettre IA)</td></tr>
+    <tr><td>Futur prophétique</td><td>Donner une certitude à la menace</td><td>« que l'IA causera »</td></tr>
+    <tr><td>Antithèse / opposition</td><td>Structurer un portrait</td><td>« les autres hommes » / « le philosophe » (Dumarsais)</td></tr>
+    <tr><td>Exemple-repoussoir</td><td>Démontrer par l'absurde</td><td>Renan et Gobineau (Todorov)</td></tr>
+    <tr><td>Énumération</td><td>Montrer l'ampleur du programme</td><td>Les disciplines à étudier (Rabelais)</td></tr>
+    <tr><td>Maxime</td><td>Condenser la thèse</td><td>« Science sans conscience n'est que ruine de l'âme » (Rabelais)</td></tr>
+  </table>
+  <h3>Connecteurs à repérer</h3>
+  <div class="tags"><span>mais</span><span>or</span><span>donc</span><span>par conséquent</span><span>ainsi</span><span>au contraire</span><span>de surcroît</span><span>en somme</span><span>c'est pourquoi</span><span>parallèlement</span><span>certes… mais</span></div>
+  <h3>Exemples transversaux : science, morale et pouvoir</h3>
+  <div class="tags"><span>Galilée et l'Église</span><span>Bombe atomique / Oppenheimer</span><span>Tchernobyl, Fukushima</span><span>Clonage, bioéthique, CRISPR</span><span>Eugénisme du XX<sup>e</sup> s.</span><span>Climat / GIEC</span><span>IA : ChatGPT, deepfakes, AI Act européen</span><span>Frankenstein (Mary Shelley)</span><span>Film <i>Oppenheimer</i> (Nolan)</span><span>Série <i>Black Mirror</i></span><span>Encyclopédie et Lumières</span><span>Covid et vaccins</span></div>
+  <p><i>Vérifie avec ton professeur que ces œuvres ne font pas partie du programme de l'année.</i></p>
+</section>
+
+<section id="exemple">
+  <h2>8. Exemple corrigé : la lettre ouverte sur le moratoire IA (2023)</h2>
+  <details open>
+    <summary>Thème et thèse</summary>
+    <p><b>Thème :</b> les dangers de l'IA avancée. <b>Thèse :</b> la course incontrôlée à l'IA est dangereuse, il faut donc une pause de 6 mois pour mettre en place une sécurité et une gouvernance.</p>
+  </details>
+  <details>
+    <summary>Les mouvements</summary>
+    <ol>
+      <li><b>Constat alarmant</b> : risques profonds, appuyés sur des autorités (Asilomar, laboratoires) ; « course incontrôlable ».</li>
+      <li><b>Questions morales</b> : série de questions rhétoriques et refus de laisser la décision à des « leaders technologiques non élus ».</li>
+      <li><b>Demande</b> : « Par conséquent », la pause de 6 mois, publique et vérifiable, avec un appel aux gouvernements.</li>
+      <li><b>Propositions</b> : protocoles de sécurité, autorités de régulation, audit.</li>
+      <li><b>Ouverture optimiste</b> : la métaphore de l'« été de l'IA », pour ne pas se précipiter « dans un automne ».</li>
+    </ol>
+  </details>
+  <details>
+    <summary>Pistes de développement</summary>
+    <ul>
+      <li>« Faut-il freiner le progrès scientifique au nom de la prudence ? »</li>
+      <li>« Qui doit décider de l'usage d'une technologie : les savants, les entreprises ou les citoyens ? »</li>
+      <li>Plan : I. Oui, certaines technologies exigent un encadrement (nucléaire, bioéthique). II. Mais un moratoire est difficile à appliquer et peut cacher des intérêts économiques (concurrence entre signataires). III. Plutôt une régulation démocratique et continue (AI Act).</li>
+    </ul>
+  </details>
+  <div class="box good"><b>Lien avec Todorov :</b> la science cherche le vrai, la morale et la politique décident de son usage. Les deux textes se répondent, et c'est un excellent exemple à réutiliser.</div>
+</section>
+
+<section id="check">
+  <h2>9. Checklist le jour J</h2>
+  <p style="font-family:system-ui,sans-serif;font-size:.85rem;color:var(--muted)">Coche au fur et à mesure (ça marche sur téléphone).</p>
+  <div class="check">
+    <label><input type="checkbox"><span>J'ai la thèse en <b>une phrase</b>.</span></label>
+    <label><input type="checkbox"><span>J'ai identifié la thèse adverse.</span></label>
+    <label><input type="checkbox"><span>J'ai 2 à 4 mouvements <b>avec leurs numéros de ligne</b>.</span></label>
+    <label><input type="checkbox"><span>J'ai 2 ou 3 procédés <b>avec leur effet</b>.</span></label>
+    <label><input type="checkbox"><span>Mon enjeu n'est pas la thèse recopiée.</span></label>
+    <label><input type="checkbox"><span>J'ai vérifié les mots de ma problématique au dictionnaire.</span></label>
+    <label><input type="checkbox"><span>Ma problématique est une question simple qui montre une tension.</span></label>
+    <label><input type="checkbox"><span>Mon plan a 2 ou 3 parties, avec <b>un exemple différent par partie</b>.</span></label>
+    <label><input type="checkbox"><span>Aucune œuvre du programme dans mes exemples.</span></label>
+    <label><input type="checkbox"><span>Mon introduction est rédigée, le reste est en mots-clés.</span></label>
+    <label><input type="checkbox"><span>Je regarde le jury, je parle lentement et je respecte le temps.</span></label>
+  </div>
+</section>
+
+</main>
+<footer>Fiche méthode — khôlle de français CPES · <a href="../">Retour à l'accueil</a></footer>
+</body>
+</html>
