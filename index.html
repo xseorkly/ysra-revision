@@ -13,149 +13,89 @@ if(location.hash&&location.hash.length>1){location.replace('seves/'+location.has
 :root{--bg:#f3f5f6;--surface:#fff;--deep:#14314c;--ink:#243c50;--muted:#647587;--teal:#117b83;--line:#dfe6e9;--gold:#ecb85e;--shadow:0 5px 24px rgba(12,36,55,.06);font-family:Inter,'Segoe UI',system-ui,Arial,sans-serif}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
-header{background:linear-gradient(135deg,#14314c,#1b4a5c);color:#fff;padding:48px 24px 40px;text-align:center}
+header{background:linear-gradient(135deg,#14314c,#1b4a5c);color:#fff;padding:40px 24px 34px;text-align:center}
 header .k{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700}
-header h1{font-size:clamp(30px,5vw,44px);margin:10px 0 8px;line-height:1.15}
+header h1{font-size:clamp(30px,5vw,42px);margin:10px 0 8px;line-height:1.15}
 header p{margin:0 auto;max-width:640px;color:#c9d6e2;font-size:17px;line-height:1.5}
-main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:40px 24px 60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
-a.bloc{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
-a.bloc:hover,a.bloc:focus-visible{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 14px 40px rgba(12,36,55,.14);outline:none}
-.band{height:140px;display:flex;align-items:center;gap:16px;padding:0 26px;background:linear-gradient(135deg,#14314c,#1b4a5c)}
-.logo{min-width:56px;height:56px;padding:0 8px;border-radius:14px;background:#e7f4f2;color:#14314c;display:grid;place-items:center;font-weight:800;font-size:1.25rem}
-.band span.t{color:#92abbc;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
-.tag{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
-h2{margin:0;font-size:26px;color:var(--deep);line-height:1.2}
-.body p{margin:0;color:var(--muted);line-height:1.55}
-ul{margin:4px 0 0;padding-left:20px;color:var(--ink);line-height:1.7;font-size:15px}
-.go{margin-top:auto;padding-top:14px;font-weight:700}
-.go{color:var(--teal)}
+nav.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:900px;margin:-20px auto 0;padding:0 16px}
+nav.chips a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--deep);font-weight:650;font-size:.92rem;box-shadow:var(--shadow)}
+nav.chips a:hover{border-color:var(--teal);color:var(--teal)}
+main{flex:1;width:100%;max-width:900px;margin:0 auto;padding:28px 16px 50px;display:flex;flex-direction:column;gap:14px}
+details.rub{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:12px}
+details.rub>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 20px}
+details.rub>summary::-webkit-details-marker{display:none}
+.ico{flex:none;width:46px;height:46px;border-radius:12px;background:#e7f4f2;display:grid;place-items:center;font-size:1.4rem}
+.st{flex:1;min-width:0}
+.st b{display:block;font-size:1.2rem;color:var(--deep);line-height:1.25}
+.st span{color:var(--muted);font-size:.88rem}
+.nb{flex:none;background:var(--deep);color:#fff;border-radius:999px;font-size:.78rem;font-weight:750;padding:4px 10px}
+.chev{flex:none;color:var(--muted);transition:transform .2s}
+details[open] .chev{transform:rotate(90deg)}
+.list{border-top:1px solid var(--line);padding:6px 12px 12px}
+a.item{display:block;text-decoration:none;color:inherit;border-radius:12px;padding:12px 12px;border:1px solid transparent}
+a.item:hover,a.item:focus-visible{background:#f8fafb;border-color:var(--line);outline:none}
+a.item+a.item{margin-top:2px}
+.sub{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.it{font-weight:750;color:var(--deep);font-size:1.05rem;margin:2px 0}
+.it::after{content:" →";color:var(--teal)}
+.ds{color:var(--muted);font-size:.92rem;line-height:1.45}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:0 24px 30px}
 @keyframes auBlink{0%,100%{opacity:1}50%{opacity:.25}}
-.au-top{display:block;background:#d50000;color:#fff;text-decoration:none;text-align:center;font-weight:900;font-size:1rem;letter-spacing:.04em;padding:10px 12px;border-radius:12px;margin:2px 0;box-shadow:0 4px 18px rgba(213,0,0,.35);animation:auBlink 1s steps(2,start) infinite}
-.au-top small{display:block;font-size:.78rem;font-weight:600;letter-spacing:0;margin-top:3px}
-@media (prefers-reduced-motion:reduce){.au-top{animation:none}}
+.au-top{display:block;background:#d50000;color:#fff;font-weight:850;font-size:.85rem;letter-spacing:.03em;padding:7px 10px;border-radius:10px;margin:6px 0 4px;animation:auBlink 1s steps(2,start) infinite}
+.au-top small{display:block;font-size:.76rem;font-weight:600;letter-spacing:0}
+.au-dot{color:#d50000;font-weight:900;animation:auBlink 1s steps(2,start) infinite}
+@media (prefers-reduced-motion:reduce){.au-top,.au-dot{animation:none}}
 </style>
 </head>
 <body>
 <header>
 <div class="k">Université de Strasbourg · L1 · 2026-2027</div>
 <h1>Mes révisions</h1>
-<p>Une seule entrée pour tous mes cours : choisis celui à réviser.</p>
+<p>Choisis une matière, puis le cours à réviser.</p>
 </header>
+<nav class="chips"><a href="#terre">🌍 Sciences de la Terre</a><a href="#societe">⚛️ Sciences et société</a><a href="#maths">📐 Mathématiques</a><a href="#physique">🌊 Physique</a><a href="#chimie">⚗️ Chimie</a><a href="#info">💻 Informatique</a><a href="#francais">📖 Français</a></nav>
 <main>
-<a class="bloc seves" href="seves/">
-<div class="band" aria-hidden="true"><span class="logo">SE</span><span class="t">Révisions · Unistra 2026-2027</span></div>
-<div class="body">
-<div class="tag">UE · SEVES</div>
-<h2>Sciences et enjeux environnementaux</h2>
-<p>Bloc 1 : fiches, QCM, examens blancs et annales comparées.</p>
-<ul><li>Bloc 1 · énergie, climat, eau, biodiversité, sols</li><li>18 fiches de révision approfondies, 100 QCM thématiques</li><li>3 examens blancs et 36 QCM d'annales comparées</li></ul>
-<div class="go">Ouvrir le bloc 1 →</div>
-</div>
-</a>
-<a class="bloc seves2" href="seves/bloc2/">
-<div class="band" aria-hidden="true"><span class="logo">B2</span><span class="t">Révisions · Unistra 2026-2027</span></div>
-<div class="body">
-<div class="tag">UE · SEVES · Bloc 2</div>
-<h2>Pollutions, sols, métaux et Anthropocène</h2>
-<p>La partie II du cours (air, POP, PFAS, plastiques, eau, sols, métaux critiques) et l’Anthropocène.</p>
-<ul><li>8 fiches thématiques courtes + une synthèse finale</li><li>128 QCM thématiques corrigés et 3 examens blancs de 30 min</li><li>30 questions comparées avec des QCM d’autres établissements</li></ul>
-<div class="go">Ouvrir le bloc 2 →</div>
-</div>
-</a>
-<a class="bloc nucleaire" href="nucleaire/">
-<div class="band" aria-hidden="true"><span class="logo">⚛</span><span class="t">Révisions · Sciences et Société</span></div>
-<div class="body">
-<div class="tag">UE · Sciences et Société</div>
-<h2>Énergie nucléaire : sciences et risques</h2>
-<p>Le cours de N. Arbor réexpliqué, pour préparer l'étude d'article.</p>
-<ul><li>L'essentiel du cours bloc par bloc et les chiffres clés à citer</li><li>Banque d'arguments bénéfice/risque et méthode du compte rendu</li><li>Entraînement guidé sur un article de presse et QCM d'auto-test</li></ul>
-<div class="go">Ouvrir les révisions →</div>
-</div>
-</a>
-<a class="bloc geo" href="https://xseorkly.github.io/G-osciences1-Structure-de-la-Terre/">
-<div class="band" aria-hidden="true"><span class="logo">G1</span><span class="t">Révisions · Unistra 2026-2027</span></div>
-<div class="body">
-<div class="tag">UE · Géosciences 1</div>
-<h2>Structure de la Terre</h2>
-<div class="au-top">🔴 ANNALES UNIVERSITÉ DE STRASBOURG<small>CC1 (nov. 2022) et CC2 (déc. 2022) corrigés · vrai CC : 4 choix, 1 seule bonne réponse, pas de point négatif</small></div>
-<p>Le cours d'A.-D. Schmitt et de F. Masson expliqué simplement.</p>
-<ul><li>17 chapitres avec « à savoir par cœur »</li><li>QCM par chapitre et examens blancs CC1 / CC2</li><li>Vraies annales CC1 et CC2 corrigées, QCM renforcés (A-E)</li></ul>
-<div class="go">Ouvrir les révisions →</div>
-</div>
-</a>
-<a class="bloc python" href="python/">
-<div class="band" aria-hidden="true"><span class="logo">Py</span><span class="t">Révisions · Informatique</span></div>
-<div class="body">
-<div class="tag">CPES L1 · Python</div>
-<h2>Python pas à pas</h2>
-<p>Le cours de Python pour grands débutants, et le contrôle CC2 corrigé.</p>
-<ul><li>8 chapitres courts, avec Python qui s'exécute dans la page</li><li>Les 10 exercices du CC2 : aides progressives et correction expliquée</li><li>20 entraînements corrigés automatiquement</li></ul>
-<div class="go">Ouvrir le cours →</div>
-</div>
-</a>
-<a class="bloc maths" href="maths/">
-<div class="band" aria-hidden="true"><span class="logo">Ma</span><span class="t">Révisions · Mathématiques</span></div>
-<div class="body">
-<div class="tag">CPES L1 · Maths · Chapitre 5</div>
-<h2>Applications et fonctions usuelles</h2>
-<p>Le poly du chapitre 5 expliqué très simplement, notion par notion.</p>
-<ul><li>19 notions : idée, exemple résolu, pièges et exercices corrigés en 3 niveaux</li><li>Graphes interactifs : image réciproque, parité, sup/inf, partie entière…</li><li>Fiche « L’essentiel » et QCM final noté sur 20 (banque de 72 questions)</li></ul>
-<div class="go">Ouvrir le chapitre →</div>
-</div>
-</a>
-<a class="bloc physique" href="physique/">
-<div class="band" aria-hidden="true"><span class="logo">Ph</span><span class="t">Révisions · Physique</span></div>
-<div class="body">
-<div class="tag">CPES L1 · Physique · Ondes</div>
-<h2>Notions d’ondes</h2>
-<p>Le cours sur les ondes expliqué depuis zéro, avec des images et des animations.</p>
-<ul><li>Définition, retard et équation de d’Alembert pas à pas</li><li>Ondes planes, OPPH (λ = cT avec curseurs), onde sphérique en 1/r</li><li>Ondes stationnaires : séparation des variables, nœuds et ventres animés</li><li>Fiche résumé, erreurs du cours corrigées et mini-QCM noté</li><li>4 exercices de prépa (PCSI, MPSI, MPI) et de L2 avec corrigés détaillés</li></ul>
-<div class="go">Ouvrir le cours →</div>
-</div>
-</a>
-<a class="bloc sql" href="https://xseorkly.github.io/sql1/">
-<div class="band" aria-hidden="true"><span class="logo">SQL</span><span class="t">Révisions · Informatique</span></div>
-<div class="body">
-<div class="tag">Licence 1 · SQL</div>
-<h2>SQL pas à pas</h2>
-<p>Le cours de SQL pour grands débutants, avec la base Sephora.</p>
-<ul><li>Cours expliqué simplement, avec SQL qui s'exécute dans la page</li><li>TP sur les bases Sephora et Astérix</li><li>Exercices corrigés automatiquement et quiz</li><li>Évaluations notées sur 20</li></ul>
-<div class="go">Ouvrir le cours →</div>
-</div>
-</a>
-<a class="bloc chimie" href="chimie/">
-<div class="band" aria-hidden="true"><span class="logo">Ch</span><span class="t">Révisions · Chimie</span></div>
-<div class="body">
-<div class="tag">CPES L1 · Chimie</div>
-<h2>Devoirs de chimie</h2>
-<p>Devoirs d’entraînement et corrigés très détaillés, à télécharger en PDF.</p>
-<ul><li>Chapitre 3 · Stéréochimie : corrigé du DM (limonène), devoirs de 2 h et de 3 h</li><li>Chapitre 4 · Interactions, solvants, amphiphilie : devoir de 3 h</li><li>Chapitre 5 · Structures cristallines : cours expliqué et deux contrôles communs</li><li>Pour chaque devoir : le sujet seul et le corrigé expliqué pas à pas</li></ul>
-<div class="go">Ouvrir les devoirs →</div>
-</div>
-</a>
-<a class="bloc tp-chimie" href="tp-chimie-experimentale/">
-<div class="band" aria-hidden="true"><span class="logo">TP</span><span class="t">Révisions · Chimie expérimentale</span></div>
-<div class="body">
-<div class="tag">CPES L1 · Travaux pratiques de chimie</div>
-<h2>TP Chimie expérimentale 1</h2>
-<p>Les 4 TP expliqués pas à pas, avec schémas, protocoles, résultats attendus et calculatrices interactives.</p>
-<ul><li>TP 1 · Analyse de l’eau : dureté</li><li>TP 2 · Analyse de l’eau : sulfates</li><li>TP 3 · Synthèse de l’alun de potassium</li><li>TP 4 · pKa du bleu de bromophénol</li></ul>
-<div class="go">Ouvrir les 4 TP →</div>
-</div>
-</a>
-<a class="bloc francais" href="francais/">
-<div class="band" aria-hidden="true"><span class="logo">Fr</span><span class="t">Révisions · Français</span></div>
-<div class="body">
-<div class="tag">CPES L1 · Français · Khôlle</div>
-<h2>Réussir sa khôlle de français</h2>
-<p>La méthode point par point : analyse de texte, développement personnel et entretien.</p>
-<ul><li>Les 20 min de préparation minute par minute</li><li>19 questions à se poser devant n’importe quel texte</li><li>Procédés et leurs effets, exemples transversaux science/morale</li><li>Exemple corrigé (moratoire IA) et checklist du jour J</li></ul>
-<div class="go">Ouvrir la méthode →</div>
-</div>
-</a>
+<details class="rub" id="terre"><summary><span class="ico">🌍</span><span class="st"><b>Sciences de la Terre & environnement</b><span>Géosciences 1 · SEVES · Bloc 1 · SEVES · Bloc 2 <span class="au-dot">● annales</span></span></span><span class="nb">3</span><span class="chev">▶</span></summary>
+<div class="list">
+<a class="item" href="https://xseorkly.github.io/G-osciences1-Structure-de-la-Terre/"><div class="sub">Géosciences 1</div><div class="it">Structure de la Terre</div><span class="au-top">🔴 ANNALES UNIVERSITÉ DE STRASBOURG<small>CC1 et CC2 corrigés · vrai CC : 4 choix, 1 seule bonne réponse, pas de point négatif</small></span><div class="ds">Cours de Schmitt et Masson : 17 chapitres, QCM par chapitre, examens blancs.</div></a>
+<a class="item" href="seves/"><div class="sub">SEVES · Bloc 1</div><div class="it">Énergie, climat, eau, biodiversité, sols</div><div class="ds">18 fiches, 100 QCM, 3 examens blancs, annales comparées.</div></a>
+<a class="item" href="seves/bloc2/"><div class="sub">SEVES · Bloc 2</div><div class="it">Pollutions, sols, métaux, Anthropocène</div><div class="ds">8 fiches courtes, 128 QCM corrigés, 3 examens blancs.</div></a>
+</div></details>
+<details class="rub" id="societe"><summary><span class="ico">⚛️</span><span class="st"><b>Sciences et société</b><span>Énergie nucléaire</span></span><span class="nb">1</span><span class="chev">▶</span></summary>
+<div class="list">
+<a class="item" href="nucleaire/"><div class="sub">Énergie nucléaire</div><div class="it">Sciences et risques (N. Arbor)</div><div class="ds">Cours réexpliqué, chiffres clés, arguments bénéfice/risque, méthode de l'étude d'article.</div></a>
+</div></details>
+<details class="rub" id="maths"><summary><span class="ico">📐</span><span class="st"><b>Mathématiques</b><span>Chapitre 5</span></span><span class="nb">1</span><span class="chev">▶</span></summary>
+<div class="list">
+<a class="item" href="maths/"><div class="sub">Chapitre 5</div><div class="it">Applications et fonctions usuelles</div><div class="ds">19 notions, graphes interactifs, exercices en 3 niveaux, QCM final sur 20.</div></a>
+</div></details>
+<details class="rub" id="physique"><summary><span class="ico">🌊</span><span class="st"><b>Physique</b><span>Ondes</span></span><span class="nb">1</span><span class="chev">▶</span></summary>
+<div class="list">
+<a class="item" href="physique/"><div class="sub">Ondes</div><div class="it">Notions d’ondes</div><div class="ds">Cours animé, d’Alembert, ondes stationnaires, exercices de prépa corrigés.</div></a>
+</div></details>
+<details class="rub" id="chimie"><summary><span class="ico">⚗️</span><span class="st"><b>Chimie</b><span>Devoirs de chimie · TP Chimie expérimentale 1</span></span><span class="nb">2</span><span class="chev">▶</span></summary>
+<div class="list">
+<a class="item" href="chimie/"><div class="sub">Devoirs de chimie</div><div class="it">Chapitres 3, 4 et 5</div><div class="ds">Devoirs et contrôles communs avec corrigés détaillés en PDF.</div></a>
+<a class="item" href="tp-chimie-experimentale/"><div class="sub">TP Chimie expérimentale 1</div><div class="it">Les 4 TP</div><div class="ds">Dureté, sulfates, alun, pKa : protocoles, résultats, calculatrices.</div></a>
+</div></details>
+<details class="rub" id="info"><summary><span class="ico">💻</span><span class="st"><b>Informatique</b><span>Python · SQL</span></span><span class="nb">2</span><span class="chev">▶</span></summary>
+<div class="list">
+<a class="item" href="python/"><div class="sub">Python</div><div class="it">Python pas à pas</div><div class="ds">8 chapitres, Python dans la page, CC2 corrigé, 20 entraînements.</div></a>
+<a class="item" href="https://xseorkly.github.io/sql1/"><div class="sub">SQL</div><div class="it">SQL pas à pas</div><div class="ds">Bases Sephora et Astérix, exercices corrigés, évaluations sur 20.</div></a>
+</div></details>
+<details class="rub" id="francais"><summary><span class="ico">📖</span><span class="st"><b>Français</b><span>Khôlle de français</span></span><span class="nb">1</span><span class="chev">▶</span></summary>
+<div class="list">
+<a class="item" href="francais/"><div class="sub">Khôlle de français</div><div class="it">Réussir sa khôlle</div><div class="ds">Préparation en 20 min, questions à se poser, procédés, exemple corrigé.</div></a>
+</div></details>
 </main>
 <footer>Documents de révision personnels : en cas de doute, le cours des enseignants fait foi.</footer>
+<script>
+// Ouvre la rubrique choisie (puce ou lien #rubrique) et mémorise les rubriques ouvertes
+(function(){var K='ysra-rub',st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+var R=[].slice.call(document.querySelectorAll('details.rub'));
+R.forEach(function(d){if(st[d.id])d.open=true;d.addEventListener('toggle',function(){st[d.id]=d.open;try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}})});
+document.querySelectorAll('nav.chips a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var d=document.getElementById(a.getAttribute('href').slice(1));d.open=true;d.scrollIntoView({behavior:'smooth',block:'start'})})});
+})();
+</script>
 </body>
 </html>
